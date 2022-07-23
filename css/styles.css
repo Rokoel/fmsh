@@ -1,7 +1,7 @@
+/* ------ MAIN STYLING ------ */
 :root {
     --dark-blue: #000b5e;
     --blue: #0119cb;
-    --light-blue: #001eff;
 
     --white: #fff;
 
@@ -31,10 +31,62 @@ html, body {
     font-family: UbuntuRegular;
     margin: 0;
 }
+/* ------ MAIN STYLING ------ */
 
+/* ----- GENERAL STYLING ---- */
+a {
+    display: inline-block;
+    color: var(--dark-blue);
+    margin-top: auto;
+    margin-bottom: auto;
+    text-decoration: none;
+    text-align: center;
+    font-size: x-large;
+}
+a:hover {
+    color: var(--blue);
+}
+button {
+    border: none;
+    text-align: center;
+    padding: var(--small-padding);
+    text-decoration: none;
+    display: inline-block;
+    background-color: inherit;
+    cursor: pointer;
+    color: var(--dark-blue);
+}
+button:hover {
+    filter: invert(50%);
+}
+.holder {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.flex-direction-row {
+    flex-direction: row;
+}
+.justify-content-space-evenly {
+    justify-content: space-evenly;
+}
+.small-padding-img {
+    object-fit: cover;
+    height: auto;
+    padding: var(--x-small-padding);
+}
+/* ----- GENERAL STYLING ---- */
+
+/* ----- HEADER STYLING ----- */
+#header-replacer {
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--white);
+}
 #header {
-    /* position: fixed;
-    width: 100%; */
+    position: fixed;
+    width: 100%;
+    top: 0;
     height: var(--header-height);
     background-color: var(--white);
     display: flex;
@@ -43,7 +95,6 @@ html, body {
     align-content: center;
     box-shadow: var(--lighter-box-shadow);
 }
-
 .navbar {
     margin-top: auto;
     margin-bottom: auto;
@@ -55,18 +106,15 @@ html, body {
     align-content: center;
     flex-wrap: wrap;
 }
-
 .dropdown-content a {
     float: left;
     color: var(--white);
     text-align: center;
     padding: var(--small-padding);
 }
-
 .dropdown {
     overflow: hidden;
 }
-
 .dropdown .dropbtn {
     border: none;
     outline: none;
@@ -75,15 +123,12 @@ html, body {
     background-color: inherit;
     margin: 0;
 }
-
 .navbar a:hover, .dropdown:hover .dropbtn {
     background-color: var(--dark-blue);
 }
-
 .dropdown:hover .dropbtn > a {
     color: var(--white);
 }
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -92,7 +137,6 @@ html, body {
     box-shadow: var(--default-box-shadow);
     z-index: 1;
 }
-
 .dropdown-content a {
     float: none;
     color: var(--dark-blue);
@@ -101,87 +145,31 @@ html, body {
     display: block;
     text-align: left;
 }
-
 .dropdown-content a:hover {
     background-color: var(--light-gray);
 }
-
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
-a {
-    display: inline-block;
-    color: var(--dark-blue);
-    margin-top: auto;
-    margin-bottom: auto;
-    text-decoration: none;
-    text-align: center;
-    font-size: x-large;
-}
-
-a:hover {
-    filter: brightness(50%);
-}
-
-button {
-    border: none;
-    text-align: center;
-    padding: var(--small-padding);
-    text-decoration: none;
-    display: inline-block;
-    background-color: inherit;
-    cursor: pointer;
-}
-
-.material-symbols-outlined {
-    font-variation-settings:
-    'FILL' 1,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 48
-}
-
-.holder {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-
-.flex-direction-row {
-    flex-direction: row;
-}
-
-.justify-content-space-evenly {
-    justify-content: space-evenly;
-}
-
-.small-padding-img {
-    object-fit: cover;
-    height: auto;
-    padding: var(--x-small-padding);
-}
-
 #register:hover, #register:hover > a {
     background-color: var(--dark-blue);
     color: var(--white);
 }
-
 #register {
     padding: var(--small-padding);
 }
-
 .theme-switcher {
     filter: var(--theme-emoji);
 }
+/* ----- HEADER STYLING ----- */
 
+/* ------ TEXT STYLING ------ */
 #news {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
     align-content: center;
 }
-
 .news, .main-article {
     flex: 1;
     padding: var(--medium-padding);
@@ -189,22 +177,37 @@ button {
     color: var(--dark-blue);
     line-height: 1.5em;
     letter-spacing: 1px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
-
 .main-article {
     text-align: center;
     font-weight: 600;
 }
-
 .news a, .main-article a {
-    color: var(--light-blue);
+    color: var(--blue);
 }
-
+.news a:hover, .main-article a:hover {
+    color: var(--dark-blue);
+}
 h1, h2, h3 {
     text-align: center;
     color: var(--dark-blue);
 }
+.date {
+    font-size: xx-large;
+    color: var(--blue);
+}
+.highlighted {
+    color: var(--blue);
+}
+.show-more-button {
+    text-align: center;
+    font-size: x-large;
+}
+/* ------ TEXT STYLING ------ */
 
+/* ----- FOOTER STYLING ----- */
 #footer {
     padding: var(--medium-padding);
     bottom: 0;
@@ -216,21 +219,16 @@ h1, h2, h3 {
     background-color: var(--dark-blue);
     color: var(--white);
 }
-
 #footer a {
     font-size: large;
-    color: var(--light-blue);
+    color: var(--blue);
 }
-
-.date {
-    font-size: xx-large;
-    color: var(--light-blue);
+#footer a:hover {
+    font-size: large;
+    color: var(--white);
 }
+/* ----- FOOTER STYLING ----- */
 
-.highlighted {
-    color: var(--light-blue);
+@media screen and (min-width: 1200px){
+
 }
-
-/* @media screen and (min-width: 1200px){
-
-} */
