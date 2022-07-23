@@ -6,6 +6,18 @@ window.onload = function() {
     window.addEventListener('resize', (e) => {
         cutElementByQuerySelector('.article-text');
     });
+
+    var style = getComputedStyle(document.body);
+
+    var header_height_str = style.getPropertyValue('--header-height');
+    var header_height = Number(header_height_str.substring(0, header_height_str.length-2));
+
+    document.getElementById('scroller-1').addEventListener('click', function(e) {
+        window.scrollTo({
+            top: window.innerHeight - header_height,
+            behavior: "smooth"
+        });
+    });
 };
 
 function setTheme() {
@@ -34,7 +46,6 @@ function setTheme() {
 }
 
 function switchTheme() {
-    var root = document.documentElement;
     if(localStorage.getItem('theme') === null){
         localStorage.setItem('theme', 'light');
     }

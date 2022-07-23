@@ -17,7 +17,7 @@
     --default-box-shadow: 0 8px 16px 0 black;
     --lighter-box-shadow: 0 2px 4px 0 black;
 
-    --header-height: 5em;
+    --header-height: 80px;
 }
 
 @font-face {
@@ -163,6 +163,62 @@ button:hover {
 }
 /* ----- HEADER STYLING ----- */
 
+/* --- MAIN-BLOCK STYLING --- */
+#main-block {
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    background-color: var(--blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+}
+#main-block h1 {
+    padding: var(--medium-padding);
+    color: var(--white);
+    font-size: 1200%;
+    font-weight: 900;
+    text-align: left;
+    margin: auto;
+}
+#main-block h2 {
+    color: var(--white);
+    font-size: 700%;
+    text-align: center;
+    margin: auto;
+}
+#main-block h3 {
+    color: var(--white);
+    font-size: 500%;
+    text-align: center;
+    margin: auto;
+    padding: var(--medium-padding);
+}
+#three-words {
+    padding: var(--medium-padding);
+}
+.be-pointed:hover {
+    cursor: pointer;
+}
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(-20px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+}
+.floating {
+    animation: float 2s ease-in-out infinite;
+}
+#scroller-1 {
+    padding: var(--medium-padding);
+}
+/* --- MAIN-BLOCK STYLING --- */
+
 /* ------ TEXT STYLING ------ */
 #news {
     display: flex;
@@ -170,7 +226,7 @@ button:hover {
     justify-content: space-around;
     align-content: center;
 }
-.news, .main-article {
+.news {
     flex: 1;
     padding: var(--medium-padding);
     font-size: x-large;
@@ -180,14 +236,10 @@ button:hover {
     margin-top: auto;
     margin-bottom: auto;
 }
-.main-article {
-    text-align: left;
-    font-weight: 600;
-}
-.news a, .main-article a {
+.news a {
     color: var(--blue);
 }
-.news a:hover, .main-article a:hover {
+.news a:hover {
     color: var(--dark-blue);
 }
 h1, h2, h3 {
@@ -198,12 +250,9 @@ h1, h2, h3 {
     font-size: xx-large;
     color: var(--blue);
 }
-.highlighted {
-    color: var(--blue);
-}
 .show-more-button {
-    text-align: center;
     font-size: x-large;
+    width: 100%;
 }
 /* ------ TEXT STYLING ------ */
 
