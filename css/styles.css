@@ -166,7 +166,7 @@ button:hover {
 /* ------ TEXT STYLING ------ */
 #news {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     align-content: center;
 }
@@ -181,7 +181,7 @@ button:hover {
     margin-bottom: auto;
 }
 .main-article {
-    text-align: center;
+    text-align: left;
     font-weight: 600;
 }
 .news a, .main-article a {
