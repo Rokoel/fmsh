@@ -1,11 +1,14 @@
 /* ------ MAIN STYLING ------ */
 :root {
     --dark-blue: #000b5e;
-    --blue: #0119cb;
+    /* --blue: #6E85B7; */
+    /* --blue: #42C2FF; */
+    --blue: #1C6DD0;
+    /* --blue: #161D6F; */
 
     --white: #fff;
 
-    --light-gray: #ddd;
+    --light-gray: rgb(200, 200, 200);
 
     --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
     --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
@@ -30,6 +33,27 @@ html, body {
     background-color: var(--white);
     font-family: UbuntuRegular;
     margin: 0;
+}
+
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--blue) var(--white);
+}
+  
+  /* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 12px;
+}
+  
+*::-webkit-scrollbar-track {
+    background: var(--white);
+}
+  
+*::-webkit-scrollbar-thumb {
+    background-color: var(--blue);
+    border-radius: 20px;
+    border: 3px solid var(--white);
 }
 /* ------ MAIN STYLING ------ */
 
@@ -75,6 +99,10 @@ button:hover {
     height: auto;
     padding: var(--x-small-padding);
 }
+hr {
+    border-right : 0;
+    border-left: 0;
+}
 /* ----- GENERAL STYLING ---- */
 
 /* ----- HEADER STYLING ----- */
@@ -94,6 +122,7 @@ button:hover {
     justify-content: space-between;
     align-content: center;
     box-shadow: var(--lighter-box-shadow);
+    z-index: 3;
 }
 .navbar {
     margin-top: auto;
@@ -194,6 +223,25 @@ button:hover {
     margin: auto;
     padding: var(--medium-padding);
 }
+.layered-waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 1;
+}
+.layered-waves svg {
+    position: relative;
+    display: block;
+    width: calc(103% + 1.3px);
+    height: 120px;
+    z-index: 1;
+}
+.layered-waves .shape-fill {
+    fill: var(--white);
+}
 #three-words {
     padding: var(--medium-padding);
 }
@@ -216,6 +264,7 @@ button:hover {
 }
 #scroller-1 {
     padding: var(--medium-padding);
+    z-index: 2;
 }
 /* --- MAIN-BLOCK STYLING --- */
 
@@ -253,6 +302,7 @@ h1, h2, h3 {
 .show-more-button {
     font-size: x-large;
     width: 100%;
+    text-align: center;
 }
 /* ------ TEXT STYLING ------ */
 
@@ -265,19 +315,57 @@ h1, h2, h3 {
     justify-content: space-around;
     max-width: 100%;
     align-content: center;
-    background-color: var(--dark-blue);
+    background-color: var(--blue);
     color: var(--white);
+    border-top: var(--dark-blue);
+    border-width: 3px;
+    border-style: solid;
+    border-right: var(--blue);
+    border-left: var(--blue);
+    border-bottom: var(--blue);
 }
 #footer a {
     font-size: large;
-    color: var(--blue);
+    color: var(--light-gray);
 }
 #footer a:hover {
     font-size: large;
-    color: var(--white);
+    color: var(--dark-blue);
+}
+
+#footer > * {
+    flex: 1;
+    text-align: center;
+    display: inline-block;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: var(--small-padding);
 }
 /* ----- FOOTER STYLING ----- */
 
-@media screen and (min-width: 1200px){
-
+/* @media screen and (min-width: 1200px){
 }
+
+@media screen and (min-width: 900px) and (max-width: 1199px){
+    #main-block h1 {
+        padding: var(--medium-padding);
+        color: var(--white);
+        font-size: 1200%;
+        font-weight: 900;
+        text-align: left;
+        margin: auto;
+    }
+    #main-block h2 {
+        color: var(--white);
+        font-size: 600%;
+        text-align: center;
+        margin: auto;
+    }
+    #main-block h3 {
+        color: var(--white);
+        font-size: 500%;
+        text-align: center;
+        margin: auto;
+        padding: var(--small-padding);
+    }
+} */
