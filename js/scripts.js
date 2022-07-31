@@ -1,6 +1,6 @@
 window.onload = function() {
     setTheme();
-    document.getElementById("theme").addEventListener("click", switchTheme);
+    document.getElementById("theme-switcher").addEventListener("click", switchTheme);
 
     hideElementByButtonClick(document.getElementById("visible_block-1"), document.getElementById("show-1"));
     hideElementByButtonClick(document.getElementById("visible_block-2"), document.getElementById("show-2"));
@@ -8,11 +8,11 @@ window.onload = function() {
     var style = getComputedStyle(document.body);
 
     var header_height_str = style.getPropertyValue('--header-height');
-    var header_height = Number(header_height_str.substring(0, header_height_str.length-2));
+    var header_height = Number(header_height_str.substring(0, header_height_str.length-3));
 
     document.getElementById('scroller-1').addEventListener('click', function(e) {
         window.scrollTo({
-            top: window.innerHeight - header_height,
+            top: window.innerHeight - header_height*16,
             behavior: "smooth"
         });
     });
@@ -27,18 +27,18 @@ function setTheme() {
         console.log('dark');
         root.style.setProperty('--dark-blue', "white");
         root.style.setProperty('--white', "#000b5e");
-        root.style.setProperty('--theme-emoji', " invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%)"); 
         document.getElementById('light-themed-logo').style.display = "none";
         document.getElementById('dark-themed-logo').style.display = "block";
+        document.getElementById('theme-switcher').style.filter = "var(--theme-emoji-dark)";
         return;
     }
     else {
         console.log('light');
         root.style.setProperty('--white', "white");
         root.style.setProperty('--dark-blue', "#000b5e");
-        root.style.setProperty('--theme-emoji', "invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%)");
         document.getElementById('dark-themed-logo').style.display = "none";
         document.getElementById('light-themed-logo').style.display = "block";
+        document.getElementById('theme-switcher').style.filter = "var(--theme-emoji-bright)";
         return;
     }
 }

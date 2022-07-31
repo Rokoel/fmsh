@@ -1,6 +1,6 @@
 <!doctype html>
-
 <html lang="ru">
+
 <head>
   <title>ФМШ :: Главная</title>
 
@@ -17,71 +17,78 @@
   <link rel="stylesheet" href="./css/styles.css">
   <script src="./js/scripts.js"></script>
 </head>
+
 <body>
   <div id="header-replacer"></div>
   <div id="header">
-    <img src="fmsh_logo.png" id="light-themed-logo" class="small-padding-img">
+    <img src="fmsh_logo_3.png" id="light-themed-logo" class="small-padding-img">
     <img src="fmsh_logo_dark.png" id="dark-themed-logo" class="small-padding-img" style="display: none;">
-    <div id="menu" class="navbar">
-      <div class="dropdown">
-        <div class="dropbtn">
+    <ul id="menu" class="navbar">
+      <div class="dropdown vertical-align">
+        <li class="dropbtn">
           <a href="faq.php">О нас</a>
-        </div>
-        <div class="dropdown-content">
-          <a href="faq.php#about">Что такое ФМШ</a>
-          <a href="faq.php#history">История</a>
-          <a href="faq.php#admin">Администрация</a>
-          <a href="teachers.php">Преподаватели</a>
-          <a href="contacts.php">Контакты</a>
-        </div>
+          <div class="dropdown-content">
+            <a href="faq.php#about">Что такое ФМШ</a>
+            <a href="faq.php#history">История</a>
+            <a href="faq.php#admin">Администрация</a>
+            <a href="teachers.php">Преподаватели</a>
+            <a href="contacts.php">Контакты</a>
+          </div>
+        </li>
       </div>
-      <div class="dropdown">
+      <div class="dropdown vertical-align">
         <div class="dropbtn">
           <a href="news.php">Общая информация</a>
-        </div>
-        <div class="dropdown-content">
-          <a href="news.php">Новости</a>
-          <a href="calendar.php">Календарь событий</a>
+          <div class="dropdown-content">
+            <a href="news.php">Новости</a>
+            <a href="calendar.php">Календарь событий</a>
+          </div>
         </div>
       </div>
-      <div class="dropdown">
+      <div class="dropdown vertical-align">
         <div class="dropbtn">
           <a href="Entrance.php">Поступающим</a>
-        </div>
-        <div class="dropdown-content">
-          <a href="Entrance.php">Главное</a>
-          <a href="resultExamen.php">Результаты экзаменов</a>
-          <a href="variant.php">Варианты прошлых лет</a>
+          <div class="dropdown-content">
+            <a href="Entrance.php">Главное</a>
+            <a href="resultExamen.php">Результаты экзаменов</a>
+            <a href="variant.php">Варианты прошлых лет</a>
+          </div>
         </div>
       </div>
-      <div class="dropdown">
+      <div class="dropdown vertical-align">
         <div class="dropbtn">
           <a href="timetable.php">Учащимся</a>
-        </div>
-        <div class="dropdown-content">
-          <a href="timetable.php">Расписание</a>
-          <a href="mathematics.php">Математика</a>
-          <a href="physics.php">Физика</a>
-          <a href="informatics.php">Информатика</a>
+          <div class="dropdown-content">
+            <a href="timetable.php">Расписание</a>
+            <a href="mathematics.php">Математика</a>
+            <a href="physics.php">Физика</a>
+            <a href="informatics.php">Информатика</a>
+          </div>
         </div>
       </div>
-    </div>
-    <div id="right-header-part" class="holder">
+    </ul>
+    <div id="right-header-part">
       <a href="register.php" id="register">Регистрация</a>
-      <button id="theme"><img src="./mode_night_fill.png" class="theme-switcher"></button>
+      <button id="theme-switcher"><img src="./mode_night_fill.png"></button>
     </div>
   </div>
   <div id="content">
     <div id="main-block">
-      <h3>ФМШ Многопредметная Школа</h3>
-      <div id="three-words">
+      <div style="height: var(--header-height);"></div>
+      <div class="vertical-align">
+        <h1 style="flex: 1;">ФМШ Многопредметная Школа</h1>
+      </div>
+      <div id="three-words" style="flex: 3;">
         <h2>Любопытство</h2>
         <h2>Уважение</h2>
         <h2>Свобода</h2>
       </div>
-      <h2 class="floating be-pointed" id="scroller-1" style="font-size: 300%">
-        ▼
-      </h2>
+      <div class="vertical-align">
+        <h3 class="floating" id="scroller-1" style="flex: 1;">
+          ▼
+        </h3>
+      </div>
+      <div style="flex: 0.5;"></div>
       <div class="layered-waves">
         <svg viewbox="0 0 1200 120" preserveaspectratio="none">
             <path d="M741,116.23C291,117.43,0,27.57,0,6V120H1200V6C1200,27.93,1186.4,119.83,741,116.23Z" class="shape-fill"></path>
@@ -90,7 +97,7 @@
     </div>
 
     <div id="news">
-      <div id="article-1" class="news">
+      <div id="article-1" class="article">
         <div class="date">29.06.2022</div>
         <div class="article-text">
             <b>Календарь событий на июль | Первый поток набора в ФМШ</b>
@@ -138,10 +145,10 @@
           </p>
           </div>
         </div>
-        <div class="show-more-button be-pointed" id="show-1"><b>Развернуть</b></div>
+        <div class="show-more-button" id="show-1"><b>Развернуть</b></div>
       </div>
-      <hr style="width: 100%;">
-      <div id="article-2" class="news">
+      <hr>
+      <div id="article-2" class="article">
         <div class="date">29.05.2022</div>
         <div class="article-text">
             <p>Закончился очередной учебный год, и в одном его окончание отличается от предыдущих: мы расстаёмся с МИЭМ. В прошедшем году выяснилось, что та ФМШ, которая существовала в течение 56 лет, больше МИЭМ не нужна. Я и мои коллеги старались сделать всё возможное для продолжения нашей работы под крылом МИЭМ, поскольку все преподаватели физико-математической школы либо учились, либо работали в ФМШ и в МИЭМ, некоторые на протяжении десятилетий. Мы были готовы и на определённые компромиссы, существенно не затрагивающие содержательную сторону нашей работы. Но оказалось, что дело не в тех или иных деталях, а в наших подходах к образованию в целом.</p>
@@ -156,7 +163,7 @@
           </p>
           </div>
         </div>
-        <div class="show-more-button be-pointed" id="show-2"><b>Развернуть</b></div>
+        <div class="show-more-button" id="show-2"><b>Развернуть</b></div>
       </div>
     </div>
   </div>
@@ -173,4 +180,5 @@
     </div> 
   </div>
 </body>
+
 </html>
