@@ -2,9 +2,6 @@ window.onload = function() {
     setTheme();
     document.getElementById("theme-switcher").addEventListener("click", switchTheme);
 
-    hideElementByButtonClick(document.getElementById("visible_block-1"), document.getElementById("show-1"));
-    hideElementByButtonClick(document.getElementById("visible_block-2"), document.getElementById("show-2"));
-
     var style = getComputedStyle(document.body);
 
     var header_height_str = style.getPropertyValue('--header-height');
@@ -23,22 +20,22 @@ function setTheme() {
     if(localStorage.getItem('theme') === null){
         localStorage.setItem('theme', 'light');
     }
+    var white_color = "white";
+    var dark_color = "#0E2954";
+    var light_filter = "invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%)";
+    var dark_filter = "invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%)";
     if(localStorage.getItem('theme') == 'dark'){
-        console.log('dark');
-        root.style.setProperty('--dark-blue', "white");
-        root.style.setProperty('--white', "#000b5e");
-        document.getElementById('light-themed-logo').style.display = "none";
-        document.getElementById('dark-themed-logo').style.display = "block";
-        document.getElementById('theme-switcher').style.filter = "var(--theme-emoji-dark)";
+        root.style.setProperty('--dark-blue', white_color);
+        root.style.setProperty('--white', dark_color);
+        root.style.setProperty('--theme-emoji-bright', dark_filter);
+        root.style.setProperty('--theme-emoji-dark', light_filter);
         return;
     }
     else {
-        console.log('light');
-        root.style.setProperty('--white', "white");
-        root.style.setProperty('--dark-blue', "#000b5e");
-        document.getElementById('dark-themed-logo').style.display = "none";
-        document.getElementById('light-themed-logo').style.display = "block";
-        document.getElementById('theme-switcher').style.filter = "var(--theme-emoji-bright)";
+        root.style.setProperty('--white', white_color);
+        root.style.setProperty('--dark-blue', dark_color);
+        root.style.setProperty('--theme-emoji-bright', light_filter);
+        root.style.setProperty('--theme-emoji-dark', dark_filter);
         return;
     }
 }
@@ -64,19 +61,4 @@ function removeElementsByClass(className){
     while(elements.length > 0){
         elements[0].parentNode.removeChild(elements[0]);
     }
-}
-
-function hideElementByButtonClick(element, button) {
-    button.addEventListener('click', (e) => {
-        if(e.target.innerHTML == "Развернуть") {
-            element.style.display = "";
-            e.target.innerHTML = "Свернуть";
-        }
-        else {
-            if(e.target.innerHTML == "Свернуть") {
-                element.style.display = "none";
-                e.target.innerHTML = "Развернуть";
-            }
-        }
-    });
 }

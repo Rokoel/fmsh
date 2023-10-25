@@ -1,21 +1,15 @@
 /* ------ MAIN STYLING ------ */
 :root {
-    --dark-blue: #000b5e;
+    --dark-blue: rgb(0, 11, 94);
 
-    --blue: #1C6DD0;
-    /* --blue: #6E85B7; */
-    /* --blue: #42C2FF; */
-    /* --blue: #161D6F; */
-
-    --white: #fff;
-
-    --light-gray: rgb(200, 200, 200);
-
+    /* --blue: rgb(28, 109, 208); */
+    --blue: #2C74B3;
     --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
     --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
 
-    --default-box-shadow: 0 8px 16px 0 black;
-    --lighter-box-shadow: 0 2px 4px 0 black;
+    --white: rgb(255, 255, 255);
+
+    --light-gray: rgb(200, 200, 200);
 
     --header-height: 3rem;
 
@@ -148,6 +142,7 @@ hr {
     width: 100%;
     top: 0;
     font-size: var(--small-font-size);
+    border-bottom: 2px solid var(--dark-blue);
 }
 .navbar {
     margin-top: auto;
@@ -160,6 +155,7 @@ hr {
     background-color: var(--white);
 
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
@@ -178,7 +174,7 @@ hr {
 
     margin: 0;
 }
-.navbar a:hover, .dropdown:hover .dropbtn {
+.navbar > a:hover, .dropdown:hover .dropbtn {
     background-color: var(--dark-blue);
 }
 .navbar a {
@@ -191,11 +187,11 @@ hr {
     display: none;
 
     position: absolute;
-
-    background-color: var(--white);
-    box-shadow: var(--default-box-shadow);
-
     z-index: 1;
+    border-radius: 0 0 0.2em 0.2em;
+    border-bottom: 2px solid var(--dark-blue);
+    border-right: 2px solid var(--dark-blue);
+    border-left: 2px solid var(--dark-blue);
 }
 .dropdown-content a {
     float: none;
@@ -205,11 +201,11 @@ hr {
     
     color: var(--dark-blue);
 }
-.dropdown-content a:hover {
-    background-color: var(--light-gray);
-}
+
 .dropdown:hover .dropdown-content {
     display: block;
+    /* transform: translatey(var(--header-height)); */
+    background-color: var(--white)
 }
 #right-header-part {
     display: flex;
@@ -223,8 +219,11 @@ hr {
     background-color: var(--dark-blue);
     color: var(--white);
 }
-#theme-switcher {
+.emoji {
     filter: var(--theme-emoji-bright);
+    padding: var(--proportional-xx-small-padding);
+    margin-left: 0.5em;
+    margin-right: 0.5em;
 }
 /* ----- HEADER STYLING ----- */
 
@@ -255,29 +254,6 @@ hr {
 }
 #main-block h3 {
     font-size: 150%;
-}
-.layered-waves {
-    position: absolute;
-
-    bottom: 0;
-    left: 0;
-
-    width: 100%;
-
-    overflow: hidden;
-
-    line-height: 0;
-}
-.layered-waves svg {
-    position: relative;
-
-    display: block;
-
-    width: calc(103% + 1.3px);
-    height: 120px;
-}
-.layered-waves .shape-fill {
-    fill: var(--white);
 }
 #three-words {
     display: flex;
@@ -327,6 +303,47 @@ hr {
     100% {
         transform: translatey(0px);
     }
+}
+
+@keyframes link_chosen {
+    0% {
+        text-decoration-color: rgba(0, 11, 94, 0);
+    }
+    100% {
+        text-decoration-color: rgba(0, 11, 94, 1);
+    }
+}
+@-o-keyframes link_chosen {
+    0% {
+        text-decoration-color: rgba(0, 11, 94, 0);
+    }
+    100% {
+        text-decoration-color: rgba(0, 11, 94, 1);
+    }
+}
+@-moz-keyframes link_chosen {
+    0% {
+        text-decoration-color: rgba(0, 11, 94, 0);
+    }
+    100% {
+        text-decoration-color: rgba(0, 11, 94, 1);
+    }
+}
+@-webkit-keyframes link_chosen {
+    0% {
+        text-decoration-color: rgba(0, 11, 94, 0);
+    }
+    100% {
+        text-decoration-color: rgba(0, 11, 94, 1);
+    }
+}
+
+.dropdown-content > :hover {
+    text-decoration: underline;
+    animation: link_chosen 0.5s ease-out forwards;
+    -moz-animation: link_chosen 0.5s ease-out forwards;
+    -o-animation: link_chosen 0.5s ease-out forwards;
+    -webkit-animation: link_chosen 0.5s ease-out forwards;
 }
 .floating {
     animation: float 2s ease-in-out infinite;
@@ -390,6 +407,7 @@ h1, h2, h3 {
     flex-direction: row;
     justify-content: space-around;
     align-content: center;
+    flex-wrap: wrap;
 
     width: 100%;
 
@@ -422,30 +440,3 @@ h1, h2, h3 {
     margin-bottom: auto;
 }
 /* ----- FOOTER STYLING ----- */
-
-/* @media screen and (min-width: 1200px){
-}
-
-@media screen and (min-width: 900px) and (max-width: 1199px){
-    #main-block h1 {
-        padding: var(--medium-padding);
-        color: var(--white);
-        font-size: 1200%;
-        font-weight: 900;
-        text-align: left;
-        margin: auto;
-    }
-    #main-block h2 {
-        color: var(--white);
-        font-size: 600%;
-        text-align: center;
-        margin: auto;
-    }
-    #main-block h3 {
-        color: var(--white);
-        font-size: 500%;
-        text-align: center;
-        margin: auto;
-        padding: var(--small-padding);
-    }
-} */
