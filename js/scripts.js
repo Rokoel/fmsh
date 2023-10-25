@@ -1,12 +1,13 @@
 window.onload = function() {
     setTheme();
+    localStorage.setItem('menu', 'closed');
     document.getElementById("theme-switcher").addEventListener("click", switchTheme);
+    document.getElementById("mobile-navbar").addEventListener("click", switchMenu);
     document.getElementById("main-page-redirector").addEventListener("click", () => {location.href = "https://fmsh.ru";});
-    var style = getComputedStyle(document.body);
 
+    var style = getComputedStyle(document.body);
     var header_height_str = style.getPropertyValue('--header-height');
     var header_height = Number(header_height_str.substring(0, header_height_str.length-3));
-
     document.getElementById('scroller-1').addEventListener('click', function(e) {
         window.scrollTo({
             top: window.innerHeight - header_height*16,
@@ -14,6 +15,54 @@ window.onload = function() {
         });
     });
 };
+
+function switchMenu() {
+    if(localStorage.getItem('menu') === null){
+        localStorage.setItem('menu', 'closed');
+    }
+    if(localStorage.getItem('menu') == 'closed'){
+        setMenu();
+        localStorage.setItem('menu', 'opened');
+        return;
+    }
+    else {
+        setMenu();
+        localStorage.setItem('menu', 'closed');
+        return;
+    }
+}
+function setMenu() {
+    if(localStorage.getItem('menu') === null){
+        localStorage.setItem('menu', 'closed');
+    }
+    var menu_items = document.getElementsByClassName("mobile-navbar-link");
+    if(localStorage.getItem('menu') == 'closed'){
+        for (let i = 0; i < menu_items.length; ++i){
+            var menu_item = menu_items[i];
+            menu_item.classList.add("appearing");
+            menu_item.classList.remove("disappearing");
+            menu_item.addEventListener("animationend", function(e) {
+                menu_item.style.transform = "translateX(150%)";
+            });
+        }
+        document.getElementById("menu-button").classList.remove("rotating-back");
+        document.getElementById("menu-button").classList.add("rotating");
+        return;
+    }
+    else {
+        for (let i = 0; i < menu_items.length; ++i){
+            var menu_item = menu_items[i];
+            menu_item.classList.remove("appearing");
+            menu_item.classList.add("disappearing");
+            menu_item.addEventListener("animationend", function(e) {
+                menu_item.style.transform = "translateX(0)";
+            });
+        }
+        document.getElementById("menu-button").classList.remove("rotating");
+        document.getElementById("menu-button").classList.add("rotating-back");
+        return;
+    }
+}
 
 function setTheme() {
     var root = document.documentElement;

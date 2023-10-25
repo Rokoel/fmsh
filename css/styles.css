@@ -1,19 +1,331 @@
 /* ------ MAIN STYLING ------ */
-:root {
-    --dark-blue: #1d2458;
-    --blue: rgb(28, 109, 208);
-    --blue: #2C74B3;
-    --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
-    --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
-    --white: #ffffff;
-    --light-gray: rgb(200, 200, 200);
-    --header-height: 3rem;
-    --proportional-padding: 2em;
-    --proportional-small-padding: 1em;
-    --proportional-x-small-padding: 0.5em;
-    --proportional-small-horizontal-padding: 0 1em;
-    --proportional-xx-small-padding: 0.25em;
-    --small-font-size: 75%;
+@media screen and (min-width: 926px) {
+    :root {
+        --dark-blue: #1d2458;
+        --blue: #2C74B3;
+        --white: #ffffff;
+        --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
+        --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
+        
+        --header-height: 3rem;
+
+        --proportional-padding: 2em;
+        --proportional-small-padding: 1em;
+        --proportional-x-small-padding: 0.5em;
+        --proportional-xx-small-padding: 0.25em;
+
+        --small-font-size: 75%;
+    }
+    .navbar {
+        margin-top: auto;
+        margin-bottom: auto;
+    
+        display: inline-block;
+    
+        overflow: hidden;
+    
+        background-color: inherit;
+    
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: wrap;
+    
+        height: 100%;
+    }
+    #mobile-navbar {
+        display: none;
+    }
+    #main-block > * {
+        text-align: center;
+        margin: 20px;
+    }
+    #main-block h1 {
+        font-size: 500%;
+        margin-bottom: 0;
+    }
+    #main-block h2 {
+        font-size: 200%;
+        margin: 0;
+    }
+    #main-block h3 {
+        font-size: 120%;
+        margin-top: 0;
+    }
+}
+@media screen and (max-width: 925px) and (min-width: 720px) {
+    :root {
+        --dark-blue: #1d2458;
+        --blue: #2C74B3;
+        --white: #ffffff;
+        --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
+        --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
+        
+        --header-height: 3rem;
+
+        --proportional-padding: 2em 1em;
+        --proportional-small-padding: 1em 0.5em;
+        --proportional-x-small-padding: 0.5em 0.2em;
+        --proportional-xx-small-padding: 0.25em 0.1em;
+
+        --small-font-size: 75%;
+    }
+    .navbar {
+        margin-top: auto;
+        margin-bottom: auto;
+    
+        display: inline-block;
+    
+        overflow: hidden;
+    
+        background-color: inherit;
+    
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: wrap;
+    
+        height: 100%;
+    }
+    #mobile-navbar {
+        display: none;
+    }
+    #main-block > * {
+        text-align: center;
+        margin: 20px;
+    }
+    #main-block h1 {
+        font-size: 500%;
+        margin-bottom: 0;
+    }
+    #main-block h2 {
+        font-size: 200%;
+        margin: 0;
+    }
+    #main-block h3 {
+        font-size: 120%;
+        margin-top: 0;
+    }
+}
+@media screen and (max-width: 719px) {
+    :root {
+        --dark-blue: #1d2458;
+        --blue: #2C74B3;
+        --white: #ffffff;
+        --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
+        --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
+        
+        --header-height: 3rem;
+
+        --proportional-padding: 1em;
+        --proportional-small-padding: 0.5em;
+        --proportional-x-small-padding: 0.2em;
+        --proportional-xx-small-padding: 0.1em;
+
+        --small-font-size: 75%;
+    }
+    .navbar {
+        display: none;
+    }
+    #mobile-navbar {
+        z-index: 3;
+        display: block;
+        position: fixed;
+        bottom: calc(var(--header-height) / 2);
+        right: calc(var(--header-height) / 2);
+        width: var(--header-height);
+        height: var(--header-height);
+        border-radius: 50%;
+        background-color: var(--white);
+        border: 2px solid var(--dark-blue);
+    }
+    .mobile-navbar-link {
+        position: relative;
+        bottom: calc((var(--header-height)) * 5);
+        transform: translateX(150%);
+        margin: 0.1em;
+        background-color: var(--white);
+        color: var(--dark-blue);
+        padding: var(--proportional-small-padding);
+        width: max-content;
+        max-height: var(--header-height);
+        text-align: right;
+        float: right;
+        border: 2px solid var(--dark-blue);
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    @keyframes appear {
+        0% {
+            transform: translateX(150%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+    @-o-keyframes appear {
+        0% {
+            transform: translateX(150%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+    @-moz-keyframes appear {
+        0% {
+            transform: translateX(150%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+    @-webkit-keyframes appear {
+        0% {
+            transform: translateX(150%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+    .appearing {
+        animation: appear 0.2s ease-in forwards;
+        -moz-animation: appear 0.2s ease-in forwards;
+        -o-animation: appear 0.2s ease-in forwards;
+        -webkit-animation: appear 0.2s ease-in forwards;
+    }
+    @keyframes disappear {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(150%);
+        }
+    }
+    @-o-keyframes disappear {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(150%);
+        }
+    }
+    @-moz-keyframes disappear {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(150%);
+        }
+    }
+    @-webkit-keyframes disappear {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(150%);
+        }
+    }
+    .disappearing {
+        animation: disappear 0.2s ease-out forwards;
+        -moz-animation: disappear 0.2s ease-out forwards;
+        -o-animation: disappear 0.2s ease-out forwards;
+        -webkit-animation: disappear 0.2s ease-out forwards;
+    }
+    @keyframes rotate {
+        0% {
+            rotate: 0;
+        }
+        100% {
+            rotate: -90deg;
+        }
+    }
+    @-o-keyframes rotate {
+        0% {
+            rotate: 0;
+        }
+        100% {
+            rotate: -90deg;
+        }
+    }
+    @-moz-keyframes rotate {
+        0% {
+            rotate: 0;
+        }
+        100% {
+            rotate: -90deg;
+        }
+    }
+    @-webkit-keyframes rotate {
+        0% {
+            rotate: 0;
+        }
+        100% {
+            rotate: -90deg;
+        }
+    }
+    .rotating {
+        animation: rotate 0.2s ease-in forwards;
+        -moz-animation: rotate 0.2s ease-in forwards;
+        -o-animation: rotate 0.2s ease-in forwards;
+        -webkit-animation: rotate 0.2s ease-in forwards;
+    }
+    @keyframes rotate-back {
+        0% {
+            rotate: -90deg;
+        }
+        100% {
+            rotate: 0;
+        }
+    }
+    @-o-keyframes rotate-back {
+        0% {
+            rotate: -90deg;
+        }
+        100% {
+            rotate: 0;
+        }
+    }
+    @-moz-keyframes rotate-back {
+        0% {
+            rotate: -90deg;
+        }
+        100% {
+            rotate: 0;
+        }
+    }
+    @-webkit-keyframes rotate-back {
+        0% {
+            rotate: -90deg;
+        }
+        100% {
+            rotate: 0;
+        }
+    }
+    .rotating-back {
+        animation: rotate-back 0.2s ease-out forwards;
+        -moz-animation: rotate-back 0.2s ease-out forwards;
+        -o-animation: rotate-back 0.2s ease-out forwards;
+        -webkit-animation: rotate-back 0.2s ease-out forwards;
+    }
+    #slogan {
+        display: none;
+    }
+    #main-block > * {
+        text-align: center;
+        margin: 0;
+    }
+    #main-block h1 {
+        font-size: 700%;
+        margin-bottom: 0;
+    }
+    
+    #main-block h3 {
+        font-size: 300%;
+        margin-top: 0;
+    }
 }
 @font-face {
     font-family: UbuntuRegular;
@@ -70,6 +382,15 @@ html, body {
 /* ------ MAIN STYLING ------ */
 
 /* ----- GENERAL STYLING ---- */
+.xx-small-padding {
+    padding: var(--proportional-xx-small-padding);
+}
+.x-small-padding {
+    padding: var(--proportional-x-small-padding);
+}
+.small-padding {
+    padding: var(--proportional-small-padding);
+}
 a {
     display: inline-block;
 
@@ -131,24 +452,6 @@ hr {
     font-size: var(--small-font-size);
     border-bottom: 2px solid var(--dark-blue);
 }
-.navbar {
-    margin-top: auto;
-    margin-bottom: auto;
-
-    display: inline-block;
-
-    overflow: hidden;
-
-    background-color: inherit;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: wrap;
-
-    height: 100%;
-}
 .dropbtn {
     border: none;
     outline: none;
@@ -193,13 +496,9 @@ hr {
 }
 .emoji {
     filter: var(--theme-emoji-bright);
-    padding: var(--proportional-x-small-padding);
-    margin-left: 0.5em;
-    margin-right: 0.5em;
 }
 .logo {
     filter: var(--theme-emoji-bright);
-    padding: var(--proportional-xx-small-padding);
     margin-left: 0.5em;
     margin-right: 0.5em;
 }
@@ -214,22 +513,6 @@ hr {
     justify-content: space-evenly;
     align-content: center;
     border-bottom: var(--dark-blue) solid 2px;
-}
-#main-block > * {
-    text-align: center;
-    margin: 20px;
-}
-#main-block h1 {
-    font-size: 500%;
-    margin-bottom: 0;
-}
-#main-block h2 {
-    font-size: 200%;
-    margin: 0;
-}
-#main-block h3 {
-    font-size: 120%;
-    margin-top: 0;
 }
 @keyframes float {
     0% {
