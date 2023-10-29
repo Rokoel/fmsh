@@ -39,18 +39,17 @@
     }
     #main-block > * {
         text-align: center;
-        margin: 20px;
     }
     #main-block h1 {
-        font-size: 500%;
+        font-size: 150px;
         margin-bottom: 0;
     }
     #main-block h2 {
-        font-size: 200%;
+        font-size: 50px;
         margin: 0;
     }
     #main-block h3 {
-        font-size: 120%;
+        font-size: 50px;
         margin-top: 0;
     }
 }
@@ -94,19 +93,18 @@
     }
     #main-block > * {
         text-align: center;
-        margin: 20px;
     }
     #main-block h1 {
-        font-size: 500%;
-        margin-bottom: 0;
+        font-size: 130px;
+        margin-bottom: 10%;
     }
     #main-block h2 {
-        font-size: 200%;
+        font-size: 50px;
         margin: 0;
     }
     #main-block h3 {
-        font-size: 120%;
-        margin-top: 0;
+        font-size: 50px;
+        margin-top: 10%;
     }
 }
 @media screen and (max-width: 719px) {
@@ -157,7 +155,6 @@
         border-radius: 5px;
         overflow: hidden;
     }
-
     @keyframes appear {
         0% {
             transform: translateX(150%);
@@ -319,12 +316,30 @@
     }
     #main-block h1 {
         font-size: 700%;
-        margin-bottom: 0;
+        margin-bottom: 10%;
+        margin-top: 70%;
     }
-    
     #main-block h3 {
         font-size: 300%;
-        margin-top: 0;
+        margin-bottom: 70%;
+        margin-top: 10%;
+    }
+    .quote {
+        display: none;
+    }
+    body {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    }
+    body::-webkit-scrollbar { /* WebKit */
+        overflow-x: hidden;
+        width: 0;
+        height: 0;
+    }
+    #register {
+        border-radius: 5px;
     }
 }
 @font-face {
@@ -338,9 +353,18 @@ html, body {
     font-size: calc(0.75em + 1vw);
     margin: 0;
     box-sizing: border-box;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 *, *:before, *:after {
     box-sizing: inherit;
+}
+*:focus, *:active {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    cursor: default;
+    -webkit-tap-highlight-color: transparent;
 }
 * {
     scrollbar-width: thin;
@@ -509,10 +533,18 @@ hr {
     width: 100%;
     height: calc(100vh - var(--header-height));
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-evenly;
     align-content: center;
     border-bottom: var(--dark-blue) solid 2px;
+}
+.screen-third {
+    flex: 1;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
 }
 @keyframes float {
     0% {
