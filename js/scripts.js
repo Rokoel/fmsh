@@ -85,6 +85,7 @@ function setTheme() {
         header.style.color = "var(--white)";
         main_block.style.backgroundColor = "var(--white)";
         main_block.style.color = "var(--dark-blue)";
+        main_block.style.backgroundImage = "url( './main_block_bg_dark.svg' )";
         return;
     }
     else {
@@ -96,6 +97,7 @@ function setTheme() {
         header.style.color = "var(--dark-blue)";
         main_block.style.backgroundColor = "var(--blue)";
         main_block.style.color = "var(--white)";
+        main_block.style.backgroundImage = "url( './main_block_bg_light.svg' )";
         return;
     }
 }
