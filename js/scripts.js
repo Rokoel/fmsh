@@ -4,6 +4,9 @@ window.onload = function() {
     document.getElementById("theme-switcher").addEventListener("click", switchTheme);
     document.getElementById("mobile-navbar").addEventListener("click", switchMenu);
     document.getElementById("main-page-redirector").addEventListener("click", () => {location.href = "https://fmsh.ru";});
+    document.getElementById("email-mobile").addEventListener("click", () => {location.href = "mailto:info@fmsh.ru";});
+    document.getElementById("telegram-mobile").addEventListener("click", () => {location.href = "https://t.me/fmshru";});
+    document.getElementById("phone-mobile").addEventListener("click", copyPhoneNumber);
 
     var style = getComputedStyle(document.body);
     var header_height_str = style.getPropertyValue('--header-height');
@@ -15,6 +18,15 @@ window.onload = function() {
         });
     });
 };
+
+async function copyPhoneNumber () {
+    try {
+        await navigator.clipboard.writeText("+74955806928");
+        console.log('Номер телефона скопирован в буфер обмена!');
+    } catch (err) {
+        console.error('Не смогли скопировать телефон в буфер обмена из-за ошибки: ', err);
+    }
+}
 
 function switchMenu() {
     if(localStorage.getItem('menu') === null){

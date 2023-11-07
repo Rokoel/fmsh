@@ -12,25 +12,21 @@
         --proportional-small-padding: 1em;
         --proportional-x-small-padding: 0.5em;
         --proportional-xx-small-padding: 0.25em;
+        --vertical-proportional-small-padding: 0.8em 1em;
 
         --small-font-size: 75%;
     }
     .navbar {
         margin-top: auto;
         margin-bottom: auto;
-    
         display: inline-block;
-    
         overflow: hidden;
-    
         background-color: inherit;
-    
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-content: center;
         flex-wrap: wrap;
-    
         height: 100%;
     }
     #mobile-navbar {
@@ -51,8 +47,14 @@
         font-size: 75px;
         margin-top: 0;
     }
+    #mobile-footer {
+        display: none;
+    }
+    #footer {
+        display: flex;
+    }
 }
-@media screen and (max-width: 1599px) and (min-width: 950px) {
+@media screen and (max-width: 1600px) and (min-width: 950px) {
     :root {
         --dark-blue: #1d2458;
         --blue: #2C74B3;
@@ -66,6 +68,7 @@
         --proportional-small-padding: 1em;
         --proportional-x-small-padding: 0.5em;
         --proportional-xx-small-padding: 0.25em;
+        --vertical-proportional-small-padding: 0.8em 1em;
 
         --small-font-size: 75%;
     }
@@ -105,8 +108,14 @@
         font-size: 50px;
         margin-top: 0;
     }
+    #mobile-footer {
+        display: none;
+    }
+    #footer {
+        display: flex;
+    }
 }
-@media screen and (max-width: 949px) and (min-width: 720px) {
+@media screen and (max-width: 950px) and (min-width: 720px) {
     :root {
         --dark-blue: #1d2458;
         --blue: #2C74B3;
@@ -117,9 +126,10 @@
         --header-height: 3rem;
 
         --proportional-padding: 2em 1em;
-        --proportional-small-padding: 1em 0.5em;
+        --proportional-small-padding: 0.5em;
         --proportional-x-small-padding: 0.5em 0.2em;
         --proportional-xx-small-padding: 0.25em 0.1em;
+        --vertical-proportional-small-padding: 1em 0.5em;
 
         --small-font-size: 75%;
     }
@@ -159,8 +169,14 @@
         font-size: 50px;
         margin-top: 10%;
     }
+    #mobile-footer {
+        display: none;
+    }
+    #footer {
+        display: flex;
+    }
 }
-@media screen and (max-width: 719px) and (min-width: 320px) {
+@media screen and (max-width: 720px) and (min-width: 320px) {
     :root {
         --dark-blue: #1d2458;
         --blue: #2C74B3;
@@ -174,6 +190,7 @@
         --proportional-small-padding: 0.5em;
         --proportional-x-small-padding: 0.2em;
         --proportional-xx-small-padding: 0.1em;
+        --vertical-proportional-small-padding: 1em 0.5em;
 
         --small-font-size: 75%;
     }
@@ -394,8 +411,14 @@
     #register {
         border-radius: 5px;
     }
+    #mobile-footer {
+        display: flex;
+    }
+    #footer {
+        display: none;
+    }
 }
-@media screen and (max-width: 319px) {
+@media screen and (max-width: 320px) {
     :root {
         --dark-blue: #1d2458;
         --blue: #2C74B3;
@@ -409,6 +432,7 @@
         --proportional-small-padding: 0.5em;
         --proportional-x-small-padding: 0.2em;
         --proportional-xx-small-padding: 0.1em;
+        --vertical-proportional-small-padding: 1.2em 0.5em;
 
         --small-font-size: 75%;
     }
@@ -420,7 +444,7 @@
         display: block;
         position: fixed;
         bottom: calc(var(--header-height) / 2);
-        right: calc(var(--header-height) / 2);
+        right: calc(var(--header-height) / 4);
         width: var(--header-height);
         height: var(--header-height);
         border-radius: 50%;
@@ -629,6 +653,12 @@
     #register {
         border-radius: 5px;
     }
+    #mobile-footer {
+        display: flex;
+    }
+    #footer {
+        display: none;
+    }
 }
 @font-face {
     font-family: UbuntuRegular;
@@ -772,7 +802,7 @@ hr {
     color: var(--white);
 }
 .navbar a {
-    padding: var(--proportional-small-padding);
+    padding: var(--vertical-proportional-small-padding);
 }
 .dropdown-content {
     display: none;
@@ -798,7 +828,7 @@ hr {
     color: var(--white);
 }
 #register {
-    padding: var(--proportional-small-padding);
+    padding: var(--vertical-proportional-small-padding);
 }
 .emoji {
     filter: var(--theme-emoji-bright);
@@ -952,20 +982,15 @@ hr {
     text-align: center;
     cursor: pointer;
 }
-#footer {
+#footer, #mobile-footer {
     bottom: 0;
-
-    display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-content: center;
     flex-wrap: wrap;
-
     width: 100%;
-
     background-color: var(--blue);
     color: var(--white);
-
     border-top: var(--dark-blue);
     border-width: 3px;
     border-style: solid;
@@ -976,13 +1001,13 @@ hr {
     font-size: var(--small-font-size);
     padding: var(--proportional-small-padding);
 }
-#footer a {
+#footer a, #mobile-footer a {
     color: var(--dark-blue);
 }
-#footer a:hover {
+#footer a:hover, #mobile-footer a:hover {
     color: var(--white);
 }
-#footer > * {
+#footer > *, #mobile-footer > * {
     flex: 1;
     text-align: center;
     display: inline-block;
