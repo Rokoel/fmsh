@@ -377,9 +377,6 @@
         -o-animation: rotate-back 0.2s ease-out forwards;
         -webkit-animation: rotate-back 0.2s ease-out forwards;
     }
-    #slogan {
-        display: none;
-    }
     #main-block > * {
         text-align: center;
         margin: 0;
@@ -393,9 +390,6 @@
         font-size: 200%;
         margin-bottom: 70%;
         margin-top: 10%;
-    }
-    .quote {
-        display: none;
     }
     body {
         overflow-y: scroll;
@@ -619,9 +613,6 @@
         -o-animation: rotate-back 0.2s ease-out forwards;
         -webkit-animation: rotate-back 0.2s ease-out forwards;
     }
-    #slogan {
-        display: none;
-    }
     #main-block > * {
         text-align: center;
         margin: 0;
@@ -635,9 +626,6 @@
         font-size: 200%;
         margin-bottom: 70%;
         margin-top: 10%;
-    }
-    .quote {
-        display: none;
     }
     body {
         overflow-y: scroll;
@@ -859,46 +847,46 @@ hr {
 }
 @keyframes float {
     0% {
-        transform: translatey(0px);
+        transform: translatey(5px);
     }
     50% {
-        transform: translatey(-20px);
+        transform: translatey(25px);
     }
     100% {
-        transform: translatey(0px);
+        transform: translatey(5px);
     }
 }
 @-o-keyframes float {
     0% {
-        transform: translatey(0px);
+        transform: translatey(5px);
     }
     50% {
-        transform: translatey(-20px);
+        transform: translatey(25px);
     }
     100% {
-        transform: translatey(0px);
+        transform: translatey(5px);
     }
 }
 @-moz-keyframes float {
     0% {
-        transform: translatey(0px);
+        transform: translatey(5px);
     }
     50% {
-        transform: translatey(-20px);
+        transform: translatey(25px);
     }
     100% {
-        transform: translatey(0px);
+        transform: translatey(5px);
     }
 }
 @-webkit-keyframes float {
     0% {
-        transform: translatey(0px);
+        transform: translatey(5px);
     }
     50% {
-        transform: translatey(-20px);
+        transform: translatey(25px);
     }
     100% {
-        transform: translatey(0px);
+        transform: translatey(5px);
     }
 }
 @keyframes link_chosen {
@@ -1013,4 +1001,12 @@ hr {
     display: inline-block;
     margin-top: auto;
     margin-bottom: auto;
+}
+#mobile-contacts {
+    display: flex;
+    justify-content: space-evenly;
+    margin-right: var(--header-height);
+}
+#telegram-mobile, #phone-mobile, #email-mobile {
+    width: fit-content;
 }

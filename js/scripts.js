@@ -26,6 +26,7 @@ async function copyPhoneNumber () {
     } catch (err) {
         console.error('Не смогли скопировать телефон в буфер обмена из-за ошибки: ', err);
     }
+    location.href = "tel:84955806928";
 }
 
 function switchMenu() {
