@@ -411,6 +411,9 @@
     #footer {
         display: none;
     }
+    #words {
+        display: none;
+    }
 }
 @media screen and (max-width: 320px) and (orientation: portrait) {
     :root {
@@ -645,6 +648,9 @@
         display: flex;
     }
     #footer {
+        display: none;
+    }
+    #words {
         display: none;
     }
 }
@@ -886,6 +892,9 @@
     #footer {
         display: none;
     }
+    #words {
+        display: none;
+    }
 }
 @media screen and (max-width: 320px) and (orientation: landscape) {
     :root {
@@ -1125,6 +1134,9 @@
     #footer {
         display: none;
     }
+    #words {
+        display: none;
+    }
 }
 @font-face {
     font-family: UbuntuRegular;
@@ -1253,6 +1265,16 @@ hr {
     top: 0;
     font-size: var(--small-font-size);
     border-bottom: 2px solid var(--dark-blue);
+}
+#subjects, #principles {
+    position: absolute;
+}
+#principles {
+    font-size: 75%;
+}
+.floating-word {
+    position: absolute;
+    z-index: 1;
 }
 .dropbtn {
     border: none;

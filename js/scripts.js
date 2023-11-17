@@ -17,6 +17,8 @@ window.onload = function() {
             behavior: "smooth"
         });
     });
+    placeElements();
+    document.getElementById("main-block").addEventListener("mousemove", parallax);
 };
 
 async function copyPhoneNumber () {
@@ -136,4 +138,157 @@ function removeElementsByClass(className){
     while(elements.length > 0){
         elements[0].parentNode.removeChild(elements[0]);
     }
+}
+
+function get_random_and_remove_it (arr) {
+    r_index = Math.floor((Math.random()*arr.length));
+    r_el = arr[r_index];
+    arr.splice(r_index, 1);
+    return r_el;
+}
+
+function placeElements() {
+    subjects_arr = ["Математика", "Физика", "Информатика"];
+    principles_arr = ["Любопытство", "Уважение", "Свобода", "Смелость", "Упорство"];
+
+    subjects_div = document.getElementById("subjects");
+    principles_div = document.getElementById("principles");
+
+    subject = document.createElement("div");
+    subject.classList.add("floating-word");
+    subject.innerHTML = get_random_and_remove_it(subjects_arr);
+    subject.style.top = "var(--header-height)";
+    subject.style.left = "calc(var(--header-height))";
+    let rotation_value = 'rotate(-20deg)';
+    subject.style.transform = rotation_value;
+    subject.setAttribute("rotation_value", rotation_value);
+
+    subject2 = document.createElement("div");
+    subject2.classList.add("floating-word");
+    subject2.innerHTML = get_random_and_remove_it(subjects_arr);
+    subject2.style.top = "calc(var(--header-height) * 4)";
+    subject2.style.right = "calc(-100vw + var(--header-height))";
+    let rotation_value2 = 'rotate(20deg)';
+    subject2.style.transform = rotation_value2;
+    subject2.setAttribute("rotation_value", rotation_value2);
+
+    subject3 = document.createElement("div");
+    subject3.classList.add("floating-word");
+    subject3.innerHTML = get_random_and_remove_it(subjects_arr);
+    subject3.style.bottom = "calc(-100vh + var(--header-height) * 3.5)";
+    subject3.style.left = "calc(var(--header-height) * 2)";
+    let rotation_value3 = 'rotate(20deg)';
+    subject3.style.transform = rotation_value3;
+    subject3.setAttribute("rotation_value", rotation_value3);
+
+    subjects_div.append(subject);
+    subjects_div.append(subject2);
+    subjects_div.append(subject3);
+
+    principle = document.createElement("div");
+    principle.classList.add("floating-word");
+    principle.innerHTML = get_random_and_remove_it(principles_arr);
+    principle.style.bottom = "calc(-50vh + var(--header-height))";
+    principle.style.left = "calc(var(--header-height) / 2)";
+    let rotation_value4 = 'rotate(5deg)';
+    principle.style.transform = rotation_value4;
+    principle.setAttribute("rotation_value", rotation_value4);
+
+    principle2 = document.createElement("div");
+    principle2.classList.add("floating-word");
+    principle2.innerHTML = get_random_and_remove_it(principles_arr);
+    principle2.style.top = "calc(var(--header-height) * 1.2)";
+    principle2.style.right = "calc(-100vw + var(--header-height))";
+    let rotation_value5 = 'rotate(-30deg)';
+    principle2.style.transform = rotation_value5;
+    principle2.setAttribute("rotation_value", rotation_value5);
+
+    principle3 = document.createElement("div");
+    principle3.classList.add("floating-word");
+    principle3.innerHTML = get_random_and_remove_it(principles_arr);
+    principle3.style.bottom = "calc(-100vh + 2 * var(--header-height))";
+    principle3.style.left = "calc(var(--header-height) / 0.8)";
+    let rotation_value6 = 'rotate(-20deg)';
+    principle3.style.transform = rotation_value6;
+    principle3.setAttribute("rotation_value", rotation_value6);
+
+    principle4 = document.createElement("div");
+    principle4.classList.add("floating-word");
+    principle4.innerHTML = get_random_and_remove_it(principles_arr);
+    principle4.style.bottom = "calc(-100vh + 2 * var(--header-height))";
+    principle4.style.right = "calc(-100vw + var(--header-height) * 4.5)";
+    let rotation_value7 = 'rotate(10deg)';
+    principle4.style.transform = rotation_value7;
+    principle4.setAttribute("rotation_value", rotation_value7);
+
+    principle5 = document.createElement("div");
+    principle5.classList.add("floating-word");
+    principle5.innerHTML = get_random_and_remove_it(principles_arr);
+    principle5.style.bottom = "calc(-100vh + 3.5 * var(--header-height))";
+    principle5.style.right = "calc(-100vw + 2 * var(--header-height))";
+    let rotation_value8 = 'rotate(-30deg)';
+    principle5.style.transform = rotation_value8;
+    principle5.setAttribute("rotation_value", rotation_value8);
+
+    principles_div.append(principle);
+    principles_div.append(principle2);
+    principles_div.append(principle3);
+    principles_div.append(principle4);
+    principles_div.append(principle5);
+}
+
+function getOffset(el) {
+    const rect = el.getBoundingClientRect();
+    return {
+        left: rect.left + window.scrollX,
+        top: rect.top + window.scrollY
+    };
+}
+
+function sizeOf(elem) {
+    const rect = elem.getBoundingClientRect();
+    return {
+        width: Math.abs(rect.right - rect.left),
+        height: Math.abs(rect.top - rect.bottom)
+    };
+}
+
+function centerOf(elem) {
+    return {
+        x: getOffset(elem).left + sizeOf(elem).width/2,
+        y: getOffset(elem).top + sizeOf(elem).height/2
+    };
+}
+
+function dist(elem, mouseX, mouseY) {
+    return Math.floor(Math.sqrt(Math.pow(mouseX - centerOf(elem).x, 2) + Math.pow(mouseY - centerOf(elem).y, 2)));
+}
+
+function parallax(event) {
+  var words = Array.from(document.getElementsByClassName("floating-word"));
+  words.forEach((word) => {
+    let offsetX = centerOf(word).x - event.pageX;
+    let offsetY = centerOf(word).y - event.pageY;
+    let distance = dist(word, event.pageX, event.pageY);
+    var x;
+    var y;
+    // if (distance > 300) {
+    //     x = 0;
+    //     y = 0;
+    // }
+    // else {
+        if (distance < 20) {
+            x = -Math.floor(offsetX / 2);
+            y = -Math.floor(offsetY / 2);
+        }
+        else {
+            x = -Math.floor(offsetX / (0.1*distance));
+            y = -Math.floor(offsetY / (0.1*distance));
+        }
+    // }
+    var tr = `${word.getAttribute("rotation_value")} translate(${x}px, ${y}px)`;
+    word.style.transform = tr;
+    word.style.webkitTransform = tr;
+    word.style.msTransform = tr;
+  });
 }
