@@ -1220,11 +1220,45 @@
         text-decoration-color: var(--dark-blue);
     }
 }
+@keyframes highlight_box {
+    0% {}
+    100% {
+        -webkit-box-shadow: -3px 0 0 0 #2C74B3;
+        box-shadow: -3px 0 0 0 #2C74B3;
+    }
+}
+@-o-keyframes highlight_box {
+    0% {}
+    100% {
+        -webkit-box-shadow: -3px 0 0 0 #2C74B3;
+        box-shadow: -3px 0 0 0 #2C74B3;
+    }
+}
+@-moz-keyframes highlight_box {
+    0% {}
+    100% {
+        -webkit-box-shadow: -3px 0 0 0 #2C74B3;
+        box-shadow: -3px 0 0 0 #2C74B3;
+    }
+}
+@-webkit-keyframes highlight_box {
+    0% {}
+    100% {
+        -webkit-box-shadow: -3px 0 0 0 #2C74B3;
+        box-shadow: -3px 0 0 0 #2C74B3;
+    }
+}
 .floating {
     animation: float 2s ease-in-out infinite;
     -moz-animation: float 2s ease-in-out infinite;
     -o-animation: float 2s ease-in-out infinite;
     -webkit-animation: float 2s ease-in-out infinite;
+}
+.highlight-left:hover, .highlight-left:focus, .highlight-left:active {
+    animation: highlight_box 0.1s ease-out forwards;
+    -moz-animation: highlight_box 0.1s ease-out forwards;
+    -o-animation: highlight_box 0.1s ease-out forwards;
+    -webkit-animation: highlight_box 0.1s ease-out forwards;
 }
 
 /* GENERAL STYLING */
@@ -1342,116 +1376,154 @@ button {
 
     cursor: pointer;
 }
-hr {
-    border-right : 0;
-    border-left: 0;
-    width: 100%;
-}
-
-/* HEADER STYLING */
-#header-replacer {
-    background-color: var(--white);
-    width: 100%;
-    height: var(--header-height);
-}
-#header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: center;
-
-    z-index: 3;
-
-    height: var(--header-height);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    font-size: var(--small-font-size);
-    border-bottom: 2px solid var(--dark-blue);
-}
-#subjects, #principles {
-    position: absolute;
-}
-#subjects {
-    color: white;
-}
-#principles {
+button[type=submit] {
     font-size: 75%;
-    color: lightblue;
 }
-/* This class is used for dynamically created background floating words on the main page */
-.floating-word {
-    position: absolute;
-    z-index: 1;
+input[type=checkbox] {
+    height: 1em;
+    width: 1em;
+    display: inline;
 }
-/* The following several classes and styling rules are used in navigation bar styling */
-.dropbtn {
-    border: none;
-    outline: none;
-    background-color: inherit;
-    margin: 0;
-    overflow: hidden;
-}
-.dropdown:hover {
-    background-color: var(--dark-blue);
-}
-.dropbtn:hover > a {
-    color: var(--white);
-}
-.navbar a {
-    padding: var(--vertical-proportional-small-padding);
-}
-.dropdown-content {
-    display: none;
-    position: absolute;
-    z-index: 1;
-    border-radius: 0 0 0.2em 0.2em;
-    border-bottom: 2px solid var(--dark-blue);
-    border-right: 2px solid var(--dark-blue);
-    border-left: 2px solid var(--dark-blue);
-    border-top: 2px solid var(--dark-blue);
-    background-color: var(--white);
-}
-.dropdown-content > a {
-    float: none;
-    display: block;
-    text-align: left;
-}
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-.dropdown-content > :hover, a:hover {
+button[type=submit]:hover, button[type=submit]:focus {
     text-decoration: underline;
     animation: link_chosen 0.5s ease-out forwards;
     -moz-animation: link_chosen 0.5s ease-out forwards;
     -o-animation: link_chosen 0.5s ease-out forwards;
     -webkit-animation: link_chosen 0.5s ease-out forwards;
 }
-/* These two styling rules are used for styling the register link */
-#register:hover, #register:hover > a {
+hr {
+    border-right : 0;
+    border-left: 0;
+    width: 100%;
+}
+input[type=text], input[type=email] {
+    color: var(--dark-blue);
+    padding: var(--proportional-xx-small-padding);
+}
+input::placeholder {
+    color: var(--blue);
+    opacity: 0.3;
+}
+
+.select-css { 
+    padding: var(--proportional-x-small-padding);
+    display: block; 
+    color: var(--dark-blue); 
+    box-sizing: border-box; 
+    margin: 0; 
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--white); 
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+        linear-gradient(var(--white),var(--white)); 
+    background-repeat: no-repeat, repeat;
+    background-position: right .7em top 50%, 0 0;
+    background-size: .65em auto, 100%;
+}
+
+.flex-row-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.flex-column-space-evenly {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.flex-row-space-evenly {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.width-fit-content {
+    width: fit-content;
+}
+.select-css::-ms-expand {
+    display: none;
+}
+.select-css option {
     background-color: var(--dark-blue);
     color: var(--white);
-}
-#register {
-    padding: var(--vertical-proportional-small-padding);
-}
+} 
+
 /* These classes are used for styling the main content of the page */
 #main-block {
     width: 100%;
-    height: calc(100vh - var(--header-height));
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-content: center;
-    border-bottom: var(--dark-blue) solid 2px;
     background-image: url( '../main_block_bg_light.svg' );
     background-size: cover;
 }
-#form-holder {
-    background-color: var(--white);
+#registration-form-holder {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-areas:
+        "surname surname surname firstname firstname firstname lastname lastname lastname"
+        "email email email email email email email email email"
+        "birthday birthday grade grade school school school school school"
+        "region region region town town town town town town";
+        padding: 0 1em;
 }
-#form-holder > * {
-    padding: var(--proportional-xx-small-padding);
+#surname-holder {
+    grid-area: surname;
+}
+#firstname-holder {
+    grid-area: firstname;
+}
+#lastname-holder {
+    grid-area: lastname;
+}
+#email-holder {
+    grid-area: email;
+}
+#birthday-holder {
+    grid-area: birthday;
+}
+#grade-holder {
+    grid-area: grade;
+}
+#school-holder {
+    grid-area: school;
+}
+#region-holder {
+    grid-area: region;
+    width: max-content;
+}
+#town-holder {
+    grid-area: town;
+}
+
+.register-form-input {
+    font-size: 75%;
+    height: 100%;
+    border: 0;
+    border-bottom: var(--dark-blue) solid 2px;
+    background-color: var(--white);
+    text-align: left;
+}
+.form-holder {
+    background-color: var(--white);
+    color: var(--dark-blue);
+    border-radius: 10px;
+}
+.text-input-holder {
+    display: flex;
+    flex-direction: column;
+    padding: var(--proportional-x-small-padding);
+    min-width: 0;
+}
+.form-label {
+    text-align: left;
+    font-size: 75%;
 }
 .screen-third {
     flex: 1;
@@ -1460,92 +1532,4 @@ hr {
     flex-direction: column;
     justify-content: center;
     align-content: center;
-}
-.scroller {
-    padding: var(--medium-padding);
-    z-index: 1;
-    text-align: center;
-}
-.article-text {
-    font-size: 75%;
-    line-height: normal;
-}
-.date {
-    font-size: 100%;
-    color: var(--blue);
-}
-#scroller-2 {
-    font-size: 75%;
-    color: var(--dark-blue);
-    text-align: center;
-    padding: var(--proportional-small-padding);
-}
-#news {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-content: center;
-}
-.article {
-    color: var(--dark-blue);
-    line-height: 1.5em;
-    letter-spacing: 1px;
-    margin-top: auto;
-    margin-bottom: auto;
-    padding: var(--proportional-padding);
-}
-.article a {
-    color: var(--blue);
-    display: inline;
-}
-.article a:hover {
-    color: var(--dark-blue);
-}
-#show-more-button {
-    font-size: 75%;
-    text-align: center;
-    cursor: pointer;
-    padding: var(--proportional-small-padding);
-}
-
-/* FOOTER STYLING */
-#footer, #mobile-footer {
-    bottom: 0;
-    flex-direction: row;
-    justify-content: space-around;
-    align-content: center;
-    flex-wrap: wrap;
-    width: 100%;
-    background-color: var(--blue);
-    color: var(--white);
-    border-top: var(--dark-blue);
-    border-width: 3px;
-    border-style: solid;
-    border-right: var(--blue);
-    border-left: var(--blue);
-    border-bottom: var(--blue);
-
-    font-size: var(--small-font-size);
-    padding: var(--proportional-small-padding);
-}
-#footer a, #mobile-footer a {
-    color: var(--dark-blue);
-}
-#footer a:hover, #mobile-footer a:hover {
-    color: var(--white);
-}
-#footer > *, #mobile-footer > * {
-    flex: 1;
-    text-align: center;
-    display: inline-block;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-#mobile-contacts {
-    display: flex;
-    justify-content: space-evenly;
-    margin-right: var(--header-height);
-}
-#telegram-mobile, #phone-mobile, #email-mobile {
-    width: fit-content;
 }

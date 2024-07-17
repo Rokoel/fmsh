@@ -27,16 +27,60 @@
       </div>
       <div class="screen-third" style="flex: auto">
         <div></div>
-        <div id="form-holder">
-          <div> <b>Фамилия:</b> <input type="text" size="32" name="surname" value=""> </div>
-          <div> <b>Имя:</b> <input type="text" size="32" name="firstname" value=""> </div>
-          <div> <b>Отчество:</b> <input type="text" size="32" name="lastname" value=""> </div>
-          <div> <b>Дата рождения:</b> <input type="text" size="32" name="birthday" value="" placeholder="ДД.ММ.ГГГГ"> </div>
-          <div> <b>Класс обучения:</b> <input type="text" size="32" name="class" value="" placeholder="Класс, в котором вы учитесь"> </div>
-          <div> <b>Регион проживания:</b> <input type="text" size="32" name="region" value="" placeholder="Регион, в котором вы проживаете"> </div>
-          <div> <b>Ближайшие станции метро:</b> <input type="text" size="32" name="town" value=""> </div>
-          <div> <b>Учебное заведение:</b> <input type="text" size="32" name="school" value="" placeholder="Название школы или номер"> </div>
-        </div>
+        <form action method="POST" class="form-holder" style="font-size: 80%;">
+
+          <div style="padding: var(--proportional-x-small-padding);">
+            <b>Регистрация</b>
+          </div>
+          
+          <div class="form-body-holder" id="registration-form-holder">
+            <div class="text-input-holder" id="surname-holder">
+              <label class="form-label" for="surname"><b>Фамилия</b></label>
+              <input id="surname" class="register-form-input highlight-left" type="text" name="surname">
+            </div>
+            <div class="text-input-holder" id="firstname-holder">
+              <label class="form-label" for="firstname"><b>Имя</b></label>
+              <input id="firstname" class="register-form-input highlight-left" type="text" name="firstname">
+            </div>
+            <div class="text-input-holder" id="lastname-holder">
+              <label class="form-label" for="lastname"><b>Отчество</b></label>
+              <input id="lastname" class="register-form-input highlight-left" type="text" name="lastname">
+            </div>
+            <div class="text-input-holder" id="email-holder">
+              <label class="form-label" for="email"><b>Email</b></label>
+              <input id="email" class="register-form-input highlight-left temp" type="email" name="email" placeholder="example@email.com" autocomplete="email">
+            </div>
+            <div class="text-input-holder" id="birthday-holder">
+              <label class="form-label" for="birthday"><b>Дата рождения</b></label>
+              <input id="birthday" type="text" name="birthday" placeholder="ДД.ММ.ГГГГ" maxlength="10" class='register-form-input highlight-left'>
+            </div>
+            <div class="text-input-holder" id="grade-holder">
+              <label class="form-label" for="grade"><b>Класс обучения</b></label>
+              <input id="grade" class="register-form-input highlight-left" type="text" name="grade" placeholder="4 – 11" maxlength="2" min="4" max="11">
+            </div>
+            <div class="text-input-holder" id="school-holder">
+              <label class="form-label" for="school"><b>Учебное заведение</b></label>
+              <input id="school" class="register-form-input highlight-left" type="text" name="school" placeholder="Название школы или номер">
+            </div>
+            <div class="text-input-holder" id="region-holder">
+              <label class="form-label" for="region"><b>Регион проживания</b></label>
+              <select id="region" class="register-form-input highlight-left select-css" type="text" name="region">
+                <option>Россия, Москва</option>
+                <option>Россия, Московская область&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</option>
+                <option>Россия, другой регион</option>
+                <option>Другое государство</option>
+              </select>
+            </div>
+            <div class="text-input-holder" id="town-holder">
+              <label id="town-label" class="form-label" for="town"><b>Ближайшие станции метро</b></label>
+              <input id="town" class="register-form-input highlight-left" type="text" name="town">
+            </div>
+          </div>
+
+          <div class="text-input-holder">
+            <button type="submit">Зарегестрироваться</button>
+          </div>
+        </form>
         <div></div>
       </div>
       <div class="screen-third small-padding">

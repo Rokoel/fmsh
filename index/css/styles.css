@@ -1374,9 +1374,10 @@ hr {
 }
 #subjects {
     color: white;
+    font-size: 120%;
 }
 #principles {
-    font-size: 75%;
+    font-size: 85%;
     color: lightblue;
 }
 /* This class is used for dynamically created background floating words on the main page */
