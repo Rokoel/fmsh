@@ -1331,16 +1331,14 @@ a {
     text-align: center;
 }
 button {
-    border: none;
-    text-align: center;
-    text-decoration: none;
-
-    display: block;
-
-    background-color: inherit;
-    color: var(--dark-blue);
-
+    background-color: var(--blue);
+    color: var(--white);
+    border-radius: 10px;
+    border: var(--dark-blue) solid 2px;
     cursor: pointer;
+}
+button:hover, button:focus {
+    filter: opacity(0.9) contrast(120%) saturate(110%); 
 }
 hr {
     border-right : 0;

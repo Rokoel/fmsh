@@ -29,26 +29,26 @@
         <div></div>
         <form action method="POST" class="form-holder" style="font-size: 80%;">
 
-          <div style="padding: var(--proportional-x-small-padding);">
+          <div style="padding: var(--proportional-x-small-padding); text-align: center;">
             <b>Регистрация</b>
           </div>
           
           <div class="form-body-holder" id="registration-form-holder">
             <div class="text-input-holder" id="surname-holder">
               <label class="form-label" for="surname"><b>Фамилия</b></label>
-              <input id="surname" class="register-form-input highlight-left" type="text" name="surname">
+              <input id="surname" placeholder="Степанов" class="register-form-input highlight-left" type="text" name="surname">
             </div>
             <div class="text-input-holder" id="firstname-holder">
               <label class="form-label" for="firstname"><b>Имя</b></label>
-              <input id="firstname" class="register-form-input highlight-left" type="text" name="firstname">
+              <input id="firstname" placeholder="Иван" class="register-form-input highlight-left" type="text" name="firstname">
             </div>
             <div class="text-input-holder" id="lastname-holder">
               <label class="form-label" for="lastname"><b>Отчество</b></label>
-              <input id="lastname" class="register-form-input highlight-left" type="text" name="lastname">
+              <input id="lastname" placeholder="Алексеевич" class="register-form-input highlight-left" type="text" name="lastname">
             </div>
             <div class="text-input-holder" id="email-holder">
-              <label class="form-label" for="email"><b>Email</b></label>
-              <input id="email" class="register-form-input highlight-left temp" type="email" name="email" placeholder="example@email.com" autocomplete="email">
+              <label class="form-label" for="email"><b>Адрес электронной почты или несколько</b></label>
+              <input id="email" class="register-form-input highlight-left temp" type="text" name="emails" placeholder="example@email.com, additional@email.com" autocomplete="email">
             </div>
             <div class="text-input-holder" id="birthday-holder">
               <label class="form-label" for="birthday"><b>Дата рождения</b></label>
@@ -73,12 +73,22 @@
             </div>
             <div class="text-input-holder" id="town-holder">
               <label id="town-label" class="form-label" for="town"><b>Ближайшие станции метро</b></label>
-              <input id="town" class="register-form-input highlight-left" type="text" name="town">
+              <input id="town" class="register-form-input highlight-left" type="text" name="town" placeholder="м. Китай-город, м. Таганская">
             </div>
-          </div>
-
-          <div class="text-input-holder">
-            <button type="submit">Зарегестрироваться</button>
+            <div class="flex-row-center" id="capcha-holder">
+              <div class="text-input-holder">
+                <label id="capcha-label" class="form-label" for="capcha-input"><b>Введите текст с картинки</b></label>
+                <input id="capcha-input" class="register-form-input highlight-left" type="text" name="capcha-input">
+              </div>
+              <div class="flex-column-center">
+                <div></div>
+                <img id="capcha-image" src="./example_capcha.png">
+                <div></div>
+              </div>
+            </div>
+            <div class="text-input-holder" id="submit-form-holder">
+              <button id="submit-form" type="submit">Зарегестрироваться</button>
+            </div>
           </div>
         </form>
         <div></div>
