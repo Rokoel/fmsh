@@ -40,7 +40,7 @@ function setMenu() {
         localStorage.setItem('menu', 'closed');
     }
     var menu_items = document.getElementsByClassName("mobile-navbar-link");
-    if(localStorage.getItem('menu') == 'closed'){
+    if(localStorage.getItem('menu') === 'closed'){
         for (let i = 0; i < menu_items.length; ++i){
             var menu_item = menu_items[i];
             menu_item.classList.add("appearing");
@@ -76,7 +76,7 @@ function switchMenu() {
     if(localStorage.getItem('menu') === null){
         localStorage.setItem('menu', 'closed');
     }
-    if(localStorage.getItem('menu') == 'closed'){
+    if(localStorage.getItem('menu') === 'closed'){
         setMenu();
         localStorage.setItem('menu', 'opened');
         return;
@@ -102,18 +102,14 @@ function setTheme() {
     var light_filter = "invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%)";
     var dark_filter = "invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%)";
     var header = document.getElementById("header");
-    var main_block = document.getElementById("main-block");
 
-    if(localStorage.getItem('theme') == 'dark'){
+    if(localStorage.getItem('theme') === 'dark'){
         root.style.setProperty('--dark-blue', white_color);
         root.style.setProperty('--white', dark_color);
         root.style.setProperty('--theme-emoji-bright', dark_filter);
         root.style.setProperty('--theme-emoji-dark', light_filter);
         header.style.backgroundColor = "var(--blue)";
         header.style.color = "var(--white)";
-        main_block.style.backgroundColor = "var(--white)";
-        main_block.style.color = "var(--dark-blue)";
-        main_block.style.backgroundImage = "url( './main_block_bg_dark.svg' )";
         return;
     }
     else {
@@ -123,29 +119,20 @@ function setTheme() {
         root.style.setProperty('--theme-emoji-dark', dark_filter);
         header.style.backgroundColor = "var(--white)";
         header.style.color = "var(--dark-blue)";
-        main_block.style.backgroundColor = "var(--blue)";
-        main_block.style.color = "var(--white)";
-        main_block.style.backgroundImage = "url( './main_block_bg_light.svg' )";
         return;
     }
 }
 
 /**
- * switchTheme() changes the current theme of the mobile menu.
+ * switchTheme() changes the current theme of the website.
  * It uses localStorage to store the theme.
  */
 function switchTheme() {
-    if(localStorage.getItem('theme') === null){
+    if(localStorage.getItem('theme') === 'dark'){
         localStorage.setItem('theme', 'light');
-    }
-    if(localStorage.getItem('theme') == 'dark'){
-        localStorage.setItem('theme', 'light');
-        setTheme();
-        return;
     }
     else {
         localStorage.setItem('theme', 'dark');
-        setTheme();
-        return;
     }
+    setTheme();
 }

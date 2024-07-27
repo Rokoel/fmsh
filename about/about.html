@@ -99,39 +99,75 @@
   </div>
 
   <div id="content">
-    <div id="news">
-      <div id="article-1" class="article">
-        <div class="article-header">Что такое ФМШ?</div>
-        <div class="article-body-holder">
-          <div class="article-text" id="about-fmsh-text">
-            <b>Физико-математическая школа FMSH.RU</b> – это социальный развивающий образовательный проект, в рамках которого проходят обучение школьники 7-11 классов, заинтересованные в серьёзном изучении <b>математики, физики, информатики и других предметов</b>, не связанном с подготовкой к тем или иным испытаниям (ЕГЭ, олимпиады и др.). Кроме этого, учащиеся ФМШ под руководством преподавателей имеют возможность получить свой первый педагогический опыт.
-            <br><br>
-            Обучение в ФМШ проходит в онлайн формате. Занятия проводятся <b>от 1 до 3 раз в неделю после 17:00.</b>
-          </div>
-          <div class="flex-column-space-evenly" id="about-fmsh-screenshot-holder">
-            <div></div>
-            <img src="./idroo-example.png" class="in-text-image" id="about-fmsh-screenshot">
-            <img src="./replit-example.png" class="in-text-image" id="about-fmsh-screenshot-2">
-            <div></div>
-          </div>
+    <div id="article-1" class="article">
+      <div class="article-header" style="text-align: center;">Что такое ФМШ?</div>
+      <div class="article-body-holder">
+        <div class="article-text" id="about-fmsh-text">
+          <b>Физико-математическая школа FMSH.RU</b> – это социальный развивающий образовательный проект, в рамках которого проходят обучение школьники 7-11 классов, заинтересованные в серьёзном изучении <b>математики, физики, информатики и других предметов</b>, не связанном с подготовкой к тем или иным испытаниям (ЕГЭ, олимпиады и др.). Кроме этого, учащиеся ФМШ под руководством преподавателей имеют возможность получить свой первый педагогический опыт.
+          <br><br>
+          Обучение в ФМШ проходит в онлайн формате. Занятия проводятся <b>от 1 до 3 раз в неделю после 17:00.</b>
+        </div>
+        <div class="in-text-block-holder" id="idroo-screenshot-holder">
+          <img src="./idroo-example.png" class="in-text-block" id="about-fmsh-screenshot">
         </div>
       </div>
-      <hr>
-
-      <!-- REDO THIS ENTIRE SECTION!!! -->
-      <!-- ALSO maybe consider looking at stiles of classes like article and changing them to be applied to elements instead, like <p> -->
-      <div id="article-2" class="article">
-        <div class="article-header">Особенности обучения в ФМШ</div>
-        <div class="article-body-holder">
-          <div class="flex-column-space-evenly" id="about-fmsh-screenshot-holder">
-            <div></div>
-            <img src="./idroo-example.png" class="in-text-image" id="about-fmsh-screenshot">
-            <img src="./replit-example.png" class="in-text-image" id="about-fmsh-screenshot-2">
-            <div></div>
+    </div>
+    <hr>
+    <div id="article-2" class="article">
+      <div class="article-header text-align-center">Особенности обучения в ФМШ</div>
+      <div class="article-body-holder">
+        <div class="in-text-block-holder" id="features-menu-holder">
+          <div class="in-text-block" id="features-menu">
+            <div id="selector" style="display: none;">▶</div>
+            <div class="change-article" id="features-menu-option-1">
+              Заинтересованные студенты
+            </div>
+            <div class="change-article" id="features-menu-option-2">
+              Гибкая программа обучения
+            </div>
+            <div class="change-article" id="features-menu-option-3">
+              Расширение кругозора учащихся
+            </div>
+            <div class="change-article" id="features-menu-option-4">
+              Главное – понимание
+            </div>
+            <div class="change-article" id="features-menu-option-5">
+              Наука «в действии»
+            </div>
+            <div class="change-article" id="features-menu-option-6">
+              <b>Первый опыт преподавания</b>
+            </div>
           </div>
-          <div class="article-text" id="about-fmsh-text">
-            Поступление в ФМШ осуществляется по результатам письменного экзамена по математике, творческого конкурса или обучающих семинаров. Проверяется умение креативно мыслить и осознанно применять знания, что позволяет набирать школьников, ориентированных на глубокое изучение материала.
-          </div>
+        </div>
+        <div class="article-text" id="feature-1" style="display: none;">
+          <b>В ФМШ поступают действительно заинтересованные в глубоком изучении материала студенты.</b>
+          <br><br>
+          Поступление в ФМШ осуществляется по результатам письменного экзамена по математике, творческого конкурса или обучающих семинаров. Проверяется умение креативно мыслить и осознанно применять знания, что позволяет набирать школьников, ориентированных на глубокое изучение материала.
+        </div>
+        <div class="article-text" id="feature-2" style="display: none;">
+          <b>Преподаватели подстраивают программу обучения по результатам и вопросам студентов.</b>
+          <br><br>
+          В ФМШ не используются фиксированные программы: преподаватели планируют занятия в зависимости от результатов предыдущих занятий и вопросов учащихся. Это делает обучение максимально комфортным и эффективным.
+        </div>
+        <div class="article-text" id="feature-3" style="display: none;">
+          <b>Многие преподаватели уделяют время расширению кругозора учащихся.</b>
+          <br><br>
+          Обучение в ФМШ проходит в форме семинаров, на которых преподаватели выделяют время для обсуждения тем, косвенно связанных с основным материалом, но интересных для учащихся.
+        </div>
+        <div class="article-text" id="feature-4" style="display: none;">
+          <b>В ФМШ особое внимание уделяется осознанию материала.</b>
+          <br><br>
+          В процессе обучения в ФМШ преподаватели стимулируют учащихся задавать любые вопросы по изучаемому материалу. Это помогает студентам понять, что формальные знания без учёта их ограничений могут приводить к неверным результатам. Учащиеся стремятся выяснять все детали и находить связь с ранее изученным материалом. Занятия часто продолжаются после формального времени окончания, так как в ФМШ традиционно работают «до последнего вопроса».
+        </div>
+        <div class="article-text" id="feature-5" style="display: none;">
+          <b>Преподаватели показывают науку «в действии».</b>
+          <br><br>
+          Преподаватели ФМШ демонстрируют, как строится наука, какие проблемы она решает и какие вопросы остаются за её пределами. Это создаёт у учащихся целостное представление о науке как о системе взаимосвязанных знаний.
+        </div>
+        <div class="article-text" id="feature-6">
+          <b>Учащиеся ФМШ участвуют в различных форматах работы наравне с преподавателями.</b>
+          <br><br>
+          Учащиеся ФМШ проводят семинары для поступающих и оценивают их работу на вступительных испытаниях. Это помогает учащимся лучше понимать взаимодействие между участниками учебного процесса и помогает новым поступающим быстрее адаптироваться.
         </div>
       </div>
     </div>

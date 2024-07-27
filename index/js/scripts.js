@@ -91,7 +91,7 @@ function switchMenu() {
     if(localStorage.getItem('menu') === null){
         localStorage.setItem('menu', 'closed');
     }
-    if(localStorage.getItem('menu') == 'closed'){
+    if(localStorage.getItem('menu') === 'closed'){
         setMenu();
         localStorage.setItem('menu', 'opened');
         return;
@@ -150,19 +150,13 @@ function setTheme() {
  * It uses localStorage to store the theme.
  */
 function switchTheme() {
-    if(localStorage.getItem('theme') === null){
-        localStorage.setItem('theme', 'light');
-    }
     if(localStorage.getItem('theme') == 'dark'){
         localStorage.setItem('theme', 'light');
-        setTheme();
-        return;
     }
     else {
         localStorage.setItem('theme', 'dark');
-        setTheme();
-        return;
     }
+    setTheme();
 }
 
 /**

@@ -42,7 +42,7 @@ function setTheme() {
     var placeholder_text_opacity_light = "0.3";
     var placeholder_text_opacity_dark = "0.7";
 
-    if(localStorage.getItem('theme') == 'dark'){
+    if(localStorage.getItem('theme') === 'dark'){
         root.style.setProperty('--dark-blue', white_color);
         root.style.setProperty('--white', dark_color);
         root.style.setProperty('--theme-emoji-bright', dark_filter);
@@ -71,19 +71,13 @@ function setTheme() {
  * It uses localStorage to store the theme.
  */
 function switchTheme() {
-    if(localStorage.getItem('theme') === null){
+    if(localStorage.getItem('theme') === 'dark'){
         localStorage.setItem('theme', 'light');
-    }
-    if(localStorage.getItem('theme') == 'dark'){
-        localStorage.setItem('theme', 'light');
-        setTheme();
-        return;
     }
     else {
         localStorage.setItem('theme', 'dark');
-        setTheme();
-        return;
     }
+    setTheme();
 }
 
 function validateDate(date) { // could've named the function "valiDate" :)

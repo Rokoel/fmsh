@@ -1304,6 +1304,9 @@ html, body {
     flex-direction: row;
     justify-content: space-evenly;
 }
+.text-align-center {
+    text-align: center;
+}
 /* These two classes are used for alligning elements with the help of 'flex' */
 .vertical-align-center {
     display: flex;
@@ -1439,10 +1442,13 @@ hr {
     padding: var(--vertical-proportional-small-padding);
 }
 
-/* These classes are used for styling the main content of the page */
+/* MAIN CONTENT STYLING */
 .article-text {
     font-size: 75%;
     line-height: normal;
+    flex: 4;
+    min-width: 50%;
+    padding: var(--proportional-padding);
 }
 .article-header {
     font-size: 100%;
@@ -1463,36 +1469,39 @@ hr {
 .article a:hover {
     color: var(--dark-blue);
 }
-
-/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 .article-body-holder {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-areas:
-        "about-fmsh-text about-fmsh-text about-fmsh-text about-fmsh-screenshot about-fmsh-screenshot";
+    display: flex;
+    max-width: 100%;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    align-items: center;
+}
+.in-text-block-holder {
+    flex: 2;
+    min-width: 250px;
+    max-width: 70%;
     padding: var(--proportional-small-padding);
 }
-#about-fmsh-text {
-    grid-area: about-fmsh-text;
-    margin: auto;
-    padding: var(--proportional-padding);
-    padding-top: 0;
-    padding-bottom: 0;
-}
-#about-fmsh-screenshot-holder {
-    grid-area: about-fmsh-screenshot;
-}
-#about-fmsh-screenshot {
-    object-fit: contain;
+.in-text-block {
     max-width: 100%;
     border-radius: 10px;
     border: var(--dark-blue) solid 2px;
 }
-#about-fmsh-screenshot-2 {
-    object-fit: contain;
-    max-width: 100%;
-    border-radius: 10px;
-    border: var(--dark-blue) solid 2px;
+.change-article {
+    flex: 2;
+    font-size: 60%;
+    line-height: normal;
+    letter-spacing: 1px;
+    padding: var(--proportional-small-padding);
+    text-align: center;
+}
+.change-article:hover {
+    text-decoration: underline;
+    animation: link_chosen 0.5s ease-out forwards;
+    -moz-animation: link_chosen 0.5s ease-out forwards;
+    -o-animation: link_chosen 0.5s ease-out forwards;
+    -webkit-animation: link_chosen 0.5s ease-out forwards;
+    cursor: pointer;
 }
 
 /* FOOTER STYLING */
