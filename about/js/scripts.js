@@ -136,3 +136,24 @@ function switchTheme() {
     }
     setTheme();
 }
+
+function chooseFeature(featureNumber) {
+    let optionsMenu = document.getElementById("features-menu");
+    let optionsList = optionsMenu.children;
+
+    for (let i = 1; i < optionsList.length+1; ++i) {
+        if (i != featureNumber) {
+            let currentOption = optionsList[i-1];
+            currentOption.innerHTML = currentOption.innerText;
+
+            let currentFeature = document.getElementById("feature-" + i);
+            currentFeature.style.display = "none";
+        }
+    }
+    
+    let chosenOption = document.getElementById("features-menu-option-" + featureNumber);
+    chosenOption.innerHTML = "<b>" + chosenOption.innerText + "</b>";
+
+    let chosenFeature = document.getElementById("feature-" + featureNumber);
+    chosenFeature.style.display = "";
+}

@@ -1486,6 +1486,7 @@ hr {
     margin-top: auto;
     margin-bottom: auto;
     padding: var(--proportional-padding);
+    font-size: calc(20px + 1vw);
 }
 .article a {
     color: var(--blue);

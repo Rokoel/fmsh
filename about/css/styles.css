@@ -1461,6 +1461,7 @@ hr {
     margin-top: auto;
     margin-bottom: auto;
     padding: var(--proportional-padding);
+    font-size: calc(20px + 1vw);
 }
 .article a {
     color: var(--blue);
@@ -1502,6 +1503,9 @@ hr {
     -o-animation: link_chosen 0.5s ease-out forwards;
     -webkit-animation: link_chosen 0.5s ease-out forwards;
     cursor: pointer;
+}
+#fmsh-features-article {
+    flex-wrap: wrap;
 }
 
 /* FOOTER STYLING */
