@@ -14,6 +14,7 @@ window.onload = function() {
     document.getElementById("email-mobile").addEventListener("click", () => {location.href = "mailto:info@fmsh.ru";});
     document.getElementById("telegram-mobile").addEventListener("click", () => {location.href = "https://t.me/fmshru";});
     document.getElementById("phone-mobile").addEventListener("click", copyPhoneNumber);
+    document.getElementById("contacts-page-phone-number").addEventListener("click", copyPhoneNumber);
 };
 
 /**
@@ -144,7 +145,7 @@ function chooseFeature(featureNumber) {
     for (let i = 1; i < optionsList.length+1; ++i) {
         if (i != featureNumber) {
             let currentOption = optionsList[i-1];
-            currentOption.innerHTML = currentOption.innerText;
+            currentOption.innerHTML = "<a>" + currentOption.innerText + "</a>";
 
             let currentFeature = document.getElementById("feature-" + i);
             currentFeature.style.display = "none";
@@ -152,7 +153,7 @@ function chooseFeature(featureNumber) {
     }
     
     let chosenOption = document.getElementById("features-menu-option-" + featureNumber);
-    chosenOption.innerHTML = "<b>" + chosenOption.innerText + "</b>";
+    chosenOption.innerHTML = "<a><b>" + chosenOption.innerText + "</b></a>";
 
     let chosenFeature = document.getElementById("feature-" + featureNumber);
     chosenFeature.style.display = "";

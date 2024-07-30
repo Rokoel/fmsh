@@ -33,20 +33,11 @@
     #mobile-navbar {
         display: none;
     }
-    #main-block > * {
-        text-align: center;
-    }
-    #main-block h1 {
-        font-size: 200px;
-        margin-bottom: 0;
-    }
-    #main-block h2 {
-        font-size: 75px;
-        margin: 0;
-    }
-    #main-block h3 {
-        font-size: 75px;
-        margin-top: 0;
+    #administration-and-contacts {
+        display: grid;
+        grid-template-areas:
+        "admin-header contacts-header"
+        "admin-holder contacts-holder";
     }
     #mobile-footer {
         display: none;
@@ -94,20 +85,11 @@
     #mobile-navbar {
         display: none;
     }
-    #main-block > * {
-        text-align: center;
-    }
-    #main-block h1 {
-        font-size: 150px;
-        margin-bottom: 0;
-    }
-    #main-block h2 {
-        font-size: 50px;
-        margin: 0;
-    }
-    #main-block h3 {
-        font-size: 50px;
-        margin-top: 0;
+    #administration-and-contacts {
+        display: grid;
+        grid-template-areas:
+        "admin-header contacts-header"
+        "admin-holder contacts-holder";
     }
     #mobile-footer {
         display: none;
@@ -155,29 +137,19 @@
     #mobile-navbar {
         display: none;
     }
-    #main-block > * {
-        text-align: center;
-    }
-    #main-block h1 {
-        font-size: 130px;
-        margin-bottom: 10%;
-    }
-    #main-block h2 {
-        font-size: 50px;
-        margin: 0;
-    }
-    #main-block h3 {
-        font-size: 50px;
-        margin-top: 10%;
+    #administration-and-contacts {
+        display: grid;
+        grid-template-areas:
+        "admin-header"
+        "admin-holder"
+        "contacts-header"
+        "contacts-holder";
     }
     #mobile-footer {
         display: none;
     }
     #footer {
         display: flex;
-    }
-    #words {
-        display: none;
     }
 }
 @media screen and (max-width: 720px) and (min-width: 320px) and (orientation: portrait) {
@@ -381,20 +353,6 @@
         -o-animation: rotate-back 0.2s ease-out forwards;
         -webkit-animation: rotate-back 0.2s ease-out forwards;
     }
-    #main-block > * {
-        text-align: center;
-        margin: 0;
-    }
-    #main-block h1 {
-        font-size: 450%;
-        margin-bottom: 10%;
-        margin-top: 70%;
-    }
-    #main-block h3 {
-        font-size: 200%;
-        margin-bottom: 70%;
-        margin-top: 10%;
-    }
     body {
         overflow-y: scroll;
         overflow-x: hidden;
@@ -409,13 +367,18 @@
     #register {
         border-radius: 5px;
     }
+    #administration-and-contacts {
+        display: grid;
+        grid-template-areas:
+        "admin-header"
+        "admin-holder"
+        "contacts-header"
+        "contacts-holder";
+    }
     #mobile-footer {
         display: flex;
     }
     #footer {
-        display: none;
-    }
-    #words {
         display: none;
     }
 }
@@ -620,20 +583,6 @@
         -o-animation: rotate-back 0.2s ease-out forwards;
         -webkit-animation: rotate-back 0.2s ease-out forwards;
     }
-    #main-block > * {
-        text-align: center;
-        margin: 0;
-    }
-    #main-block h1 {
-        font-size: 400%;
-        margin-bottom: 10%;
-        margin-top: 70%;
-    }
-    #main-block h3 {
-        font-size: 200%;
-        margin-bottom: 70%;
-        margin-top: 10%;
-    }
     body {
         overflow-y: scroll;
         overflow-x: hidden;
@@ -648,13 +597,18 @@
     #register {
         border-radius: 5px;
     }
+    #administration-and-contacts {
+        display: grid;
+        grid-template-areas:
+        "admin-header"
+        "admin-holder"
+        "contacts-header"
+        "contacts-holder";
+    }
     #mobile-footer {
         display: flex;
     }
     #footer {
-        display: none;
-    }
-    #words {
         display: none;
     }
 }
@@ -859,23 +813,6 @@
         -o-animation: rotate-back 0.2s ease-out forwards;
         -webkit-animation: rotate-back 0.2s ease-out forwards;
     }
-    #main-block > * {
-        text-align: center;
-        margin: 0;
-    }
-    #main-block h1 {
-        font-size: 450%;
-        margin-bottom: 10%;
-        margin-top: 70%;
-    }
-    #main-block h3 {
-        font-size: 200%;
-        margin-bottom: 70%;
-        margin-top: 10%;
-    }
-    #slogan {
-        display: none;
-    }
     body {
         overflow-y: scroll;
         overflow-x: hidden;
@@ -890,13 +827,16 @@
     #register {
         border-radius: 5px;
     }
+    #administration-and-contacts {
+        display: grid;
+        grid-template-areas:
+        "admin-header contacts-header"
+        "admin-holder contacts-holder";
+    }
     #mobile-footer {
         display: flex;
     }
     #footer {
-        display: none;
-    }
-    #words {
         display: none;
     }
 }
@@ -1132,13 +1072,16 @@
     #register {
         border-radius: 5px;
     }
+    #administration-and-contacts {
+        display: grid;
+        grid-template-areas:
+        "admin-header contacts-header"
+        "admin-holder contacts-holder";
+    }
     #mobile-footer {
         display: flex;
     }
     #footer {
-        display: none;
-    }
-    #words {
         display: none;
     }
 }
@@ -1497,15 +1440,73 @@ hr {
     text-align: center;
 }
 .change-article:hover {
-    text-decoration: underline;
-    animation: link_chosen 0.5s ease-out forwards;
-    -moz-animation: link_chosen 0.5s ease-out forwards;
-    -o-animation: link_chosen 0.5s ease-out forwards;
-    -webkit-animation: link_chosen 0.5s ease-out forwards;
     cursor: pointer;
 }
 #fmsh-features-article {
     flex-wrap: wrap;
+}
+#administration-header {
+    grid-area: admin-header;
+}
+#contacts-header {
+    grid-area: contacts-header;
+}
+#administration-holder {
+    grid-area: admin-holder;
+    flex-wrap: nowrap;
+}
+
+@media screen and (max-width: 544px) {
+    #administration-holder {
+        grid-area: admin-holder;
+        flex-wrap: wrap-reverse;
+    }
+    #chernatskiy-sergey-genrikhovich {
+        order: 1;
+    }
+}
+#contacts-holder {
+    width: 100%;
+    grid-area: contacts-holder;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.person-holder {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: var(--proportional-small-padding);
+    flex-wrap: wrap;
+}
+.person-avatar {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    border: var(--dark-blue) solid 2px;
+}
+@media screen and (min-width: 1500px) {
+    .person-avatar {
+        width: 70%;
+        border-radius: 20px;
+        border: var(--dark-blue) solid 3px;
+    }
+}
+.person-bio {
+    font-size: 60%;
+    line-height: normal;
+    text-align: center;
+    padding: var(--proportional-small-padding);
+}
+#contacts-holder {
+    font-size: 75%;
+    line-height: normal;
+    text-align: center;
+    padding: var(--proportional-xx-small-padding);
+}
+#contacts-page-phone-number {
+    white-space: nowrap;
 }
 
 /* FOOTER STYLING */

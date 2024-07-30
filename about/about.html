@@ -98,6 +98,19 @@
     </div>
   </div>
 
+
+  <!-- 
+  TODO:
+    - Consider making menu options dark blue instead of blue (but maybe blue ones are
+    more recognisable as links?)
+    - Rewrite the text of About FMSH
+    - Make the static image of idroo a non-static gif
+    - Consider adding another image to the about FMSH page when its size allows
+    for it (567px to ~700px in width)
+    - Add History section (make a timeline of events with chatGPT, add images stored on the Desktop)
+    - Send a version of the website for a review
+  -->
+    
   <div id="content">
     <div id="article-1" class="article">
       <div class="article-header" style="text-align: center;">Что такое ФМШ?</div>
@@ -119,22 +132,34 @@
         <div class="in-text-block-holder" id="features-menu-holder">
           <div class="in-text-block" id="features-menu">
             <div class="change-article" id="features-menu-option-1" onclick="chooseFeature(1)">
-              <b>Заинтересованные студенты</b>
+              <a>
+                <b>Заинтересованные студенты</b>
+              </a>
             </div>
             <div class="change-article" id="features-menu-option-2" onclick="chooseFeature(2)">
-              Гибкая программа обучения
+              <a>
+                Гибкая программа обучения
+              </a>
             </div>
             <div class="change-article" id="features-menu-option-3" onclick="chooseFeature(3)">
-              Расширение кругозора учащихся
+              <a>
+                Расширение кругозора учащихся
+              </a>
             </div>
             <div class="change-article" id="features-menu-option-4" onclick="chooseFeature(4)">
-              Главное – понимание
+              <a>
+                Главное – понимание
+              </a>
             </div>
             <div class="change-article" id="features-menu-option-5" onclick="chooseFeature(5)">
-              Наука «в действии»
+              <a>
+                Наука «в действии»
+              </a>
             </div>
             <div class="change-article" id="features-menu-option-6" onclick="chooseFeature(6)">
-              Первый опыт преподавания
+              <a>
+                Первый опыт преподавания
+              </a>
             </div>
           </div>
         </div>
@@ -171,7 +196,50 @@
       </div>
     </div>
     <hr>
-    
+    <div id="article-3" class="article">
+      <div class="article-body-holder" id="administration-and-contacts">
+        <div class="article-header text-align-center" id="administration-header">Администрация</div>
+        <div class="article-header text-align-center" id="contacts-header">Контакты</div>
+        <div class="flex-row-space-evenly" id="administration-holder">
+          <div class="person-holder">
+            <img src="./grishkina-maria-petrovna.jpg" class="person-avatar">
+            <div class="person-bio">
+              <a href="#">Гришкина Мария Петровна</a>
+              <br>
+              к.т.н.,
+              зам. директора ФМШ МИЭМ
+              с 2002 по 2024 год
+            </div>
+          </div>
+          <div class="person-holder" id="chernatskiy-sergey-genrikhovich">
+            <img src="./chernatskiy-sergey-genrikhovich.jpg" class="person-avatar">
+            <div class="person-bio">
+              <a href="#">Чернацкий Сергей Генрихович</a>
+              <br>
+              директор ФМШ МИЭМ с 2012 по 2024 год
+            </div>
+          </div>
+          <div class="person-holder">
+            <img src="./bogolyubov-dmitry-petrovich.jpg" class="person-avatar">
+            <div class="person-bio">
+              <a href="#">Боголюбов Дмитрий Петрович</a>
+              <br>
+              к.т.н.,
+              научный руководитель ФМШ МИЭМ с 2012 по 2024 год
+            </div>
+          </div>
+        </div>
+        <div id="contacts-holder">
+          Телефон: <a href="#contacts-holder" id="contacts-page-phone-number">+7 (495) 580-69-28</a>
+          <div id="contacts-page-email">
+            E-mail: <a href="mailto:info@fmsh.ru">info@fmsh.ru</a>
+          </div>
+          <div id="contacts-page-telegram">
+            Telegram: <a href="https://t.me/fmshru">@fmshru</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div id="footer">
