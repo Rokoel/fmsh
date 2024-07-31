@@ -1456,6 +1456,15 @@ hr {
     flex-wrap: nowrap;
 }
 
+#replit-gif {
+    display: none;
+}
+@media screen and (max-width: 1120px) and (min-width: 567px) {
+    #replit-gif {
+        display: unset;
+    }
+}
+
 @media screen and (max-width: 544px) {
     #administration-holder {
         grid-area: admin-holder;
