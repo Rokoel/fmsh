@@ -3,11 +3,19 @@ const SUBJECTS_ARR = ["Математика", "Физика", "Информат�
 // const PRINCIPLES_ARR = ["Любопытство", "Уважение", "Свобода", "Смелость", "Упорство"];
 const PRINCIPLES_ARR = ["любопытство", "уважение", "свобода", "смелость", "упорство", 'дискуссия', 'открытость', 'независимость', 'неравнодушие', 'профессионализм', 'обоснованность', 'понимание', 'благожелательность', 'честность', 'доброта', 'ответственность', 'интерес', 'сомнение', 'осторожность', 'поддержка', 'терпение']
 
+var MENU_STATE = 'closed';
+
+window.addEventListener("storage", (e) => {
+    console.log(e.key + " was changed in the other tab. It changed from " + e.oldValue + " to " + e.newValue);
+    if (e.key == 'theme') {
+        setTheme();
+    }
+});
+
 window.onload = function() {
     setTheme();
 
     /* Setting up the mobile menu and the footer */
-    localStorage.setItem('menu', 'closed');
     document.getElementById("theme-switcher").addEventListener("click", switchTheme);
     document.getElementById("mobile-navbar").addEventListener("click", switchMenu);
     document.getElementById("main-page-redirector").addEventListener("click", () => {location.href = "https://fmsh.ru";});
@@ -51,11 +59,8 @@ async function copyPhoneNumber () {
  * some elements. It's usually called from the switchMenu() function.
  */
 function setMenu() {
-    if(localStorage.getItem('menu') === null){
-        localStorage.setItem('menu', 'closed');
-    }
     var menu_items = document.getElementsByClassName("mobile-navbar-link");
-    if(localStorage.getItem('menu') == 'closed'){
+    if(MENU_STATE === 'closed'){
         for (let i = 0; i < menu_items.length; ++i){
             var menu_item = menu_items[i];
             menu_item.classList.add("appearing");
@@ -66,7 +71,6 @@ function setMenu() {
         }
         document.getElementById("menu-button").classList.remove("rotating-back");
         document.getElementById("menu-button").classList.add("rotating");
-        return;
     }
     else {
         for (let i = 0; i < menu_items.length; ++i){
@@ -79,27 +83,20 @@ function setMenu() {
         }
         document.getElementById("menu-button").classList.remove("rotating");
         document.getElementById("menu-button").classList.add("rotating-back");
-        return;
     }
 }
 
 /**
  * switchMenu() changes the current state of the mobile menu.
- * It uses localStorage to store the state.
  */
 function switchMenu() {
-    if(localStorage.getItem('menu') === null){
-        localStorage.setItem('menu', 'closed');
-    }
-    if(localStorage.getItem('menu') === 'closed'){
+    if(MENU_STATE === 'closed'){
         setMenu();
-        localStorage.setItem('menu', 'opened');
-        return;
+        MENU_STATE = 'opened';
     }
     else {
         setMenu();
-        localStorage.setItem('menu', 'closed');
-        return;
+        MENU_STATE = 'closed';
     }
 }
 
@@ -109,9 +106,6 @@ function switchMenu() {
  */
 function setTheme() {
     var root = document.documentElement;
-    if(localStorage.getItem('theme') === null){
-        localStorage.setItem('theme', 'light');
-    }
     var white_color = "#ffffff";
     var dark_color = "#1d2458";
     var light_filter = "invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%)";
@@ -119,7 +113,7 @@ function setTheme() {
     var header = document.getElementById("header");
     var main_block = document.getElementById("main-block");
 
-    if(localStorage.getItem('theme') == 'dark'){
+    if(localStorage.getItem("theme") === 'dark'){
         root.style.setProperty('--dark-blue', white_color);
         root.style.setProperty('--white', dark_color);
         root.style.setProperty('--theme-emoji-bright', dark_filter);
@@ -129,7 +123,6 @@ function setTheme() {
         main_block.style.backgroundColor = "var(--white)";
         main_block.style.color = "var(--dark-blue)";
         main_block.style.backgroundImage = "url( './main_block_bg_dark.svg' )";
-        return;
     }
     else {
         root.style.setProperty('--white', white_color);
@@ -141,7 +134,6 @@ function setTheme() {
         main_block.style.backgroundColor = "var(--blue)";
         main_block.style.color = "var(--white)";
         main_block.style.backgroundImage = "url( './main_block_bg_light.svg' )";
-        return;
     }
 }
 
@@ -150,7 +142,7 @@ function setTheme() {
  * It uses localStorage to store the theme.
  */
 function switchTheme() {
-    if(localStorage.getItem('theme') == 'dark'){
+    if(localStorage.getItem("theme") === 'dark'){
         localStorage.setItem('theme', 'light');
     }
     else {

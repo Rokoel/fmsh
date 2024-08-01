@@ -126,10 +126,10 @@
         
         --header-height: 3rem;
 
-        --proportional-padding: 2em 1em;
+        --proportional-padding: 2em;
         --proportional-small-padding: 0.5em;
-        --proportional-x-small-padding: 0.5em 0.2em;
-        --proportional-xx-small-padding: 0.25em 0.1em;
+        --proportional-x-small-padding: 0.5em;
+        --proportional-xx-small-padding: 0.25em;
         --vertical-proportional-small-padding: 1em 0.5em;
 
         --small-font-size: 75%;
@@ -148,7 +148,7 @@
         flex-direction: row;
         justify-content: center;
         align-content: center;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
     
         height: 100%;
     }
@@ -192,7 +192,7 @@
 
         --proportional-padding: 1em;
         --proportional-small-padding: 0.5em;
-        --proportional-x-small-padding: 0.2em;
+        --proportional-x-small-padding: 0.25em;
         --proportional-xx-small-padding: 0.1em;
         --vertical-proportional-small-padding: 1em 0.5em;
 
@@ -431,7 +431,7 @@
 
         --proportional-padding: 1em;
         --proportional-small-padding: 0.5em;
-        --proportional-x-small-padding: 0.2em;
+        --proportional-x-small-padding: 0.25em;
         --proportional-xx-small-padding: 0.1em;
         --vertical-proportional-small-padding: 1.2em 0.5em;
 
@@ -670,7 +670,7 @@
 
         --proportional-padding: 1em;
         --proportional-small-padding: 0.5em;
-        --proportional-x-small-padding: 0.2em;
+        --proportional-x-small-padding: 0.25em;
         --proportional-xx-small-padding: 0.1em;
         --vertical-proportional-small-padding: 1em 0.5em;
 
@@ -912,7 +912,7 @@
 
         --proportional-padding: 1em;
         --proportional-small-padding: 0.5em;
-        --proportional-x-small-padding: 0.2em;
+        --proportional-x-small-padding: 0.25em;
         --proportional-xx-small-padding: 0.1em;
         --vertical-proportional-small-padding: 1.2em 0.5em;
 
@@ -1399,6 +1399,7 @@ hr {
 }
 .navbar a {
     padding: var(--vertical-proportional-small-padding);
+    white-space: nowrap;
 }
 .dropdown-content {
     display: none;

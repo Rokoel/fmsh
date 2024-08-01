@@ -108,10 +108,10 @@
         
         --header-height: 3rem;
 
-        --proportional-padding: 2em 1em;
+        --proportional-padding: 2em;
         --proportional-small-padding: 0.5em;
-        --proportional-x-small-padding: 0.5em 0.2em;
-        --proportional-xx-small-padding: 0.25em 0.1em;
+        --proportional-x-small-padding: 0.5em;
+        --proportional-xx-small-padding: 0.25em;
         --vertical-proportional-small-padding: 1em 0.5em;
 
         --small-font-size: 75%;
@@ -130,7 +130,7 @@
         flex-direction: row;
         justify-content: center;
         align-content: center;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
     
         height: 100%;
     }
@@ -164,7 +164,7 @@
 
         --proportional-padding: 1em;
         --proportional-small-padding: 0.5em;
-        --proportional-x-small-padding: 0.2em;
+        --proportional-x-small-padding: 0.25em;
         --proportional-xx-small-padding: 0.1em;
         --vertical-proportional-small-padding: 1em 0.5em;
 
@@ -394,7 +394,7 @@
 
         --proportional-padding: 1em;
         --proportional-small-padding: 0.5em;
-        --proportional-x-small-padding: 0.2em;
+        --proportional-x-small-padding: 0.25em;
         --proportional-xx-small-padding: 0.1em;
         --vertical-proportional-small-padding: 1.2em 0.5em;
 
@@ -624,7 +624,7 @@
 
         --proportional-padding: 1em;
         --proportional-small-padding: 0.5em;
-        --proportional-x-small-padding: 0.2em;
+        --proportional-x-small-padding: 0.25em;
         --proportional-xx-small-padding: 0.1em;
         --vertical-proportional-small-padding: 1em 0.5em;
 
@@ -852,7 +852,7 @@
 
         --proportional-padding: 1em;
         --proportional-small-padding: 0.5em;
-        --proportional-x-small-padding: 0.2em;
+        --proportional-x-small-padding: 0.25em;
         --proportional-xx-small-padding: 0.1em;
         --vertical-proportional-small-padding: 1.2em 0.5em;
 
@@ -1349,6 +1349,7 @@ hr {
 }
 .navbar a {
     padding: var(--vertical-proportional-small-padding);
+    white-space: nowrap;
 }
 .dropdown-content {
     display: none;
@@ -1517,6 +1518,57 @@ hr {
 #contacts-page-phone-number {
     white-space: nowrap;
 }
+
+
+
+#timeline-article-body-holder {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+    "timeline timeline-element";
+}
+.timeline-element {
+    grid-area: timeline-element;
+}
+.timeline {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    /* border-left: var(--dark-blue) solid 5px; */
+    grid-area: timeline;
+}
+.timeline-event-holder {
+    padding: var(--proportional-xx-small-padding);
+    padding-left: var(--proportional-padding);
+}
+.event-date {
+    font-size: 80%;
+    color: var(--blue);
+}
+.event-date::after {
+    content: "";
+    height: 20%;
+    width: 0.2em;
+    position: absolute;
+    left: var(--proportional-padding);
+    background-color: var(--dark-blue);
+}
+.event-date::before {
+    content: "";
+    width: 1em;
+    height: 1em;
+    background-color: var(--white);
+    border-radius: 50%;
+    position: absolute;
+    left: var(--proportional-padding);
+    z-index: 1;
+    border: var(--dark-blue) solid 5px;
+    transform: translateY(0.5em) translate(calc(0.1em - 50%));
+}
+.event-name {
+    font-size: 60%;
+}
+
 
 /* FOOTER STYLING */
 #footer, #mobile-footer {

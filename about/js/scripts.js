@@ -1,13 +1,16 @@
-/* These two arrays contain the words that are shown in the background of the main page. */
-const SUBJECTS_ARR = ["Математика", "Физика", "Информатика"];
-// const PRINCIPLES_ARR = ["Любопытство", "Уважение", "Свобода", "Смелость", "Упорство"];
-const PRINCIPLES_ARR = ["любопытство", "уважение", "свобода", "смелость", "упорство", 'дискуссия', 'открытость', 'независимость', 'неравнодушие', 'профессионализм', 'обоснованность', 'понимание', 'благожелательность', 'честность', 'доброта', 'ответственность', 'интерес', 'сомнение', 'осторожность', 'поддержка', 'терпение']
+var MENU_STATE = 'closed';
+
+window.addEventListener("storage", (e) => {
+    console.log(e.key + " was changed in the other tab. It changed from " + e.oldValue + " to " + e.newValue);
+    if (e.key == 'theme') {
+        setTheme();
+    }
+});
 
 window.onload = function() {
     setTheme();
 
     /* Setting up the mobile menu and the footer */
-    localStorage.setItem('menu', 'closed');
     document.getElementById("theme-switcher").addEventListener("click", switchTheme);
     document.getElementById("mobile-navbar").addEventListener("click", switchMenu);
     document.getElementById("main-page-redirector").addEventListener("click", () => {location.href = "https://fmsh.ru";});
@@ -37,11 +40,8 @@ async function copyPhoneNumber () {
  * some elements. It's usually called from the switchMenu() function.
  */
 function setMenu() {
-    if(localStorage.getItem('menu') === null){
-        localStorage.setItem('menu', 'closed');
-    }
     var menu_items = document.getElementsByClassName("mobile-navbar-link");
-    if(localStorage.getItem('menu') === 'closed'){
+    if(MENU_STATE === 'closed'){
         for (let i = 0; i < menu_items.length; ++i){
             var menu_item = menu_items[i];
             menu_item.classList.add("appearing");
@@ -52,7 +52,6 @@ function setMenu() {
         }
         document.getElementById("menu-button").classList.remove("rotating-back");
         document.getElementById("menu-button").classList.add("rotating");
-        return;
     }
     else {
         for (let i = 0; i < menu_items.length; ++i){
@@ -65,7 +64,6 @@ function setMenu() {
         }
         document.getElementById("menu-button").classList.remove("rotating");
         document.getElementById("menu-button").classList.add("rotating-back");
-        return;
     }
 }
 
@@ -74,18 +72,13 @@ function setMenu() {
  * It uses localStorage to store the state.
  */
 function switchMenu() {
-    if(localStorage.getItem('menu') === null){
-        localStorage.setItem('menu', 'closed');
-    }
-    if(localStorage.getItem('menu') === 'closed'){
+    if(MENU_STATE === 'closed'){
         setMenu();
-        localStorage.setItem('menu', 'opened');
-        return;
+        MENU_STATE = 'opened';
     }
     else {
         setMenu();
-        localStorage.setItem('menu', 'closed');
-        return;
+        MENU_STATE = 'closed';
     }
 }
 
@@ -95,9 +88,6 @@ function switchMenu() {
  */
 function setTheme() {
     var root = document.documentElement;
-    if(localStorage.getItem('theme') === null){
-        localStorage.setItem('theme', 'light');
-    }
     var white_color = "#ffffff";
     var dark_color = "#1d2458";
     var light_filter = "invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%)";
@@ -111,7 +101,6 @@ function setTheme() {
         root.style.setProperty('--theme-emoji-dark', light_filter);
         header.style.backgroundColor = "var(--blue)";
         header.style.color = "var(--white)";
-        return;
     }
     else {
         root.style.setProperty('--white', white_color);
@@ -120,7 +109,6 @@ function setTheme() {
         root.style.setProperty('--theme-emoji-dark', dark_filter);
         header.style.backgroundColor = "var(--white)";
         header.style.color = "var(--dark-blue)";
-        return;
     }
 }
 
@@ -129,7 +117,7 @@ function setTheme() {
  * It uses localStorage to store the theme.
  */
 function switchTheme() {
-    if(localStorage.getItem('theme') === 'dark'){
+    if(localStorage.getItem("theme") === 'dark'){
         localStorage.setItem('theme', 'light');
     }
     else {

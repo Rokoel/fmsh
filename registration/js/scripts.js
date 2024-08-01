@@ -31,9 +31,6 @@ window.onload = function() {
  */
 function setTheme() {
     var root = document.documentElement;
-    if(localStorage.getItem('theme') === null){
-        localStorage.setItem('theme', 'light');
-    }
     var white_color = "#ffffff";
     var dark_color = "#1d2458";
     var light_filter = "invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%)";
@@ -51,7 +48,6 @@ function setTheme() {
         root.style.setProperty('--placeholder-text-dark-theme-opacity', placeholder_text_opacity_light);
         main_block.style.backgroundColor = "var(--white)";
         main_block.style.backgroundImage = "url( './main_block_bg_dark.svg' )";
-        return;
     }
     else {
         root.style.setProperty('--white', white_color);
@@ -62,7 +58,6 @@ function setTheme() {
         root.style.setProperty('--placeholder-text-dark-theme-opacity', placeholder_text_opacity_dark);
         main_block.style.backgroundColor = "var(--blue)";
         main_block.style.backgroundImage = "url( './main_block_bg_light.svg' )";
-        return;
     }
 }
 
@@ -71,7 +66,7 @@ function setTheme() {
  * It uses localStorage to store the theme.
  */
 function switchTheme() {
-    if(localStorage.getItem('theme') === 'dark'){
+    if(localStorage.getItem("theme") === 'dark'){
         localStorage.setItem('theme', 'light');
     }
     else {
