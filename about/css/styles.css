@@ -33,6 +33,9 @@
     #mobile-navbar {
         display: none;
     }
+    .mobile-timeline-element {
+        display: none;
+    }
     #administration-and-contacts {
         display: grid;
         grid-template-areas:
@@ -85,6 +88,9 @@
     #mobile-navbar {
         display: none;
     }
+    .mobile-timeline-element {
+        display: none;
+    }
     #administration-and-contacts {
         display: grid;
         grid-template-areas:
@@ -134,6 +140,9 @@
     
         height: 100%;
     }
+    .mobile-timeline-element {
+        display: none;
+    }
     #mobile-navbar {
         display: none;
     }
@@ -171,6 +180,9 @@
         --small-font-size: 75%;
     }
     .navbar {
+        display: none;
+    }
+    .desktop-timeline-element {
         display: none;
     }
     #mobile-navbar {
@@ -403,6 +415,9 @@
     .navbar {
         display: none;
     }
+    .desktop-timeline-element {
+        display: none;
+    }
     #mobile-navbar {
         z-index: 3;
         display: block;
@@ -633,6 +648,9 @@
     .navbar {
         display: none;
     }
+    .desktop-timeline-element {
+        display: none;
+    }
     #mobile-navbar {
         z-index: 3;
         display: block;
@@ -859,6 +877,9 @@
         --small-font-size: 75%;
     }
     .navbar {
+        display: none;
+    }
+    .desktop-timeline-element {
         display: none;
     }
     #mobile-navbar {
@@ -1596,9 +1617,8 @@ hr {
         grid-template-areas:
         "timeline";
     }
-    .timeline-element {
-        grid-area: timeline-element;
-        display: none;
+    .person-bio {
+        text-align: left;
     }
     .event-date::before {
         transform: translateY(0.5em) translate(-2px);
