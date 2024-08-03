@@ -142,10 +142,8 @@ function chooseFeature(optionFeatureNumber, optionPrefix, featurePrefix, menuSiz
         openingLinkTag = "";
         closingLinkTag = "";
     }
-    console.log("menuSize, optionPrefix, featurePrefix, optionFeatureNumber, addEmptyLinkTag:", menuSize, optionPrefix, featurePrefix, optionFeatureNumber, addEmptyLinkTag);
     for (let i = 1; i < menuSize+1; ++i) {
         if (i != optionFeatureNumber) {
-            console.log("The i and optionFeatureNumber are:", i, optionFeatureNumber);
             let currentOption = document.getElementById(optionPrefix + i);
             currentOption.innerHTML = openingLinkTag + currentOption.innerText + closingLinkTag;
 
@@ -156,9 +154,7 @@ function chooseFeature(optionFeatureNumber, optionPrefix, featurePrefix, menuSiz
     
     let chosenOption = document.getElementById(optionPrefix + optionFeatureNumber);
     chosenOption.innerHTML = openingLinkTag + "<b>" + chosenOption.innerText + "</b>" + closingLinkTag;
-    console.log("InnerHTML of chosenOption with id", optionPrefix + optionFeatureNumber, "is:", openingLinkTag + "<b>" + chosenOption.innerText + "</b>" + closingLinkTag);
 
     let chosenFeature = document.getElementById(featurePrefix + optionFeatureNumber);
     chosenFeature.style.display = "";
-    console.log("Style.display of chosenFeature with id", featurePrefix + optionFeatureNumber, "is empty");
 }
