@@ -4,6 +4,7 @@
         --dark-blue: #1d2458;
         --blue: #2C74B3;
         --white: #ffffff;
+        --pastel-red: #CF6679;
         --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
         --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
         --placeholder-text-opacity: 0.3;
@@ -36,6 +37,7 @@
         --dark-blue: #1d2458;
         --blue: #2C74B3;
         --white: #ffffff;
+        --pastel-red: #CF6679;
         --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
         --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
         --placeholder-text-opacity: 0.3;
@@ -68,6 +70,7 @@
         --dark-blue: #1d2458;
         --blue: #2C74B3;
         --white: #ffffff;
+        --pastel-red: #CF6679;
         --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
         --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
         --placeholder-text-opacity: 0.3;
@@ -100,6 +103,7 @@
         --dark-blue: #1d2458;
         --blue: #2C74B3;
         --white: #ffffff;
+        --pastel-red: #CF6679;
         --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
         --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
         --placeholder-text-opacity: 0.3;
@@ -148,6 +152,7 @@
         --dark-blue: #1d2458;
         --blue: #2C74B3;
         --white: #ffffff;
+        --pastel-red: #CF6679;
         --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
         --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
         --placeholder-text-opacity: 0.3;
@@ -196,6 +201,7 @@
         --dark-blue: #1d2458;
         --blue: #2C74B3;
         --white: #ffffff;
+        --pastel-red: #CF6679;
         --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
         --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
         --placeholder-text-opacity: 0.3;
@@ -228,6 +234,7 @@
         --dark-blue: #1d2458;
         --blue: #2C74B3;
         --white: #ffffff;
+        --pastel-red: #CF6679;
         --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
         --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
         --placeholder-text-opacity: 0.3;
@@ -554,7 +561,7 @@ input[type=text], input[type=email] {
 }
 .error-msg {
     font-size: 60%;
-    color: red;
+    color: var(--pastel-red);
 }
 .invalid-input {
     animation: highlight_box_invalid 0.1s ease-out forwards;

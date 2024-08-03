@@ -92,7 +92,6 @@ function setupSelectSync() {
  */
 function showError(element, errorMsg) {
     element.nextElementSibling.textContent = errorMsg;
-    console.log(errorMsg);
 }
 
 /**
@@ -104,6 +103,7 @@ function setupFormValidation() {
     form.addEventListener("submit", (event) => {
         var surnameField = document.getElementById("surname");
         var firstnameField = document.getElementById("firstname");
+        var lastnameField = document.getElementById("lastname");
         var emailsField = document.getElementById("email");
         var birthdayField = document.getElementById("birthday");
         var gradeField = document.getElementById("grade");
@@ -113,6 +113,7 @@ function setupFormValidation() {
 
         var surnameValidity = validateSurname(surnameField.value);
         var firstnameValidity = validateFirstname(firstnameField.value);
+        var lastnameValidity = validateLastname(lastnameField.value);
         var emailsValidity = validateEmails(emailsField.value);
         var birthdayValidity = validateDate(birthdayField.value);
         var gradeValidity = validateGrade(gradeField.value);
@@ -128,6 +129,11 @@ function setupFormValidation() {
         firstnameField.nextElementSibling.textContent = "";
         if (firstnameValidity[0] == false) {
             showError(firstnameField, firstnameValidity[1]);
+            event.preventDefault();
+        }
+        lastnameField.nextElementSibling.textContent = "";
+        if (lastnameValidity[0] == false) {
+            showError(lastnameField, lastnameValidity[1]);
             event.preventDefault();
         }
         emailsField.nextElementSibling.textContent = "";
@@ -205,6 +211,18 @@ function validateSurname(surname) {
 function validateFirstname(firstname) {
     if (firstname.trim() === "") {
         return [false, "Имя не должно быть пустым"];
+    }
+    return [true, ""];
+}
+
+/**
+ * validateLastname() checks if lastname is a valid string.
+ * @param {string} lastname A string to be checked
+ * @returns True if the string is not empty and false otherwise. The returned value is a list containing of the boolean and an error message if false is returned and an empty string otherwise.
+ */
+function validateLastname(lastname) {
+    if (lastname.trim() === "") {
+        return [false, "Отчество не должно быть пустым"];
     }
     return [true, ""];
 }
