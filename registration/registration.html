@@ -37,30 +37,36 @@
             <div class="text-input-holder" id="surname-holder">
               <label class="form-label" for="surname"><b>Фамилия</b></label>
               <input id="surname" placeholder="Степанов" class="register-form-input highlight-left" type="text" name="surname">
+              <span class="error-msg"></span>
             </div>
             <div class="text-input-holder" id="firstname-holder">
               <label class="form-label" for="firstname"><b>Имя</b></label>
               <input id="firstname" placeholder="Иван" class="register-form-input highlight-left" type="text" name="firstname">
+              <span class="error-msg"></span>
             </div>
             <div class="text-input-holder" id="lastname-holder">
               <label class="form-label" for="lastname"><b>Отчество</b></label>
               <input id="lastname" placeholder="Алексеевич" class="register-form-input highlight-left" type="text" name="lastname">
             </div>
             <div class="text-input-holder" id="email-holder">
-              <label class="form-label" for="email"><b>Адрес электронной почты или несколько</b></label>
+              <label class="form-label" for="email"><b>Адрес электронной почты или несколько адресов</b></label>
               <input id="email" class="register-form-input highlight-left temp" type="text" name="emails" placeholder="example@email.com, additional@email.com" autocomplete="email">
+              <span class="error-msg"></span>
             </div>
             <div class="text-input-holder" id="birthday-holder">
               <label class="form-label" for="birthday"><b>Дата рождения</b></label>
               <input id="birthday" type="text" name="birthday" placeholder="ДД.ММ.ГГГГ" maxlength="10" class='register-form-input highlight-left'>
+              <span class="error-msg"></span>
             </div>
             <div class="text-input-holder" id="grade-holder">
               <label class="form-label" for="grade"><b>Класс обучения</b></label>
               <input id="grade" class="register-form-input highlight-left" type="text" name="grade" placeholder="4 – 11" maxlength="2" min="4" max="11">
+              <span class="error-msg"></span>
             </div>
             <div class="text-input-holder" id="school-holder">
               <label class="form-label" for="school"><b>Учебное заведение</b></label>
               <input id="school" class="register-form-input highlight-left" type="text" name="school" placeholder="Название школы или номер">
+              <span class="error-msg"></span>
             </div>
             <div class="text-input-holder" id="region-holder">
               <label class="form-label" for="region"><b>Регион проживания</b></label>
@@ -74,11 +80,13 @@
             <div class="text-input-holder" id="town-holder">
               <label id="town-label" class="form-label" for="town"><b>Ближайшие станции метро</b></label>
               <input id="town" class="register-form-input highlight-left" type="text" name="town" placeholder="м. Китай-город, м. Таганская">
+              <span class="error-msg"></span>
             </div>
             <div class="flex-row-center" id="capcha-holder">
               <div class="text-input-holder">
                 <label id="capcha-label" class="form-label" for="capcha-input"><b>Введите текст с картинки</b></label>
                 <input id="capcha-input" class="register-form-input highlight-left" type="text" name="capcha-input">
+                <span class="error-msg"></span>
               </div>
               <div class="flex-column-center">
                 <div></div>

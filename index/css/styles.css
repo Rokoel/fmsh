@@ -1255,6 +1255,7 @@ html, body {
     cursor: default;
     -webkit-tap-highlight-color: transparent;
 }
+
 /* Styling scrollbars on the page */
 * {
     scrollbar-width: auto;
@@ -1284,6 +1285,7 @@ html, body {
     border-radius: 20px;
     border: 3px solid var(--white);
 }
+
 /* These two classes are used for alligning elements with the help of 'flex' */
 .vertical-align-center {
     display: flex;
@@ -1295,6 +1297,7 @@ html, body {
     flex-direction: row;
     justify-content: center;
 }
+
 /* Following three classes are used for creating different paddings */
 .small-padding {
     padding: var(--proportional-small-padding);
@@ -1305,6 +1308,7 @@ html, body {
 .xx-small-padding {
     padding: var(--proportional-xx-small-padding);
 }
+
 /* These two classes are for emojis and logos styling */
 .emoji {
     filter: var(--theme-emoji-bright);
@@ -1314,10 +1318,12 @@ html, body {
     margin-left: 0.5em;
     margin-right: 0.5em;
 }
+
 /* This class is used for making cursor a pointer when hovered */
 .cursor-pointer:hover {
     cursor: pointer;
 }
+
 /* The rest of styling rules in the general styling covers element styling */
 a {
     display: inline-block;
@@ -1378,11 +1384,13 @@ hr {
     font-size: 85%;
     color: lightblue;
 }
+
 /* This class is used for dynamically created background floating words on the main page */
 .floating-word {
     position: absolute;
     z-index: 1;
 }
+
 /* The following several classes and styling rules are used in navigation bar styling */
 .dropbtn {
     border: none;
@@ -1427,6 +1435,7 @@ hr {
     -o-animation: link_chosen 0.5s ease-out forwards;
     -webkit-animation: link_chosen 0.5s ease-out forwards;
 }
+
 /* These two styling rules are used for styling the register link */
 #register:hover, #register:hover > a {
     background-color: var(--dark-blue);
@@ -1435,6 +1444,7 @@ hr {
 #register {
     padding: var(--vertical-proportional-small-padding);
 }
+
 /* These classes are used for styling the main content of the page */
 #main-block {
     width: 100%;

@@ -352,29 +352,29 @@
 @keyframes highlight_box {
     0% {}
     100% {
-        -webkit-box-shadow: -3px 0 0 0 #2C74B3;
-        box-shadow: -3px 0 0 0 #2C74B3;
+        -webkit-box-shadow: -3px 0 0 0 var(--blue);
+        box-shadow: -3px 0 0 0 var(--blue);
     }
 }
 @-o-keyframes highlight_box {
     0% {}
     100% {
-        -webkit-box-shadow: -3px 0 0 0 #2C74B3;
-        box-shadow: -3px 0 0 0 #2C74B3;
+        -webkit-box-shadow: -3px 0 0 0 var(--blue);
+        box-shadow: -3px 0 0 0 var(--blue);
     }
 }
 @-moz-keyframes highlight_box {
     0% {}
     100% {
-        -webkit-box-shadow: -3px 0 0 0 #2C74B3;
-        box-shadow: -3px 0 0 0 #2C74B3;
+        -webkit-box-shadow: -3px 0 0 0 var(--blue);
+        box-shadow: -3px 0 0 0 var(--blue);
     }
 }
 @-webkit-keyframes highlight_box {
     0% {}
     100% {
-        -webkit-box-shadow: -3px 0 0 0 #2C74B3;
-        box-shadow: -3px 0 0 0 #2C74B3;
+        -webkit-box-shadow: -3px 0 0 0 var(--blue);
+        box-shadow: -3px 0 0 0 var(--blue);
     }
 }
 .floating {
@@ -418,6 +418,7 @@ html, body {
     cursor: default;
     -webkit-tap-highlight-color: transparent;
 }
+
 /* Styling scrollbars on the page */
 * {
     scrollbar-width: auto;
@@ -447,6 +448,7 @@ html, body {
     border-radius: 20px;
     border: 3px solid var(--white);
 }
+
 /* These two classes are used for alligning elements with the help of 'flex' */
 .vertical-align-center {
     display: flex;
@@ -458,6 +460,7 @@ html, body {
     flex-direction: row;
     justify-content: center;
 }
+
 /* Following three classes are used for creating different paddings */
 .small-padding {
     padding: var(--proportional-small-padding);
@@ -468,6 +471,7 @@ html, body {
 .xx-small-padding {
     padding: var(--proportional-xx-small-padding);
 }
+
 /* These two classes are for emojis and logos styling */
 .emoji {
     filter: var(--theme-emoji-bright);
@@ -477,10 +481,12 @@ html, body {
     margin-left: 0.5em;
     margin-right: 0.5em;
 }
+
 /* This class is used for making cursor a pointer when hovered */
 .cursor-pointer:hover {
     cursor: pointer;
 }
+
 /* The rest of styling rules in the general styling covers element styling */
 a {
     display: inline-block;
@@ -516,6 +522,45 @@ hr {
 input[type=text], input[type=email] {
     color: var(--dark-blue);
     padding: var(--proportional-xx-small-padding);
+}
+
+@keyframes highlight_box_invalid {
+    0% {}
+    100% {
+        -webkit-box-shadow: -3px 0 0 0 red;
+        box-shadow: -3px 0 0 0 red;
+    }
+}
+@-o-keyframes highlight_box_invalid {
+    0% {}
+    100% {
+        -webkit-box-shadow: -3px 0 0 0 red;
+        box-shadow: -3px 0 0 0 red;
+    }
+}
+@-moz-keyframes highlight_box_invalid {
+    0% {}
+    100% {
+        -webkit-box-shadow: -3px 0 0 0 red;
+        box-shadow: -3px 0 0 0 red;
+    }
+}
+@-webkit-keyframes highlight_box_invalid {
+    0% {}
+    100% {
+        -webkit-box-shadow: -3px 0 0 0 red;
+        box-shadow: -3px 0 0 0 red;
+    }
+}
+.error-msg {
+    font-size: 60%;
+    color: red;
+}
+.invalid-input {
+    animation: highlight_box_invalid 0.1s ease-out forwards;
+    -moz-animation: highlight_box_invalid 0.1s ease-out forwards;
+    -o-animation: highlight_box_invalid 0.1s ease-out forwards;
+    -webkit-animation: highlight_box_invalid 0.1s ease-out forwards;
 }
 input::placeholder {
     color: var(--blue);
@@ -627,7 +672,6 @@ input::placeholder {
 #submit-form-holder {
     grid-area: submit-form;
 }
-
 .register-form-input {
     font-size: 75%;
     height: 100%;

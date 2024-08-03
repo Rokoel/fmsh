@@ -154,7 +154,7 @@ function switchTheme() {
 /**
  * removeElementsByClass(className) removes all the elements that have className
  * as one of their css classes.
- * @param  {string} className a string representing the class of the elements to be removed.
+ * @param  {string} className A string representing the class of the elements to be removed.
  */
 function removeElementsByClass(className){
     const elements = document.getElementsByClassName(className);

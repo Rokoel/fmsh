@@ -1,28 +1,9 @@
 window.onload = function() {
     setTheme();
     
-    document.getElementById('region').addEventListener('change', function() {
-        townLabel = document.getElementById('town-label');
-        townInput = document.getElementById('town');
-        if(this.value.includes("Россия, Москва")) {
-            townLabel.innerHTML = "<b>Ближайшие станции метро</b>";
-            town.placeholder = "м. Китай-город, м. Таганская";
-        } else if(this.value.includes("Россия, Московская область")) {
-            townLabel.innerHTML = "<b>Населенный пункт</b>";
-            town.placeholder = "г. Серпухов";
-        } else if(this.value.includes("Россия, другой регион")) {
-            townLabel.innerHTML = "<b>Регион и населенный пункт</b>";
-            town.placeholder = "Челябинская обл., г. Магнитогорск";
-        } else if(this.value.includes("Другое государство")) {
-            townLabel.innerHTML = "<b>Страна, регион и населенный пункт</b>";
-            town.placeholder = "Казахстан, Акмолинская обл., г. Астана";
-        } else { /* If the text of the region options was edited, we have to fall back to something */
-            townLabel.innerHTML = "<b>Страна, регион и населенный пункт</b> ";
-            town.placeholder = "Казахстан, Акмолинская обл., г. Астана";
-            /* Yes, we can combine the last two cases, but we'll separate them for code redability
-               and ease of edit in the future */
-        }
-    });
+    setupSelectSync();
+
+    setupFormValidation();
 };
 
 /**
@@ -75,23 +56,244 @@ function switchTheme() {
     setTheme();
 }
 
+/**
+ * setupSelectSync() add an event listener to a <select> element so that when the chosen option
+ * changes, another field's text changes accordingly.
+ */
+function setupSelectSync() {
+    document.getElementById('region').addEventListener('change', function() {
+        townLabel = document.getElementById('town-label');
+        townInput = document.getElementById('town');
+        if(this.value.includes("Россия, Москва")) {
+            townLabel.innerHTML = "<b>Ближайшие станции метро</b>";
+            town.placeholder = "м. Китай-город, м. Таганская";
+        } else if(this.value.includes("Россия, Московская область")) {
+            townLabel.innerHTML = "<b>Населенный пункт</b>";
+            town.placeholder = "г. Серпухов";
+        } else if(this.value.includes("Россия, другой регион")) {
+            townLabel.innerHTML = "<b>Регион и населенный пункт</b>";
+            town.placeholder = "Челябинская обл., г. Магнитогорск";
+        } else if(this.value.includes("Другое государство")) {
+            townLabel.innerHTML = "<b>Страна, регион и населенный пункт</b>";
+            town.placeholder = "Казахстан, Акмолинская обл., г. Астана";
+        } else { /* If the text of the region options was edited, we have to fall back to something */
+            townLabel.innerHTML = "<b>Страна, регион и населенный пункт</b> ";
+            town.placeholder = "Казахстан, Акмолинская обл., г. Астана";
+            /* Yes, we can combine the last two cases, but we'll separate them for code redability
+               and ease of edit in the future */
+        }
+    });
+}
+
+/**
+ * This function makes an error message appear near the violating element.
+ * @param {HTMLElement} element An element near which to show the error message
+ * @param {string} errorMsg An error message to be displayed
+ */
+function showError(element, errorMsg) {
+    element.nextElementSibling.textContent = errorMsg;
+    console.log(errorMsg);
+}
+
+/**
+ * setupFormValidation() validates the form, preventing the form submition until its valid,
+ * showing errors in the form.
+ */
+function setupFormValidation() {
+    const form = document.querySelector("form");
+    form.addEventListener("submit", (event) => {
+        var surnameField = document.getElementById("surname");
+        var firstnameField = document.getElementById("firstname");
+        var emailsField = document.getElementById("email");
+        var birthdayField = document.getElementById("birthday");
+        var gradeField = document.getElementById("grade");
+        var schoolField = document.getElementById("school");
+        var placeField = document.getElementById("town");
+        var capchaField = document.getElementById("capcha-input");
+
+        var surnameValidity = validateSurname(surnameField.value);
+        var firstnameValidity = validateFirstname(firstnameField.value);
+        var emailsValidity = validateEmails(emailsField.value);
+        var birthdayValidity = validateDate(birthdayField.value);
+        var gradeValidity = validateGrade(gradeField.value);
+        var schoolValidity = validateSchool(schoolField.value);
+        var placeValidity = validatePlace(placeField.value);
+        var capchaValidity = validateCapcha(capchaField.value);
+
+        surnameField.nextElementSibling.textContent = "";
+        if (surnameValidity[0] == false) {
+            showError(surnameField, surnameValidity[1]);
+            event.preventDefault();
+        }
+        firstnameField.nextElementSibling.textContent = "";
+        if (firstnameValidity[0] == false) {
+            showError(firstnameField, firstnameValidity[1]);
+            event.preventDefault();
+        }
+        emailsField.nextElementSibling.textContent = "";
+        if (emailsValidity[0] == false) {
+            showError(emailsField, emailsValidity[1]);
+            event.preventDefault();
+        }
+        birthdayField.nextElementSibling.textContent = "";
+        if (birthdayValidity[0] == false) {
+            showError(birthdayField, birthdayValidity[1]);
+            event.preventDefault();
+        }
+        gradeField.nextElementSibling.textContent = "";
+        if (gradeValidity[0] == false) {
+            showError(gradeField, gradeValidity[1]);
+            event.preventDefault();
+        }
+        schoolField.nextElementSibling.textContent = "";
+        if (schoolValidity[0] == false) {
+            showError(schoolField, schoolValidity[1]);
+            event.preventDefault();
+        }
+        placeField.nextElementSibling.textContent = "";
+        if (placeValidity[0] == false) {
+            showError(placeField, placeValidity[1]);
+            event.preventDefault();
+        }
+        capchaField.nextElementSibling.textContent = "";
+        if (capchaValidity[0] == false) {
+            showError(capchaField, capchaValidity[1]);
+            event.preventDefault();
+        }
+    });
+}
+
+/**
+ * isNonNegativeInteger() checks the str for being a non-negative integer.
+ * @param {string} str A string to be checked
+ * @returns True, if string is a non-negative integer, and false otherwise
+ */
+function isNonNegativeInteger(str) {
+    var n = Math.floor(Number(str));
+    return n !== Infinity && String(n) === str && n >= 0;
+}
+
+/**
+ * validateCapcha() checks if capcha is a valid string.
+ * @param {string} capcha A string to be checked
+ * @returns True if the string is not empty and false otherwise. The returned value is a list containing of the boolean and an error message if false is returned and an empty string otherwise.
+ */
+function validateCapcha(capcha) {
+    if (capcha.trim() === "") {
+        return [false, "Пожалуйста, введите текст с картинки"];
+    }
+    return [true, ""];
+}
+
+/**
+ * validateSurname() checks if surname is a valid string.
+ * @param {string} surname A string to be checked
+ * @returns True if the string is not empty and false otherwise. The returned value is a list containing of the boolean and an error message if false is returned and an empty string otherwise.
+ */
+function validateSurname(surname) {
+    if (surname.trim() === "") {
+        return [false, "Фамилия не должна быть пустой"];
+    }
+    return [true, ""];
+}
+
+/**
+ * validateFirstname() checks if firstname is a valid string.
+ * @param {string} firstname A string to be checked
+ * @returns True if the string is not empty and false otherwise. The returned value is a list containing of the boolean and an error message if false is returned and an empty string otherwise.
+ */
+function validateFirstname(firstname) {
+    if (firstname.trim() === "") {
+        return [false, "Имя не должно быть пустым"];
+    }
+    return [true, ""];
+}
+
+/**
+ * validateEmails() checks if one (or multiple) emails separated with ", " are valid using regular expressions.
+ * @param {string} emails A string to be checked
+ * @returns True if emails are, well, emails and not something else (and false otherwise). The returned value is a list containing of the boolean and an error message if false is returned and an empty string otherwise.
+ */
+function validateEmails(emails) {
+    var emailList = emails.replace(" ", "").split(",");
+    var emailValidationSum = 0;
+    var re;
+    re = new RegExp ("^[.a-zA-Z0-9_-]{1,50}@[a-zA-Z0-9_-]{2,30}\\.[a-z]{2,4}$");
+    for (let i = 0; i < emailList.length; ++i) {
+        email = emailList[i];
+        emailValidationSum += (email.match(re) == email);
+    }
+    if (emailValidationSum == emailList.length) {
+        return [true, ""];
+    }
+    return [false, "Неправильный формат ввода электронных адресов"];
+}
+
+/**
+ * validateGrade() checks if grade is an integer between 4 and 11, validating it.
+ * @param {string} grade A string to be checked
+ * @returns True if 4 <= grade <= 11, grade being an integer, and false otherwise. The returned value is a list containing of the boolean and an error message if false is returned and an empty string otherwise.
+ */
+function validateGrade(grade) {
+    if (isNonNegativeInteger(grade)) {
+        if (grade >= 4 && grade <= 11) {
+            return [true, ""];
+        }
+        else {
+            return [false, "Класс меньше 4 или больше 11"];
+        }
+    }
+    else {
+        return [false, "Введенное значение не является числом"];
+    }
+}
+
+/**
+ * validateDate() checks if a string is a valid date.
+ * @param {string} date A string to be checked
+ * @returns True if the string is a valid date separated by fullstops and false otherwise. The returned value is a list containing of the boolean and an error message if false is returned and an empty string otherwise.
+ */
 function validateDate(date) { // could've named the function "valiDate" :)
     if (date.length == "dd.mm.yyyy".length) {
         if (date.indexOf('.') > -1) {
             let dateArray = date.split(".");
             if (dateArray.length != 3) {
-                return "Неправильный формат даты";
+                return [false, "Неправильный формат даты"];
             }
             let newDate = `${dateArray[2]}/${dateArray[1]}/${dateArray[0]}`;
     
             let dateObj = new Date(newDate); // trying to convert the date (JS does the validation for us)
     
             if (!isNaN(dateObj)) { // if the date is actually a date
-                return "Дата введена верно";
+                return [true, ""];
             }
-            return "Такой даты не существует";
+            return [false, "Такой даты не существует"];
         }
-        return "Неправильный формат даты";
+        return [false, "Неправильный формат даты"];
     }
-    return "Дата имеет недостаточную длину";
+    return [false, "Дата имеет недостаточную длину"];
+}
+
+/**
+ * validateSchool() checks if school is a valid string.
+ * @param {string} school A string to be checked
+ * @returns True if the string is not empty and false otherwise. The returned value is a list containing of the boolean and an error message if false is returned and an empty string otherwise.
+ */
+function validateSchool(school) {
+    if (school.trim() === "") {
+        return [false, "Название школы не заполнено"];
+    }
+    return [true, ""];
+}
+
+/**
+ * validateSchool() checks if place is a valid string.
+ * @param {string} place A string to be checked
+ * @returns True if the string is not empty and false otherwise. The returned value is a list containing of the boolean and an error message if false is returned and an empty string otherwise.
+ */
+function validatePlace(place) {
+    if (place.trim() === "") {
+        return [false, "Информация о месте проживания не заполнена"];
+    }
+    return [true, ""];
 }

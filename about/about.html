@@ -97,16 +97,6 @@
       <a href="timetable.php">Учащимся</a>
     </div>
   </div>
-
-
-  <!-- 
-  TODO:
-    - Add History section (make a timeline of events with chatGPT, add images stored on the Desktop)
-    - Correct a mistake made in the idroo gif (x is only equal to -1, not -1 and 1)
-    - Send a version of the website for a review
-    - Rewrite the text of About FMSH - should be done after a consult
-    - Make the static image of idroo a non-static gif - should be done after a consult
-  -->
     
   <div id="content">
     <div id="article-1" class="article">
@@ -129,32 +119,32 @@
       <div class="article-body-holder" id="fmsh-features-article">
         <div class="in-text-block-holder" id="features-menu-holder">
           <div class="in-text-block" id="features-menu">
-            <div class="change-article" id="features-menu-option-1" onclick="chooseFeature(1)">
+            <div class="change-article" id="features-menu-option-1" onclick="chooseFeature(1, 'features-menu-option-', 'feature-', 6)">
               <a>
                 <b>Заинтересованные студенты</b>
               </a>
             </div>
-            <div class="change-article" id="features-menu-option-2" onclick="chooseFeature(2)">
+            <div class="change-article" id="features-menu-option-2" onclick="chooseFeature(2, 'features-menu-option-', 'feature-', 6)">
               <a>
                 Гибкая программа обучения
               </a>
             </div>
-            <div class="change-article" id="features-menu-option-3" onclick="chooseFeature(3)">
+            <div class="change-article" id="features-menu-option-3" onclick="chooseFeature(3, 'features-menu-option-', 'feature-', 6)">
               <a>
                 Расширение кругозора учащихся
               </a>
             </div>
-            <div class="change-article" id="features-menu-option-4" onclick="chooseFeature(4)">
+            <div class="change-article" id="features-menu-option-4" onclick="chooseFeature(4, 'features-menu-option-', 'feature-', 6)">
               <a>
                 Главное – понимание
               </a>
             </div>
-            <div class="change-article" id="features-menu-option-5" onclick="chooseFeature(5)">
+            <div class="change-article" id="features-menu-option-5" onclick="chooseFeature(5, 'features-menu-option-', 'feature-', 6)">
               <a>
                 Наука «в действии»
               </a>
             </div>
-            <div class="change-article" id="features-menu-option-6" onclick="chooseFeature(6)">
+            <div class="change-article" id="features-menu-option-6" onclick="chooseFeature(6, 'features-menu-option-', 'feature-', 6)">
               <a>
                 Первый опыт преподавания
               </a>
@@ -200,42 +190,127 @@
         <div class="timeline">
           <div class="timeline-event-holder">
             <div class="event-date">1966</div>
-            <div class="event-name">Основание ФМШ МИЭМ Тарасовым Л. В.</div>
+            <div class="event-name" id="timeline-event-1" onclick="chooseFeature(1, 'timeline-event-', 'timeline-element-', 7, false)"><b>Основание ФМШ МИЭМ Тарасовым Л. В.</b></div>
           </div>
           <div class="timeline-event-holder">
             <div class="event-date">1970-1978</div>
-            <div class="event-name">Директором ФМШ МИЭМ является Родионов А.М.</div>
+            <div class="event-name" id="timeline-event-2" onclick="chooseFeature(2, 'timeline-event-', 'timeline-element-', 7, false)">Директором ФМШ МИЭМ является Родионов А.М.</div>
           </div>
           <div class="timeline-event-holder">
             <div class="event-date">1978-1982</div>
-            <div class="event-name">Директором ФМШ МИЭМ является Волков Н.В.</div>
+            <div class="event-name" id="timeline-event-3" onclick="chooseFeature(3, 'timeline-event-', 'timeline-element-', 7, false)">Директором ФМШ МИЭМ является Волков Н.В.</div>
           </div>
           <div class="timeline-event-holder">
             <div class="event-date">1982-2012</div>
-            <div class="event-name">Директором ФМШ МИЭМ является Боголюбов Д.П.</div>
+            <div class="event-name" id="timeline-event-4" onclick="chooseFeature(4, 'timeline-event-', 'timeline-element-', 7, false)">Директором ФМШ МИЭМ является Боголюбов Д.П.</div>
           </div>
           <div class="timeline-event-holder">
             <div class="event-date">2012</div>
-            <div class="event-name">Чернацкий С. Г. становится директором ФМШ МИЭМ</div>
+            <div class="event-name" id="timeline-event-5" onclick="chooseFeature(5, 'timeline-event-', 'timeline-element-', 7, false)">Чернацкий С. Г. становится директором ФМШ МИЭМ</div>
           </div>
           <div class="timeline-event-holder">
             <div class="event-date">2022</div>
-            <div class="event-name">ФМШ выходит из ведомства МИЭМ ВШЭ</div>
+            <div class="event-name" id="timeline-event-6" onclick="chooseFeature(6, 'timeline-event-', 'timeline-element-', 7, false)">ФМШ выходит из ведомства МИЭМ ВШЭ</div>
           </div>
           <div class="timeline-event-holder">
             <div class="event-date">2023</div>
-            <div class="event-name">Введение системы "непрерывного набора"</div>
+            <div class="event-name" id="timeline-event-7" onclick="chooseFeature(7, 'timeline-event-', 'timeline-element-', 7, false)">Введение системы "непрерывного набора"</div>
           </div>
         </div>
-        <div class="in-text-block-holder timeline-element">
+        <div class="timeline-element" id="timeline-element-1">
           <div class="person-holder">
-            <img src="./tarasov-lev-vasilyevich.jpg" class="person-avatar">
+            <img src="./tarasov-lev-vasilyevich.jpg" class="person-avatar" style="width: 20vw; max-width: 300px;">
             <div class="person-bio">
-              <a href="#">Тарасов Лев Васильевич</a>
+              <b>Тарасов Лев Васильевич</b>
               <br>
-              к.ф.-м.н.,
-              зам. директора ФМШ МИЭМ
-              с 2002 по 2024 год
+              К.ф.-м.н., профессор. Известный специалист по образовательным технологиям, популяризатор науки.
+              <br>
+              <br>
+              Автор более 100 книг: пяти научных монографий по прикладной физике, трёх учебных пособий для высшей школы и более трёх десятков учебно-популярных книг для школьников, педагогов и студентов.
+              <br>
+              <br>
+              В 1994 награжден знаком «Отличник народного просвещения» за разработку новой образовательной технологии «Экология и диалектика» и научное руководство педагогическим экспериментом по практическому внедрению технологии.
+            </div>
+          </div>
+        </div>
+        <div class="timeline-element" id="timeline-element-2" style="display: none;">
+          <div class="person-holder">
+            <img src="./rodionov-alexander-mikhailovich-2.jpg" class="person-avatar" style="width: 35vw; max-width: 600px;">
+            <!-- <img src="./rodionov-alexander-mikhailovich.jpg" class="person-avatar" style="width: 20vw; max-width: 300px;"> -->
+            <div class="person-bio">
+              <b>Родионов Александр Михайлович</b>
+              <br>
+              Д.т.н., к началу 1980-х годов Родионов А.М. защитил докторскую диссертацию и стал профессором, внеся значительный вклад в научную деятельность кафедры Кибернетики МИЭМ.
+              <br>
+              <br>
+              Математик, специалист в области вычислительной математики, теории систем и теории управления, автор многих научных статей в этих разделах математики.
+            </div>
+          </div>
+        </div>
+        <div class="timeline-element" id="timeline-element-3" style="display: none;">
+          <div class="person-holder">
+            <img src="./volkov-nikolay-vasilyevich.jpg" class="person-avatar" style="width: 20vw; max-width: 300px;">
+            <div class="person-bio">
+              <b>Волков Николай Васильевич</b>
+              <br>
+              Д.т.н., окончил МИЭМ по специальности "прикладная математика", профессор. Автор более 30 научных трудов. 
+              <br>
+              <br>
+              Был проректором по учебной и методической работе МГТУ "СТАНКИН".
+            </div>
+          </div>
+        </div>
+        <div class="timeline-element" id="timeline-element-4" style="display: none;">
+          <div class="person-holder">
+            <img src="./bogolyubov-dmitry-petrovich.jpg" class="person-avatar" style="width: 20vw; max-width: 300px;">
+            <div class="person-bio">
+              <b>Боголюбов Дмитрий Петрович</b>
+              <br>
+              К.т.н.,
+              научный руководитель ФМШ МИЭМ с 2012 по 2024 год. С 1980 по настоящее время преподает в различных учебных заведениях, включая МИЭМ, МГУ, РГГУ, МГАПИ, МИРЭА.
+              <br>
+              <br>
+              Соавтор учебника по информатике, соучредитель и главный редактор международного журнала "Компьютеры в образовании".
+            </div>
+          </div>
+        </div>
+        <div class="timeline-element" id="timeline-element-5" style="display: none;">
+          <div class="person-holder">
+            <img src="./chernatskiy-sergey-genrikhovich.jpg" class="person-avatar" style="width: 20vw; max-width: 300px;">
+            <div class="person-bio">
+              <b>Чернацкий Сергей Генрихович</b>
+              <br>
+              Директор ФМШ МИЭМ с 2012 по настоящее время. Получил высшее образование в МГУ им. М.В. Ломоносова (факультет психологии) и МИЭМ (прикладная математика)
+              <br>
+              <br>
+              Является генеральным директором ООО "Е-ПОС", имеет опыт работы в научно-исследовательской сфере (РИНКЦЭ), с 1990 года работает в сфере образования.
+            </div>
+          </div>
+        </div>
+        <div class="timeline-element" id="timeline-element-6" style="display: none;">
+          <div class="person-holder">
+            <img src="./building-near-fmsh.jpeg" class="person-avatar" style="width: 35vw; max-width: 600px;">
+            <div class="person-bio">
+              <b>Вид из окна МИЭМ</b>
+              <br>
+              <br>
+              Физико-математическая школа FMSH.RU продолжает работу как самостоятельный проект.
+              <br>
+              <br>
+              Нас поддерживают преподаватели и учащимиея, до этого момента, соответственно, работавшие и учившиеся в Вечерней физико-математической школе Московского института электроники и математики (ФМШ МИЭМ).
+            </div>
+          </div>
+        </div>
+        <div class="timeline-element" id="timeline-element-7" style="display: none;">
+          <div class="person-holder">
+            <img src="./half-a-century-fmsh.jpg" class="person-avatar" style="width: 35vw; max-width: 600px;">
+            <div class="person-bio">
+              <b>Непрерывный набор идёт непрерывно</b>
+              <br>
+              Теперь поступать к нам можно на протяжении всего семестра. Больше никаких дедлайнов, фиксированных сроков и прочих мешающих спокойной работе ограничений!
+              <br>
+              <br>
+              Если хочется у нас учиться, то самостоятельно выбирайте время и не торопясь начинайте работать.
             </div>
           </div>
         </div>

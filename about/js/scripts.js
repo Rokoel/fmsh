@@ -1,7 +1,6 @@
 var MENU_STATE = 'closed';
 
 window.addEventListener("storage", (e) => {
-    console.log(e.key + " was changed in the other tab. It changed from " + e.oldValue + " to " + e.newValue);
     if (e.key == 'theme') {
         setTheme();
     }
@@ -112,7 +111,7 @@ function setTheme() {
     }
 }
 
-/**
+/*
  * switchTheme() changes the current theme of the website.
  * It uses localStorage to store the theme.
  */
@@ -126,23 +125,40 @@ function switchTheme() {
     setTheme();
 }
 
-function chooseFeature(featureNumber) {
-    let optionsMenu = document.getElementById("features-menu");
-    let optionsList = optionsMenu.children;
+/**
+ * chooseFeature() is a function that's usually called upon a click.
+ * It shows the respective block of information, highlighting the pressed
+ * option and hiding the rest of blocks.
+ * @param {int} optionFeatureNumber Clicked option number (starting from 1)
+ * @param {string} optionPrefix This menu's option prefix
+ * @param {string} featurePrefix This block's feature prefix
+ * @param {int} menuSize Size of the menu
+ * @param {boolean} addEmptyLinkTag Flag, indicating whether the clicked button should also be surrounded by an a tag
+ */
+function chooseFeature(optionFeatureNumber, optionPrefix, featurePrefix, menuSize, addEmptyLinkTag=true) {
+    var openingLinkTag = "<a>";
+    var closingLinkTag = "</a>";
+    if (addEmptyLinkTag === false) {
+        openingLinkTag = "";
+        closingLinkTag = "";
+    }
+    console.log("menuSize, optionPrefix, featurePrefix, optionFeatureNumber, addEmptyLinkTag:", menuSize, optionPrefix, featurePrefix, optionFeatureNumber, addEmptyLinkTag);
+    for (let i = 1; i < menuSize+1; ++i) {
+        if (i != optionFeatureNumber) {
+            console.log("The i and optionFeatureNumber are:", i, optionFeatureNumber);
+            let currentOption = document.getElementById(optionPrefix + i);
+            currentOption.innerHTML = openingLinkTag + currentOption.innerText + closingLinkTag;
 
-    for (let i = 1; i < optionsList.length+1; ++i) {
-        if (i != featureNumber) {
-            let currentOption = optionsList[i-1];
-            currentOption.innerHTML = "<a>" + currentOption.innerText + "</a>";
-
-            let currentFeature = document.getElementById("feature-" + i);
+            let currentFeature = document.getElementById(featurePrefix + i);
             currentFeature.style.display = "none";
         }
     }
     
-    let chosenOption = document.getElementById("features-menu-option-" + featureNumber);
-    chosenOption.innerHTML = "<a><b>" + chosenOption.innerText + "</b></a>";
+    let chosenOption = document.getElementById(optionPrefix + optionFeatureNumber);
+    chosenOption.innerHTML = openingLinkTag + "<b>" + chosenOption.innerText + "</b>" + closingLinkTag;
+    console.log("InnerHTML of chosenOption with id", optionPrefix + optionFeatureNumber, "is:", openingLinkTag + "<b>" + chosenOption.innerText + "</b>" + closingLinkTag);
 
-    let chosenFeature = document.getElementById("feature-" + featureNumber);
+    let chosenFeature = document.getElementById(featurePrefix + optionFeatureNumber);
     chosenFeature.style.display = "";
+    console.log("Style.display of chosenFeature with id", featurePrefix + optionFeatureNumber, "is empty");
 }

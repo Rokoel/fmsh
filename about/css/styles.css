@@ -1163,11 +1163,45 @@
         text-decoration-color: var(--dark-blue);
     }
 }
+@keyframes highlight_box {
+    0% {}
+    100% {
+        -webkit-box-shadow: -3px 0 0 0 var(--blue);
+        box-shadow: -3px 0 0 0 var(--blue);
+    }
+}
+@-o-keyframes highlight_box {
+    0% {}
+    100% {
+        -webkit-box-shadow: -3px 0 0 0 var(--blue);
+        box-shadow: -3px 0 0 0 var(--blue);
+    }
+}
+@-moz-keyframes highlight_box {
+    0% {}
+    100% {
+        -webkit-box-shadow: -3px 0 0 0 var(--blue);
+        box-shadow: -3px 0 0 0 var(--blue);
+    }
+}
+@-webkit-keyframes highlight_box {
+    0% {}
+    100% {
+        -webkit-box-shadow: -3px 0 0 0 var(--blue);
+        box-shadow: -3px 0 0 0 var(--blue);
+    }
+}
 .floating {
     animation: float 2s ease-in-out infinite;
     -moz-animation: float 2s ease-in-out infinite;
     -o-animation: float 2s ease-in-out infinite;
     -webkit-animation: float 2s ease-in-out infinite;
+}
+.highlight-left:hover, .highlight-left:focus, .highlight-left:active {
+    animation: highlight_box 0.1s ease-out forwards;
+    -moz-animation: highlight_box 0.1s ease-out forwards;
+    -o-animation: highlight_box 0.1s ease-out forwards;
+    -webkit-animation: highlight_box 0.1s ease-out forwards;
 }
 
 /* GENERAL STYLING */
@@ -1198,6 +1232,7 @@ html, body {
     cursor: default;
     -webkit-tap-highlight-color: transparent;
 }
+
 /* Styling scrollbars on the page */
 * {
     scrollbar-width: auto;
@@ -1250,6 +1285,7 @@ html, body {
 .text-align-center {
     text-align: center;
 }
+
 /* These two classes are used for alligning elements with the help of 'flex' */
 .vertical-align-center {
     display: flex;
@@ -1261,6 +1297,7 @@ html, body {
     flex-direction: row;
     justify-content: center;
 }
+
 /* Following three classes are used for creating different paddings */
 .small-padding {
     padding: var(--proportional-small-padding);
@@ -1271,6 +1308,7 @@ html, body {
 .xx-small-padding {
     padding: var(--proportional-xx-small-padding);
 }
+
 /* These two classes are for emojis and logos styling */
 .emoji {
     filter: var(--theme-emoji-bright);
@@ -1280,10 +1318,12 @@ html, body {
     margin-left: 0.5em;
     margin-right: 0.5em;
 }
+
 /* This class is used for making cursor a pointer when hovered */
 .cursor-pointer:hover {
     cursor: pointer;
 }
+
 /* The rest of styling rules in the general styling covers element styling */
 a {
     display: inline-block;
@@ -1333,6 +1373,7 @@ hr {
     font-size: var(--small-font-size);
     border-bottom: 2px solid var(--dark-blue);
 }
+
 /* The following several classes and styling rules are used in navigation bar styling */
 .dropbtn {
     border: none;
@@ -1377,6 +1418,7 @@ hr {
     -o-animation: link_chosen 0.5s ease-out forwards;
     -webkit-animation: link_chosen 0.5s ease-out forwards;
 }
+
 /* These two styling rules are used for styling the register link */
 #register:hover, #register:hover > a {
     background-color: var(--dark-blue);
@@ -1387,6 +1429,8 @@ hr {
 }
 
 /* MAIN CONTENT STYLING */
+
+/* Article blocks' styling */
 .article-text {
     font-size: 75%;
     line-height: normal;
@@ -1443,46 +1487,6 @@ hr {
 .change-article:hover {
     cursor: pointer;
 }
-#fmsh-features-article {
-    flex-wrap: wrap;
-}
-#administration-header {
-    grid-area: admin-header;
-}
-#contacts-header {
-    grid-area: contacts-header;
-}
-#administration-holder {
-    grid-area: admin-holder;
-    flex-wrap: nowrap;
-}
-
-#replit-gif {
-    display: none;
-}
-@media screen and (max-width: 1120px) and (min-width: 567px) {
-    #replit-gif {
-        display: unset;
-    }
-}
-
-@media screen and (max-width: 544px) {
-    #administration-holder {
-        grid-area: admin-holder;
-        flex-wrap: wrap-reverse;
-    }
-    #chernatskiy-sergey-genrikhovich {
-        order: 1;
-    }
-}
-#contacts-holder {
-    width: 100%;
-    grid-area: contacts-holder;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 .person-holder {
     display: flex;
     flex-direction: column;
@@ -1509,7 +1513,49 @@ hr {
     text-align: center;
     padding: var(--proportional-small-padding);
 }
+
+/* About fmsh block's styling */
+#fmsh-features-article {
+    flex-wrap: wrap;
+}
+#replit-gif {
+    display: none;
+}
+@media screen and (max-width: 1120px) and (min-width: 567px) {
+    #replit-gif {
+        display: unset;
+    }
+}
+
+/* Administration block's styling */
+#administration-header {
+    grid-area: admin-header;
+}
+#administration-holder {
+    grid-area: admin-holder;
+    flex-wrap: nowrap;
+}
+@media screen and (max-width: 544px) {
+    #administration-holder {
+        grid-area: admin-holder;
+        flex-wrap: wrap-reverse;
+    }
+    #chernatskiy-sergey-genrikhovich {
+        order: 1;
+    }
+}
+
+/* Contacts block's styling */
+#contacts-header {
+    grid-area: contacts-header;
+}
 #contacts-holder {
+    width: 100%;
+    grid-area: contacts-holder;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     font-size: 75%;
     line-height: normal;
     text-align: center;
@@ -1521,37 +1567,15 @@ hr {
 
 
 
+/* Timeline block's styling */
 #timeline-article-body-holder {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:
     "timeline timeline-element";
 }
 .timeline-element {
     grid-area: timeline-element;
-}
-.timeline {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    /* border-left: var(--dark-blue) solid 5px; */
-    grid-area: timeline;
-}
-.timeline-event-holder {
-    padding: var(--proportional-xx-small-padding);
-    padding-left: var(--proportional-padding);
-}
-.event-date {
-    font-size: 80%;
-    color: var(--blue);
-}
-.event-date::after {
-    content: "";
-    height: 20%;
-    width: 0.2em;
-    position: absolute;
-    left: var(--proportional-padding);
-    background-color: var(--dark-blue);
 }
 .event-date::before {
     content: "";
@@ -1562,11 +1586,49 @@ hr {
     position: absolute;
     left: var(--proportional-padding);
     z-index: 1;
-    border: var(--dark-blue) solid 5px;
-    transform: translateY(0.5em) translate(calc(0.1em - 50%));
+    border: var(--dark-blue) solid 6px;
+    transform: translateY(0.5em) translate(3px);
+}
+@media screen and (max-width: 720px) and (orientation: portrait) {
+    #timeline-article-body-holder {
+        display: grid;
+        grid-template-columns: 2fr;
+        grid-template-areas:
+        "timeline";
+    }
+    .timeline-element {
+        grid-area: timeline-element;
+        display: none;
+    }
+    .event-date::before {
+        transform: translateY(0.5em) translate(-2px);
+    }
+}
+.timeline {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    border-left: var(--dark-blue) solid 6px;
+    grid-area: timeline;
+}
+.timeline-event-holder {
+    padding: var(--proportional-xx-small-padding);
+    padding-left: var(--proportional-padding);
+}
+.event-date {
+    font-size: 80%;
+    color: var(--blue);
 }
 .event-name {
     font-size: 60%;
+}
+.event-name:hover {
+    text-decoration: underline;
+    animation: link_chosen 0.5s ease-out forwards;
+    -moz-animation: link_chosen 0.5s ease-out forwards;
+    -o-animation: link_chosen 0.5s ease-out forwards;
+    -webkit-animation: link_chosen 0.5s ease-out forwards;
+    cursor: pointer;
 }
 
 
