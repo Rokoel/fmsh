@@ -129,10 +129,10 @@ function switchTheme() {
  * chooseFeature() is a function that's usually called upon a click.
  * It shows the respective block of information, highlighting the pressed
  * option and hiding the rest of blocks.
- * @param {int} optionFeatureNumber Clicked option number (starting from 1)
+ * @param {number} optionFeatureNumber Clicked option number (starting from 1)
  * @param {string} optionPrefix This menu's option prefix
  * @param {string} featurePrefix This block's feature prefix
- * @param {int} menuSize Size of the menu
+ * @param {number} menuSize Size of the menu
  * @param {boolean} addEmptyLinkTag Flag, indicating whether the clicked button should also be surrounded by an a tag
  */
 function chooseFeature(optionFeatureNumber, optionPrefix, featurePrefix, menuSize, addEmptyLinkTag=true) {
