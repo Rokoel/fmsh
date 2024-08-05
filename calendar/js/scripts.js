@@ -16,6 +16,8 @@ window.onload = function() {
     document.getElementById("email-mobile").addEventListener("click", () => {location.href = "mailto:info@fmsh.ru";});
     document.getElementById("telegram-mobile").addEventListener("click", () => {location.href = "https://t.me/fmshru";});
     document.getElementById("phone-mobile").addEventListener("click", copyPhoneNumber);
+
+    generateAndAttachMonthElement(generateMonthDict()[2], document.getElementById('calendar-holder'));
 };
 
 /**
@@ -160,28 +162,51 @@ function chooseFeature(optionFeatureNumber, optionPrefix, featurePrefix, menuSiz
 
 /**
  * validateDate() checks if a string is a valid date.
- * @param {string} date A string to be checked
+ * @param {string} date A string to be checked in a format 'dd.mm.yyyy'
+ * @param {boolean} returnDateObject A flag indincating whether to return the Date object or not
  * @returns True if the string is a valid date separated by fullstops and false otherwise. The returned value is a list containing of the boolean and an error message if false is returned and an empty string otherwise.
  */
-function validateDate(date) { // could've named the function "valiDate" :)
-    if (date.length == "dd.mm.yyyy".length) {
-        if (date.indexOf('.') > -1) {
-            let dateArray = date.split(".");
-            if (dateArray.length != 3) {
-                return [false, "Неправильный формат даты"];
+function validateDate(date, returnDateObject=false) { // could've named the function "valiDate" :)
+    if (returnDateObject == false) {
+        if (date.length == "dd.mm.yyyy".length) {
+            if (date.indexOf('.') > -1) {
+                let dateArray = date.split(".");
+                if (dateArray.length != 3) {
+                    return [false, "Неправильный формат даты"];
+                }
+                let newDate = `${dateArray[2]}/${dateArray[1]}/${dateArray[0]}`;
+        
+                let dateObj = new Date(newDate); // trying to convert the date (JS does the validation for us)
+        
+                if (!isNaN(dateObj)) { // if the date is actually a date
+                    return [true, ""];
+                }
+                return [false, "Такой даты не существует"];
             }
-            let newDate = `${dateArray[2]}/${dateArray[1]}/${dateArray[0]}`;
-    
-            let dateObj = new Date(newDate); // trying to convert the date (JS does the validation for us)
-    
-            if (!isNaN(dateObj)) { // if the date is actually a date
-                return [true, ""];
-            }
-            return [false, "Такой даты не существует"];
+            return [false, "Неправильный формат даты"];
         }
-        return [false, "Неправильный формат даты"];
+        return [false, "Дата имеет недостаточную длину"];
     }
-    return [false, "Дата имеет недостаточную длину"];
+    else {
+        if (date.length == "dd.mm.yyyy".length) {
+            if (date.indexOf('.') > -1) {
+                let dateArray = date.split(".");
+                if (dateArray.length != 3) {
+                    return [false, "Неправильный формат даты", null];
+                }
+                let newDate = `${dateArray[2]}/${dateArray[1]}/${dateArray[0]}`;
+        
+                let dateObj = new Date(newDate); // trying to convert the date (JS does the validation for us)
+        
+                if (!isNaN(dateObj)) { // if the date is actually a date
+                    return [true, "", dateObj];
+                }
+                return [false, "Такой даты не существует", null];
+            }
+            return [false, "Неправильный формат даты", null];
+        }
+        return [false, "Дата имеет недостаточную длину", null];
+    }
 }
 
 /**
@@ -248,13 +273,12 @@ function returnMonthAndYear(requestedYear=-1, monthNumber=-1, monthName='') {
     return [month, year];
 }
 
-function generateMonthDict(requestedYear=-1, monthNumber=-1, monthName='', daysOfTheWeekList=[], lang='ru') {
+function generateMonthDict(requestedYear=-1, monthNumber=-1, monthName='', daysOfTheWeekList=null, lang='short_ru') {
     var monthAndYear = returnMonthAndYear(requestedYear, monthNumber, monthName);
     var month = monthAndYear[0];
     var year = monthAndYear[1];
     var daysOfTheWeek;
-    var resultingDict = {};
-    if (daysOfTheWeekList == []) {
+    if (daysOfTheWeekList === null) {
         if (lang == 'en' || lang == 'eng') {
             daysOfTheWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
         }
@@ -264,19 +288,96 @@ function generateMonthDict(requestedYear=-1, monthNumber=-1, monthName='', daysO
         else if (lang == 'short_ru' || lang == 'short_rus') {
             daysOfTheWeek = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
         }
-        else {
+        else if (lang == 'ru' || lang == 'rus') {
             daysOfTheWeek = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+        }
+        else {
+            daysOfTheWeek = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
         }
     }
     else {
         daysOfTheWeek = daysOfTheWeekList;
     }
 
+    var resultingDict = {};
+    for (let i = 0; i < daysOfTheWeek.length; ++i) {
+        resultingDict[daysOfTheWeek[i]] = [];
+    }
+    var firstDayOfTheMonthWeekIndex;
+    var lastDayOfTheMonthWeekIndex;
     for (let day = 1; day < 32; ++day) {
         var dayStr = day.toString().length == 1 ? '0' + day.toString() : day.toString();
-        var validateDateResult = validateDate(dayStr + '.' + month + '.' + year);
-        if (validateDateResult[0] == true) {
-            //
+        if (day >= 28) {
+            var validateDateResult = validateDate(dayStr + '.' + month + '.' + year, true);
+            if (validateDateResult[0] == true) {
+                let dayIndex = validateDateResult[2].getDay();
+                let dictKey = daysOfTheWeek[(dayIndex+6) % 7];
+                resultingDict[dictKey].push(day);
+                lastDayOfTheMonthWeekIndex = (dayIndex+6) % 7; // we can do that because we'll get here on the latest day of the month
+            }
+        }
+        else {
+            var dateObj = new Date(year + '/' + month + '/' + dayStr);
+            let dayIndex = dateObj.getDay();
+            if (day == 1) {
+                firstDayOfTheMonthWeekIndex = (dayIndex+6) % 7;
+            }
+            let dictKey = daysOfTheWeek[(dayIndex+6) % 7];
+            resultingDict[dictKey].push(day);
         }
     }
+    for (let i = 0; i < firstDayOfTheMonthWeekIndex; ++i) {
+        let dictKey = daysOfTheWeek[i];
+        resultingDict[dictKey].splice(0, 0, '.');
+    }
+    for (let i = 6; i > lastDayOfTheMonthWeekIndex; --i) {
+        let dictKey = daysOfTheWeek[i];
+        resultingDict[dictKey].splice(Object.keys(resultingDict[dictKey]).length, 0, '.');
+    }
+    return [year, month, resultingDict];
+}
+
+function printMonthDict(monthDict) {
+    var daysOfTheWeek = Object.keys(monthDict);
+    for (let i = 0; i < 7; ++i) {
+        console.log(daysOfTheWeek[i], monthDict[daysOfTheWeek[i]]);
+    }
+    console.log("");
+}
+
+
+// function generateAndAttachMonthElement(monthDict, parentElement) {
+//     var daysOfTheWeek = Object.keys(monthDict);
+//     var monthElement = document.createElement("div");
+//     var maxNumberOfWeekDaysOfOneType = monthDict[daysOfTheWeek[0]].length;
+//     monthElement.classList.add("month-with-width-of-" + maxNumberOfWeekDaysOfOneType);
+//     monthElement.classList.add("month");
+//     for (let j = 0; j < maxNumberOfWeekDaysOfOneType; ++j) {
+//         for (let dayIndex = 0; dayIndex < 7; ++dayIndex) {
+//             let element = document.createElement("div");
+//             if (monthDict[daysOfTheWeek[dayIndex]][j] != '.') {
+//                 element.textContent = monthDict[daysOfTheWeek[dayIndex]][j];
+//             }
+//             monthElement.appendChild(element);
+//         }
+//     }
+//     parentElement.appendChild(monthElement);
+// }
+
+function generateAndAttachMonthElement(monthDict, parentElement) {
+    var daysOfTheWeek = Object.keys(monthDict);
+    var monthElement = document.createElement("div");
+    var maxNumberOfWeekDaysOfOneType = monthDict[daysOfTheWeek[0]].length;
+    monthElement.classList.add("month-with-width-of-" + maxNumberOfWeekDaysOfOneType);
+    monthElement.classList.add("month");
+    for (let dayIndex = 0; dayIndex < 7; ++dayIndex) {
+        for (let j = 0; j < maxNumberOfWeekDaysOfOneType; ++j) {
+            let element = document.createElement("div");
+            if (monthDict[daysOfTheWeek[dayIndex]][j] != '.') {
+                element.textContent = monthDict[daysOfTheWeek[dayIndex]][j];
+            }
+            monthElement.appendChild(element);
+        }
+    }
+    parentElement.appendChild(monthElement);
 }
