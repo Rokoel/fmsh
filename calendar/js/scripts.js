@@ -17,7 +17,7 @@ window.onload = function() {
     document.getElementById("telegram-mobile").addEventListener("click", () => {location.href = "https://t.me/fmshru";});
     document.getElementById("phone-mobile").addEventListener("click", copyPhoneNumber);
 
-    generateAndAttachMonthElement(generateMonthDict()[2], document.getElementById('calendar-holder'));
+    generateMonthAround(-1, -1, 3, document.getElementById("calendar"));
 };
 
 /**
@@ -160,48 +160,65 @@ function chooseFeature(optionFeatureNumber, optionPrefix, featurePrefix, menuSiz
     chosenFeature.style.display = "";
 }
 
+function isValidDate(year, month, day) {
+    const date = new Date(year, month - 1, day);
+    return date.getFullYear() === year &&
+           date.getMonth() === month - 1 &&
+           date.getDate() === day;
+}
+
 /**
  * validateDate() checks if a string is a valid date.
  * @param {string} date A string to be checked in a format 'dd.mm.yyyy'
  * @param {boolean} returnDateObject A flag indincating whether to return the Date object or not
  * @returns True if the string is a valid date separated by fullstops and false otherwise. The returned value is a list containing of the boolean and an error message if false is returned and an empty string otherwise.
  */
-function validateDate(date, returnDateObject=false) { // could've named the function "valiDate" :)
+function validateDate(dateString, returnDateObject=false) { // could've named the function "valiDate" :)
     if (returnDateObject == false) {
-        if (date.length == "dd.mm.yyyy".length) {
-            if (date.indexOf('.') > -1) {
-                let dateArray = date.split(".");
+        if (dateString.length == "dd.mm.yyyy".length) {
+            if (dateString.indexOf('.') > -1) {
+                let dateArray = dateString.split(".");
                 if (dateArray.length != 3) {
                     return [false, "Неправильный формат даты"];
                 }
-                let newDate = `${dateArray[2]}/${dateArray[1]}/${dateArray[0]}`;
+                const [day, month, year] = dateString.split('.').map(Number);
         
-                let dateObj = new Date(newDate); // trying to convert the date (JS does the validation for us)
+                let dateObj = new Date(year, month - 1, day); // trying to convert the date (JS does the validation for us)
         
-                if (!isNaN(dateObj)) { // if the date is actually a date
-                    return [true, ""];
+                if (Object.prototype.toString.call(dateObj) === "[object Date]") { // if the Date object is valid
+                    if (dateObj.getFullYear() === year && dateObj.getMonth() === month - 1 && dateObj.getDate() === day) { // if the date isn't actually a date (even if its a valid date object)
+                        return [true, ""];
+                    }
+                    else {
+                        return [false, "Такой даты не существует"];
+                    }
                 }
-                return [false, "Такой даты не существует"];
+                return [false, "Неправильный формат даты"];
             }
             return [false, "Неправильный формат даты"];
         }
         return [false, "Дата имеет недостаточную длину"];
     }
     else {
-        if (date.length == "dd.mm.yyyy".length) {
-            if (date.indexOf('.') > -1) {
-                let dateArray = date.split(".");
+        if (dateString.length == "dd.mm.yyyy".length) {
+            if (dateString.indexOf('.') > -1) {
+                let dateArray = dateString.split(".");
                 if (dateArray.length != 3) {
                     return [false, "Неправильный формат даты", null];
                 }
-                let newDate = `${dateArray[2]}/${dateArray[1]}/${dateArray[0]}`;
+                const [day, month, year] = dateString.split('.').map(Number);
         
-                let dateObj = new Date(newDate); // trying to convert the date (JS does the validation for us)
+                let dateObj = new Date(year, month - 1, day); // trying to convert the date (JS does the validation for us)
         
-                if (!isNaN(dateObj)) { // if the date is actually a date
-                    return [true, "", dateObj];
+                if (Object.prototype.toString.call(dateObj) === "[object Date]") { // if the Date object is valid
+                    if (dateObj.getFullYear() === year && dateObj.getMonth() === month - 1 && dateObj.getDate() === day) { // if the date isn't actually a date (even if its a valid date object)
+                        return [true, "", dateObj];
+                    }
+                    else {
+                        return [false, "Такой даты не существует", null];
+                    }
                 }
-                return [false, "Такой даты не существует", null];
+                return [false, "Неправильный формат даты", null];
             }
             return [false, "Неправильный формат даты", null];
         }
@@ -345,25 +362,6 @@ function printMonthDict(monthDict) {
     console.log("");
 }
 
-
-// function generateAndAttachMonthElement(monthDict, parentElement) {
-//     var daysOfTheWeek = Object.keys(monthDict);
-//     var monthElement = document.createElement("div");
-//     var maxNumberOfWeekDaysOfOneType = monthDict[daysOfTheWeek[0]].length;
-//     monthElement.classList.add("month-with-width-of-" + maxNumberOfWeekDaysOfOneType);
-//     monthElement.classList.add("month");
-//     for (let j = 0; j < maxNumberOfWeekDaysOfOneType; ++j) {
-//         for (let dayIndex = 0; dayIndex < 7; ++dayIndex) {
-//             let element = document.createElement("div");
-//             if (monthDict[daysOfTheWeek[dayIndex]][j] != '.') {
-//                 element.textContent = monthDict[daysOfTheWeek[dayIndex]][j];
-//             }
-//             monthElement.appendChild(element);
-//         }
-//     }
-//     parentElement.appendChild(monthElement);
-// }
-
 function generateAndAttachMonthElement(monthDict, parentElement) {
     var daysOfTheWeek = Object.keys(monthDict);
     var monthElement = document.createElement("div");
@@ -371,13 +369,130 @@ function generateAndAttachMonthElement(monthDict, parentElement) {
     monthElement.classList.add("month-with-width-of-" + maxNumberOfWeekDaysOfOneType);
     monthElement.classList.add("month");
     for (let dayIndex = 0; dayIndex < 7; ++dayIndex) {
+        let dayNameElement = document.createElement("div");
+        dayNameElement.textContent = daysOfTheWeek[dayIndex];
+        dayNameElement.classList.add("day-name");
+        monthElement.appendChild(dayNameElement);
         for (let j = 0; j < maxNumberOfWeekDaysOfOneType; ++j) {
             let element = document.createElement("div");
             if (monthDict[daysOfTheWeek[dayIndex]][j] != '.') {
                 element.textContent = monthDict[daysOfTheWeek[dayIndex]][j];
+                element.classList.add("has-border");
             }
             monthElement.appendChild(element);
         }
     }
     parentElement.appendChild(monthElement);
+}
+
+function generateMonthAround(year, startingMonthIndex, numberOfMonthTotal, parentElement, lang='rus') {
+    for (let monthNumber = startingMonthIndex + 1; monthNumber < startingMonthIndex + 1 + numberOfMonthTotal; ++monthNumber) {
+        var monthGridHolder = document.createElement("div");
+        monthGridHolder.classList.add("month-grid-holder");
+        monthGridHolder.id = ("month-grid-holder-" + year + '-') + monthNumber;
+        [year, month, monthDict] = generateMonthDict(year, monthNumber);
+        var monthText;
+        if (month === '01') {
+            if (lang === 'rus') {
+                monthText = "Январь";
+            }
+            else {
+                monthText = "January";
+            }
+        }
+        if (month === '02') {
+            if (lang === 'rus') {
+                monthText = "Феварль";
+            }
+            else {
+                monthText = "February";
+            }
+        }
+        if (month === '03') {
+            if (lang === 'rus') {
+                monthText = "Март";
+            }
+            else {
+                monthText = "March";
+            }
+        }
+        if (month === '04') {
+            if (lang === 'rus') {
+                monthText = "Апрель";
+            }
+            else {
+                monthText = "April";
+            }
+        }
+        if (month === '05') {
+            if (lang === 'rus') {
+                monthText = "Май";
+            }
+            else {
+                monthText = "May";
+            }
+        }
+        if (month === '06') {
+            if (lang === 'rus') {
+                monthText = "Июнь";
+            }
+            else {
+                monthText = "June";
+            }
+        }
+        if (month === '07') {
+            if (lang === 'rus') {
+                monthText = "Июль";
+            }
+            else {
+                monthText = "July";
+            }
+        }
+        if (month === '08') {
+            if (lang === 'rus') {
+                monthText = "Август";
+            }
+            else {
+                monthText = "August";
+            }
+        }
+        if (month === '09') {
+            if (lang === 'rus') {
+                monthText = "Сентябрь";
+            }
+            else {
+                monthText = "September";
+            }
+        }
+        if (month === '10') {
+            if (lang === 'rus') {
+                monthText = "Октябрь";
+            }
+            else {
+                monthText = "Oktober";
+            }
+        }
+        if (month === '11') {
+            if (lang === 'rus') {
+                monthText = "Ноябрь";
+            }
+            else {
+                monthText = "November";
+            }
+        }
+        if (month === '12') {
+            if (lang === 'rus') {
+                monthText = "Декабрь";
+            }
+            else {
+                monthText = "December";
+            }
+        }
+        var monthTitleElement = document.createElement("div");
+        monthTitleElement.classList.add("month-title");
+        monthTitleElement.textContent = year + ', ' + monthText;
+        monthGridHolder.appendChild(monthTitleElement);
+        generateAndAttachMonthElement(monthDict, monthGridHolder);
+        parentElement.appendChild(monthGridHolder);
+    }
 }

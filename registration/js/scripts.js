@@ -1,7 +1,5 @@
 window.onload = function() {
     setTheme();
-    
-    setupSelectSync();
 
     setupFormValidation();
 };
@@ -54,35 +52,6 @@ function switchTheme() {
         localStorage.setItem('theme', 'dark');
     }
     setTheme();
-}
-
-/**
- * setupSelectSync() add an event listener to a <select> element so that when the chosen option
- * changes, another field's text changes accordingly.
- */
-function setupSelectSync() {
-    document.getElementById('region').addEventListener('change', function() {
-        townLabel = document.getElementById('town-label');
-        townInput = document.getElementById('town');
-        if(this.value.includes("Россия, Москва")) {
-            townLabel.innerHTML = "<b>Ближайшие станции метро</b>";
-            town.placeholder = "м. Китай-город, м. Таганская";
-        } else if(this.value.includes("Россия, Московская область")) {
-            townLabel.innerHTML = "<b>Населенный пункт</b>";
-            town.placeholder = "г. Серпухов";
-        } else if(this.value.includes("Россия, другой регион")) {
-            townLabel.innerHTML = "<b>Регион и населенный пункт</b>";
-            town.placeholder = "Челябинская обл., г. Магнитогорск";
-        } else if(this.value.includes("Другое государство")) {
-            townLabel.innerHTML = "<b>Страна, регион и населенный пункт</b>";
-            town.placeholder = "Казахстан, Акмолинская обл., г. Астана";
-        } else { /* If the text of the region options was edited, we have to fall back to something */
-            townLabel.innerHTML = "<b>Страна, регион и населенный пункт</b> ";
-            town.placeholder = "Казахстан, Акмолинская обл., г. Астана";
-            /* Yes, we can combine the last two cases, but we'll separate them for code redability
-               and ease of edit in the future */
-        }
-    });
 }
 
 /**
@@ -268,28 +237,61 @@ function validateGrade(grade) {
 
 /**
  * validateDate() checks if a string is a valid date.
- * @param {string} date A string to be checked
+ * @param {string} date A string to be checked in a format 'dd.mm.yyyy'
+ * @param {boolean} returnDateObject A flag indincating whether to return the Date object or not
  * @returns True if the string is a valid date separated by fullstops and false otherwise. The returned value is a list containing of the boolean and an error message if false is returned and an empty string otherwise.
  */
-function validateDate(date) { // could've named the function "valiDate" :)
-    if (date.length == "dd.mm.yyyy".length) {
-        if (date.indexOf('.') > -1) {
-            let dateArray = date.split(".");
-            if (dateArray.length != 3) {
+function validateDate(dateString, returnDateObject=false) { // could've named the function "valiDate" :)
+    if (returnDateObject == false) {
+        if (dateString.length == "dd.mm.yyyy".length) {
+            if (dateString.indexOf('.') > -1) {
+                let dateArray = dateString.split(".");
+                if (dateArray.length != 3) {
+                    return [false, "Неправильный формат даты"];
+                }
+                const [day, month, year] = dateString.split('.').map(Number);
+        
+                let dateObj = new Date(year, month - 1, day); // trying to convert the date (JS does the validation for us)
+        
+                if (Object.prototype.toString.call(dateObj) === "[object Date]") { // if the Date object is valid
+                    if (dateObj.getFullYear() === year && dateObj.getMonth() === month - 1 && dateObj.getDate() === day) { // if the date isn't actually a date (even if its a valid date object)
+                        return [true, ""];
+                    }
+                    else {
+                        return [false, "Такой даты не существует"];
+                    }
+                }
                 return [false, "Неправильный формат даты"];
             }
-            let newDate = `${dateArray[2]}/${dateArray[1]}/${dateArray[0]}`;
-    
-            let dateObj = new Date(newDate); // trying to convert the date (JS does the validation for us)
-    
-            if (!isNaN(dateObj)) { // if the date is actually a date
-                return [true, ""];
-            }
-            return [false, "Такой даты не существует"];
+            return [false, "Неправильный формат даты"];
         }
-        return [false, "Неправильный формат даты"];
+        return [false, "Дата имеет недостаточную длину"];
     }
-    return [false, "Дата имеет недостаточную длину"];
+    else {
+        if (dateString.length == "dd.mm.yyyy".length) {
+            if (dateString.indexOf('.') > -1) {
+                let dateArray = dateString.split(".");
+                if (dateArray.length != 3) {
+                    return [false, "Неправильный формат даты", null];
+                }
+                const [day, month, year] = dateString.split('.').map(Number);
+        
+                let dateObj = new Date(year, month - 1, day); // trying to convert the date (JS does the validation for us)
+        
+                if (Object.prototype.toString.call(dateObj) === "[object Date]") { // if the Date object is valid
+                    if (dateObj.getFullYear() === year && dateObj.getMonth() === month - 1 && dateObj.getDate() === day) { // if the date isn't actually a date (even if its a valid date object)
+                        return [true, "", dateObj];
+                    }
+                    else {
+                        return [false, "Такой даты не существует", null];
+                    }
+                }
+                return [false, "Неправильный формат даты", null];
+            }
+            return [false, "Неправильный формат даты", null];
+        }
+        return [false, "Дата имеет недостаточную длину", null];
+    }
 }
 
 /**

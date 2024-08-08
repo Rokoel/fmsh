@@ -27,7 +27,7 @@
             "surname surname surname firstname firstname firstname lastname lastname lastname"
             "email email email email email email email email email"
             "birthday birthday grade grade school school school school school"
-            "region region region town town town town town town"
+            "region region region region region region region region region"
             "capcha capcha capcha capcha capcha capcha submit-form submit-form submit-form";
         padding: 0 1em;
     }
@@ -60,7 +60,7 @@
             "surname surname surname firstname firstname firstname lastname lastname lastname"
             "email email email email email email email email email"
             "birthday birthday grade grade school school school school school"
-            "region region region town town town town town town"
+            "region region region region region region region region region"
             "capcha capcha capcha capcha capcha capcha submit-form submit-form submit-form";
         padding: 0 1em;
     }
@@ -93,7 +93,7 @@
             "surname surname surname firstname firstname firstname lastname lastname lastname"
             "email email email email email email email email email"
             "birthday birthday grade grade school school school school school"
-            "region region region town town town town town town"
+            "region region region region region region region region region"
             "capcha capcha capcha capcha capcha capcha submit-form submit-form submit-form";
         padding: 0 1em;
     }
@@ -141,7 +141,6 @@
             "birthday grade"
             "school school"
             "region region"
-            "town town"
             "capcha capcha"
             "submit-form submit-form";
         padding: 0 1em;
@@ -190,7 +189,6 @@
             "birthday grade"
             "school school"
             "region region"
-            "town town"
             "capcha capcha"
             "submit-form submit-form";
         padding: 0 1em;
@@ -224,7 +222,7 @@
             "surname surname surname firstname firstname firstname lastname lastname lastname"
             "email email email email email email email email email"
             "birthday birthday grade grade school school school school school"
-            "region region region town town town town town town"
+            "region region region region region region region region region"
             "capcha capcha capcha capcha capcha submit-form submit-form submit-form submit-form";
         padding: 0 1em;
     }
@@ -272,7 +270,6 @@
             "birthday grade"
             "school school"
             "region region"
-            "town town"
             "capcha capcha"
             "submit-form submit-form";
         padding: 0 1em;
@@ -633,6 +630,7 @@ input::placeholder {
 #submit-form {
     padding: var(--proportional-x-small-padding);
     font-size: 85%;
+    width: 100%;
 }
 #surname-holder {
     grid-area: surname;
@@ -657,10 +655,6 @@ input::placeholder {
 }
 #region-holder {
     grid-area: region;
-    min-width: max-content;
-}
-#town-holder {
-    grid-area: town;
 }
 #capcha-holder {
     grid-area: capcha;
@@ -678,6 +672,9 @@ input::placeholder {
 }
 #submit-form-holder {
     grid-area: submit-form;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .register-form-input {
     font-size: 75%;
