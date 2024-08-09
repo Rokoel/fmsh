@@ -10,13 +10,62 @@ window.onload = function() {
     setTheme();
 
     /* Setting up the mobile menu and the footer */
+    const simulatedClickEvent = new MouseEvent("click", {
+        view: window,
+        bubbles: true,
+        cancelable: true,
+    });
     document.getElementById("theme-switcher").addEventListener("click", switchTheme);
+    document.getElementById("theme-switcher").addEventListener("keydown", (event) => {
+        if (event.code === 'Space' || event.code === 'Enter') {
+            document.getElementById("theme-switcher").dispatchEvent(simulatedClickEvent);
+        }
+    });
     document.getElementById("mobile-navbar").addEventListener("click", switchMenu);
+    document.getElementById("mobile-navbar").addEventListener("keydown", (event) => {
+        if (event.code === 'Space' || event.code === 'Enter') {
+            document.getElementById("mobile-navbar").dispatchEvent(simulatedClickEvent);
+        }
+    });
     document.getElementById("main-page-redirector").addEventListener("click", () => {location.href = "https://fmsh.ru";});
+    document.getElementById("main-page-redirector").addEventListener("keydown", (event) => {
+        if (event.code === 'Space' || event.code === 'Enter') {
+            document.getElementById("main-page-redirector").dispatchEvent(simulatedClickEvent);
+        }
+    });
     document.getElementById("email-mobile").addEventListener("click", () => {location.href = "mailto:info@fmsh.ru";});
+    document.getElementById("email-mobile").addEventListener("keydown", (event) => {
+        if (event.code === 'Space' || event.code === 'Enter') {
+            document.getElementById("email-mobile").dispatchEvent(simulatedClickEvent);
+        }
+    });
     document.getElementById("telegram-mobile").addEventListener("click", () => {location.href = "https://t.me/fmshru";});
+    document.getElementById("telegram-mobile").addEventListener("keydown", (event) => {
+        if (event.code === 'Space' || event.code === 'Enter') {
+            document.getElementById("telegram-mobile").dispatchEvent(simulatedClickEvent);
+        }
+    });
     document.getElementById("phone-mobile").addEventListener("click", copyPhoneNumber);
+    document.getElementById("phone-mobile").addEventListener("keydown", (event) => {
+        if (event.code === 'Space' || event.code === 'Enter') {
+            document.getElementById("phone-mobile").dispatchEvent(simulatedClickEvent);
+        }
+    });
     document.getElementById("contacts-page-phone-number").addEventListener("click", copyPhoneNumber);
+    document.getElementById("contacts-page-phone-number").addEventListener("keydown", (event) => {
+        if (event.code === 'Space' || event.code === 'Enter') {
+            document.getElementById("contacts-page-phone-number").dispatchEvent(simulatedClickEvent);
+        }
+    });
+    var featuresMenu = document.getElementById("features-menu");
+    var optionsList = featuresMenu.children;
+    for (let i = 0; i < optionsList.length; ++i) {
+        optionsList[i].addEventListener("keydown", (event) => {
+            if (event.code === 'Space' || event.code === 'Enter') {
+                optionsList[i].dispatchEvent(simulatedClickEvent);
+            }
+        });
+    }
 };
 
 /**

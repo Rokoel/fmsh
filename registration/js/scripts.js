@@ -77,7 +77,7 @@ function setupFormValidation() {
         var birthdayField = document.getElementById("birthday");
         var gradeField = document.getElementById("grade");
         var schoolField = document.getElementById("school");
-        var placeField = document.getElementById("town");
+        var placeField = document.getElementById("region");
         var capchaField = document.getElementById("capcha-input");
 
         var surnameValidity = validateSurname(surnameField.value);

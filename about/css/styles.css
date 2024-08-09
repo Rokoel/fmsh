@@ -1414,6 +1414,9 @@ html, body {
 .cursor-pointer:hover {
     cursor: pointer;
 }
+.colorless:hover, .colorless:focus, .colorless:focus-within {
+    transform: scale(1.1); 
+}
 
 /* The rest of styling rules in the general styling covers element styling */
 a {
@@ -1473,10 +1476,10 @@ hr {
     margin: 0;
     overflow: hidden;
 }
-.dropdown:hover {
+.dropdown:hover, .dropdown:focus, .dropdown:focus-within {
     background-color: var(--dark-blue);
 }
-.dropbtn:hover > a {
+.dropbtn:hover > a, .dropdown:focus > div > a, .dropdown:focus-within > div > a {
     color: var(--white);
 }
 .navbar a {
@@ -1499,10 +1502,10 @@ hr {
     display: block;
     text-align: left;
 }
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content, .dropdown:focus .dropdown-content, .dropdown:focus-within .dropdown-content {
     display: block;
 }
-.dropdown-content > :hover, a:hover {
+.dropdown-content > :hover, a:hover, .dropdown-content > :focus, a:focus {
     text-decoration: underline;
     animation: link_chosen 0.5s ease-out forwards;
     -moz-animation: link_chosen 0.5s ease-out forwards;
@@ -1511,7 +1514,7 @@ hr {
 }
 
 /* These two styling rules are used for styling the register link */
-#register:hover, #register:hover > a {
+#register:hover, #register:hover > a, #register:focus, #register:focus > a {
     background-color: var(--dark-blue);
     color: var(--white);
 }
@@ -1577,6 +1580,10 @@ hr {
 }
 .change-article:hover {
     cursor: pointer;
+}
+.change-article:focus, .change-article:focus-within {
+    text-decoration: underline;
+    text-decoration-color: var(--dark-blue);
 }
 .person-holder {
     display: flex;
