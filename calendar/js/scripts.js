@@ -185,40 +185,6 @@ function switchTheme() {
 }
 
 /**
- * chooseFeature() is a function that's usually called upon a click.
- * It shows the respective block of information, highlighting the pressed
- * option and hiding the rest of blocks.
- * @param {number} optionFeatureNumber Clicked option number (starting from 1)
- * @param {string} optionPrefix This menu's option prefix
- * @param {string} featurePrefix This block's feature prefix
- * @param {number} menuSize Size of the menu
- * @param {boolean} addEmptyLinkTag Flag, indicating whether the clicked button should also be surrounded by an a tag
- */
-function chooseFeature(optionFeatureNumber, optionPrefix, featurePrefix, menuSize, addEmptyLinkTag=true) {
-    var openingLinkTag = "<a>";
-    var closingLinkTag = "</a>";
-    if (addEmptyLinkTag === false) {
-        openingLinkTag = "";
-        closingLinkTag = "";
-    }
-    for (let i = 1; i < menuSize+1; ++i) {
-        if (i != optionFeatureNumber) {
-            let currentOption = document.getElementById(optionPrefix + i);
-            currentOption.innerHTML = openingLinkTag + currentOption.innerText + closingLinkTag;
-
-            let currentFeature = document.getElementById(featurePrefix + i);
-            currentFeature.style.display = "none";
-        }
-    }
-    
-    let chosenOption = document.getElementById(optionPrefix + optionFeatureNumber);
-    chosenOption.innerHTML = openingLinkTag + "<b>" + chosenOption.innerText + "</b>" + closingLinkTag;
-
-    let chosenFeature = document.getElementById(featurePrefix + optionFeatureNumber);
-    chosenFeature.style.display = "";
-}
-
-/**
  * validateDate() checks if a string is a valid date.
  * @param {string} date A string to be checked in a format 'dd.mm.yyyy'
  * @param {boolean} returnDateObject A flag indincating whether to return the Date object or not
@@ -403,7 +369,7 @@ function generateMonthDict(requestedYear=-1, monthNumber=-1, daysOfTheWeekList=n
 * }]} monthDict A dictionary which is usually gotten from the generateMonthDict() function
  * @param {HTMLElement} parentElement An element to attach the month's grid to
  */
-function generateAndAttachMonthGrid(monthDict, parentElement) {
+function generateAndAttachMonthGrid(monthDict, parentElement, year=-1, month=-1) {
     var daysOfTheWeek = Object.keys(monthDict); // list of the names of the days of the week (will differ depending on the translation)
 
     var monthElement = document.createElement("div");
@@ -421,6 +387,14 @@ function generateAndAttachMonthGrid(monthDict, parentElement) {
             let element = document.createElement("div");
             if (monthDict[daysOfTheWeek[dayIndex]][j] != '.') { // if the day isn't empty
                 element.textContent = monthDict[daysOfTheWeek[dayIndex]][j];
+                if (year != -1 && month != -1) {
+                    let dayFromMonthDict = monthDict[daysOfTheWeek[dayIndex]][j];
+                    let dayString = (dayFromMonthDict > 9 ? dayFromMonthDict.toString() : '0' + dayFromMonthDict);
+                    element.id = "day-" + year.toString() + month + dayString;
+                    element.addEventListener("click", () => {
+                        document.getElementsByClassName("event-" + year.toString() + month + dayString)[0].scrollIntoView(false); 
+                    });
+                }
                 element.classList.add("has-border"); // we don't want a border for empty elements for readability
             }
             monthElement.appendChild(element);
@@ -588,9 +562,10 @@ function generateMonthStartingFrom(yearInput=-1, startingMonthIndexInput=-1, num
         monthTitleElement.textContent = year + ', ' + monthText;
         monthGridHolder.appendChild(monthTitleElement);
 
-        generateAndAttachMonthGrid(monthDict, monthGridHolder);
+        generateAndAttachMonthGrid(monthDict, monthGridHolder, year, month);
 
         parentElement.appendChild(monthGridHolder);
+        highlightAndShowEvents(year, month);
     }
     return [initialYear, startingMonthIndex];
 }
@@ -605,6 +580,12 @@ function generateMonthStartingFrom(yearInput=-1, startingMonthIndexInput=-1, num
  */
 function scrollMonth(parentElement, previousYear, previousStartingMonthIndex, numberOfMonthToScroll=1) {
     parentElement.innerHTML = "";
+    var shownEvents = document.getElementsByClassName("shown-event");
+    var numberOfShownElements = shownEvents.length;
+    for (let event = 0; event < numberOfShownElements; ++event) {
+        shownEvents[0].classList.add("hidden-event");
+        shownEvents[0].classList.remove("shown-event");
+    }
     if (previousStartingMonthIndex - numberOfMonthToScroll < 0) {
         var numberOfYearsToScroll = (numberOfMonthToScroll % 12 != 0) + integerDiv(numberOfMonthToScroll, 12);
         var newYear = previousYear - numberOfYearsToScroll;
@@ -616,5 +597,20 @@ function scrollMonth(parentElement, previousYear, previousStartingMonthIndex, nu
         // so we don't need to do any special checks for negative values of numberOfMonthToScroll
         var newStartingMonthIndex = previousStartingMonthIndex - numberOfMonthToScroll;
         return generateMonthStartingFrom(previousYear, newStartingMonthIndex, 3, parentElement);
+    }
+}
+
+function highlightAndShowEvents(year, month) {
+    for (let i = 1; i < 31; ++i) {
+        let day = (i > 9 ? i.toString() : '0' + i);
+        let eventsOfTheDay = document.getElementsByClassName("event-" + year.toString() + month + day);
+        if (eventsOfTheDay.length != 0) { // if there weren't (or won't be) any events that day
+            var dayElement = document.getElementById("day-" + year.toString() + month + day);
+            dayElement.classList.add("eventfull-day");
+            for (let j = 0; j < eventsOfTheDay.length; ++j) {
+                eventsOfTheDay[j].classList.remove("hidden-event");
+                eventsOfTheDay[j].classList.add("shown-event");
+            }
+        }
     }
 }

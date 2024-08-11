@@ -4,6 +4,7 @@
         --dark-blue: #1d2458;
         --blue: #2C74B3;
         --white: #ffffff;
+        --pastel-red: #CF6679;
         --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
         --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
         
@@ -64,6 +65,7 @@
         --dark-blue: #1d2458;
         --blue: #2C74B3;
         --white: #ffffff;
+        --pastel-red: #CF6679;
         --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
         --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
         
@@ -129,6 +131,7 @@
         --dark-blue: #1d2458;
         --blue: #2C74B3;
         --white: #ffffff;
+        --pastel-red: #CF6679;
         --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
         --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
         
@@ -196,6 +199,7 @@
         --dark-blue: #1d2458;
         --blue: #2C74B3;
         --white: #ffffff;
+        --pastel-red: #CF6679;
         --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
         --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
         
@@ -439,6 +443,7 @@
         --dark-blue: #1d2458;
         --blue: #2C74B3;
         --white: #ffffff;
+        --pastel-red: #CF6679;
         --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
         --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
         
@@ -682,6 +687,7 @@
         --dark-blue: #1d2458;
         --blue: #2C74B3;
         --white: #ffffff;
+        --pastel-red: #CF6679;
         --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
         --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
         
@@ -923,6 +929,7 @@
         --dark-blue: #1d2458;
         --blue: #2C74B3;
         --white: #ffffff;
+        --pastel-red: #CF6679;
         --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
         --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
         
@@ -1530,7 +1537,8 @@ hr {
     line-height: normal;
     flex: 4;
     min-width: 50%;
-    padding: var(--proportional-padding);
+    padding: var(--proportional-small-padding);
+    margin-bottom: var(--proportional-x-small-padding);
 }
 .article-header {
     font-size: 100%;
@@ -1560,6 +1568,28 @@ hr {
 }
 .bigger-article a:hover, .article a:hover {
     color: var(--dark-blue);
+}
+.date {
+    font-size: 120%;
+    padding-top: var(--proportional-xx-small-padding);
+    padding-bottom: var(--proportional-xx-small-padding);
+}
+.shown-event {
+    display: block;
+}
+.hidden-event {
+    display: none;
+}
+.eventfull-day {
+    /* background-color: var(--pastel-red); */
+    background-color: #64b5f6;
+    font-weight: bold;
+}
+.eventfull-day:hover, .eventfull-day:focus {
+    cursor: pointer;
+    transform: scale(1.1);
+    filter: opacity(0.9) contrast(120%) saturate(110%);
+    font-weight: 900;
 }
 
 .calendar-holder {

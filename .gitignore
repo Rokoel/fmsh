@@ -1,1 +1,6 @@
 .vscode/settings.json
+
+# This file stores FMSH's previous events as contents of an HTML FILE
+# It's only needed temporarily, it isn't used in the website itself,
+# only for filling the calendar page.
+file.txt
