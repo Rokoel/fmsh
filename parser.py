@@ -14,6 +14,7 @@ yearmonth = {"2022": {}, "2023": {}, "2024": {}}
 current_year_and_month = []
 current_date = ""
 current_date_and_time_text = ""
+colors = set()
 
 unsure_lines = ["Unsure Lines: "]
 
@@ -36,7 +37,10 @@ with open("file.txt") as my_file:
                 color = ""
                 if "<font color" in line:
                     color += get_substr_between_two_substrings(line, '<font color=', '><b>')
-                yearmonth[year][month].append([current_date, current_date_and_time_text, color, text_of_the_event1])
+                if "dodgerblue" in color:
+                    yearmonth[year][month].append([current_date, current_date_and_time_text, "darkblue", text_of_the_event1])    
+                else:
+                    yearmonth[year][month].append([current_date, current_date_and_time_text, color, text_of_the_event1])
             else:
                 unsure_lines.append(line)
 
@@ -47,9 +51,9 @@ for year, months in yearmonth.items():
             print()
             for i in range(len(day)):
                 if i == 0:
-                    print(f'\n<div class="article-text has-border event-{day[0]} colored-{day[2]} hidden-event">')
+                    print(f'\n<div class="article-text has-border event-{day[0]} hidden-event">')
                 elif i == 1:
-                    print(f'<div class="article-header date">{day[1]}</div>')
+                    print(f'<div class="article-header date colored-{day[2]}">{day[1]}</div>')
                 elif i == 2:
                     pass
                 else:

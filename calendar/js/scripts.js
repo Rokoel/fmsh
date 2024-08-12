@@ -53,30 +53,140 @@ window.onload = function() {
     });
 
     var calendarElement = document.getElementById("calendar");
-    var startingYearAndMonth = generateMonthStartingFrom(-1, -1, 3, calendarElement);
     var leftArrow = document.getElementById("arrow-left");
+    var rightArrow = document.getElementById("arrow-right");
+
+    var startingYearAndMonth = generateMonthStartingFrom(-1, -1, 3, calendarElement); // set the initial position of the scroll window
+
+    let year = startingYearAndMonth[0];
+    let startingMonthIndex = startingYearAndMonth[1];
+
+    // now we'll hide the scroll-right button if needed
+    var lastEventYear;
+    var lastEventMonth;
+    [lastEventYear, lastEventMonth] = returnNthEventYearAndMonth(-1); // getting the last event's date
+    // we represent the current month and year in an easy-to-convert format
+    // we write +3 because our function returns the starting month, not the middle month
+    let actualBorderYear = returnActualYear(year, startingMonthIndex);
+    let actualBorderMonth = returnActualMonth(startingMonthIndex) + 1;
+
+    let stringRepresentation = returnMonthAndYear(actualBorderYear, actualBorderMonth);
+    // we obtain the date of the current month
+    let dateRepresentationOfCurrentMonth = new Date(stringRepresentation[1] + '.' + stringRepresentation[0] + '.01');
+
+    // we obtain the date of the last month
+    let dateRepresentationOfLastMonth = new Date(lastEventYear + '.' + lastEventMonth + '.01');
+    if (dateRepresentationOfCurrentMonth >= dateRepresentationOfLastMonth) { // now we can easily compare the two dates
+        rightArrow.style.display = "none"; // hide the scroll-right button
+        calendarElement.children[calendarElement.children.length - 1].style.marginRight = "var(--proportional-small-padding)"; // add some margin in place of the button
+        // we don't need to worry about removing the "style" attribute as we delete all the "calendar" contents on every scroll
+    }
+    
     leftArrow.addEventListener("click", () => {
         let year = startingYearAndMonth[0];
         let startingMonthIndex = startingYearAndMonth[1];
+        rightArrow.style.display = "";
         [startingYearAndMonth[0], startingYearAndMonth[1]] = scrollMonth(calendarElement, year, startingMonthIndex, +1);
+        if (year <= 2022 && startingMonthIndex <= 5) { // we can just hard-code it 'cause we actually know that there won't be any year change occuring (as the first month is June)
+            leftArrow.style.display = "none";
+            calendarElement.children[0].style.marginLeft = "var(--proportional-small-padding)";
+        }
     });
     leftArrow.addEventListener("keydown", (event) => {
         if (event.code === 'Space' || event.code === 'Enter') {
             leftArrow.dispatchEvent(simulatedClickEvent);
         }
     });
-    var rightArrow = document.getElementById("arrow-right");
     rightArrow.addEventListener("click", () => {
         let year = startingYearAndMonth[0];
         let startingMonthIndex = startingYearAndMonth[1];
+        let actualBorderYear = returnActualYear(year, startingMonthIndex);
+        let actualBorderMonth = returnActualMonth(startingMonthIndex) + 1;
+
+        let stringRepresentation = returnMonthAndYear(actualBorderYear, actualBorderMonth);
+        let dateRepresentationOfCurrentMonth = new Date(stringRepresentation[1] + '.' + stringRepresentation[0] + '.01');
+        
         [startingYearAndMonth[0], startingYearAndMonth[1]] = scrollMonth(calendarElement, year, startingMonthIndex, -1);
+
+        let dateRepresentationOfLastMonth = new Date(lastEventYear + '.' + lastEventMonth + '.01');
+        leftArrow.style.display = "";
+        if (dateRepresentationOfCurrentMonth >= dateRepresentationOfLastMonth) {
+            rightArrow.style.display = "none";
+            calendarElement.children[calendarElement.children.length - 1].style.marginRight = "var(--proportional-small-padding)";
+        }
     });
     rightArrow.addEventListener("keydown", (event) => {
         if (event.code === 'Space' || event.code === 'Enter') {
             rightArrow.dispatchEvent(simulatedClickEvent);
         }
     });
+
 };
+
+/**
+ * returnActualMonth() returns a number that represents an actual year after
+ * all months have been added.
+ * @param {number} year A number that represents the current year (it's usually gotten from one of the main functions)
+ * @param {number} months A number that represents startingMonthIndex
+ * @returns 
+ */
+function returnActualYear(year, months) {
+    return year + integerDiv(months + 1, 12);
+}
+
+/**
+ * returnActualMonth() returns a number from 1 to 12 that represents
+ * the number of the starting month (left month) in the calendar.
+ * @param {number} month A number that represents startingMonthIndex
+ * @returns A number from 1 to 12 that represents the number of the starting month (left month) in the calendar
+ */
+function returnActualMonth(month) {
+    return (month + 1) % 12 + 1;
+}
+
+/**
+ * returnNthEventYearAndMonth() returns Nth event from the page.
+ * @param {number} N An index of the event
+ * @returns {[string, string]} A list of a year and a month [year, month]
+ */
+function returnNthEventYearAndMonth(N=-1) {
+    if (N == -1) {
+        var listOfEvents = document.getElementsByClassName("date");
+        var lastEvent = listOfEvents[listOfEvents.length - 1].parentElement;
+        var lastEventClasses = lastEvent.classList.toString().split(" ");
+        var lastEventDate;
+        var lastEventYear;
+        var lastEventMonth;
+        for (let i = 0; i < lastEventClasses.length; ++i) {
+            if (lastEventClasses[i].includes("event")) {
+                if (lastEventClasses[i].split("-")[1] != "event") {
+                    lastEventDate = lastEventClasses[i].split("-")[1];
+                    lastEventYear = lastEventDate.slice(0, 4);
+                    lastEventMonth = lastEventDate.slice(4, 6);
+                }
+            }
+        }
+        return [lastEventYear, lastEventMonth];
+    }
+    else {
+        var listOfEvents = document.getElementsByClassName("date");
+        var NthEvent = listOfEvents[N].parentElement;
+        var NthEventClasses = NthEvent.classList.toString().split(" ");
+        var NthEventDate;
+        var NthEventYear;
+        var NthEventMonth;
+        for (let i = 0; i < NthEventClasses.length; ++i) {
+            if (NthEventClasses[i].includes("event")) {
+                if (NthEventClasses[i].split("-")[1] != "event") {
+                    NthEventDate = NthEventClasses[i].split("-")[1];
+                    NthEventYear = NthEventDate.slice(0, 4);
+                    NthEventMonth = NthEventDate.slice(4, 6);
+                }
+            }
+        }
+        return [NthEventYear, NthEventMonth];
+    }
+}
 
 /**
  * copyPhoneNumber() copies the phone number to the clipboard. It's
@@ -604,9 +714,15 @@ function highlightAndShowEvents(year, month) {
     for (let i = 1; i < 31; ++i) {
         let day = (i > 9 ? i.toString() : '0' + i);
         let eventsOfTheDay = document.getElementsByClassName("event-" + year.toString() + month + day);
-        if (eventsOfTheDay.length != 0) { // if there weren't (or won't be) any events that day
+        if (eventsOfTheDay.length != 0) { // if there were (or will be) events that day
             var dayElement = document.getElementById("day-" + year.toString() + month + day);
             dayElement.classList.add("eventfull-day");
+            let firstEventClasses = eventsOfTheDay[0].children[0].classList.toString().split(" ");
+            for (let classNameIndex = 0; classNameIndex < firstEventClasses.length; ++classNameIndex) {
+                if (firstEventClasses[classNameIndex].includes("colored")) {
+                    dayElement.classList.add(firstEventClasses[classNameIndex]);
+                }
+            }
             for (let j = 0; j < eventsOfTheDay.length; ++j) {
                 eventsOfTheDay[j].classList.remove("hidden-event");
                 eventsOfTheDay[j].classList.add("shown-event");

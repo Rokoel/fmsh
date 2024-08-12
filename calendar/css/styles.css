@@ -1533,7 +1533,7 @@ hr {
 
 /* Article blocks' styling */
 .article-text {
-    font-size: 75%;
+    font-size: 60%;
     line-height: normal;
     flex: 4;
     min-width: 50%;
@@ -1571,8 +1571,11 @@ hr {
 }
 .date {
     font-size: 120%;
-    padding-top: var(--proportional-xx-small-padding);
-    padding-bottom: var(--proportional-xx-small-padding);
+    padding: var(--proportional-x-small-padding);
+    width: fit-content;
+    border-radius: 0.4em;
+    border: var(--dark-blue) solid 2px;
+    margin-bottom: var(--proportional-x-small-padding);
 }
 .shown-event {
     display: block;
@@ -1636,6 +1639,7 @@ hr {
     width: fit-content;
     display: inline-block;
     padding: var(--proportional-xx-small-padding);
+    /* margin-right: var(--proportional-xx-small-padding); */
 }
 .month-with-width-of-4 {
     display: grid;
@@ -1707,6 +1711,26 @@ hr {
         grid-gap: var(--proportional-x-small-padding);
         gap: var(--proportional-x-small-padding);
     }
+}
+.colored-mediumvioletred {
+    background-color: #cb99c9;
+    color: var(--white);
+}
+.colored-green, .colored-limegreen {
+    background-color: #21B6A8;
+    color: var(--white);
+}
+.colored-blue {
+    background-color: var(--blue);
+    color: var(--white);
+}
+.colored-darkblue {
+    background-color: #779ecb;
+    color: var(--white);
+}
+.colored-red, .colored-orange {
+    background-color: var(--pastel-red);
+    color: var(--white);
 }
 
 /* FOOTER STYLING */
