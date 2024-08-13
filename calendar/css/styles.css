@@ -1712,6 +1712,44 @@ hr {
         gap: var(--proportional-x-small-padding);
     }
 }
+@media screen and (max-width: 720px) and (min-width: 401px) {
+    .month-grid-holder:last-child, .month-grid-holder:first-child {
+        display: none;
+    }
+    .month-grid-holder {
+        padding: var(--proportional-small-padding);
+    }
+    .month {
+        max-width: 100%;
+    }
+}
+@media screen and (max-width: 400px) {
+    .month-grid-holder:last-child, .month-grid-holder:first-child {
+        display: none;
+    }
+    .month-grid-holder {
+        padding: var(--proportional-small-padding);
+    }
+
+    .calendar-holder {
+        border: none;
+        width: 100%;
+        transform: scaleX(0.9) scaleY(0.9);
+    }
+    .bigger-article {
+        padding: 0;
+    }
+    .month {
+        max-width: 100%;
+    }
+}
+@media screen and (max-width: 350px) {
+    .calendar-holder {
+        border: none;
+        width: 100%;
+        transform: scaleX(0.8) scaleY(0.8);
+    }
+}
 .colored-mediumvioletred {
     background-color: #cb99c9;
     color: var(--white);
@@ -1731,6 +1769,64 @@ hr {
 .colored-red, .colored-orange {
     background-color: var(--pastel-red);
     color: var(--white);
+}
+
+input::placeholder {
+    color: var(--blue);
+    opacity: 0.7;
+}
+.text-input-holder {
+    display: flex;
+    flex-direction: column;
+    padding: var(--proportional-x-small-padding);
+    min-width: 0;
+}
+.form-label {
+    text-align: left;
+    font-size: 75%;
+    line-height: normal;
+}
+input {
+    font-size: 75%;
+    height: 100%;
+    border: 0;
+    border-bottom: var(--dark-blue) solid 2px;
+    background-color: var(--white);
+    text-align: left;
+    padding: var(--proportional-x-small-padding);
+    color: var(--dark-blue);
+}
+#reset-button, #scroll-button {
+    padding: var(--proportional-x-small-padding);
+    font-size: 85%;
+    height: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
+    min-width: fit-content;
+}
+#controls {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "date date scroll-button scroll-button reset-button reset-button"
+    "archive archive archive archive archive archive";
+    gap: var(--proportional-small-padding);
+    padding: var(--proportional-x-small-padding);
+}
+#date-input-holder {
+    grid-area: date;
+}
+#reset-button {
+    grid-area: reset-button;
+}
+#scroll-button {
+    grid-area: scroll-button;
+}
+#news-archive-holder {
+    font-size: 80%;
+    text-align: right;
+    grid-area: archive;
 }
 
 /* FOOTER STYLING */

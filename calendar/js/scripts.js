@@ -501,9 +501,6 @@ function generateAndAttachMonthGrid(monthDict, parentElement, year=-1, month=-1)
                     let dayFromMonthDict = monthDict[daysOfTheWeek[dayIndex]][j];
                     let dayString = (dayFromMonthDict > 9 ? dayFromMonthDict.toString() : '0' + dayFromMonthDict);
                     element.id = "day-" + year.toString() + month + dayString;
-                    element.addEventListener("click", () => {
-                        document.getElementsByClassName("event-" + year.toString() + month + dayString)[0].scrollIntoView(false); 
-                    });
                 }
                 element.classList.add("has-border"); // we don't want a border for empty elements for readability
             }
@@ -717,6 +714,20 @@ function highlightAndShowEvents(year, month) {
         if (eventsOfTheDay.length != 0) { // if there were (or will be) events that day
             var dayElement = document.getElementById("day-" + year.toString() + month + day);
             dayElement.classList.add("eventfull-day");
+            dayElement.addEventListener("click", () => {
+                document.getElementsByClassName("event-" + year.toString() + month + day)[0].scrollIntoView(false); 
+            });
+            dayElement.addEventListener("keydown", (event) => {
+                let simulatedClickEvent = new MouseEvent("click", {
+                    view: window,
+                    bubbles: true,
+                    cancelable: true,
+                });
+                if (event.code === 'Space' || event.code === 'Enter') {
+                    dayElement.dispatchEvent(simulatedClickEvent);
+                }
+            });
+            dayElement.tabIndex = "0";
             let firstEventClasses = eventsOfTheDay[0].children[0].classList.toString().split(" ");
             for (let classNameIndex = 0; classNameIndex < firstEventClasses.length; ++classNameIndex) {
                 if (firstEventClasses[classNameIndex].includes("colored")) {
