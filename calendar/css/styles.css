@@ -1536,9 +1536,9 @@ h2 {
     color: var(--blue);
     text-align: center;
 }
-#article-1 {
+/* #article-1 {
     padding-top: 0;
-}
+} */
 .article-text {
     font-size: 60%;
     line-height: normal;

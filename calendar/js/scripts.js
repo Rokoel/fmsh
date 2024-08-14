@@ -149,153 +149,6 @@ window.onload = function() {
     closestEventHolder.children[closestEventHolder.children.length-1].innerHTML = closestEventInTheFuture.innerHTML;
 };
 
-function resetCalendar(calendarElement, rightArrow, leftArrow, lastEventYear, lastEventMonth) {
-    calendarElement.innerHTML = "";
-    rightArrow.style.display = "";
-    leftArrow.style.display = "";
-    var currentYearAndMonth = generateMonthStartingFrom(-1, -1, 3, calendarElement); // set the initial position of the scroll window
-    let year = currentYearAndMonth[0];
-    let month = currentYearAndMonth[1];
-    let currentMonthStringRepresentation = returnMonthAndYear(year, month);
-    // we obtain the date of the current month
-    let dateRepresentationOfCurrentMonth = new Date(currentMonthStringRepresentation[1] + '.' + currentMonthStringRepresentation[0] + '.01');
-    // we obtain the date of the last month
-    let dateRepresentationOfLastMonth = new Date(lastEventYear + '.' + lastEventMonth + '.01');
-
-    if (addNMonths(dateRepresentationOfCurrentMonth, 2) >= dateRepresentationOfLastMonth) { // now we can easily compare the two dates
-        rightArrow.style.display = "none"; // hide the scroll-right button
-        calendarElement.children[calendarElement.children.length - 1].style.marginRight = "var(--proportional-small-padding)"; // add some margin in place of the button
-        // we don't need to worry about removing the "style" attribute as we delete all the "calendar" contents on every scroll
-    }
-    return currentYearAndMonth;
-}
-
-function addNMonths(date, N) {
-    var year = date.getFullYear();
-    var month = date.getMonth() + 1;
-    var yearInMonths = year*12 + month;
-    var newYear = integerDiv(yearInMonths + N, 12);
-    var newMonthNumber = mod((month + N), 12) + 1;
-    var newMonthStr = returnMonthAndYear(newYear, newMonthNumber)[0];
-    var day = (date.getDate().toString().length == 1 ? '0' + date.getDate() : date.getDate().toString());
-    return new Date(newYear + '.' + newMonthStr + '.' + day);
-}
-
-function addDays(date, days) {
-    var result = new Date(date);
-    result.setDate(result.getDate() + days);
-    return result;
-}
-
-function findClosestEventInTheFuture(date, latestEventDate) {
-    let i = 0;
-    var incrementedDate = date;
-    var closestEventInTheFuture;
-    while (incrementedDate <= latestEventDate) {
-        let currentYear = incrementedDate.getFullYear();
-        let currentMonth = incrementedDate.getMonth() + 1;
-        let currentMonthStringRepresentation = (currentMonth.toString().length == 1 ? '0' + currentMonth : currentMonth.toString());
-        let currentDay = incrementedDate.getDate();
-        let currentDayStringRepresentation = (currentDay.toString().length == 1 ? '0' + currentDay : currentDay.toString());
-        let eventsOfTheDay = document.getElementsByClassName("event-" + currentYear.toString() + currentMonthStringRepresentation + currentDayStringRepresentation);
-        if (eventsOfTheDay.length != 0) {
-            closestEventInTheFuture = eventsOfTheDay[0];
-            break;
-        }
-        ++i;
-        incrementedDate = addDays(date, i);
-    }
-    return closestEventInTheFuture;
-}
-
-/**
- * returnNthEventYearAndMonth() returns Nth event from the page.
- * @param {number} N An index of the event
- * @returns {[string, string]} A list of a year and a month [year, month]
- */
-function returnNthEventYearAndMonth(N=-1, returnDateObject=false) {
-    if (returnDateObject == false) {
-        if (N == -1) {
-            var listOfEvents = document.getElementsByClassName("date");
-            var lastEvent = listOfEvents[listOfEvents.length - 1].parentElement;
-            var lastEventClasses = lastEvent.classList.toString().split(" ");
-            var lastEventDate;
-            var lastEventYear;
-            var lastEventMonth;
-            for (let i = 0; i < lastEventClasses.length; ++i) {
-                if (lastEventClasses[i].includes("event")) {
-                    if (lastEventClasses[i].split("-")[1] != "event") {
-                        lastEventDate = lastEventClasses[i].split("-")[1];
-                        lastEventYear = lastEventDate.slice(0, 4);
-                        lastEventMonth = lastEventDate.slice(4, 6);
-                    }
-                }
-            }
-            return [lastEventYear, lastEventMonth];
-        }
-        else {
-            var listOfEvents = document.getElementsByClassName("date");
-            var NthEvent = listOfEvents[N].parentElement;
-            var NthEventClasses = NthEvent.classList.toString().split(" ");
-            var NthEventDate;
-            var NthEventYear;
-            var NthEventMonth;
-            for (let i = 0; i < NthEventClasses.length; ++i) {
-                if (NthEventClasses[i].includes("event")) {
-                    if (NthEventClasses[i].split("-")[1] != "event") {
-                        NthEventDate = NthEventClasses[i].split("-")[1];
-                        NthEventYear = NthEventDate.slice(0, 4);
-                        NthEventMonth = NthEventDate.slice(4, 6);
-                    }
-                }
-            }
-            return [NthEventYear, NthEventMonth];
-        }
-    }
-    else {
-        if (N == -1) {
-            var listOfEvents = document.getElementsByClassName("date");
-            var lastEvent = listOfEvents[listOfEvents.length - 1].parentElement;
-            var lastEventClasses = lastEvent.classList.toString().split(" ");
-            var lastEventDate;
-            var lastEventYear;
-            var lastEventMonth;
-            var lastEventDay;
-            for (let i = 0; i < lastEventClasses.length; ++i) {
-                if (lastEventClasses[i].includes("event")) {
-                    if (lastEventClasses[i].split("-")[1] != "event") {
-                        lastEventDate = lastEventClasses[i].split("-")[1];
-                        lastEventYear = lastEventDate.slice(0, 4);
-                        lastEventMonth = lastEventDate.slice(4, 6);
-                        lastEventDay = lastEventDate.slice(6, 8);
-                    }
-                }
-            }
-            return [lastEventYear, lastEventMonth, new Date(lastEventYear + '.' + lastEventMonth + '.' + lastEventDay)];
-        }
-        else {
-            var listOfEvents = document.getElementsByClassName("date");
-            var NthEvent = listOfEvents[N].parentElement;
-            var NthEventClasses = NthEvent.classList.toString().split(" ");
-            var NthEventDate;
-            var NthEventYear;
-            var NthEventMonth;
-            var NthEventDay;
-            for (let i = 0; i < NthEventClasses.length; ++i) {
-                if (NthEventClasses[i].includes("event")) {
-                    if (NthEventClasses[i].split("-")[1] != "event") {
-                        NthEventDate = NthEventClasses[i].split("-")[1];
-                        NthEventYear = NthEventDate.slice(0, 4);
-                        NthEventMonth = NthEventDate.slice(4, 6);
-                        NthEventDay = NthEventDate.slice(6, 8);
-                    }
-                }
-            }
-            return [NthEventYear, NthEventMonth, new Date(NthEventYear + '.' + NthEventMonth + '.' + NthEventDay)];
-        }
-    }
-}
-
 /**
  * copyPhoneNumber() copies the phone number to the clipboard. It's
  * supposed to be called on mobile devices when a button is clicked.
@@ -785,6 +638,11 @@ function generateMonthStartingFrom(yearInput=-1, startingMonthIndexInput=-1, num
     return [initialYear, startingMonthIndex];
 }
 
+/**
+ * abs() returns the absolute value of the number N.
+ * @param {number} N 
+ * @returns {number} A non-negative number
+ */
 function abs(N) {
     if (N >= 0) {
         return N;
@@ -792,6 +650,12 @@ function abs(N) {
     return -N;
 }
 
+/**
+ * Returns number a's representation in the modulo n.
+ * @param {number} a A number to be represented in the modulo
+ * @param {number} n The modulo
+ * @returns {number} The non-negative result of the operation
+ */
 function mod(a, n) {
     return a - (n * Math.floor(a/n));
 }
@@ -859,6 +723,195 @@ function highlightAndShowEvents(year, month) {
     }
 }
 
+/**
+ * resetCalendar() resets the calendar to the current month.
+ * @param {HTMLElement} calendarElement The calendar element
+ * @param {HTMLElement} rightArrow The right arrow element
+ * @param {HTMLElement} leftArrow The left arrow element
+ * @param {string} lastEventYear A year of the last event to hide the right arrow if needed
+ * @param {string} lastEventMonth A month of the last event to hide the right arrow if needed
+ * @returns A list [year, startingMonthIndex] of the newly generated calendar
+ */
+function resetCalendar(calendarElement, rightArrow, leftArrow, lastEventYear, lastEventMonth) {
+    calendarElement.innerHTML = "";
+    rightArrow.style.display = "";
+    leftArrow.style.display = "";
+    var currentYearAndMonth = generateMonthStartingFrom(-1, -1, 3, calendarElement); // set the initial position of the scroll window
+    let year = currentYearAndMonth[0];
+    let month = currentYearAndMonth[1];
+    let currentMonthStringRepresentation = returnMonthAndYear(year, month);
+    // we obtain the date of the current month
+    let dateRepresentationOfCurrentMonth = new Date(currentMonthStringRepresentation[1] + '.' + currentMonthStringRepresentation[0] + '.01');
+    // we obtain the date of the last month
+    let dateRepresentationOfLastMonth = new Date(lastEventYear + '.' + lastEventMonth + '.01');
+
+    if (addNMonths(dateRepresentationOfCurrentMonth, 2) >= dateRepresentationOfLastMonth) { // now we can easily compare the two dates
+        rightArrow.style.display = "none"; // hide the scroll-right button
+        calendarElement.children[calendarElement.children.length - 1].style.marginRight = "var(--proportional-small-padding)"; // add some margin in place of the button
+        // we don't need to worry about removing the "style" attribute as we delete all the "calendar" contents on every scroll
+    }
+    return currentYearAndMonth;
+}
+
+/**
+ * addNMonths() increases (or decreases) the month's number of a date by N.
+ * It correctly goes through years (i.e. 2022.12.__ + 1 = 2023.01.__).
+ * It doesn't account for situations in which day of the month may become invalid,
+ * for example 2023.01.30 + 1 will result in 2023.02.30. However, this function is primarily
+ * used with dates with days being '01'. It doesn't change the initial date object.
+ * @param {Date} date A date to add month to
+ * @param {number} N A number by which to increase the months to. If N is negative, then will decrease instead
+ * @returns A new date
+ */
+function addNMonths(date, N) {
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var yearInMonths = year*12 + month;
+    var newYear = integerDiv(yearInMonths + N, 12);
+    var newMonthNumber = mod((month + N), 12) + 1;
+    var newMonthStr = returnMonthAndYear(newYear, newMonthNumber)[0];
+    var day = (date.getDate().toString().length == 1 ? '0' + date.getDate() : date.getDate().toString());
+    return new Date(newYear + '.' + newMonthStr + '.' + day);
+}
+
+/**
+ * addDays() returns a date that's [days] days further into the future from the [date].
+ * @param {Date} date A date to add the days to
+ * @param {number} days Number of days to be added
+ * @returns {Date} A new date
+ */
+function addDays(date, days) {
+    var result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+}
+
+/**
+ * findClosestEventInTheFuture() returns the event from the future closest to the provided date.
+ * @param {Date} date A date that an event will be closest to.
+ * @param {Date} latestEventDate A date of the latest event in the list
+ * @returns {HTMLElement} The event element from the DOM
+ */
+function findClosestEventInTheFuture(date, latestEventDate) {
+    let i = 0;
+    var incrementedDate = date;
+    var closestEventInTheFuture;
+    while (incrementedDate <= latestEventDate) {
+        let currentYear = incrementedDate.getFullYear();
+        let currentMonth = incrementedDate.getMonth() + 1;
+        let currentMonthStringRepresentation = (currentMonth.toString().length == 1 ? '0' + currentMonth : currentMonth.toString());
+        let currentDay = incrementedDate.getDate();
+        let currentDayStringRepresentation = (currentDay.toString().length == 1 ? '0' + currentDay : currentDay.toString());
+        let eventsOfTheDay = document.getElementsByClassName("event-" + currentYear.toString() + currentMonthStringRepresentation + currentDayStringRepresentation);
+        if (eventsOfTheDay.length != 0) {
+            closestEventInTheFuture = eventsOfTheDay[0];
+            break;
+        }
+        ++i;
+        incrementedDate = addDays(date, i);
+    }
+    return closestEventInTheFuture;
+}
+
+/**
+ * returnNthEventYearAndMonth() returns Nth event from the page.
+ * @param {number} N An index of the event. If -1, returns the last event
+ * @param {boolean} returnDateObject A flag that indicates whether the function should also return the date object
+ * @returns {([string, string]|[string, string, Date])} A list of a year and a month [year, month] and sometimes [year, month, dateObj]
+ */
+function returnNthEventYearAndMonth(N=-1, returnDateObject=false) {
+    if (returnDateObject == false) {
+        if (N == -1) {
+            var listOfEvents = document.getElementsByClassName("date");
+            var lastEvent = listOfEvents[listOfEvents.length - 1].parentElement;
+            var lastEventClasses = lastEvent.classList.toString().split(" ");
+            var lastEventDate;
+            var lastEventYear;
+            var lastEventMonth;
+            for (let i = 0; i < lastEventClasses.length; ++i) {
+                if (lastEventClasses[i].includes("event")) {
+                    if (lastEventClasses[i].split("-")[1] != "event") {
+                        lastEventDate = lastEventClasses[i].split("-")[1];
+                        lastEventYear = lastEventDate.slice(0, 4);
+                        lastEventMonth = lastEventDate.slice(4, 6);
+                    }
+                }
+            }
+            return [lastEventYear, lastEventMonth];
+        }
+        else {
+            var listOfEvents = document.getElementsByClassName("date");
+            var NthEvent = listOfEvents[N].parentElement;
+            var NthEventClasses = NthEvent.classList.toString().split(" ");
+            var NthEventDate;
+            var NthEventYear;
+            var NthEventMonth;
+            for (let i = 0; i < NthEventClasses.length; ++i) {
+                if (NthEventClasses[i].includes("event")) {
+                    if (NthEventClasses[i].split("-")[1] != "event") {
+                        NthEventDate = NthEventClasses[i].split("-")[1];
+                        NthEventYear = NthEventDate.slice(0, 4);
+                        NthEventMonth = NthEventDate.slice(4, 6);
+                    }
+                }
+            }
+            return [NthEventYear, NthEventMonth];
+        }
+    }
+    else {
+        if (N == -1) {
+            var listOfEvents = document.getElementsByClassName("date");
+            var lastEvent = listOfEvents[listOfEvents.length - 1].parentElement;
+            var lastEventClasses = lastEvent.classList.toString().split(" ");
+            var lastEventDate;
+            var lastEventYear;
+            var lastEventMonth;
+            var lastEventDay;
+            for (let i = 0; i < lastEventClasses.length; ++i) {
+                if (lastEventClasses[i].includes("event")) {
+                    if (lastEventClasses[i].split("-")[1] != "event") {
+                        lastEventDate = lastEventClasses[i].split("-")[1];
+                        lastEventYear = lastEventDate.slice(0, 4);
+                        lastEventMonth = lastEventDate.slice(4, 6);
+                        lastEventDay = lastEventDate.slice(6, 8);
+                    }
+                }
+            }
+            return [lastEventYear, lastEventMonth, new Date(lastEventYear + '.' + lastEventMonth + '.' + lastEventDay)];
+        }
+        else {
+            var listOfEvents = document.getElementsByClassName("date");
+            var NthEvent = listOfEvents[N].parentElement;
+            var NthEventClasses = NthEvent.classList.toString().split(" ");
+            var NthEventDate;
+            var NthEventYear;
+            var NthEventMonth;
+            var NthEventDay;
+            for (let i = 0; i < NthEventClasses.length; ++i) {
+                if (NthEventClasses[i].includes("event")) {
+                    if (NthEventClasses[i].split("-")[1] != "event") {
+                        NthEventDate = NthEventClasses[i].split("-")[1];
+                        NthEventYear = NthEventDate.slice(0, 4);
+                        NthEventMonth = NthEventDate.slice(4, 6);
+                        NthEventDay = NthEventDate.slice(6, 8);
+                    }
+                }
+            }
+            return [NthEventYear, NthEventMonth, new Date(NthEventYear + '.' + NthEventMonth + '.' + NthEventDay)];
+        }
+    }
+}
+
+/**
+ * calculateScrollValue() calculates and returns the number of month that is needed to
+ * scroll from one date to the other.
+ * It returns errors and takes limits of the calendar into consideration.
+ * @param {number} previousYear The previous year
+ * @param {string} previousMonth The previous month
+ * @param {*} limitRight The right limit of the calendar, a string that's ready to be converted to a date
+ * @param {string} limitLeft The left limit of the calendar, a string that's ready to be converted to a date
+ * @returns 
+ */
 function calculateScrollValue(previousYear, previousMonth, limitRight, limitLeft) {
     let monthAndYearInput = document.getElementById("month-and-year");
     var dateValidationResult;
