@@ -1736,9 +1736,6 @@ hr {
         width: 100%;
         transform: scaleX(0.9) scaleY(0.9);
     }
-    .bigger-article {
-        padding: 0;
-    }
     .month {
         max-width: 100%;
     }
@@ -1796,7 +1793,7 @@ input {
     padding: var(--proportional-x-small-padding);
     color: var(--dark-blue);
 }
-#reset-button, #scroll-button {
+#reset-button, #jump-button {
     padding: var(--proportional-x-small-padding);
     font-size: 85%;
     height: fit-content;
@@ -1809,7 +1806,7 @@ input {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
-    "date date scroll-button scroll-button reset-button reset-button"
+    "date date jump-button jump-button reset-button reset-button"
     "archive archive archive archive archive archive";
     gap: var(--proportional-small-padding);
     padding: var(--proportional-x-small-padding);
@@ -1820,14 +1817,34 @@ input {
 #reset-button {
     grid-area: reset-button;
 }
-#scroll-button {
-    grid-area: scroll-button;
+#jump-button {
+    grid-area: jump-button;
 }
 #news-archive-holder {
     font-size: 80%;
     text-align: right;
     grid-area: archive;
 }
+.error-msg {
+    line-height: normal;
+    font-size: 60%;
+    color: var(--pastel-red);
+}
+@media screen and (max-width: 720px) {
+    #controls {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "date"
+        "jump-button"
+        "reset-button"
+        "archive";
+        gap: var(--proportional-small-padding);
+        padding: var(--proportional-x-small-padding);
+    }
+    #news-archive-holder {
+        text-align: center;
+    }
+}   
 
 /* FOOTER STYLING */
 #footer, #mobile-footer {

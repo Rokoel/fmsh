@@ -56,38 +56,18 @@ window.onload = function() {
     var leftArrow = document.getElementById("arrow-left");
     var rightArrow = document.getElementById("arrow-right");
 
-    var startingYearAndMonth = generateMonthStartingFrom(-1, -1, 3, calendarElement); // set the initial position of the scroll window
-
-    let year = startingYearAndMonth[0];
-    let startingMonthIndex = startingYearAndMonth[1];
-
-    // now we'll hide the scroll-right button if needed
     var lastEventYear;
     var lastEventMonth;
     [lastEventYear, lastEventMonth] = returnNthEventYearAndMonth(-1); // getting the last event's date
-    // we represent the current month and year in an easy-to-convert format
-    // we write +3 because our function returns the starting month, not the middle month
-    let actualBorderYear = returnActualYear(year, startingMonthIndex);
-    let actualBorderMonth = returnActualMonth(startingMonthIndex) + 1;
 
-    let stringRepresentation = returnMonthAndYear(actualBorderYear, actualBorderMonth);
-    // we obtain the date of the current month
-    let dateRepresentationOfCurrentMonth = new Date(stringRepresentation[1] + '.' + stringRepresentation[0] + '.01');
-
-    // we obtain the date of the last month
-    let dateRepresentationOfLastMonth = new Date(lastEventYear + '.' + lastEventMonth + '.01');
-    if (dateRepresentationOfCurrentMonth >= dateRepresentationOfLastMonth) { // now we can easily compare the two dates
-        rightArrow.style.display = "none"; // hide the scroll-right button
-        calendarElement.children[calendarElement.children.length - 1].style.marginRight = "var(--proportional-small-padding)"; // add some margin in place of the button
-        // we don't need to worry about removing the "style" attribute as we delete all the "calendar" contents on every scroll
-    }
+    var currentYearAndMonth = resetCalendar(calendarElement, rightArrow, leftArrow, lastEventYear, lastEventMonth);
     
     leftArrow.addEventListener("click", () => {
-        let year = startingYearAndMonth[0];
-        let startingMonthIndex = startingYearAndMonth[1];
+        let year = currentYearAndMonth[0];
+        let month = currentYearAndMonth[1];
         rightArrow.style.display = "";
-        [startingYearAndMonth[0], startingYearAndMonth[1]] = scrollMonth(calendarElement, year, startingMonthIndex, +1);
-        if (year <= 2022 && startingMonthIndex <= 5) { // we can just hard-code it 'cause we actually know that there won't be any year change occuring (as the first month is June)
+        [currentYearAndMonth[0], currentYearAndMonth[1]] = scrollMonth(calendarElement, year, month, -1);
+        if (year <= 2022 && month <= 5) { // we can just hard-code it 'cause we actually know that there won't be any year change occuring (as the first month is June)
             leftArrow.style.display = "none";
             calendarElement.children[0].style.marginLeft = "var(--proportional-small-padding)";
         }
@@ -98,19 +78,17 @@ window.onload = function() {
         }
     });
     rightArrow.addEventListener("click", () => {
-        let year = startingYearAndMonth[0];
-        let startingMonthIndex = startingYearAndMonth[1];
-        let actualBorderYear = returnActualYear(year, startingMonthIndex);
-        let actualBorderMonth = returnActualMonth(startingMonthIndex) + 1;
+        let year = currentYearAndMonth[0];
+        let month = currentYearAndMonth[1];
 
-        let stringRepresentation = returnMonthAndYear(actualBorderYear, actualBorderMonth);
-        let dateRepresentationOfCurrentMonth = new Date(stringRepresentation[1] + '.' + stringRepresentation[0] + '.01');
+        let currentMonthStringRepresentation = returnMonthAndYear(year, month);
+        let dateRepresentationOfCurrentMonth = new Date(currentMonthStringRepresentation[1] + '.' + currentMonthStringRepresentation[0] + '.01');
         
-        [startingYearAndMonth[0], startingYearAndMonth[1]] = scrollMonth(calendarElement, year, startingMonthIndex, -1);
+        [currentYearAndMonth[0], currentYearAndMonth[1]] = scrollMonth(calendarElement, year, month, +1);
 
         let dateRepresentationOfLastMonth = new Date(lastEventYear + '.' + lastEventMonth + '.01');
         leftArrow.style.display = "";
-        if (dateRepresentationOfCurrentMonth >= dateRepresentationOfLastMonth) {
+        if (addNMonths(dateRepresentationOfCurrentMonth, 3) >= dateRepresentationOfLastMonth) {
             rightArrow.style.display = "none";
             calendarElement.children[calendarElement.children.length - 1].style.marginRight = "var(--proportional-small-padding)";
         }
@@ -121,27 +99,80 @@ window.onload = function() {
         }
     });
 
+    var jumpButton = document.getElementById("jump-button");
+    jumpButton.addEventListener("click", () => {
+        let previousYear = currentYearAndMonth[0];
+        let previousMonth = currentYearAndMonth[1];
+        let scrollValueCalculationsResult = calculateScrollValue(previousYear, previousMonth, lastEventYear + '.' + lastEventMonth + '.01', '2022.05.01');
+        if (scrollValueCalculationsResult[0] == true) {
+            [currentYearAndMonth[0], currentYearAndMonth[1]] = scrollMonth(calendarElement, currentYearAndMonth[0], currentYearAndMonth[1], scrollValueCalculationsResult[2]);
+
+            let currentMonthStringRepresentation = returnMonthAndYear(currentYearAndMonth[0], currentYearAndMonth[1]);
+            let dateRepresentationOfCurrentMonth = new Date(currentMonthStringRepresentation[1] + '.' + currentMonthStringRepresentation[0] + '.01');
+            let dateRepresentationOfLastMonth = new Date(lastEventYear + '.' + lastEventMonth + '.01');
+            leftArrow.style.display = "";
+            rightArrow.style.display = "";
+            if (addNMonths(dateRepresentationOfCurrentMonth, 1) >= dateRepresentationOfLastMonth) {
+                rightArrow.style.display = "none";
+                calendarElement.children[calendarElement.children.length - 1].style.marginRight = "var(--proportional-small-padding)";
+            }
+            if (currentYearAndMonth[0] <= 2022 && currentYearAndMonth[1] <= 4) { // we can just hard-code it 'cause we actually know that there won't be any year change occuring (as the first month is June)
+                leftArrow.style.display = "none";
+                calendarElement.children[0].style.marginLeft = "var(--proportional-small-padding)";
+            }
+            document.getElementById("month-and-year-error").textContent = "";
+        }
+        else {
+            document.getElementById("month-and-year-error").textContent = scrollValueCalculationsResult[1];
+        }
+    });
+    jumpButton.addEventListener("keydown", (event) => {
+        if (event.code === 'Space' || event.code === 'Enter') {
+            jumpButton.dispatchEvent(simulatedClickEvent);
+        }
+    });
+
+    var resetButton = document.getElementById("reset-button");
+    resetButton.addEventListener("click", () => {
+        currentYearAndMonth = resetCalendar(calendarElement, rightArrow, leftArrow, lastEventYear, lastEventMonth);
+    });
+    resetButton.addEventListener("keydown", (event) => {
+        if (event.code === 'Space' || event.code === 'Enter') {
+            resetButton.dispatchEvent(simulatedClickEvent);
+        }
+    });
 };
 
-/**
- * returnActualMonth() returns a number that represents an actual year after
- * all months have been added.
- * @param {number} year A number that represents the current year (it's usually gotten from one of the main functions)
- * @param {number} months A number that represents startingMonthIndex
- * @returns 
- */
-function returnActualYear(year, months) {
-    return year + integerDiv(months + 1, 12);
+function resetCalendar(calendarElement, rightArrow, leftArrow, lastEventYear, lastEventMonth) {
+    calendarElement.innerHTML = "";
+    rightArrow.style.display = "";
+    leftArrow.style.display = "";
+    var currentYearAndMonth = generateMonthStartingFrom(-1, -1, 3, calendarElement); // set the initial position of the scroll window
+    let year = currentYearAndMonth[0];
+    let month = currentYearAndMonth[1];
+    let currentMonthStringRepresentation = returnMonthAndYear(year, month);
+    // we obtain the date of the current month
+    let dateRepresentationOfCurrentMonth = new Date(currentMonthStringRepresentation[1] + '.' + currentMonthStringRepresentation[0] + '.01');
+    // we obtain the date of the last month
+    let dateRepresentationOfLastMonth = new Date(lastEventYear + '.' + lastEventMonth + '.01');
+
+    if (addNMonths(dateRepresentationOfCurrentMonth, 2) >= dateRepresentationOfLastMonth) { // now we can easily compare the two dates
+        rightArrow.style.display = "none"; // hide the scroll-right button
+        calendarElement.children[calendarElement.children.length - 1].style.marginRight = "var(--proportional-small-padding)"; // add some margin in place of the button
+        // we don't need to worry about removing the "style" attribute as we delete all the "calendar" contents on every scroll
+    }
+    return currentYearAndMonth;
 }
 
-/**
- * returnActualMonth() returns a number from 1 to 12 that represents
- * the number of the starting month (left month) in the calendar.
- * @param {number} month A number that represents startingMonthIndex
- * @returns A number from 1 to 12 that represents the number of the starting month (left month) in the calendar
- */
-function returnActualMonth(month) {
-    return (month + 1) % 12 + 1;
+function addNMonths(date, N) {
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var yearInMonths = year*12 + month;
+    var newYear = integerDiv(yearInMonths + N, 12);
+    var newMonthNumber = mod((month + N), 12) + 1;
+    var newMonthStr = returnMonthAndYear(newYear, newMonthNumber)[0];
+    var day = (date.getDate().toString().length == 1 ? '0' + date.getDate() : date.getDate().toString());
+    return new Date(newYear + '.' + newMonthStr + '.' + day);
 }
 
 /**
@@ -196,7 +227,6 @@ function returnNthEventYearAndMonth(N=-1) {
 async function copyPhoneNumber () {
     try {
         await navigator.clipboard.writeText("+74955806928");
-        console.log('Номер телефона скопирован в буфер обмена!');
     } catch (err) {
         console.error('Не смогли скопировать телефон в буфер обмена из-за ошибки: ', err);
     }
@@ -298,7 +328,7 @@ function switchTheme() {
  * validateDate() checks if a string is a valid date.
  * @param {string} date A string to be checked in a format 'dd.mm.yyyy'
  * @param {boolean} returnDateObject A flag indincating whether to return the Date object or not
- * @returns True if the string is a valid date separated by fullstops and false otherwise. The returned value is a list containing of the boolean and an error message if false is returned and an empty string otherwise.
+ * @returns {[boolean, string, Date]} True if the string is a valid date separated by fullstops and false otherwise. The returned value is a list containing of the boolean and an error message if false is returned and an empty string otherwise.
  */
 function validateDate(dateString, returnDateObject=false) { // could've named the function "valiDate" :)
     if (returnDateObject == false) {
@@ -511,7 +541,8 @@ function generateAndAttachMonthGrid(monthDict, parentElement, year=-1, month=-1)
 }
 
 /**
- * integerDiv() returns the quotient of integer division of a and b.
+ * integerDiv() returns the quotient of integer division of a and b. If a is negative,
+ * the result will be negative as well.
  * @param {number} a 
  * @param {number} b 
  * @returns An integer representing the quotient
@@ -677,15 +708,26 @@ function generateMonthStartingFrom(yearInput=-1, startingMonthIndexInput=-1, num
     return [initialYear, startingMonthIndex];
 }
 
+function abs(N) {
+    if (N >= 0) {
+        return N;
+    }
+    return -N;
+}
+
+function mod(a, n) {
+    return a - (n * Math.floor(a/n));
+}
+
 /**
  * scrollMonth() changes parent's contents to newly generated months according to how many month were scrolled.
  * @param {HTMLElement} parentElement An element to change contents of
  * @param {number} previousYear Year of the previous month to scroll from
- * @param {number} previousStartingMonthIndex Index of the previous month to scroll from
+ * @param {number} previousMonth Index of the previous month to scroll from
  * @param {number} numberOfMonthToScroll Number of month to scroll, positive values for scrolling "left" (decreasing the month), negative for scrolling "right" (increasing the month)
  * @returns {[number, number]} A list [year, startingMonthIndex] containing the new year and index of the starting month after the scroll
  */
-function scrollMonth(parentElement, previousYear, previousStartingMonthIndex, numberOfMonthToScroll=1) {
+function scrollMonth(parentElement, previousYear, previousMonth, numberOfMonthToScroll=1) {
     parentElement.innerHTML = "";
     var shownEvents = document.getElementsByClassName("shown-event");
     var numberOfShownElements = shownEvents.length;
@@ -693,20 +735,18 @@ function scrollMonth(parentElement, previousYear, previousStartingMonthIndex, nu
         shownEvents[0].classList.add("hidden-event");
         shownEvents[0].classList.remove("shown-event");
     }
-    if (previousStartingMonthIndex - numberOfMonthToScroll < 0) {
-        var numberOfYearsToScroll = (numberOfMonthToScroll % 12 != 0) + integerDiv(numberOfMonthToScroll, 12);
-        var newYear = previousYear - numberOfYearsToScroll;
-        var newStartingMonthIndex = ( previousStartingMonthIndex + (numberOfYearsToScroll*12 - numberOfMonthToScroll) ) % 12;
-        return generateMonthStartingFrom(newYear, newStartingMonthIndex, 3, parentElement);
-    }
-    else {
-        // generateMonthStartingFrom() is able to generate month with the number of a month being larger than 12,
-        // so we don't need to do any special checks for negative values of numberOfMonthToScroll
-        var newStartingMonthIndex = previousStartingMonthIndex - numberOfMonthToScroll;
-        return generateMonthStartingFrom(previousYear, newStartingMonthIndex, 3, parentElement);
-    }
+    var previousYearInMonths = previousYear*12 + previousMonth;
+    var newYear = integerDiv(previousYearInMonths + numberOfMonthToScroll, 12);
+    var newMonth = mod((previousMonth + numberOfMonthToScroll), 12);
+    return generateMonthStartingFrom(newYear, newMonth, 3, parentElement);
 }
 
+/**
+ * highlightAndShowEvents() shows only events from the scrolled-to months and higlights
+ * any events in the calendar from these same months.
+ * @param {number} year 
+ * @param {string} month 
+ */
 function highlightAndShowEvents(year, month) {
     for (let i = 1; i < 31; ++i) {
         let day = (i > 9 ? i.toString() : '0' + i);
@@ -739,5 +779,36 @@ function highlightAndShowEvents(year, month) {
                 eventsOfTheDay[j].classList.add("shown-event");
             }
         }
+    }
+}
+
+function calculateScrollValue(previousYear, previousMonth, limitRight, limitLeft) {
+    let monthAndYearInput = document.getElementById("month-and-year");
+    var dateValidationResult;
+    if (monthAndYearInput.value.includes(".")) {
+        let dateList = monthAndYearInput.value.split(".");
+        dateValidationResult = validateDate('01.' + dateList[1] + '.' + dateList[0], true);
+    }
+    else {
+        return [false, "Неправильный формат ввода даты", -1];
+    }
+    dateValidationResult[2] = addNMonths(dateValidationResult[2], -2);
+    var newYear;
+    var newMonth;
+    if (dateValidationResult[0] == true) {
+        if (dateValidationResult[2] < new Date(limitLeft)){
+            return [false, "События за этот месяц можно посмотреть в архиве новостей :)", -1];
+        }
+        if (dateValidationResult[2] > addNMonths(new Date(limitRight), -2)) {
+            return [false, "Событий на этот месяц пока нет. Stay tuned :)", -1];
+        }
+
+        newYear = dateValidationResult[2].getFullYear();
+        newMonth = dateValidationResult[2].getMonth();
+        var scrollValue = (newYear-previousYear) * 12 + newMonth - Number(previousMonth);
+        return [true, "", scrollValue];
+    }
+    else {
+        return [false, dateValidationResult[1], -1];
     }
 }
