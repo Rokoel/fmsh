@@ -58,7 +58,8 @@ window.onload = function() {
 
     var lastEventYear;
     var lastEventMonth;
-    [lastEventYear, lastEventMonth] = returnNthEventYearAndMonth(-1); // getting the last event's date
+    var latestEventDateObject;
+    [lastEventYear, lastEventMonth, latestEventDateObject] = returnNthEventYearAndMonth(-1, true); // getting the last event's date
 
     var currentYearAndMonth = resetCalendar(calendarElement, rightArrow, leftArrow, lastEventYear, lastEventMonth);
     
@@ -88,7 +89,7 @@ window.onload = function() {
 
         let dateRepresentationOfLastMonth = new Date(lastEventYear + '.' + lastEventMonth + '.01');
         leftArrow.style.display = "";
-        if (addNMonths(dateRepresentationOfCurrentMonth, 3) >= dateRepresentationOfLastMonth) {
+        if (addNMonths(dateRepresentationOfCurrentMonth, 2) >= dateRepresentationOfLastMonth) {
             rightArrow.style.display = "none";
             calendarElement.children[calendarElement.children.length - 1].style.marginRight = "var(--proportional-small-padding)";
         }
@@ -107,6 +108,7 @@ window.onload = function() {
         if (scrollValueCalculationsResult[0] == true) {
             [currentYearAndMonth[0], currentYearAndMonth[1]] = scrollMonth(calendarElement, currentYearAndMonth[0], currentYearAndMonth[1], scrollValueCalculationsResult[2]);
 
+            document.getElementsByClassName("shown-event")[0].scrollIntoView(false);
             let currentMonthStringRepresentation = returnMonthAndYear(currentYearAndMonth[0], currentYearAndMonth[1]);
             let dateRepresentationOfCurrentMonth = new Date(currentMonthStringRepresentation[1] + '.' + currentMonthStringRepresentation[0] + '.01');
             let dateRepresentationOfLastMonth = new Date(lastEventYear + '.' + lastEventMonth + '.01');
@@ -141,6 +143,10 @@ window.onload = function() {
             resetButton.dispatchEvent(simulatedClickEvent);
         }
     });
+
+    var closestEventHolder = document.getElementById("closest-event-holder");   
+    let closestEventInTheFuture = findClosestEventInTheFuture(new Date(), latestEventDateObject);
+    closestEventHolder.children[closestEventHolder.children.length-1].innerHTML = closestEventInTheFuture.innerHTML;
 };
 
 function resetCalendar(calendarElement, rightArrow, leftArrow, lastEventYear, lastEventMonth) {
@@ -175,47 +181,118 @@ function addNMonths(date, N) {
     return new Date(newYear + '.' + newMonthStr + '.' + day);
 }
 
+function addDays(date, days) {
+    var result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+}
+
+function findClosestEventInTheFuture(date, latestEventDate) {
+    let i = 0;
+    var incrementedDate = date;
+    var closestEventInTheFuture;
+    while (incrementedDate <= latestEventDate) {
+        let currentYear = incrementedDate.getFullYear();
+        let currentMonth = incrementedDate.getMonth() + 1;
+        let currentMonthStringRepresentation = (currentMonth.toString().length == 1 ? '0' + currentMonth : currentMonth.toString());
+        let currentDay = incrementedDate.getDate();
+        let currentDayStringRepresentation = (currentDay.toString().length == 1 ? '0' + currentDay : currentDay.toString());
+        let eventsOfTheDay = document.getElementsByClassName("event-" + currentYear.toString() + currentMonthStringRepresentation + currentDayStringRepresentation);
+        if (eventsOfTheDay.length != 0) {
+            closestEventInTheFuture = eventsOfTheDay[0];
+            break;
+        }
+        ++i;
+        incrementedDate = addDays(date, i);
+    }
+    return closestEventInTheFuture;
+}
+
 /**
  * returnNthEventYearAndMonth() returns Nth event from the page.
  * @param {number} N An index of the event
  * @returns {[string, string]} A list of a year and a month [year, month]
  */
-function returnNthEventYearAndMonth(N=-1) {
-    if (N == -1) {
-        var listOfEvents = document.getElementsByClassName("date");
-        var lastEvent = listOfEvents[listOfEvents.length - 1].parentElement;
-        var lastEventClasses = lastEvent.classList.toString().split(" ");
-        var lastEventDate;
-        var lastEventYear;
-        var lastEventMonth;
-        for (let i = 0; i < lastEventClasses.length; ++i) {
-            if (lastEventClasses[i].includes("event")) {
-                if (lastEventClasses[i].split("-")[1] != "event") {
-                    lastEventDate = lastEventClasses[i].split("-")[1];
-                    lastEventYear = lastEventDate.slice(0, 4);
-                    lastEventMonth = lastEventDate.slice(4, 6);
+function returnNthEventYearAndMonth(N=-1, returnDateObject=false) {
+    if (returnDateObject == false) {
+        if (N == -1) {
+            var listOfEvents = document.getElementsByClassName("date");
+            var lastEvent = listOfEvents[listOfEvents.length - 1].parentElement;
+            var lastEventClasses = lastEvent.classList.toString().split(" ");
+            var lastEventDate;
+            var lastEventYear;
+            var lastEventMonth;
+            for (let i = 0; i < lastEventClasses.length; ++i) {
+                if (lastEventClasses[i].includes("event")) {
+                    if (lastEventClasses[i].split("-")[1] != "event") {
+                        lastEventDate = lastEventClasses[i].split("-")[1];
+                        lastEventYear = lastEventDate.slice(0, 4);
+                        lastEventMonth = lastEventDate.slice(4, 6);
+                    }
                 }
             }
+            return [lastEventYear, lastEventMonth];
         }
-        return [lastEventYear, lastEventMonth];
+        else {
+            var listOfEvents = document.getElementsByClassName("date");
+            var NthEvent = listOfEvents[N].parentElement;
+            var NthEventClasses = NthEvent.classList.toString().split(" ");
+            var NthEventDate;
+            var NthEventYear;
+            var NthEventMonth;
+            for (let i = 0; i < NthEventClasses.length; ++i) {
+                if (NthEventClasses[i].includes("event")) {
+                    if (NthEventClasses[i].split("-")[1] != "event") {
+                        NthEventDate = NthEventClasses[i].split("-")[1];
+                        NthEventYear = NthEventDate.slice(0, 4);
+                        NthEventMonth = NthEventDate.slice(4, 6);
+                    }
+                }
+            }
+            return [NthEventYear, NthEventMonth];
+        }
     }
     else {
-        var listOfEvents = document.getElementsByClassName("date");
-        var NthEvent = listOfEvents[N].parentElement;
-        var NthEventClasses = NthEvent.classList.toString().split(" ");
-        var NthEventDate;
-        var NthEventYear;
-        var NthEventMonth;
-        for (let i = 0; i < NthEventClasses.length; ++i) {
-            if (NthEventClasses[i].includes("event")) {
-                if (NthEventClasses[i].split("-")[1] != "event") {
-                    NthEventDate = NthEventClasses[i].split("-")[1];
-                    NthEventYear = NthEventDate.slice(0, 4);
-                    NthEventMonth = NthEventDate.slice(4, 6);
+        if (N == -1) {
+            var listOfEvents = document.getElementsByClassName("date");
+            var lastEvent = listOfEvents[listOfEvents.length - 1].parentElement;
+            var lastEventClasses = lastEvent.classList.toString().split(" ");
+            var lastEventDate;
+            var lastEventYear;
+            var lastEventMonth;
+            var lastEventDay;
+            for (let i = 0; i < lastEventClasses.length; ++i) {
+                if (lastEventClasses[i].includes("event")) {
+                    if (lastEventClasses[i].split("-")[1] != "event") {
+                        lastEventDate = lastEventClasses[i].split("-")[1];
+                        lastEventYear = lastEventDate.slice(0, 4);
+                        lastEventMonth = lastEventDate.slice(4, 6);
+                        lastEventDay = lastEventDate.slice(6, 8);
+                    }
                 }
             }
+            return [lastEventYear, lastEventMonth, new Date(lastEventYear + '.' + lastEventMonth + '.' + lastEventDay)];
         }
-        return [NthEventYear, NthEventMonth];
+        else {
+            var listOfEvents = document.getElementsByClassName("date");
+            var NthEvent = listOfEvents[N].parentElement;
+            var NthEventClasses = NthEvent.classList.toString().split(" ");
+            var NthEventDate;
+            var NthEventYear;
+            var NthEventMonth;
+            var NthEventDay;
+            for (let i = 0; i < NthEventClasses.length; ++i) {
+                if (NthEventClasses[i].includes("event")) {
+                    if (NthEventClasses[i].split("-")[1] != "event") {
+                        NthEventDate = NthEventClasses[i].split("-")[1];
+                        NthEventYear = NthEventDate.slice(0, 4);
+                        NthEventMonth = NthEventDate.slice(4, 6);
+                        NthEventDay = NthEventDate.slice(6, 8);
+                    }
+                }
+            }
+            return [NthEventYear, NthEventMonth, new Date(NthEventYear + '.' + NthEventMonth + '.' + NthEventDay)];
+        }
     }
 }
 
