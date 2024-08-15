@@ -1,3 +1,9 @@
+window.addEventListener("storage", (e) => {
+    if (e.key == 'theme') {
+        setTheme();
+    }
+});
+
 window.onload = function() {
     setTheme();
 

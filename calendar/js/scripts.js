@@ -102,31 +102,8 @@ window.onload = function() {
 
     var jumpButton = document.getElementById("jump-button");
     jumpButton.addEventListener("click", () => {
-        let previousYear = currentYearAndMonth[0];
-        let previousMonth = currentYearAndMonth[1];
-        let scrollValueCalculationsResult = calculateScrollValue(previousYear, previousMonth, lastEventYear + '.' + lastEventMonth + '.01', '2022.05.01');
-        if (scrollValueCalculationsResult[0] == true) {
-            [currentYearAndMonth[0], currentYearAndMonth[1]] = scrollMonth(calendarElement, currentYearAndMonth[0], currentYearAndMonth[1], scrollValueCalculationsResult[2]);
-
-            document.getElementsByClassName("shown-event")[0].scrollIntoView(false);
-            let currentMonthStringRepresentation = returnMonthAndYear(currentYearAndMonth[0], currentYearAndMonth[1]);
-            let dateRepresentationOfCurrentMonth = new Date(currentMonthStringRepresentation[1] + '.' + currentMonthStringRepresentation[0] + '.01');
-            let dateRepresentationOfLastMonth = new Date(lastEventYear + '.' + lastEventMonth + '.01');
-            leftArrow.style.display = "";
-            rightArrow.style.display = "";
-            if (addNMonths(dateRepresentationOfCurrentMonth, 1) >= dateRepresentationOfLastMonth) {
-                rightArrow.style.display = "none";
-                calendarElement.children[calendarElement.children.length - 1].style.marginRight = "var(--proportional-small-padding)";
-            }
-            if (currentYearAndMonth[0] <= 2022 && currentYearAndMonth[1] <= 4) { // we can just hard-code it 'cause we actually know that there won't be any year change occuring (as the first month is June)
-                leftArrow.style.display = "none";
-                calendarElement.children[0].style.marginLeft = "var(--proportional-small-padding)";
-            }
-            document.getElementById("month-and-year-error").textContent = "";
-        }
-        else {
-            document.getElementById("month-and-year-error").textContent = scrollValueCalculationsResult[1];
-        }
+        let monthAndYearInputValue = document.getElementById("month-and-year").value;
+        currentYearAndMonth = jumpToMonth(calendarElement, currentYearAndMonth[0], currentYearAndMonth[1], rightArrow, leftArrow, lastEventYear, lastEventMonth, monthAndYearInputValue, true, true);
     });
     jumpButton.addEventListener("keydown", (event) => {
         if (event.code === 'Space' || event.code === 'Enter') {
@@ -147,6 +124,24 @@ window.onload = function() {
     var closestEventHolder = document.getElementById("closest-event-holder");   
     let closestEventInTheFuture = findClosestEventInTheFuture(new Date(), latestEventDateObject);
     closestEventHolder.children[closestEventHolder.children.length-1].innerHTML = closestEventInTheFuture.innerHTML;
+
+    // Solves the issue of anchor links not working by reapplying them after all dynamic content has been loaded
+    if (location.hash) {
+        var requested_hash = location.hash.slice(1);
+        let anchorYear = requested_hash.slice(0, 4);
+        let anchorMonth = requested_hash.slice(4, 6);
+        let anchorInput = anchorYear + '.' + anchorMonth;
+        currentYearAndMonth = jumpToMonth(calendarElement, currentYearAndMonth[0], currentYearAndMonth[1], rightArrow, leftArrow, lastEventYear, lastEventMonth, anchorInput, false);
+        location.hash = '';
+        location.hash = requested_hash;
+    }
+    window.addEventListener("hashchange", (e) => {
+        var requested_hash = location.hash.slice(1);
+        let anchorYear = requested_hash.slice(0, 4);
+        let anchorMonth = requested_hash.slice(4, 6);
+        let anchorInput = anchorYear + '.' + anchorMonth;
+        currentYearAndMonth = jumpToMonth(calendarElement, currentYearAndMonth[0], currentYearAndMonth[1], rightArrow, leftArrow, lastEventYear, lastEventMonth, anchorInput, false);
+    }, true);
 };
 
 /**
@@ -221,12 +216,16 @@ function setTheme() {
     var light_filter = "invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%)";
     var dark_filter = "invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%)";
     var header = document.getElementById("header");
+    var placeholder_text_opacity_light = "0.3";
+    var placeholder_text_opacity_dark = "0.7";
 
     if(localStorage.getItem('theme') === 'dark'){
         root.style.setProperty('--dark-blue', white_color);
         root.style.setProperty('--white', dark_color);
         root.style.setProperty('--theme-emoji-bright', dark_filter);
         root.style.setProperty('--theme-emoji-dark', light_filter);
+        root.style.setProperty('--placeholder-text-opacity', placeholder_text_opacity_dark);
+        root.style.setProperty('--placeholder-text-dark-theme-opacity', placeholder_text_opacity_light);
         header.style.backgroundColor = "var(--blue)";
         header.style.color = "var(--white)";
     }
@@ -235,6 +234,8 @@ function setTheme() {
         root.style.setProperty('--dark-blue', dark_color);
         root.style.setProperty('--theme-emoji-bright', light_filter);
         root.style.setProperty('--theme-emoji-dark', dark_filter);
+        root.style.setProperty('--placeholder-text-opacity', placeholder_text_opacity_light);
+        root.style.setProperty('--placeholder-text-dark-theme-opacity', placeholder_text_opacity_dark);
         header.style.backgroundColor = "var(--white)";
         header.style.color = "var(--dark-blue)";
     }
@@ -696,7 +697,7 @@ function highlightAndShowEvents(year, month) {
             var dayElement = document.getElementById("day-" + year.toString() + month + day);
             dayElement.classList.add("eventfull-day");
             dayElement.addEventListener("click", () => {
-                document.getElementsByClassName("event-" + year.toString() + month + day)[0].scrollIntoView(false); 
+                document.getElementsByClassName("event-" + year.toString() + month + day)[0].scrollIntoView({block: "center"}); 
             });
             dayElement.addEventListener("keydown", (event) => {
                 let simulatedClickEvent = new MouseEvent("click", {
@@ -910,35 +911,119 @@ function returnNthEventYearAndMonth(N=-1, returnDateObject=false) {
  * @param {string} previousMonth The previous month
  * @param {*} limitRight The right limit of the calendar, a string that's ready to be converted to a date
  * @param {string} limitLeft The left limit of the calendar, a string that's ready to be converted to a date
+ * @param {string} inputValue The value of the input (the value to scroll to). If set to "", uses the value of the input form
  * @returns 
  */
-function calculateScrollValue(previousYear, previousMonth, limitRight, limitLeft) {
-    let monthAndYearInput = document.getElementById("month-and-year");
-    var dateValidationResult;
-    if (monthAndYearInput.value.includes(".")) {
-        let dateList = monthAndYearInput.value.split(".");
-        dateValidationResult = validateDate('01.' + dateList[1] + '.' + dateList[0], true);
-    }
-    else {
-        return [false, "Неправильный формат ввода даты", -1];
-    }
-    dateValidationResult[2] = addNMonths(dateValidationResult[2], -2);
-    var newYear;
-    var newMonth;
-    if (dateValidationResult[0] == true) {
-        if (dateValidationResult[2] < new Date(limitLeft)){
-            return [false, "События за этот месяц можно посмотреть в архиве новостей :)", -1];
+function calculateScrollValue(previousYear, previousMonth, limitRight, limitLeft, inputValue="") {
+    if (inputValue == "") {
+        let monthAndYearInput = document.getElementById("month-and-year");
+        var dateValidationResult;
+        if (monthAndYearInput.value.includes(".")) {
+            let dateList = monthAndYearInput.value.split(".");
+            dateValidationResult = validateDate('01.' + dateList[1] + '.' + dateList[0], true);
         }
-        if (dateValidationResult[2] > addNMonths(new Date(limitRight), -2)) {
-            return [false, "Событий на этот месяц пока нет. Stay tuned :)", -1];
+        else {
+            return [false, "Неправильный формат ввода даты", -1];
         }
+        dateValidationResult[2] = addNMonths(dateValidationResult[2], -2);
+        var newYear;
+        var newMonth;
+        if (dateValidationResult[0] == true) {
+            if (dateValidationResult[2] < new Date(limitLeft)){
+                return [false, "События за этот месяц можно посмотреть в архиве новостей :)", -1];
+            }
+            if (dateValidationResult[2] > addNMonths(new Date(limitRight), -2)) {
+                return [false, "Событий на этот месяц пока нет. Stay tuned :)", -1];
+            }
 
-        newYear = dateValidationResult[2].getFullYear();
-        newMonth = dateValidationResult[2].getMonth();
-        var scrollValue = (newYear-previousYear) * 12 + newMonth - Number(previousMonth);
-        return [true, "", scrollValue];
+            newYear = dateValidationResult[2].getFullYear();
+            newMonth = dateValidationResult[2].getMonth();
+            var scrollValue = (newYear-previousYear) * 12 + newMonth - Number(previousMonth);
+            return [true, "", scrollValue];
+        }
+        else {
+            return [false, dateValidationResult[1], -1];
+        }
     }
     else {
-        return [false, dateValidationResult[1], -1];
+        var dateValidationResult;
+        if (inputValue.includes(".")) {
+            let dateList = inputValue.split(".");
+            dateValidationResult = validateDate('01.' + dateList[1] + '.' + dateList[0], true);
+        }
+        else {
+            return [false, "Неправильный формат ввода даты", -1];
+        }
+        dateValidationResult[2] = addNMonths(dateValidationResult[2], -2);
+        var newYear;
+        var newMonth;
+        if (dateValidationResult[0] == true) {
+            if (dateValidationResult[2] < new Date(limitLeft)){
+                return [false, "События за этот месяц можно посмотреть в архиве новостей :)", -1];
+            }
+            if (dateValidationResult[2] > addNMonths(new Date(limitRight), -2)) {
+                return [false, "Событий на этот месяц пока нет. Stay tuned :)", -1];
+            }
+
+            newYear = dateValidationResult[2].getFullYear();
+            newMonth = dateValidationResult[2].getMonth();
+            var scrollValue = (newYear-previousYear) * 12 + newMonth - Number(previousMonth);
+            return [true, "", scrollValue];
+        }
+        else {
+            return [false, dateValidationResult[1], -1];
+        }
     }
+}
+
+/**
+ * jumpToMonth() changes the calendarElement's contents, attempting to scroll from the previos
+ * year and month, to the new year and month that it gets either from the parameter or from
+ * the input field on the page. If the format of the input is incorrect or the entered date is
+ * outside of its range, it will either show or not show an error below the input element,
+ * depending on the parameter. It may also scroll to the first event on the page if the
+ * respective flag is equal to true. Returns the new year and month on success and previous
+ * ones on failure.
+ * @param {HTMLElement} calendarElement The element that contains the calendar
+ * @param {number} previousYear The number of the year that is being scrolled from
+ * @param {string} previousMonth The string of the month 'mm' that is being scrolled from
+ * @param {HTMLElement} rightArrow The right arrow controlling element of the calendar
+ * @param {HTMLElement} leftArrow The left arrow controlling element of the calendar
+ * @param {string} lastEventYear A 'yyyy' string (or a yyyy number) representing the year of the last event of the calendar
+ * @param {string} lastEventMonth An 'mm' string representing the month of the last event of the calendar
+ * @param {string} inputValue The value that is attempted to be scrolled to. If it equals an empty string, the value from the input field is used instead 
+ * @param {boolean} showErrors A flag indicating whether to show errors on the page below the input field or not
+ * @param {boolean} scrollToEvents A flag indicating whether to scroll to the first event on the page or not
+ * @returns {[number, string]}
+ */
+function jumpToMonth(calendarElement, previousYear, previousMonth, rightArrow, leftArrow, lastEventYear, lastEventMonth, inputValue="", showErrors=true, scrollToEvents=false) {
+    var currentYearAndMonth = [previousYear, previousMonth];
+    let scrollValueCalculationsResult = calculateScrollValue(previousYear, previousMonth, lastEventYear + '.' + lastEventMonth + '.01', '2022.05.01', inputValue);
+    if (scrollValueCalculationsResult[0] == true) {
+        [currentYearAndMonth[0], currentYearAndMonth[1]] = scrollMonth(calendarElement, previousYear, previousMonth, scrollValueCalculationsResult[2]);
+        
+        if (scrollToEvents == true) {
+            document.getElementsByClassName("shown-event")[0].scrollIntoView({block: "center"});
+        }
+        let currentMonthStringRepresentation = returnMonthAndYear(currentYearAndMonth[0], currentYearAndMonth[1]);
+        let dateRepresentationOfCurrentMonth = new Date(currentMonthStringRepresentation[1] + '.' + currentMonthStringRepresentation[0] + '.01');
+        let dateRepresentationOfLastMonth = new Date(lastEventYear + '.' + lastEventMonth + '.01');
+        leftArrow.style.display = "";
+        rightArrow.style.display = "";
+        if (addNMonths(dateRepresentationOfCurrentMonth, 1) >= dateRepresentationOfLastMonth) {
+            rightArrow.style.display = "none";
+            calendarElement.children[calendarElement.children.length - 1].style.marginRight = "var(--proportional-small-padding)";
+        }
+        if (currentYearAndMonth[0] <= 2022 && currentYearAndMonth[1] <= 4) { // we can just hard-code it 'cause we actually know that there won't be any year change occuring (as the first month is June)
+            leftArrow.style.display = "none";
+            calendarElement.children[0].style.marginLeft = "var(--proportional-small-padding)";
+        }
+        document.getElementById("month-and-year-error").textContent = "";
+    }
+    else {
+        if (showErrors == true) {
+            document.getElementById("month-and-year-error").textContent = scrollValueCalculationsResult[1];
+        }
+    }
+    return currentYearAndMonth;
 }

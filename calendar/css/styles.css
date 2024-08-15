@@ -5,6 +5,12 @@
         --blue: #2C74B3;
         --white: #ffffff;
         --pastel-red: #CF6679;
+        --pastel-dark-blue: #216694;
+        --pastel-light-blue: #348ddb;
+        --pastel-green: #3fab95;
+        --pastel-pink: #cb99c9;
+        --placeholder-text-opacity: 0.3;
+        --placeholder-text-dark-theme-opacity: 0.7;
         --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
         --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
         
@@ -66,6 +72,12 @@
         --blue: #2C74B3;
         --white: #ffffff;
         --pastel-red: #CF6679;
+        --pastel-dark-blue: #216694;
+        --pastel-light-blue: #348ddb;
+        --pastel-green: #3fab95;
+        --pastel-pink: #cb99c9;
+        --placeholder-text-opacity: 0.3;
+        --placeholder-text-dark-theme-opacity: 0.7;
         --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
         --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
         
@@ -132,6 +144,12 @@
         --blue: #2C74B3;
         --white: #ffffff;
         --pastel-red: #CF6679;
+        --pastel-dark-blue: #216694;
+        --pastel-light-blue: #348ddb;
+        --pastel-green: #3fab95;
+        --pastel-pink: #cb99c9;
+        --placeholder-text-opacity: 0.3;
+        --placeholder-text-dark-theme-opacity: 0.7;
         --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
         --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
         
@@ -200,6 +218,12 @@
         --blue: #2C74B3;
         --white: #ffffff;
         --pastel-red: #CF6679;
+        --pastel-dark-blue: #216694;
+        --pastel-light-blue: #348ddb;
+        --pastel-green: #3fab95;
+        --pastel-pink: #cb99c9;
+        --placeholder-text-opacity: 0.3;
+        --placeholder-text-dark-theme-opacity: 0.7;
         --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
         --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
         
@@ -444,6 +468,12 @@
         --blue: #2C74B3;
         --white: #ffffff;
         --pastel-red: #CF6679;
+        --pastel-dark-blue: #216694;
+        --pastel-light-blue: #348ddb;
+        --pastel-green: #3fab95;
+        --pastel-pink: #cb99c9;
+        --placeholder-text-opacity: 0.3;
+        --placeholder-text-dark-theme-opacity: 0.7;
         --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
         --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
         
@@ -688,6 +718,12 @@
         --blue: #2C74B3;
         --white: #ffffff;
         --pastel-red: #CF6679;
+        --pastel-dark-blue: #216694;
+        --pastel-light-blue: #348ddb;
+        --pastel-green: #3fab95;
+        --pastel-pink: #cb99c9;
+        --placeholder-text-opacity: 0.3;
+        --placeholder-text-dark-theme-opacity: 0.7;
         --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
         --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
         
@@ -930,6 +966,12 @@
         --blue: #2C74B3;
         --white: #ffffff;
         --pastel-red: #CF6679;
+        --pastel-dark-blue: #216694;
+        --pastel-light-blue: #348ddb;
+        --pastel-green: #3fab95;
+        --pastel-pink: #cb99c9;
+        --placeholder-text-opacity: 0.3;
+        --placeholder-text-dark-theme-opacity: 0.7;
         --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
         --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
         
@@ -1536,9 +1578,6 @@ h2 {
     color: var(--blue);
     text-align: center;
 }
-/* #article-1 {
-    padding-top: 0;
-} */
 .article-text {
     font-size: 60%;
     line-height: normal;
@@ -1765,29 +1804,54 @@ h2 {
     }
 }
 .colored-mediumvioletred {
-    background-color: #cb99c9;
+    background-color: var(--pastel-pink);
     color: var(--white);
 }
 .colored-green, .colored-limegreen {
-    background-color: #21B6A8;
+    background-color: var(--pastel-green); /* 2cb369 55AD9B */
     color: var(--white);
 }
 .colored-blue {
-    background-color: var(--blue);
+    background-color: var(--pastel-light-blue);
     color: var(--white);
 }
 .colored-darkblue {
-    background-color: #779ecb;
-    color: var(--white);
+    background-color: var(--pastel-dark-blue); 
+    color: white;
 }
 .colored-red, .colored-orange {
     background-color: var(--pastel-red);
     color: var(--white);
 }
 
+.tooltip {
+    text-decoration: underline var(--dark-blue) dotted;
+    padding-left: var(--proportional-x-small-padding);
+}
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: fit-content;
+    background-color: var(--white);
+    color: var(--dark-blue);
+    padding: var(--proportional-x-small-padding);
+    transform: translateX(-50%) translateY(-100%);
+    min-width: 10em;
+    max-width: 12em;
+    text-align: center;
+    position: absolute;
+    z-index: 2;
+}
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+}
+@media screen and (max-width: 400px) and (min-width: 317px) {
+    .tooltip .tooltip-text {
+        transform: translateX(-100%) translateY(-100%);
+    }
+}
 input::placeholder {
     color: var(--blue);
-    opacity: 0.7;
+    opacity: var(--placeholder-text-opacity);
 }
 .text-input-holder {
     display: flex;

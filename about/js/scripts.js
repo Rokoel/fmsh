@@ -66,6 +66,11 @@ window.onload = function() {
             }
         });
     }
+    if (location.hash) {
+        var requested_hash = location.hash.slice(1);
+        location.hash = '';
+        location.hash = requested_hash;
+    }
 };
 
 /**

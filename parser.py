@@ -51,12 +51,12 @@ for year, months in yearmonth.items():
             print()
             for i in range(len(day)):
                 if i == 0:
-                    print(f'\n<div class="article-text has-border event-{day[0]} hidden-event">')
+                    print(f'\n<div class="article-text has-border event-{day[0]} hidden-event" id="{day[0]}">')
                 elif i == 1:
                     print(f'<div class="article-header date colored-{day[2]}">{day[1]}</div>')
                 elif i == 2:
                     pass
                 else:
-                    newday = day[i].replace("<br>", "\n<br><br>").replace(empty_line2, "").replace("<font color=", "").replace(day[2] + ">", "").replace("</font>", "")
+                    newday = day[i].replace("<br>", "\n<br><br>").replace(empty_line2, "").replace("<font color=", "").replace(day[2] + ">", "").replace("</font>", "").replace("<i>", "").replace("</i>", "")
                     print(newday)
             print("</div>")
