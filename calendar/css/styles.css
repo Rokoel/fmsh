@@ -1844,6 +1844,13 @@ h2 {
 .tooltip:hover .tooltip-text {
     visibility: visible;
 }
+@media screen and (max-width: 720px) {
+    .tooltip {
+        text-decoration: none;
+        color: var(--blue);
+        font-weight: 900;
+    }
+}
 @media screen and (max-width: 400px) and (min-width: 317px) {
     .tooltip .tooltip-text {
         transform: translateX(-100%) translateY(-100%);

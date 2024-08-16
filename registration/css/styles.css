@@ -580,6 +580,13 @@ input[type=text], input[type=email] {
 .tooltip:hover .tooltip-text {
     visibility: visible;
 }
+@media screen and (max-width: 720px) {
+    .tooltip {
+        text-decoration: none;
+        color: var(--blue);
+        font-weight: 900;
+    }
+}
 .error-msg {
     font-size: 60%;
     color: var(--pastel-red);

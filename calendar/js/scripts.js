@@ -500,7 +500,7 @@ function returnMonthName(month, lang='rus') {
     }
     if (month === '02') {
         if (lang === 'rus') {
-            monthText = "Феварль";
+            monthText = "Февраль";
         }
         else {
             monthText = "February";
