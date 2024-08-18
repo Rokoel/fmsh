@@ -1,24 +1,11 @@
 /* DIFFERENT MEDIA SETTINGS */
 @media screen and (min-width: 1600px) {
     :root {
-        --dark-blue: #1d2458;
-        --blue: #2C74B3;
-        --white: #ffffff;
-        --pastel-red: #CF6679;
-        --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
-        --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
-        --placeholder-text-opacity: 0.3;
-        --placeholder-text-dark-theme-opacity: 0.7;
-
-        --header-height: 3rem;
-
         --proportional-padding: 2em;
         --proportional-small-padding: 1em;
         --proportional-x-small-padding: 0.5em;
         --proportional-xx-small-padding: 0.25em;
         --vertical-proportional-small-padding: 0.8em 1em;
-
-        --small-font-size: 75%;
     }
     #registration-form-holder {
         display: grid;
@@ -34,24 +21,11 @@
 }
 @media screen and (max-width: 1600px) and (min-width: 950px) {
     :root {
-        --dark-blue: #1d2458;
-        --blue: #2C74B3;
-        --white: #ffffff;
-        --pastel-red: #CF6679;
-        --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
-        --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
-        --placeholder-text-opacity: 0.3;
-        --placeholder-text-dark-theme-opacity: 0.7;
-
-        --header-height: 3rem;
-
         --proportional-padding: 2em;
         --proportional-small-padding: 1em;
         --proportional-x-small-padding: 0.5em;
         --proportional-xx-small-padding: 0.25em;
         --vertical-proportional-small-padding: 0.8em 1em;
-
-        --small-font-size: 75%;
     }
     #registration-form-holder {
         display: grid;
@@ -67,24 +41,11 @@
 }
 @media screen and (max-width: 950px) and (min-width: 720px) {
     :root {
-        --dark-blue: #1d2458;
-        --blue: #2C74B3;
-        --white: #ffffff;
-        --pastel-red: #CF6679;
-        --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
-        --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
-        --placeholder-text-opacity: 0.3;
-        --placeholder-text-dark-theme-opacity: 0.7;
-
-        --header-height: 3rem;
-
         --proportional-padding: 2em;
         --proportional-small-padding: 0.8em;
         --proportional-x-small-padding: 0.5em;
         --proportional-xx-small-padding: 0.25em;
         --vertical-proportional-small-padding: 0.8em 1em;
-
-        --small-font-size: 75%;
     }
     #registration-form-holder {
         display: grid;
@@ -100,24 +61,11 @@
 }
 @media screen and (max-width: 720px) and (min-width: 320px) and (orientation: portrait) {
     :root {
-        --dark-blue: #1d2458;
-        --blue: #2C74B3;
-        --white: #ffffff;
-        --pastel-red: #CF6679;
-        --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
-        --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
-        --placeholder-text-opacity: 0.3;
-        --placeholder-text-dark-theme-opacity: 0.7;
-
-        --header-height: 3rem;
-
         --proportional-padding: 2em;
         --proportional-small-padding: 1em;
         --proportional-x-small-padding: 0.5em;
         --proportional-xx-small-padding: 0.25em;
         --vertical-proportional-small-padding: 0.8em 1em;
-
-        --small-font-size: 75%;
     }
     body {
         overflow-y: scroll;
@@ -148,24 +96,11 @@
 }
 @media screen and (max-width: 320px) and (orientation: portrait) {
     :root {
-        --dark-blue: #1d2458;
-        --blue: #2C74B3;
-        --white: #ffffff;
-        --pastel-red: #CF6679;
-        --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
-        --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
-        --placeholder-text-opacity: 0.3;
-        --placeholder-text-dark-theme-opacity: 0.7;
-
-        --header-height: 3rem;
-
         --proportional-padding: 2em;
         --proportional-small-padding: 1em;
         --proportional-x-small-padding: 0.5em;
         --proportional-xx-small-padding: 0.25em;
         --vertical-proportional-small-padding: 0.8em 1em;
-
-        --small-font-size: 75%;
     }
     body {
         overflow-y: scroll;
@@ -196,24 +131,11 @@
 }
 @media screen and (max-width: 720px) and (min-width: 320px) and (orientation: landscape) {
     :root {
-        --dark-blue: #1d2458;
-        --blue: #2C74B3;
-        --white: #ffffff;
-        --pastel-red: #CF6679;
-        --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
-        --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
-        --placeholder-text-opacity: 0.3;
-        --placeholder-text-dark-theme-opacity: 0.7;
-
-        --header-height: 3rem;
-
         --proportional-padding: 2em;
         --proportional-small-padding: 1em;
         --proportional-x-small-padding: 0.5em;
         --proportional-xx-small-padding: 0.25em;
         --vertical-proportional-small-padding: 0.8em 1em;
-
-        --small-font-size: 75%;
     }
     #registration-form-holder {
         display: grid;
@@ -229,24 +151,11 @@
 }
 @media screen and (max-width: 320px) and (orientation: landscape) {
     :root {
-        --dark-blue: #1d2458;
-        --blue: #2C74B3;
-        --white: #ffffff;
-        --pastel-red: #CF6679;
-        --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
-        --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
-        --placeholder-text-opacity: 0.3;
-        --placeholder-text-dark-theme-opacity: 0.7;
-
-        --header-height: 3rem;
-
         --proportional-padding: 2em;
         --proportional-small-padding: 1em;
         --proportional-x-small-padding: 0.5em;
         --proportional-xx-small-padding: 0.25em;
         --vertical-proportional-small-padding: 0.8em 1em;
-
-        --small-font-size: 75%;
     }
     body {
         overflow-y: scroll;
@@ -421,6 +330,20 @@ html, body {
     outline: none;
     cursor: default;
     -webkit-tap-highlight-color: transparent;
+}
+:root {
+    --dark-blue: #1d2458;
+    --blue: #2C74B3;
+    --white: #ffffff;
+    --pastel-red: #CF6679;
+    --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
+    --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
+    --placeholder-text-opacity: 0.3;
+    --placeholder-text-dark-theme-opacity: 0.7;
+
+    --header-height: 3rem;
+
+    --small-font-size: 75%;
 }
 
 /* Styling scrollbars on the page */

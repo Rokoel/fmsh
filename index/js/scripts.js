@@ -3,35 +3,13 @@ const SUBJECTS_ARR = ["Математика", "Физика", "Информат�
 // const PRINCIPLES_ARR = ["Любопытство", "Уважение", "Свобода", "Смелость", "Упорство"];
 const PRINCIPLES_ARR = ["любопытство", "уважение", "свобода", "смелость", "упорство", 'дискуссия', 'открытость', 'независимость', 'неравнодушие', 'профессионализм', 'обоснованность', 'понимание', 'благожелательность', 'честность', 'доброта', 'ответственность', 'интерес', 'сомнение', 'осторожность', 'поддержка', 'терпение']
 
-var MENU_STATE = 'closed';
-
-window.addEventListener("storage", (e) => {
-    console.log(e.key + " was changed in the other tab. It changed from " + e.oldValue + " to " + e.newValue);
-    if (e.key == 'theme') {
-        setTheme();
-    }
-});
-
 window.onload = function() {
-    setTheme();
 
     /* Setting up the mobile menu and the footer */
     const simulatedClickEvent = new MouseEvent("click", {
         view: window,
         bubbles: true,
         cancelable: true,
-    });
-    document.getElementById("theme-switcher").addEventListener("click", switchTheme);
-    document.getElementById("theme-switcher").addEventListener("keydown", (event) => {
-        if (event.code === 'Space' || event.code === 'Enter') {
-            document.getElementById("theme-switcher").dispatchEvent(simulatedClickEvent);
-        }
-    });
-    document.getElementById("mobile-navbar").addEventListener("click", switchMenu);
-    document.getElementById("mobile-navbar").addEventListener("keydown", (event) => {
-        if (event.code === 'Space' || event.code === 'Enter') {
-            document.getElementById("mobile-navbar").dispatchEvent(simulatedClickEvent);
-        }
     });
     document.getElementById("main-page-redirector").addEventListener("click", () => {location.href = "https://fmsh.ru";});
     document.getElementById("main-page-redirector").addEventListener("keydown", (event) => {
@@ -87,103 +65,6 @@ async function copyPhoneNumber () {
         console.error('Не смогли скопировать телефон в буфер обмена из-за ошибки: ', err);
     }
     location.href = "tel:84955806928";
-}
-
-/**
- * setMenu() sets the mobile menu up, changing the classlists of
- * some elements. It's usually called from the switchMenu() function.
- */
-function setMenu() {
-    var menu_items = document.getElementsByClassName("mobile-navbar-link");
-    if(MENU_STATE === 'closed'){
-        for (let i = 0; i < menu_items.length; ++i){
-            var menu_item = menu_items[i];
-            menu_item.classList.add("appearing");
-            menu_item.classList.remove("disappearing");
-            menu_item.addEventListener("animationend", function(e) {
-                menu_item.style.transform = "translateX(150%)";
-            });
-        }
-        document.getElementById("menu-button").classList.remove("rotating-back");
-        document.getElementById("menu-button").classList.add("rotating");
-    }
-    else {
-        for (let i = 0; i < menu_items.length; ++i){
-            var menu_item = menu_items[i];
-            menu_item.classList.remove("appearing");
-            menu_item.classList.add("disappearing");
-            menu_item.addEventListener("animationend", function(e) {
-                menu_item.style.transform = "translateX(0)";
-            });
-        }
-        document.getElementById("menu-button").classList.remove("rotating");
-        document.getElementById("menu-button").classList.add("rotating-back");
-    }
-}
-
-/**
- * switchMenu() changes the current state of the mobile menu.
- */
-function switchMenu() {
-    if(MENU_STATE === 'closed'){
-        setMenu();
-        MENU_STATE = 'opened';
-    }
-    else {
-        setMenu();
-        MENU_STATE = 'closed';
-    }
-}
-
-/**
- * setTheme() sets up the current theme, changing the variables in
- * the css. It's usually called from the switchTheme() function.
- */
-function setTheme() {
-    var root = document.documentElement;
-    var white_color = "#ffffff";
-    var dark_color = "#1d2458";
-    var light_filter = "invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%)";
-    var dark_filter = "invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%)";
-    var header = document.getElementById("header");
-    var main_block = document.getElementById("main-block");
-
-    if(localStorage.getItem("theme") === 'dark'){
-        root.style.setProperty('--dark-blue', white_color);
-        root.style.setProperty('--white', dark_color);
-        root.style.setProperty('--theme-emoji-bright', dark_filter);
-        root.style.setProperty('--theme-emoji-dark', light_filter);
-        header.style.backgroundColor = "var(--blue)";
-        header.style.color = "var(--white)";
-        main_block.style.backgroundColor = "var(--white)";
-        main_block.style.color = "var(--dark-blue)";
-        main_block.style.backgroundImage = "url( './main_block_bg_dark.svg' )";
-    }
-    else {
-        root.style.setProperty('--white', white_color);
-        root.style.setProperty('--dark-blue', dark_color);
-        root.style.setProperty('--theme-emoji-bright', light_filter);
-        root.style.setProperty('--theme-emoji-dark', dark_filter);
-        header.style.backgroundColor = "var(--white)";
-        header.style.color = "var(--dark-blue)";
-        main_block.style.backgroundColor = "var(--blue)";
-        main_block.style.color = "var(--white)";
-        main_block.style.backgroundImage = "url( './main_block_bg_light.svg' )";
-    }
-}
-
-/**
- * switchTheme() changes the current theme of the mobile menu.
- * It uses localStorage to store the theme.
- */
-function switchTheme() {
-    if(localStorage.getItem("theme") === 'dark'){
-        localStorage.setItem('theme', 'light');
-    }
-    else {
-        localStorage.setItem('theme', 'dark');
-    }
-    setTheme();
 }
 
 /**
@@ -357,24 +238,24 @@ function dist(element, mouseX, mouseY) {
  * @param  {Event} event The mousemove event.
  */
 function parallax(event) {
-  var words = Array.from(document.getElementsByClassName("floating-word"));
-  words.forEach((word) => {
-    let offsetX = centerOf(word).x - event.pageX;
-    let offsetY = centerOf(word).y - event.pageY;
-    let distance = dist(word, event.pageX, event.pageY);
-    var x;
-    var y;
-    if (distance < 20) {
-        x = -Math.floor(offsetX / 2);
-        y = -Math.floor(offsetY / 2);
-    }
-    else {
-        x = -Math.floor(offsetX / (0.1*distance));
-        y = -Math.floor(offsetY / (0.1*distance));
-    }
-    var tr = `${word.getAttribute("rotation_value")} translate(${x}px, ${y}px)`;
-    word.style.transform = tr;
-    word.style.webkitTransform = tr;
-    word.style.msTransform = tr;
-  });
+    var words = Array.from(document.getElementsByClassName("floating-word"));
+    words.forEach((word) => {
+        let offsetX = centerOf(word).x - event.pageX;
+        let offsetY = centerOf(word).y - event.pageY;
+        let distance = dist(word, event.pageX, event.pageY);
+        var x;
+        var y;
+        if (distance < 20) {
+            x = -Math.floor(offsetX / 2);
+            y = -Math.floor(offsetY / 2);
+        }
+        else {
+            x = -Math.floor(offsetX / (0.1*distance));
+            y = -Math.floor(offsetY / (0.1*distance));
+        }
+        var tr = `${word.getAttribute("rotation_value")} translate(${x}px, ${y}px)`;
+        word.style.transform = tr;
+        word.style.webkitTransform = tr;
+        word.style.msTransform = tr;
+    });
 }

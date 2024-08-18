@@ -1,36 +1,22 @@
 /* DIFFERENT MEDIA SETTINGS */
 @media screen and (min-width: 1600px) {
     :root {
-        --dark-blue: #1d2458;
-        --blue: #2C74B3;
-        --white: #ffffff;
-        --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
-        --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
-        
-        --header-height: 3rem;
-
         --proportional-padding: 2em;
         --proportional-small-padding: 1em;
         --proportional-x-small-padding: 0.5em;
         --proportional-xx-small-padding: 0.25em;
         --vertical-proportional-small-padding: 0.8em 1em;
-
-        --small-font-size: 75%;
     }
-    .navbar {
-        margin-top: auto;
-        margin-bottom: auto;
-        display: inline-block;
-        overflow: hidden;
-        background-color: inherit;
+    #desktop-navbar {
         display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-content: center;
-        flex-wrap: wrap;
-        height: 100%;
     }
     #mobile-navbar {
+        display: none;
+    }
+    footer {
+        display: flex;
+    }
+    #mobile-footer {
         display: none;
     }
     .mobile-timeline-element {
@@ -41,12 +27,6 @@
         grid-template-areas:
         "admin-header contacts-header"
         "admin-holder contacts-holder";
-    }
-    #mobile-footer {
-        display: none;
-    }
-    #footer {
-        display: flex;
     }
     .timeline {
         display: flex;
@@ -61,41 +41,22 @@
 }
 @media screen and (max-width: 1600px) and (min-width: 950px) {
     :root {
-        --dark-blue: #1d2458;
-        --blue: #2C74B3;
-        --white: #ffffff;
-        --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
-        --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
-        
-        --header-height: 3rem;
-
         --proportional-padding: 2em;
         --proportional-small-padding: 1em;
         --proportional-x-small-padding: 0.5em;
         --proportional-xx-small-padding: 0.25em;
         --vertical-proportional-small-padding: 0.8em 1em;
-
-        --small-font-size: 75%;
     }
-    .navbar {
-        margin-top: auto;
-        margin-bottom: auto;
-    
-        display: inline-block;
-    
-        overflow: hidden;
-    
-        background-color: inherit;
-    
+    #desktop-navbar {
         display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-content: center;
-        flex-wrap: wrap;
-    
-        height: 100%;
     }
     #mobile-navbar {
+        display: none;
+    }
+    footer {
+        display: flex;
+    }
+    #mobile-footer {
         display: none;
     }
     .mobile-timeline-element {
@@ -106,12 +67,6 @@
         grid-template-areas:
         "admin-header contacts-header"
         "admin-holder contacts-holder";
-    }
-    #mobile-footer {
-        display: none;
-    }
-    #footer {
-        display: flex;
     }
     .timeline {
         display: flex;
@@ -126,44 +81,25 @@
 }
 @media screen and (max-width: 950px) and (min-width: 720px) {
     :root {
-        --dark-blue: #1d2458;
-        --blue: #2C74B3;
-        --white: #ffffff;
-        --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
-        --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
-        
-        --header-height: 3rem;
-
         --proportional-padding: 2em;
         --proportional-small-padding: 0.8em;
         --proportional-x-small-padding: 0.5em;
         --proportional-xx-small-padding: 0.25em;
         --vertical-proportional-small-padding: 1em 0.5em;
-
-        --small-font-size: 75%;
     }
-    .navbar {
-        margin-top: auto;
-        margin-bottom: auto;
-    
-        display: inline-block;
-    
-        overflow: hidden;
-    
-        background-color: inherit;
-    
+    #desktop-navbar {
         display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-content: center;
-        flex-wrap: nowrap;
-    
-        height: 100%;
-    }
-    .mobile-timeline-element {
-        display: none;
     }
     #mobile-navbar {
+        display: none;
+    }
+    footer {
+        display: flex;
+    }
+    #mobile-footer {
+        display: none;
+    }
+    .mobile-timeline-element {
         display: none;
     }
     #administration-and-contacts {
@@ -173,12 +109,6 @@
         "admin-holder"
         "contacts-header"
         "contacts-holder";
-    }
-    #mobile-footer {
-        display: none;
-    }
-    #footer {
-        display: flex;
     }
     .timeline {
         display: flex;
@@ -193,39 +123,18 @@
 }
 @media screen and (max-width: 720px) and (min-width: 320px) and (orientation: portrait) {
     :root {
-        --dark-blue: #1d2458;
-        --blue: #2C74B3;
-        --white: #ffffff;
-        --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
-        --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
-        
-        --header-height: 3rem;
-
         --proportional-padding: 1em;
         --proportional-small-padding: 0.5em;
         --proportional-x-small-padding: 0.25em;
         --proportional-xx-small-padding: 0.1em;
         --vertical-proportional-small-padding: 1em 0.5em;
-
-        --small-font-size: 75%;
     }
-    .navbar {
-        display: none;
-    }
-    .desktop-timeline-element {
+    #desktop-navbar {
         display: none;
     }
     #mobile-navbar {
-        z-index: 3;
-        display: block;
-        position: fixed;
         bottom: calc(var(--header-height) / 2);
         right: calc(var(--header-height) / 2);
-        width: var(--header-height);
-        height: var(--header-height);
-        border-radius: 50%;
-        background-color: var(--white);
-        border: 2px solid var(--dark-blue);
     }
     .mobile-navbar-link {
         position: relative;
@@ -242,158 +151,6 @@
         border: 2px solid var(--dark-blue);
         border-radius: 5px;
         overflow: hidden;
-    }
-    @keyframes appear {
-        0% {
-            transform: translateX(150%);
-        }
-        100% {
-            transform: translateX(0);
-        }
-    }
-    @-o-keyframes appear {
-        0% {
-            transform: translateX(150%);
-        }
-        100% {
-            transform: translateX(0);
-        }
-    }
-    @-moz-keyframes appear {
-        0% {
-            transform: translateX(150%);
-        }
-        100% {
-            transform: translateX(0);
-        }
-    }
-    @-webkit-keyframes appear {
-        0% {
-            transform: translateX(150%);
-        }
-        100% {
-            transform: translateX(0);
-        }
-    }
-    .appearing {
-        animation: appear 0.2s ease-in forwards;
-        -moz-animation: appear 0.2s ease-in forwards;
-        -o-animation: appear 0.2s ease-in forwards;
-        -webkit-animation: appear 0.2s ease-in forwards;
-    }
-    @keyframes disappear {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(150%);
-        }
-    }
-    @-o-keyframes disappear {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(150%);
-        }
-    }
-    @-moz-keyframes disappear {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(150%);
-        }
-    }
-    @-webkit-keyframes disappear {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(150%);
-        }
-    }
-    .disappearing {
-        animation: disappear 0.2s ease-out forwards;
-        -moz-animation: disappear 0.2s ease-out forwards;
-        -o-animation: disappear 0.2s ease-out forwards;
-        -webkit-animation: disappear 0.2s ease-out forwards;
-    }
-    @keyframes rotate {
-        0% {
-            rotate: 0;
-        }
-        100% {
-            rotate: -90deg;
-        }
-    }
-    @-o-keyframes rotate {
-        0% {
-            rotate: 0;
-        }
-        100% {
-            rotate: -90deg;
-        }
-    }
-    @-moz-keyframes rotate {
-        0% {
-            rotate: 0;
-        }
-        100% {
-            rotate: -90deg;
-        }
-    }
-    @-webkit-keyframes rotate {
-        0% {
-            rotate: 0;
-        }
-        100% {
-            rotate: -90deg;
-        }
-    }
-    .rotating {
-        animation: rotate 0.2s ease-in forwards;
-        -moz-animation: rotate 0.2s ease-in forwards;
-        -o-animation: rotate 0.2s ease-in forwards;
-        -webkit-animation: rotate 0.2s ease-in forwards;
-    }
-    @keyframes rotate-back {
-        0% {
-            rotate: -90deg;
-        }
-        100% {
-            rotate: 0;
-        }
-    }
-    @-o-keyframes rotate-back {
-        0% {
-            rotate: -90deg;
-        }
-        100% {
-            rotate: 0;
-        }
-    }
-    @-moz-keyframes rotate-back {
-        0% {
-            rotate: -90deg;
-        }
-        100% {
-            rotate: 0;
-        }
-    }
-    @-webkit-keyframes rotate-back {
-        0% {
-            rotate: -90deg;
-        }
-        100% {
-            rotate: 0;
-        }
-    }
-    .rotating-back {
-        animation: rotate-back 0.2s ease-out forwards;
-        -moz-animation: rotate-back 0.2s ease-out forwards;
-        -o-animation: rotate-back 0.2s ease-out forwards;
-        -webkit-animation: rotate-back 0.2s ease-out forwards;
     }
     body {
         overflow-y: scroll;
@@ -417,11 +174,14 @@
         "contacts-header"
         "contacts-holder";
     }
+    .desktop-timeline-element {
+        display: none;
+    }
+    footer {
+        display: none;
+    }
     #mobile-footer {
         display: flex;
-    }
-    #footer {
-        display: none;
     }
     .mobile-timeline {
         display: flex;
@@ -436,39 +196,21 @@
 }
 @media screen and (max-width: 320px) and (orientation: portrait) {
     :root {
-        --dark-blue: #1d2458;
-        --blue: #2C74B3;
-        --white: #ffffff;
-        --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
-        --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
-        
-        --header-height: 3rem;
-
         --proportional-padding: 1em;
         --proportional-small-padding: 0.5em;
         --proportional-x-small-padding: 0.25em;
         --proportional-xx-small-padding: 0.1em;
         --vertical-proportional-small-padding: 1.2em 0.5em;
-
-        --small-font-size: 75%;
     }
-    .navbar {
-        display: none;
-    }
-    .desktop-timeline-element {
+    #desktop-navbar {
         display: none;
     }
     #mobile-navbar {
-        z-index: 3;
-        display: block;
-        position: fixed;
         bottom: calc(var(--header-height) / 2);
         right: calc(var(--header-height) / 4);
-        width: var(--header-height);
-        height: var(--header-height);
-        border-radius: 50%;
-        background-color: var(--white);
-        border: 2px solid var(--dark-blue);
+    }
+    .desktop-timeline-element {
+        display: none;
     }
     .mobile-navbar-link {
         position: relative;
@@ -485,158 +227,6 @@
         border: 2px solid var(--dark-blue);
         border-radius: 5px;
         overflow: hidden;
-    }
-    @keyframes appear {
-        0% {
-            transform: translateX(150%);
-        }
-        100% {
-            transform: translateX(0);
-        }
-    }
-    @-o-keyframes appear {
-        0% {
-            transform: translateX(150%);
-        }
-        100% {
-            transform: translateX(0);
-        }
-    }
-    @-moz-keyframes appear {
-        0% {
-            transform: translateX(150%);
-        }
-        100% {
-            transform: translateX(0);
-        }
-    }
-    @-webkit-keyframes appear {
-        0% {
-            transform: translateX(150%);
-        }
-        100% {
-            transform: translateX(0);
-        }
-    }
-    .appearing {
-        animation: appear 0.2s ease-in forwards;
-        -moz-animation: appear 0.2s ease-in forwards;
-        -o-animation: appear 0.2s ease-in forwards;
-        -webkit-animation: appear 0.2s ease-in forwards;
-    }
-    @keyframes disappear {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(150%);
-        }
-    }
-    @-o-keyframes disappear {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(150%);
-        }
-    }
-    @-moz-keyframes disappear {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(150%);
-        }
-    }
-    @-webkit-keyframes disappear {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(150%);
-        }
-    }
-    .disappearing {
-        animation: disappear 0.2s ease-out forwards;
-        -moz-animation: disappear 0.2s ease-out forwards;
-        -o-animation: disappear 0.2s ease-out forwards;
-        -webkit-animation: disappear 0.2s ease-out forwards;
-    }
-    @keyframes rotate {
-        0% {
-            rotate: 0;
-        }
-        100% {
-            rotate: -90deg;
-        }
-    }
-    @-o-keyframes rotate {
-        0% {
-            rotate: 0;
-        }
-        100% {
-            rotate: -90deg;
-        }
-    }
-    @-moz-keyframes rotate {
-        0% {
-            rotate: 0;
-        }
-        100% {
-            rotate: -90deg;
-        }
-    }
-    @-webkit-keyframes rotate {
-        0% {
-            rotate: 0;
-        }
-        100% {
-            rotate: -90deg;
-        }
-    }
-    .rotating {
-        animation: rotate 0.2s ease-in forwards;
-        -moz-animation: rotate 0.2s ease-in forwards;
-        -o-animation: rotate 0.2s ease-in forwards;
-        -webkit-animation: rotate 0.2s ease-in forwards;
-    }
-    @keyframes rotate-back {
-        0% {
-            rotate: -90deg;
-        }
-        100% {
-            rotate: 0;
-        }
-    }
-    @-o-keyframes rotate-back {
-        0% {
-            rotate: -90deg;
-        }
-        100% {
-            rotate: 0;
-        }
-    }
-    @-moz-keyframes rotate-back {
-        0% {
-            rotate: -90deg;
-        }
-        100% {
-            rotate: 0;
-        }
-    }
-    @-webkit-keyframes rotate-back {
-        0% {
-            rotate: -90deg;
-        }
-        100% {
-            rotate: 0;
-        }
-    }
-    .rotating-back {
-        animation: rotate-back 0.2s ease-out forwards;
-        -moz-animation: rotate-back 0.2s ease-out forwards;
-        -o-animation: rotate-back 0.2s ease-out forwards;
-        -webkit-animation: rotate-back 0.2s ease-out forwards;
     }
     body {
         overflow-y: scroll;
@@ -660,11 +250,11 @@
         "contacts-header"
         "contacts-holder";
     }
+    footer {
+        display: none;
+    }
     #mobile-footer {
         display: flex;
-    }
-    #footer {
-        display: none;
     }
     .mobile-timeline {
         display: flex;
@@ -679,39 +269,21 @@
 }
 @media screen and (max-width: 720px) and (min-width: 320px) and (orientation: landscape) {
     :root {
-        --dark-blue: #1d2458;
-        --blue: #2C74B3;
-        --white: #ffffff;
-        --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
-        --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
-        
-        --header-height: 3rem;
-
         --proportional-padding: 1em;
         --proportional-small-padding: 0.5em;
         --proportional-x-small-padding: 0.25em;
         --proportional-xx-small-padding: 0.1em;
         --vertical-proportional-small-padding: 1em 0.5em;
-
-        --small-font-size: 75%;
     }
-    .navbar {
-        display: none;
-    }
-    .desktop-timeline-element {
+    #desktop-navbar {
         display: none;
     }
     #mobile-navbar {
-        z-index: 3;
-        display: block;
-        position: fixed;
         bottom: calc(var(--header-height) / 2);
         right: calc(var(--header-height) / 2);
-        width: var(--header-height);
-        height: var(--header-height);
-        border-radius: 50%;
-        background-color: var(--white);
-        border: 2px solid var(--dark-blue);
+    }
+    .desktop-timeline-element {
+        display: none;
     }
     .mobile-navbar-link {
         position: relative;
@@ -728,158 +300,6 @@
         border: 2px solid var(--dark-blue);
         border-radius: 5px;
         overflow: hidden;
-    }
-    @keyframes appear {
-        0% {
-            transform: translateX(150%);
-        }
-        100% {
-            transform: translateX(0);
-        }
-    }
-    @-o-keyframes appear {
-        0% {
-            transform: translateX(150%);
-        }
-        100% {
-            transform: translateX(0);
-        }
-    }
-    @-moz-keyframes appear {
-        0% {
-            transform: translateX(150%);
-        }
-        100% {
-            transform: translateX(0);
-        }
-    }
-    @-webkit-keyframes appear {
-        0% {
-            transform: translateX(150%);
-        }
-        100% {
-            transform: translateX(0);
-        }
-    }
-    .appearing {
-        animation: appear 0.2s ease-in forwards;
-        -moz-animation: appear 0.2s ease-in forwards;
-        -o-animation: appear 0.2s ease-in forwards;
-        -webkit-animation: appear 0.2s ease-in forwards;
-    }
-    @keyframes disappear {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(150%);
-        }
-    }
-    @-o-keyframes disappear {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(150%);
-        }
-    }
-    @-moz-keyframes disappear {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(150%);
-        }
-    }
-    @-webkit-keyframes disappear {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(150%);
-        }
-    }
-    .disappearing {
-        animation: disappear 0.2s ease-out forwards;
-        -moz-animation: disappear 0.2s ease-out forwards;
-        -o-animation: disappear 0.2s ease-out forwards;
-        -webkit-animation: disappear 0.2s ease-out forwards;
-    }
-    @keyframes rotate {
-        0% {
-            rotate: 0;
-        }
-        100% {
-            rotate: -90deg;
-        }
-    }
-    @-o-keyframes rotate {
-        0% {
-            rotate: 0;
-        }
-        100% {
-            rotate: -90deg;
-        }
-    }
-    @-moz-keyframes rotate {
-        0% {
-            rotate: 0;
-        }
-        100% {
-            rotate: -90deg;
-        }
-    }
-    @-webkit-keyframes rotate {
-        0% {
-            rotate: 0;
-        }
-        100% {
-            rotate: -90deg;
-        }
-    }
-    .rotating {
-        animation: rotate 0.2s ease-in forwards;
-        -moz-animation: rotate 0.2s ease-in forwards;
-        -o-animation: rotate 0.2s ease-in forwards;
-        -webkit-animation: rotate 0.2s ease-in forwards;
-    }
-    @keyframes rotate-back {
-        0% {
-            rotate: -90deg;
-        }
-        100% {
-            rotate: 0;
-        }
-    }
-    @-o-keyframes rotate-back {
-        0% {
-            rotate: -90deg;
-        }
-        100% {
-            rotate: 0;
-        }
-    }
-    @-moz-keyframes rotate-back {
-        0% {
-            rotate: -90deg;
-        }
-        100% {
-            rotate: 0;
-        }
-    }
-    @-webkit-keyframes rotate-back {
-        0% {
-            rotate: -90deg;
-        }
-        100% {
-            rotate: 0;
-        }
-    }
-    .rotating-back {
-        animation: rotate-back 0.2s ease-out forwards;
-        -moz-animation: rotate-back 0.2s ease-out forwards;
-        -o-animation: rotate-back 0.2s ease-out forwards;
-        -webkit-animation: rotate-back 0.2s ease-out forwards;
     }
     body {
         overflow-y: scroll;
@@ -901,11 +321,11 @@
         "admin-header contacts-header"
         "admin-holder contacts-holder";
     }
+    footer {
+        display: none;
+    }
     #mobile-footer {
         display: flex;
-    }
-    #footer {
-        display: none;
     }
     .mobile-timeline {
         display: flex;
@@ -920,39 +340,21 @@
 }
 @media screen and (max-width: 320px) and (orientation: landscape) {
     :root {
-        --dark-blue: #1d2458;
-        --blue: #2C74B3;
-        --white: #ffffff;
-        --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
-        --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
-        
-        --header-height: 3rem;
-
         --proportional-padding: 1em;
         --proportional-small-padding: 0.5em;
         --proportional-x-small-padding: 0.25em;
         --proportional-xx-small-padding: 0.1em;
         --vertical-proportional-small-padding: 1.2em 0.5em;
-
-        --small-font-size: 75%;
     }
-    .navbar {
-        display: none;
-    }
-    .desktop-timeline-element {
+    #desktop-navbar {
         display: none;
     }
     #mobile-navbar {
-        z-index: 3;
-        display: block;
-        position: fixed;
         bottom: calc(var(--header-height) / 2);
         right: calc(var(--header-height) / 4);
-        width: var(--header-height);
-        height: var(--header-height);
-        border-radius: 50%;
-        background-color: var(--white);
-        border: 2px solid var(--dark-blue);
+    }
+    .desktop-timeline-element {
+        display: none;
     }
     .mobile-navbar-link {
         position: relative;
@@ -969,158 +371,6 @@
         border: 2px solid var(--dark-blue);
         border-radius: 5px;
         overflow: hidden;
-    }
-    @keyframes appear {
-        0% {
-            transform: translateX(150%);
-        }
-        100% {
-            transform: translateX(0);
-        }
-    }
-    @-o-keyframes appear {
-        0% {
-            transform: translateX(150%);
-        }
-        100% {
-            transform: translateX(0);
-        }
-    }
-    @-moz-keyframes appear {
-        0% {
-            transform: translateX(150%);
-        }
-        100% {
-            transform: translateX(0);
-        }
-    }
-    @-webkit-keyframes appear {
-        0% {
-            transform: translateX(150%);
-        }
-        100% {
-            transform: translateX(0);
-        }
-    }
-    .appearing {
-        animation: appear 0.2s ease-in forwards;
-        -moz-animation: appear 0.2s ease-in forwards;
-        -o-animation: appear 0.2s ease-in forwards;
-        -webkit-animation: appear 0.2s ease-in forwards;
-    }
-    @keyframes disappear {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(150%);
-        }
-    }
-    @-o-keyframes disappear {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(150%);
-        }
-    }
-    @-moz-keyframes disappear {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(150%);
-        }
-    }
-    @-webkit-keyframes disappear {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(150%);
-        }
-    }
-    .disappearing {
-        animation: disappear 0.2s ease-out forwards;
-        -moz-animation: disappear 0.2s ease-out forwards;
-        -o-animation: disappear 0.2s ease-out forwards;
-        -webkit-animation: disappear 0.2s ease-out forwards;
-    }
-    @keyframes rotate {
-        0% {
-            rotate: 0;
-        }
-        100% {
-            rotate: -90deg;
-        }
-    }
-    @-o-keyframes rotate {
-        0% {
-            rotate: 0;
-        }
-        100% {
-            rotate: -90deg;
-        }
-    }
-    @-moz-keyframes rotate {
-        0% {
-            rotate: 0;
-        }
-        100% {
-            rotate: -90deg;
-        }
-    }
-    @-webkit-keyframes rotate {
-        0% {
-            rotate: 0;
-        }
-        100% {
-            rotate: -90deg;
-        }
-    }
-    .rotating {
-        animation: rotate 0.2s ease-in forwards;
-        -moz-animation: rotate 0.2s ease-in forwards;
-        -o-animation: rotate 0.2s ease-in forwards;
-        -webkit-animation: rotate 0.2s ease-in forwards;
-    }
-    @keyframes rotate-back {
-        0% {
-            rotate: -90deg;
-        }
-        100% {
-            rotate: 0;
-        }
-    }
-    @-o-keyframes rotate-back {
-        0% {
-            rotate: -90deg;
-        }
-        100% {
-            rotate: 0;
-        }
-    }
-    @-moz-keyframes rotate-back {
-        0% {
-            rotate: -90deg;
-        }
-        100% {
-            rotate: 0;
-        }
-    }
-    @-webkit-keyframes rotate-back {
-        0% {
-            rotate: -90deg;
-        }
-        100% {
-            rotate: 0;
-        }
-    }
-    .rotating-back {
-        animation: rotate-back 0.2s ease-out forwards;
-        -moz-animation: rotate-back 0.2s ease-out forwards;
-        -o-animation: rotate-back 0.2s ease-out forwards;
-        -webkit-animation: rotate-back 0.2s ease-out forwards;
     }
     #main-block > * {
         text-align: center;
@@ -1159,11 +409,11 @@
         "admin-header contacts-header"
         "admin-holder contacts-holder";
     }
+    footer {
+        display: none;
+    }
     #mobile-footer {
         display: flex;
-    }
-    #footer {
-        display: none;
     }
     .mobile-timeline {
         display: flex;
@@ -1294,6 +544,158 @@
     -o-animation: highlight_box 0.1s ease-out forwards;
     -webkit-animation: highlight_box 0.1s ease-out forwards;
 }
+@keyframes appear {
+    0% {
+        transform: translateX(150%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+@-o-keyframes appear {
+    0% {
+        transform: translateX(150%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+@-moz-keyframes appear {
+    0% {
+        transform: translateX(150%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+@-webkit-keyframes appear {
+    0% {
+        transform: translateX(150%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+.appearing {
+    animation: appear 0.2s ease-in forwards;
+    -moz-animation: appear 0.2s ease-in forwards;
+    -o-animation: appear 0.2s ease-in forwards;
+    -webkit-animation: appear 0.2s ease-in forwards;
+}
+@keyframes disappear {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(150%);
+    }
+}
+@-o-keyframes disappear {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(150%);
+    }
+}
+@-moz-keyframes disappear {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(150%);
+    }
+}
+@-webkit-keyframes disappear {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(150%);
+    }
+}
+.disappearing {
+    animation: disappear 0.2s ease-out forwards;
+    -moz-animation: disappear 0.2s ease-out forwards;
+    -o-animation: disappear 0.2s ease-out forwards;
+    -webkit-animation: disappear 0.2s ease-out forwards;
+}
+@keyframes rotate {
+    0% {
+        rotate: 0;
+    }
+    100% {
+        rotate: -90deg;
+    }
+}
+@-o-keyframes rotate {
+    0% {
+        rotate: 0;
+    }
+    100% {
+        rotate: -90deg;
+    }
+}
+@-moz-keyframes rotate {
+    0% {
+        rotate: 0;
+    }
+    100% {
+        rotate: -90deg;
+    }
+}
+@-webkit-keyframes rotate {
+    0% {
+        rotate: 0;
+    }
+    100% {
+        rotate: -90deg;
+    }
+}
+.rotating {
+    animation: rotate 0.2s ease-in forwards;
+    -moz-animation: rotate 0.2s ease-in forwards;
+    -o-animation: rotate 0.2s ease-in forwards;
+    -webkit-animation: rotate 0.2s ease-in forwards;
+}
+@keyframes rotate-back {
+    0% {
+        rotate: -90deg;
+    }
+    100% {
+        rotate: 0;
+    }
+}
+@-o-keyframes rotate-back {
+    0% {
+        rotate: -90deg;
+    }
+    100% {
+        rotate: 0;
+    }
+}
+@-moz-keyframes rotate-back {
+    0% {
+        rotate: -90deg;
+    }
+    100% {
+        rotate: 0;
+    }
+}
+@-webkit-keyframes rotate-back {
+    0% {
+        rotate: -90deg;
+    }
+    100% {
+        rotate: 0;
+    }
+}
+.rotating-back {
+    animation: rotate-back 0.2s ease-out forwards;
+    -moz-animation: rotate-back 0.2s ease-out forwards;
+    -o-animation: rotate-back 0.2s ease-out forwards;
+    -webkit-animation: rotate-back 0.2s ease-out forwards;
+}
 
 /* GENERAL STYLING */
 @font-face {
@@ -1322,6 +724,17 @@ html, body {
     outline: none;
     cursor: default;
     -webkit-tap-highlight-color: transparent;
+}
+:root {
+    --dark-blue: #1d2458;
+    --blue: #2C74B3;
+    --white: #ffffff;
+    --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
+    --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
+    
+    --header-height: 3rem;
+
+    --small-font-size: 75%;
 }
 
 /* Styling scrollbars on the page */
@@ -1452,7 +865,7 @@ hr {
     width: 100%;
     height: var(--header-height);
 }
-#header {
+header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -1466,6 +879,33 @@ hr {
     top: 0;
     font-size: var(--small-font-size);
     border-bottom: 2px solid var(--dark-blue);
+}
+nav#desktop-navbar {
+    margin-top: auto;
+    margin-bottom: auto;
+
+    overflow: hidden;
+
+    background-color: inherit;
+
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: nowrap;
+
+    height: 100%;
+}
+nav#mobile-navbar {
+    z-index: 3;
+    position: fixed;
+    width: var(--header-height);
+    height: var(--header-height);
+    border-radius: 50%;
+    background-color: var(--white);
+    border: 2px solid var(--dark-blue);
+}
+.colorless:hover, .colorless:focus, .colorless:focus-within {
+    transform: scale(1.1); 
 }
 
 /* The following several classes and styling rules are used in navigation bar styling */
@@ -1482,7 +922,7 @@ hr {
 .dropbtn:hover > a, .dropdown:focus > div > a, .dropdown:focus-within > div > a {
     color: var(--white);
 }
-.navbar a {
+nav#desktop-navbar a {
     padding: var(--vertical-proportional-small-padding);
     white-space: nowrap;
 }
@@ -1536,7 +976,7 @@ hr {
     font-size: 100%;
     color: var(--blue);
 }
-.article {
+article {
     color: var(--dark-blue);
     line-height: 1.5em;
     letter-spacing: 1px;
@@ -1545,11 +985,11 @@ hr {
     padding: var(--proportional-padding);
     font-size: calc(20px + 1vw);
 }
-.article a {
+article a {
     color: var(--blue);
     display: inline;
 }
-.article a:hover {
+article a:hover {
     color: var(--dark-blue);
 }
 .article-body-holder {
@@ -1732,7 +1172,7 @@ hr {
 }
 
 /* FOOTER STYLING */
-#footer, #mobile-footer {
+footer {
     bottom: 0;
     flex-direction: row;
     justify-content: space-around;
@@ -1751,13 +1191,13 @@ hr {
     font-size: var(--small-font-size);
     padding: var(--proportional-small-padding);
 }
-#footer a, #mobile-footer a {
+footer a {
     color: var(--dark-blue);
 }
-#footer a:hover, #mobile-footer a:hover {
+footer a:hover {
     color: var(--white);
 }
-#footer > *, #mobile-footer > * {
+footer > * {
     flex: 1;
     text-align: center;
     display: inline-block;

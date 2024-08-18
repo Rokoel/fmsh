@@ -23,13 +23,13 @@
   <div id="header-replacer">
     <!-- This block is used for spacing (as the actual header is removed from page's flow) -->
   </div>
-  <div id="header">
+  <header>
     <svg id="main-page-redirector" tabindex="0" role="button" class="logo cursor-pointer colorless" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
       <path d="M 126.655 191.862 L 125.856 190.673 Q 124.646 191.062 124.042 192.026 Q 123.437 192.989 123.437 194.527 L 123.437 200.513 Q 123.437 201.435 123.652 202.194 Q 123.867 202.952 124.329 203.506 Q 124.79 204.059 125.538 204.357 Q 126.286 204.654 127.332 204.654 L 128.049 204.654 L 128.049 205.679 L 129.566 205.863 L 129.566 204.654 L 130.407 204.654 Q 131.76 204.654 132.611 204.141 Q 133.461 203.629 133.851 202.706 Q 134.24 201.784 134.24 200.513 L 134.24 194.67 Q 134.24 193.42 133.789 192.497 Q 133.338 191.575 132.498 191.073 Q 131.657 190.57 130.468 190.57 Q 129.833 190.57 129.382 190.765 Q 128.931 190.96 128.634 191.298 Q 128.336 191.636 128.193 192.067 Q 128.049 192.497 128.049 192.969 L 128.049 203.383 L 127.332 203.383 Q 126.573 203.383 126.04 203.065 Q 125.507 202.747 125.231 202.163 Q 124.954 201.579 124.954 200.841 L 124.954 194.527 Q 124.954 193.707 125.169 193.164 Q 125.384 192.62 125.764 192.303 Q 126.143 191.985 126.655 191.862 Z M 130.407 203.383 L 129.566 203.383 L 129.566 193.276 Q 129.566 192.907 129.669 192.631 Q 129.771 192.354 130.007 192.2 Q 130.243 192.046 130.632 192.046 Q 131.35 192.046 131.821 192.436 Q 132.293 192.825 132.529 193.471 Q 132.764 194.117 132.764 194.916 L 132.764 200.841 Q 132.764 201.579 132.498 202.163 Q 132.231 202.747 131.709 203.065 Q 131.186 203.383 130.407 203.383 Z" transform="matrix(13.681724, 0, 0, 12.94599, -1689.293725, -2309.327882)"/>
       <path d="M 137.254 190.796 L 135.716 190.796 L 135.716 205.146 L 137.254 205.146 L 137.254 195.306 L 140.513 205.146 L 141.907 205.146 L 145.208 195.306 L 145.208 205.146 L 146.725 205.146 L 146.725 190.796 L 145.208 190.796 L 141.19 202.542 Z" transform="matrix(13.681724, 0, 0, 12.94599, -1689.293725, -2309.327882)"/>
       <path d="M 158.348 190.796 L 158.348 203.608 L 154.986 203.608 L 154.986 190.796 L 153.428 190.796 L 153.428 203.608 L 150.066 203.608 L 150.066 190.796 L 148.508 190.796 L 148.508 205.146 L 159.906 205.146 L 159.906 190.796 Z" transform="matrix(13.681724, 0, 0, 12.94599, -1689.293725, -2309.327882)"/>
     </svg>
-    <div id="menu" class="navbar">
+    <nav id="desktop-navbar">
       <div class="dropdown vertical-align-center">
         <div class="dropbtn">
           <a href="faq.php">О нас</a>
@@ -72,13 +72,13 @@
           </div>
         </div>
       </div>
-    </div>
+    </nav>
     <div class="horizontal-align-center">
       <a href="register.php" id="register">Регистрация</a>
       <svg xmlns="http://www.w3.org/2000/svg" class="x-small-padding logo cursor-pointer colorless" id="theme-switcher" tabindex="0" role="button" fill="none" viewBox="0 0 24 24" color="#000000"><path stroke="#000000" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" d="M3 11.507a9.493 9.493 0 0 0 18 4.219c-8.507 0-12.726-4.22-12.726-12.726A9.494 9.494 0 0 0 3 11.507Z"></path></svg>
     </div>
-  </div>
-  <div id="mobile-navbar">
+  </header>
+  <nav id="mobile-navbar">
     <!-- The mobile navbar is only shown on devices with appropriate screen sizes -->
     <div class="vertical-align-center">
       <!-- Mobile menu icon SVG -->
@@ -96,9 +96,9 @@
     <div class="mobile-navbar-link">
       <a href="timetable.php">Учащимся</a>
     </div>
-  </div>
+  </nav>
 
-  <div id="content">
+  <main>
     <div id="main-block">
       <div id="words">
         <!-- Holder of any background words on the main page, it doesn't interfere with page's flow -->
@@ -110,13 +110,13 @@
         <!-- This block is a spacing block -->
       </div>
       <div class="screen-third">
-        <div id="website-name" class="vertical-align-center" style="flex: 1">
+        <div id="website-name" class="vertical-align-center">
           <h1>FMSH.RU</h1>
         </div>
-        <div id="slogan" class="vertical-align-center" style="flex: 1">
+        <div id="slogan" class="vertical-align-center">
           <h2>Школа для тех, кому нравится мыслить</h2>
         </div>
-        <div class="vertical-align-center" style="flex: 1">
+        <div class="vertical-align-center">
           <h3 id="scroller-1" class="floating cursor-pointer scroller">
             ▼
           </h3>
@@ -127,41 +127,49 @@
       </div>
     </div>
     <div id="news">
-      <div id="article-1" class="article">
-        <div class="date">13.10.2023</div>
-        <div class="article-text">
-          <!-- Article's text should be located below -->
-          <b>Календарь событий на октябрь | Продоллжение набора и новые семинары</b>
-          <br><br>
-          1. Осенний семестр в ФМШ начался, но поступать к нам и присоединяться к регулярным занятиям теперь можно в течение всего семестра. Правила поступления сохраняются неизменными – все они в <a href="#20230529">новости от 29 мая</a>.
-          <br><br>
-          2. Как и в прошлом учебном году раз в месяц по воскресеньям мы будем проводить семинары <a href="https://fmsh.ru/register.php?event=0dd71e706b844d7f4b781d222c8feb72">"Поговорим о математике?"</a> и <a href="https://fmsh.ru/register.php?event=3db3036c320fc97c6e656b41b08ceb99">"Поговорим о физике?"</a>, на которых обсуждаются вопросы, интересующие школьников 7-11 классов, вне зависимости от того, являются они нашими учениками или нет. Расписание занятий – в <a href="https://fmsh.ru/calendar.php">Календаре событий</a>.
-          <br><br>
-          3. В следующую пятницу, 20 октября, впервые в истории ФМШ состоится <a href="https://fmsh.ru/calendar.php#20231020">занятие по химии</a>, которое проведёт преподаватель и научный сотрудник химического факультета МГУ им. М.В.Ломоносова Игорь Юрьевич Каплин. <a href="https://fmsh.ru/register.php?event=101f2c8f809dcdaf25b923acf582dee6">Регистрируйтесь</a> и подключайтесь, будет очень интересно!
-          <br><br>
-          4. Если вы ещё не подписались на наш телеграм-канал <a href="https://t.me/fmshru">@fmshru</a> – скорее заходите и подписывайтесь, все новости сначала появляются там!
+      <article id="article-1">
+        <div class="article-header" style="text-align: center;">О нас</div>
+        <div class="article-body-holder" id="about-fmsh-article">
+          <div class="article-text" id="about-fmsh-text">
+            <b>Физико-математическая школа FMSH.RU</b> – это социальный развивающий образовательный проект, в рамках которого проходят обучение школьники 7-11 классов, заинтересованные в серьёзном изучении <b>математики, физики, информатики и других предметов</b>, не связанном с подготовкой к тем или иным испытаниям (ЕГЭ, олимпиады и др.). Кроме этого, учащиеся ФМШ под руководством преподавателей имеют возможность получить свой первый педагогический опыт.
+            <br><br>
+            Обучение в ФМШ проходит в онлайн формате. Занятия проводятся <b>от 1 до 3 раз в неделю после 17:00.</b>
+          </div>
+          <div class="in-text-block-holder" id="idroo-screenshot-holder">
+            <img src="./replit.gif" class="in-text-block" id="replit-gif">
+            <img src="./idroo.gif" class="in-text-block" id="idroo-gif">
+          </div>
         </div>
-      </div>
+      </article>
       <hr>
-      <div id="article-2" class="article">
-        <div class="date">25.09.2023</div>
-        <div class="article-text">
-          <!-- Article's text should be located below -->
-          Расписание занятий в осеннем семестре 2023/24 учебного года размещено <a href="https://fmsh.ru/timetable.php">здесь</a>. 19 сентября сделана рассылка всем нашим учащимся с предложением выбрать группы, в которых хотелось бы заниматься в новом семестре. Если такое письмо не пришло, пожалуйста, напишите по адресу <a href="mailto:info@fmsh.ru">info@fmsh.ru</a>, и мы продублируем в ответе текст из рассылки.
-          <br><br>
-          <b>29 сентября</b> состоится организационное собрание для учащихся ФМШ, на котором предподаватели расскажут о занятиях в новом семестре. Параметры подключения к собранию мы направим по электронной почте не позже 27 сентября.
+      <article id="article-2">
+        <div class="article-header" style="text-align: center;">Как к нам поступить?</div>
+        <div class="article-body-holder" id="about-admission-article">
+          <div class="article-text" id="about-admission-text">
+            <h3>I этап: самостоятельное решение задач</h3>
+            Этот этап предполагает решение задач предыдущих экзаменов ФМШ. Не обязательно решать все задачи или даже большую их часть. Как при обучении в ФМШ, так и при поступлении, главное не количество, а интерес.
+            <h3>II этап: обсуждение задач на семинарах</h3>
+            Здесь обсуждение задач продолжится уже в интерактивном режиме, семинары пройдут в системе Zoom. Главный критерий, по которому преподаватели, ведущие семинары, будут принимать решение о зачисление в ФМШ – активность участников (не связанная с количеством решённых задач) и их заинтересованность в обсуждении материала.
+            <br>
+            <br>
+            Скорее всего, одного-двух семинаров будет достаточно, чтобы, с одной стороны, разрешить все вопросы по решавшимся задачкам, а с другой – Вы поняли, как проходят регулярные занятия ФМШ (поскольку семинары будут проходить в том же стиле). Если всё понравится – мы будем рады зачислить Вас в наши группы.
+            <br>
+            <br>
+            <br>
+            <b>Варианты для решения и более подробную информацию о поступлении можно прочитать на <a href="">странице поступления</a>.</b>
+          </div>
         </div>
-      </div>
-      <!-- The following div is basically a button that redirects user to the news page -->
-      <div class="vertical-align-center">
-        <div class="horizontal-align-center">
-          <a id="show-more-button" href="/news.php"><b>К новостям</b></a>
-        </div>
-      </div>
+      </article>
+      <hr>
+      <article id="article-3">
+      </article>
+      <hr>
+      <article id="article-4">
+      </article>
     </div>
-  </div>
+  </main>
 
-  <div id="footer">
+  <footer id="footer">
     <div id="copyright">
       © 1995-2024 <a href="mailto:info@fmsh.ru">ФМШ - Физико-математическая школа FMSH.RU</a>
     </div>
@@ -174,8 +182,8 @@
         Telegram: <a href="https://t.me/fmshru">@fmshru</a>
       </div>
     </div>
-  </div>
-  <div id="mobile-footer">
+  </footer>
+  <footer id="mobile-footer">
     <!-- The mobile footer is only shown on devices with appropriate screen sizes -->
     <div>
       <div id="copyright-mobile">
@@ -199,6 +207,9 @@
         </svg>
       </div>
     </div> 
-  </div>
+  </footer>
+  <script src="./js/mobile-menu-setup.js"></script>
+  <script src="./js/theme-setup.js"></script>
+  <script src="./js/fade-in-out.js"></script>
 </body>
 </html>
