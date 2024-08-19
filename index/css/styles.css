@@ -1,18 +1,5 @@
 /* DIFFERENT MEDIA SETTINGS */
 @media screen and (min-width: 1600px) {
-    :root {
-        --proportional-padding: 2em;
-        --proportional-small-padding: 1em;
-        --proportional-x-small-padding: 0.5em;
-        --proportional-xx-small-padding: 0.25em;
-        --vertical-proportional-small-padding: 0.8em 1em;
-    }
-    #desktop-navbar {
-        display: flex;
-    }
-    #mobile-navbar {
-        display: none;
-    }
     #main-block > * {
         text-align: center;
     }
@@ -28,27 +15,8 @@
         font-size: 75px;
         margin-top: 0;
     }
-    footer {
-        display: flex;
-    }
-    #mobile-footer {
-        display: none;
-    }
 }
 @media screen and (max-width: 1600px) and (min-width: 950px) {
-    :root {
-        --proportional-padding: 2em;
-        --proportional-small-padding: 1em;
-        --proportional-x-small-padding: 0.5em;
-        --proportional-xx-small-padding: 0.25em;
-        --vertical-proportional-small-padding: 0.8em 1em;
-    }
-    #desktop-navbar {
-        display: flex;
-    }
-    #mobile-navbar {
-        display: none;
-    }
     #main-block > * {
         text-align: center;
     }
@@ -64,27 +32,8 @@
         font-size: 50px;
         margin-top: 0;
     }
-    footer {
-        display: flex;
-    }
-    #mobile-footer {
-        display: none;
-    }
 }
 @media screen and (max-width: 950px) and (min-width: 720px) {
-    :root {
-        --proportional-padding: 2em;
-        --proportional-small-padding: 0.8em;
-        --proportional-x-small-padding: 0.5em;
-        --proportional-xx-small-padding: 0.25em;
-        --vertical-proportional-small-padding: 1em 0.5em;
-    }
-    #desktop-navbar {
-        display: flex;
-    }
-    #mobile-navbar {
-        display: none;
-    }
     #main-block > * {
         text-align: center;
     }
@@ -100,47 +49,11 @@
         font-size: 50px;
         margin-top: 10%;
     }
-    footer {
-        display: flex;
-    }
-    #mobile-footer {
-        display: none;
-    }
     #words {
         display: none;
     }
 }
 @media screen and (max-width: 720px) and (min-width: 320px) and (orientation: portrait) {
-    :root {
-        --proportional-padding: 1em;
-        --proportional-small-padding: 0.5em;
-        --proportional-x-small-padding: 0.25em;
-        --proportional-xx-small-padding: 0.1em;
-        --vertical-proportional-small-padding: 1em 0.5em;
-    }
-    #desktop-navbar {
-        display: none;
-    }
-    #mobile-navbar {
-        bottom: calc(var(--header-height) / 2);
-        right: calc(var(--header-height) / 2);
-    }
-    .mobile-navbar-link {
-        position: relative;
-        bottom: calc((var(--header-height)) * 5);
-        transform: translateX(150%);
-        margin: 0.1em;
-        background-color: var(--white);
-        color: var(--dark-blue);
-        padding: var(--proportional-small-padding);
-        width: max-content;
-        max-height: var(--header-height);
-        text-align: right;
-        float: right;
-        border: 2px solid var(--dark-blue);
-        border-radius: 5px;
-        overflow: hidden;
-    }
     #main-block > * {
         text-align: center;
         margin: 0;
@@ -154,62 +67,12 @@
         font-size: 200%;
         margin-bottom: 70%;
         margin-top: 10%;
-    }
-    body {
-        overflow-y: scroll;
-        overflow-x: hidden;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    }
-    body::-webkit-scrollbar { /* WebKit */
-        overflow-x: hidden;
-        width: 0;
-        height: 0;
-    }
-    #register {
-        border-radius: 5px;
-    }
-    footer {
-        display: none;
-    }
-    #mobile-footer {
-        display: flex;
     }
     #words {
         display: none;
     }
 }
 @media screen and (max-width: 320px) and (orientation: portrait) {
-    :root {
-        --proportional-padding: 1em;
-        --proportional-small-padding: 0.5em;
-        --proportional-x-small-padding: 0.25em;
-        --proportional-xx-small-padding: 0.1em;
-        --vertical-proportional-small-padding: 1.2em 0.5em;
-    }
-    #desktop-navbar {
-        display: none;
-    }
-    #mobile-navbar {
-        bottom: calc(var(--header-height) / 2);
-        right: calc(var(--header-height) / 4);
-    }
-    .mobile-navbar-link {
-        position: relative;
-        bottom: calc((var(--header-height)) * 5);
-        transform: translateX(150%);
-        margin: 0.1em;
-        background-color: var(--white);
-        color: var(--dark-blue);
-        padding: var(--proportional-small-padding);
-        width: max-content;
-        max-height: var(--header-height);
-        text-align: right;
-        float: right;
-        border: 2px solid var(--dark-blue);
-        border-radius: 5px;
-        overflow: hidden;
-    }
     #main-block > * {
         text-align: center;
         margin: 0;
@@ -224,61 +87,11 @@
         margin-bottom: 70%;
         margin-top: 10%;
     }
-    body {
-        overflow-y: scroll;
-        overflow-x: hidden;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    }
-    body::-webkit-scrollbar { /* WebKit */
-        overflow-x: hidden;
-        width: 0;
-        height: 0;
-    }
-    #register {
-        border-radius: 5px;
-    }
-    footer {
-        display: none;
-    }
-    #mobile-footer {
-        display: flex;
-    }
     #words {
         display: none;
     }
 }
 @media screen and (max-width: 720px) and (min-width: 320px) and (orientation: landscape) {
-    :root {
-        --proportional-padding: 1em;
-        --proportional-small-padding: 0.5em;
-        --proportional-x-small-padding: 0.25em;
-        --proportional-xx-small-padding: 0.1em;
-        --vertical-proportional-small-padding: 1em 0.5em;
-    }
-    #desktop-navbar {
-        display: none;
-    }
-    #mobile-navbar {
-        bottom: calc(var(--header-height) / 2);
-        right: calc(var(--header-height) / 2);
-    }
-    .mobile-navbar-link {
-        position: relative;
-        bottom: calc((var(--header-height)) * 5);
-        transform: translateX(150%);
-        margin: 0.1em;
-        background-color: var(--white);
-        color: var(--dark-blue);
-        padding: var(--proportional-small-padding);
-        width: max-content;
-        max-height: var(--header-height);
-        text-align: right;
-        float: right;
-        border: 2px solid var(--dark-blue);
-        border-radius: 5px;
-        overflow: hidden;
-    }
     #main-block > * {
         text-align: center;
         margin: 0;
@@ -296,61 +109,11 @@
     #slogan {
         display: none;
     }
-    body {
-        overflow-y: scroll;
-        overflow-x: hidden;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    }
-    body::-webkit-scrollbar { /* WebKit */
-        overflow-x: hidden;
-        width: 0;
-        height: 0;
-    }
-    #register {
-        border-radius: 5px;
-    }
-    footer {
-        display: none;
-    }
-    #mobile-footer {
-        display: flex;
-    }
     #words {
         display: none;
     }
 }
 @media screen and (max-width: 320px) and (orientation: landscape) {
-    :root {
-        --proportional-padding: 1em;
-        --proportional-small-padding: 0.5em;
-        --proportional-x-small-padding: 0.25em;
-        --proportional-xx-small-padding: 0.1em;
-        --vertical-proportional-small-padding: 1.2em 0.5em;
-    }
-    #desktop-navbar {
-        display: none;
-    }
-    #mobile-navbar {
-        bottom: calc(var(--header-height) / 2);
-        right: calc(var(--header-height) / 4);
-    }
-    .mobile-navbar-link {
-        position: relative;
-        bottom: calc((var(--header-height)) * 5);
-        transform: translateX(150%);
-        margin: 0.1em;
-        background-color: var(--white);
-        color: var(--dark-blue);
-        padding: var(--proportional-small-padding);
-        width: max-content;
-        max-height: var(--header-height);
-        text-align: right;
-        float: right;
-        border: 2px solid var(--dark-blue);
-        border-radius: 5px;
-        overflow: hidden;
-    }
     #main-block > * {
         text-align: center;
         margin: 0;
@@ -368,114 +131,11 @@
     #slogan {
         display: none;
     }
-    body {
-        overflow-y: scroll;
-        overflow-x: hidden;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    }
-    body::-webkit-scrollbar { /* WebKit */
-        overflow-x: hidden;
-        width: 0;
-        height: 0;
-    }
-    #register {
-        border-radius: 5px;
-    }
-    footer {
-        display: none;
-    }
-    #mobile-footer {
-        display: flex;
-    }
     #words {
         display: none;
     }
 }
 
-/* ANIMATIONS */
-@keyframes float {
-    0% {
-        transform: translatey(5px);
-    }
-    50% {
-        transform: translatey(25px);
-    }
-    100% {
-        transform: translatey(5px);
-    }
-}
-@-o-keyframes float {
-    0% {
-        transform: translatey(5px);
-    }
-    50% {
-        transform: translatey(25px);
-    }
-    100% {
-        transform: translatey(5px);
-    }
-}
-@-moz-keyframes float {
-    0% {
-        transform: translatey(5px);
-    }
-    50% {
-        transform: translatey(25px);
-    }
-    100% {
-        transform: translatey(5px);
-    }
-}
-@-webkit-keyframes float {
-    0% {
-        transform: translatey(5px);
-    }
-    50% {
-        transform: translatey(25px);
-    }
-    100% {
-        transform: translatey(5px);
-    }
-}
-@keyframes link_chosen {
-    0% {
-        text-decoration-color: rgba(0, 0, 0, 0);
-    }
-    100% {
-        text-decoration-color: var(--dark-blue);
-    }
-}
-@-o-keyframes link_chosen {
-    0% {
-        text-decoration-color: rgba(0, 0, 0, 0);
-    }
-    100% {
-        text-decoration-color: var(--dark-blue);
-    }
-}
-@-moz-keyframes link_chosen {
-    0% {
-        text-decoration-color: rgba(0, 0, 0, 0);
-    }
-    100% {
-        text-decoration-color: var(--dark-blue);
-    }
-}
-@-webkit-keyframes link_chosen {
-    0% {
-        text-decoration-color: rgba(0, 0, 0, 0);
-    }
-    100% {
-        text-decoration-color: var(--dark-blue);
-    }
-}
-.floating {
-    animation: float 2s ease-in-out infinite;
-    -moz-animation: float 2s ease-in-out infinite;
-    -o-animation: float 2s ease-in-out infinite;
-    -webkit-animation: float 2s ease-in-out infinite;
-}
 @keyframes fade {
     0% {
         opacity: 0;
@@ -488,235 +148,15 @@
 }
 @media (prefers-reduced-motion: no-preference) {
     .in-view {
-        animation: fade 0.5s 0.5s both;
+        animation: fade 1.5s 0s both;
     }
   
     .not-in-view {
         opacity: 0;
     }
 }
-@keyframes appear {
-    0% {
-        transform: translateX(150%);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-@-o-keyframes appear {
-    0% {
-        transform: translateX(150%);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-@-moz-keyframes appear {
-    0% {
-        transform: translateX(150%);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-@-webkit-keyframes appear {
-    0% {
-        transform: translateX(150%);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-.appearing {
-    animation: appear 0.2s ease-in forwards;
-    -moz-animation: appear 0.2s ease-in forwards;
-    -o-animation: appear 0.2s ease-in forwards;
-    -webkit-animation: appear 0.2s ease-in forwards;
-}
-@keyframes disappear {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(150%);
-    }
-}
-@-o-keyframes disappear {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(150%);
-    }
-}
-@-moz-keyframes disappear {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(150%);
-    }
-}
-@-webkit-keyframes disappear {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(150%);
-    }
-}
-.disappearing {
-    animation: disappear 0.2s ease-out forwards;
-    -moz-animation: disappear 0.2s ease-out forwards;
-    -o-animation: disappear 0.2s ease-out forwards;
-    -webkit-animation: disappear 0.2s ease-out forwards;
-}
-@keyframes rotate {
-    0% {
-        rotate: 0;
-    }
-    100% {
-        rotate: -90deg;
-    }
-}
-@-o-keyframes rotate {
-    0% {
-        rotate: 0;
-    }
-    100% {
-        rotate: -90deg;
-    }
-}
-@-moz-keyframes rotate {
-    0% {
-        rotate: 0;
-    }
-    100% {
-        rotate: -90deg;
-    }
-}
-@-webkit-keyframes rotate {
-    0% {
-        rotate: 0;
-    }
-    100% {
-        rotate: -90deg;
-    }
-}
-.rotating {
-    animation: rotate 0.2s ease-in forwards;
-    -moz-animation: rotate 0.2s ease-in forwards;
-    -o-animation: rotate 0.2s ease-in forwards;
-    -webkit-animation: rotate 0.2s ease-in forwards;
-}
-@keyframes rotate-back {
-    0% {
-        rotate: -90deg;
-    }
-    100% {
-        rotate: 0;
-    }
-}
-@-o-keyframes rotate-back {
-    0% {
-        rotate: -90deg;
-    }
-    100% {
-        rotate: 0;
-    }
-}
-@-moz-keyframes rotate-back {
-    0% {
-        rotate: -90deg;
-    }
-    100% {
-        rotate: 0;
-    }
-}
-@-webkit-keyframes rotate-back {
-    0% {
-        rotate: -90deg;
-    }
-    100% {
-        rotate: 0;
-    }
-}
-.rotating-back {
-    animation: rotate-back 0.2s ease-out forwards;
-    -moz-animation: rotate-back 0.2s ease-out forwards;
-    -o-animation: rotate-back 0.2s ease-out forwards;
-    -webkit-animation: rotate-back 0.2s ease-out forwards;
-}
 
 /* GENERAL STYLING */
-@font-face {
-    font-family: UbuntuRegular;
-    src: url("../Ubuntu-Regular.ttf");
-}
-html, body {
-    height: 100%;
-    background-color: var(--white);
-    font-family: UbuntuRegular;
-    font-size: calc(0.75em + 1vw); /* This 'magic value' was discovered by trial-and-error */
-    margin: 0;
-    box-sizing: border-box;
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
-    scroll-behavior: smooth;
-}
-*, *:before, *:after {
-    box-sizing: inherit; /* it's border-box unless specified otherwise */
-    /* more about box-sizing: https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing */
-}
-*:focus, *:active {
-    /* Hiding browser's default outline on clicked links as it's ugly */
-    -webkit-tap-highlight-color: transparent;
-    outline: none;
-    cursor: default;
-    -webkit-tap-highlight-color: transparent;
-}
-:root {
-    --dark-blue: #1d2458;
-    --blue: #2C74B3;
-    --white: #ffffff;
-    --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
-    --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
-    
-    --header-height: 3rem;
-
-    --small-font-size: 75%;
-}
-
-/* Styling scrollbars on the page */
-* {
-    scrollbar-width: auto;
-    scrollbar-color: var(--blue) var(--white);
-}
-*::-webkit-scrollbar-track {
-    background: var(--white);
-} 
-*::-webkit-scrollbar-thumb {
-    background-color: var(--blue);
-    border-radius: 20px;
-    border: 3px solid var(--white);
-}
-*::-o-scrollbar-track {
-    background: var(--white);
-} 
-*::-o-scrollbar-thumb {
-    background-color: var(--blue);
-    border-radius: 20px;
-    border: 3px solid var(--white);
-}
-*::-moz-scrollbar-track {
-    background: var(--white);
-} 
-*::-moz-scrollbar-thumb {
-    background-color: var(--blue);
-    border-radius: 20px;
-    border: 3px solid var(--white);
-}
 
 /* These two classes are used for alligning elements with the help of 'flex' */
 .vertical-align-center {
@@ -741,97 +181,6 @@ html, body {
     padding: var(--proportional-xx-small-padding);
 }
 
-/* These two classes are for emojis and logos styling */
-.emoji {
-    filter: var(--theme-emoji-bright);
-}
-.logo {
-    filter: var(--theme-emoji-bright);
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-}
-
-/* This class is used for making cursor a pointer when hovered */
-.cursor-pointer:hover {
-    cursor: pointer;
-}
-
-/* The rest of styling rules in the general styling covers element styling */
-a {
-    display: inline-block;
-
-    color: var(--dark-blue);
-
-    margin-top: auto;
-    margin-bottom: auto;
-
-    text-decoration: none;
-    text-align: center;
-}
-button {
-    background-color: var(--blue);
-    color: var(--white);
-    border-radius: 10px;
-    border: var(--dark-blue) solid 2px;
-    cursor: pointer;
-}
-button:hover, button:focus {
-    filter: opacity(0.9) contrast(120%) saturate(110%); 
-}
-hr {
-    border-right : 0;
-    border-left: 0;
-    width: 100%;
-}
-
-/* HEADER STYLING */
-#header-replacer {
-    background-color: var(--white);
-    width: 100%;
-    height: var(--header-height);
-}
-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: center;
-
-    z-index: 3;
-
-    height: var(--header-height);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    font-size: var(--small-font-size);
-    border-bottom: 2px solid var(--dark-blue);
-}
-nav#desktop-navbar {
-    margin-top: auto;
-    margin-bottom: auto;
-
-    overflow: hidden;
-
-    background-color: inherit;
-
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: nowrap;
-
-    height: 100%;
-}
-nav#mobile-navbar {
-    z-index: 3;
-    position: fixed;
-    width: var(--header-height);
-    height: var(--header-height);
-    border-radius: 50%;
-    background-color: var(--white);
-    border: 2px solid var(--dark-blue);
-}
-.colorless:hover, .colorless:focus, .colorless:focus-within {
-    transform: scale(1.1); 
-}
 #subjects, #principles {
     position: absolute;
 }
@@ -848,60 +197,6 @@ nav#mobile-navbar {
 .floating-word {
     position: absolute;
     z-index: 1;
-}
-
-/* The following several classes and styling rules are used in navigation bar styling */
-.dropbtn {
-    border: none;
-    outline: none;
-    background-color: inherit;
-    margin: 0;
-    overflow: hidden;
-}
-.dropdown:hover, .dropdown:focus, .dropdown:focus-within {
-    background-color: var(--dark-blue);
-}
-.dropbtn:hover > a, .dropdown:focus > div > a, .dropdown:focus-within > div > a {
-    color: var(--white);
-}
-nav#desktop-navbar a {
-    padding: var(--vertical-proportional-small-padding);
-    white-space: nowrap;
-}
-.dropdown-content {
-    display: none;
-    position: absolute;
-    z-index: 1;
-    border-radius: 0 0 0.2em 0.2em;
-    border-bottom: 2px solid var(--dark-blue);
-    border-right: 2px solid var(--dark-blue);
-    border-left: 2px solid var(--dark-blue);
-    border-top: 2px solid var(--dark-blue);
-    background-color: var(--white);
-}
-.dropdown-content > a {
-    float: none;
-    display: block;
-    text-align: left;
-}
-.dropdown:hover .dropdown-content, .dropdown:focus .dropdown-content, .dropdown:focus-within .dropdown-content {
-    display: block;
-}
-.dropdown-content > :hover, a:hover, .dropdown-content > :focus, a:focus {
-    text-decoration: underline;
-    animation: link_chosen 0.5s ease-out forwards;
-    -moz-animation: link_chosen 0.5s ease-out forwards;
-    -o-animation: link_chosen 0.5s ease-out forwards;
-    -webkit-animation: link_chosen 0.5s ease-out forwards;
-}
-
-/* These two styling rules are used for styling the register link */
-#register:hover, #register:hover > a, #register:focus, #register:focus > a {
-    background-color: var(--dark-blue);
-    color: var(--white);
-}
-#register {
-    padding: var(--vertical-proportional-small-padding);
 }
 
 /* These classes are used for styling the main content of the page */
@@ -1031,46 +326,4 @@ article a:hover {
     #idroo-gif {
         display: unset;
     }
-}
-
-/* FOOTER STYLING */
-footer {
-    bottom: 0;
-    flex-direction: row;
-    justify-content: space-around;
-    align-content: center;
-    flex-wrap: wrap;
-    width: 100%;
-    background-color: var(--blue);
-    color: var(--white);
-    border-top: var(--dark-blue);
-    border-width: 3px;
-    border-style: solid;
-    border-right: var(--blue);
-    border-left: var(--blue);
-    border-bottom: var(--blue);
-
-    font-size: var(--small-font-size);
-    padding: var(--proportional-small-padding);
-}
-footer a {
-    color: var(--dark-blue);
-}
-footer a:hover {
-    color: var(--white);
-}
-footer > * {
-    flex: 1;
-    text-align: center;
-    display: inline-block;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-#mobile-contacts {
-    display: flex;
-    justify-content: space-evenly;
-    margin-right: var(--header-height);
-}
-#telegram-mobile, #phone-mobile, #email-mobile {
-    width: fit-content;
 }

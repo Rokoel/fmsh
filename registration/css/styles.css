@@ -1,12 +1,5 @@
 /* DIFFERENT MEDIA SETTINGS */
 @media screen and (min-width: 1600px) {
-    :root {
-        --proportional-padding: 2em;
-        --proportional-small-padding: 1em;
-        --proportional-x-small-padding: 0.5em;
-        --proportional-xx-small-padding: 0.25em;
-        --vertical-proportional-small-padding: 0.8em 1em;
-    }
     #registration-form-holder {
         display: grid;
         grid-template-columns: repeat(9, 1fr);
@@ -20,13 +13,6 @@
     }
 }
 @media screen and (max-width: 1600px) and (min-width: 950px) {
-    :root {
-        --proportional-padding: 2em;
-        --proportional-small-padding: 1em;
-        --proportional-x-small-padding: 0.5em;
-        --proportional-xx-small-padding: 0.25em;
-        --vertical-proportional-small-padding: 0.8em 1em;
-    }
     #registration-form-holder {
         display: grid;
         grid-template-columns: repeat(9, 1fr);
@@ -40,13 +26,6 @@
     }
 }
 @media screen and (max-width: 950px) and (min-width: 720px) {
-    :root {
-        --proportional-padding: 2em;
-        --proportional-small-padding: 0.8em;
-        --proportional-x-small-padding: 0.5em;
-        --proportional-xx-small-padding: 0.25em;
-        --vertical-proportional-small-padding: 0.8em 1em;
-    }
     #registration-form-holder {
         display: grid;
         grid-template-columns: repeat(9, 1fr);
@@ -60,24 +39,6 @@
     }
 }
 @media screen and (max-width: 720px) and (min-width: 320px) and (orientation: portrait) {
-    :root {
-        --proportional-padding: 2em;
-        --proportional-small-padding: 1em;
-        --proportional-x-small-padding: 0.5em;
-        --proportional-xx-small-padding: 0.25em;
-        --vertical-proportional-small-padding: 0.8em 1em;
-    }
-    body {
-        overflow-y: scroll;
-        overflow-x: hidden;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    }
-    body::-webkit-scrollbar { /* WebKit */
-        overflow-x: hidden;
-        width: 0;
-        height: 0;
-    }
     #registration-form-holder {
         display: grid;
         grid-template-columns: 2fr;
@@ -95,24 +56,6 @@
     }
 }
 @media screen and (max-width: 320px) and (orientation: portrait) {
-    :root {
-        --proportional-padding: 2em;
-        --proportional-small-padding: 1em;
-        --proportional-x-small-padding: 0.5em;
-        --proportional-xx-small-padding: 0.25em;
-        --vertical-proportional-small-padding: 0.8em 1em;
-    }
-    body {
-        overflow-y: scroll;
-        overflow-x: hidden;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    }
-    body::-webkit-scrollbar { /* WebKit */
-        overflow-x: hidden;
-        width: 0;
-        height: 0;
-    }
     #registration-form-holder {
         display: grid;
         grid-template-columns: 2fr;
@@ -130,13 +73,6 @@
     }
 }
 @media screen and (max-width: 720px) and (min-width: 320px) and (orientation: landscape) {
-    :root {
-        --proportional-padding: 2em;
-        --proportional-small-padding: 1em;
-        --proportional-x-small-padding: 0.5em;
-        --proportional-xx-small-padding: 0.25em;
-        --vertical-proportional-small-padding: 0.8em 1em;
-    }
     #registration-form-holder {
         display: grid;
         grid-template-columns: repeat(9, 1fr);
@@ -150,24 +86,6 @@
     }
 }
 @media screen and (max-width: 320px) and (orientation: landscape) {
-    :root {
-        --proportional-padding: 2em;
-        --proportional-small-padding: 1em;
-        --proportional-x-small-padding: 0.5em;
-        --proportional-xx-small-padding: 0.25em;
-        --vertical-proportional-small-padding: 0.8em 1em;
-    }
-    body {
-        overflow-y: scroll;
-        overflow-x: hidden;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    }
-    body::-webkit-scrollbar { /* WebKit */
-        overflow-x: hidden;
-        width: 0;
-        height: 0;
-    }
     #registration-form-holder {
         display: grid;
         grid-template-columns: 2fr;
@@ -183,197 +101,6 @@
             "submit-form submit-form";
         padding: 0 1em;
     }
-}
-
-/* ANIMATIONS */
-@keyframes float {
-    0% {
-        transform: translatey(5px);
-    }
-    50% {
-        transform: translatey(25px);
-    }
-    100% {
-        transform: translatey(5px);
-    }
-}
-@-o-keyframes float {
-    0% {
-        transform: translatey(5px);
-    }
-    50% {
-        transform: translatey(25px);
-    }
-    100% {
-        transform: translatey(5px);
-    }
-}
-@-moz-keyframes float {
-    0% {
-        transform: translatey(5px);
-    }
-    50% {
-        transform: translatey(25px);
-    }
-    100% {
-        transform: translatey(5px);
-    }
-}
-@-webkit-keyframes float {
-    0% {
-        transform: translatey(5px);
-    }
-    50% {
-        transform: translatey(25px);
-    }
-    100% {
-        transform: translatey(5px);
-    }
-}
-@keyframes link_chosen {
-    0% {
-        text-decoration-color: rgba(0, 0, 0, 0);
-    }
-    100% {
-        text-decoration-color: var(--dark-blue);
-    }
-}
-@-o-keyframes link_chosen {
-    0% {
-        text-decoration-color: rgba(0, 0, 0, 0);
-    }
-    100% {
-        text-decoration-color: var(--dark-blue);
-    }
-}
-@-moz-keyframes link_chosen {
-    0% {
-        text-decoration-color: rgba(0, 0, 0, 0);
-    }
-    100% {
-        text-decoration-color: var(--dark-blue);
-    }
-}
-@-webkit-keyframes link_chosen {
-    0% {
-        text-decoration-color: rgba(0, 0, 0, 0);
-    }
-    100% {
-        text-decoration-color: var(--dark-blue);
-    }
-}
-@keyframes highlight_box {
-    0% {}
-    100% {
-        -webkit-box-shadow: -3px 0 0 0 var(--blue);
-        box-shadow: -3px 0 0 0 var(--blue);
-    }
-}
-@-o-keyframes highlight_box {
-    0% {}
-    100% {
-        -webkit-box-shadow: -3px 0 0 0 var(--blue);
-        box-shadow: -3px 0 0 0 var(--blue);
-    }
-}
-@-moz-keyframes highlight_box {
-    0% {}
-    100% {
-        -webkit-box-shadow: -3px 0 0 0 var(--blue);
-        box-shadow: -3px 0 0 0 var(--blue);
-    }
-}
-@-webkit-keyframes highlight_box {
-    0% {}
-    100% {
-        -webkit-box-shadow: -3px 0 0 0 var(--blue);
-        box-shadow: -3px 0 0 0 var(--blue);
-    }
-}
-.floating {
-    animation: float 2s ease-in-out infinite;
-    -moz-animation: float 2s ease-in-out infinite;
-    -o-animation: float 2s ease-in-out infinite;
-    -webkit-animation: float 2s ease-in-out infinite;
-}
-.highlight-left:hover, .highlight-left:focus, .highlight-left:active {
-    animation: highlight_box 0.1s ease-out forwards;
-    -moz-animation: highlight_box 0.1s ease-out forwards;
-    -o-animation: highlight_box 0.1s ease-out forwards;
-    -webkit-animation: highlight_box 0.1s ease-out forwards;
-}
-
-/* GENERAL STYLING */
-@font-face {
-    font-family: UbuntuRegular;
-    src: url("../Ubuntu-Regular.ttf");
-}
-html, body {
-    height: 100%;
-    background-color: var(--white);
-    font-family: UbuntuRegular;
-    font-size: calc(0.75em + 1vw); /* This 'magic value' was discovered by trial-and-error */
-    margin: 0;
-    box-sizing: border-box;
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
-    scroll-behavior: smooth;
-}
-*, *:before, *:after {
-    box-sizing: inherit; /* it's border-box unless specified otherwise */
-    /* more about box-sizing: https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing */
-}
-*:focus, *:active {
-    /* Hiding browser's default outline on clicked links as it's ugly */
-    -webkit-tap-highlight-color: transparent;
-    outline: none;
-    cursor: default;
-    -webkit-tap-highlight-color: transparent;
-}
-:root {
-    --dark-blue: #1d2458;
-    --blue: #2C74B3;
-    --white: #ffffff;
-    --pastel-red: #CF6679;
-    --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
-    --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
-    --placeholder-text-opacity: 0.3;
-    --placeholder-text-dark-theme-opacity: 0.7;
-
-    --header-height: 3rem;
-
-    --small-font-size: 75%;
-}
-
-/* Styling scrollbars on the page */
-* {
-    scrollbar-width: auto;
-    scrollbar-color: var(--blue) var(--white);
-}
-*::-webkit-scrollbar-track {
-    background: var(--white);
-} 
-*::-webkit-scrollbar-thumb {
-    background-color: var(--blue);
-    border-radius: 20px;
-    border: 3px solid var(--white);
-}
-*::-o-scrollbar-track {
-    background: var(--white);
-} 
-*::-o-scrollbar-thumb {
-    background-color: var(--blue);
-    border-radius: 20px;
-    border: 3px solid var(--white);
-}
-*::-moz-scrollbar-track {
-    background: var(--white);
-} 
-*::-moz-scrollbar-thumb {
-    background-color: var(--blue);
-    border-radius: 20px;
-    border: 3px solid var(--white);
 }
 
 /* These two classes are used for alligning elements with the help of 'flex' */
@@ -399,52 +126,11 @@ html, body {
     padding: var(--proportional-xx-small-padding);
 }
 
-/* These two classes are for emojis and logos styling */
-.emoji {
-    filter: var(--theme-emoji-bright);
-}
-.logo {
-    filter: var(--theme-emoji-bright);
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-}
-
-/* This class is used for making cursor a pointer when hovered */
-.cursor-pointer:hover {
-    cursor: pointer;
-}
-
 /* The rest of styling rules in the general styling covers element styling */
-a {
-    display: inline-block;
-
-    color: var(--dark-blue);
-
-    margin-top: auto;
-    margin-bottom: auto;
-
-    text-decoration: none;
-    text-align: center;
-}
-button {
-    background-color: var(--blue);
-    color: var(--white);
-    border-radius: 10px;
-    border: var(--dark-blue) solid 2px;
-    cursor: pointer;
-}
 input[type=checkbox] {
     height: 1em;
     width: 1em;
     display: inline;
-}
-button:hover, button:focus {
-    filter: opacity(0.9) contrast(120%) saturate(110%); 
-}
-hr {
-    border-right : 0;
-    border-left: 0;
-    width: 100%;
 }
 input[type=text], input[type=email] {
     color: var(--dark-blue);
@@ -478,10 +164,6 @@ input[type=text], input[type=email] {
         -webkit-box-shadow: -3px 0 0 0 red;
         box-shadow: -3px 0 0 0 red;
     }
-}
-.has-border {
-    border-radius: 0.4em;
-    border: var(--dark-blue) solid 2px;
 }
 .tooltip {
     text-decoration: underline var(--dark-blue) dotted;

@@ -1,0 +1,209 @@
+@media screen and (min-width: 1600px) {
+    :root {
+        --proportional-padding: 2em;
+        --proportional-small-padding: 1em;
+        --proportional-x-small-padding: 0.5em;
+        --proportional-xx-small-padding: 0.25em;
+        --vertical-proportional-small-padding: 0.8em 1em;
+    }
+}
+@media screen and (max-width: 1600px) and (min-width: 950px) {
+    :root {
+        --proportional-padding: 2em;
+        --proportional-small-padding: 1em;
+        --proportional-x-small-padding: 0.5em;
+        --proportional-xx-small-padding: 0.25em;
+        --vertical-proportional-small-padding: 0.8em 1em;
+    }
+}
+@media screen and (max-width: 950px) and (min-width: 720px) {
+    :root {
+        --proportional-padding: 2em;
+        --proportional-small-padding: 0.8em;
+        --proportional-x-small-padding: 0.5em;
+        --proportional-xx-small-padding: 0.25em;
+        --vertical-proportional-small-padding: 1em 0.5em;
+    }
+}
+@media screen and (max-width: 720px) and (min-width: 320px) and (orientation: portrait) {
+    :root {
+        --proportional-padding: 1em;
+        --proportional-small-padding: 0.5em;
+        --proportional-x-small-padding: 0.25em;
+        --proportional-xx-small-padding: 0.1em;
+        --vertical-proportional-small-padding: 1em 0.5em;
+    }
+    body {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    }
+    body::-webkit-scrollbar { /* WebKit */
+        overflow-x: hidden;
+        width: 0;
+        height: 0;
+    }
+}
+@media screen and (max-width: 320px) and (orientation: portrait) {
+    :root {
+        --proportional-padding: 1em;
+        --proportional-small-padding: 0.5em;
+        --proportional-x-small-padding: 0.25em;
+        --proportional-xx-small-padding: 0.1em;
+        --vertical-proportional-small-padding: 1.2em 0.5em;
+    }
+    body {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    }
+    body::-webkit-scrollbar { /* WebKit */
+        overflow-x: hidden;
+        width: 0;
+        height: 0;
+    }
+}
+@media screen and (max-width: 720px) and (min-width: 320px) and (orientation: landscape) {
+    :root {
+        --proportional-padding: 1em;
+        --proportional-small-padding: 0.5em;
+        --proportional-x-small-padding: 0.25em;
+        --proportional-xx-small-padding: 0.1em;
+        --vertical-proportional-small-padding: 1em 0.5em;
+    }
+    body {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    }
+    body::-webkit-scrollbar { /* WebKit */
+        overflow-x: hidden;
+        width: 0;
+        height: 0;
+    }
+}
+@media screen and (max-width: 320px) and (orientation: landscape) {
+    :root {
+        --proportional-padding: 1em;
+        --proportional-small-padding: 0.5em;
+        --proportional-x-small-padding: 0.25em;
+        --proportional-xx-small-padding: 0.1em;
+        --vertical-proportional-small-padding: 1.2em 0.5em;
+    }
+    body {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    }
+    body::-webkit-scrollbar { /* WebKit */
+        overflow-x: hidden;
+        width: 0;
+        height: 0;
+    }
+}
+
+@font-face {
+    font-family: UbuntuRegular;
+    src: url("../Ubuntu-Regular.ttf");
+}
+html, body {
+    height: 100%;
+    background-color: var(--white);
+    font-family: UbuntuRegular;
+    font-size: calc(0.75em + 1vw); /* This 'magic value' was discovered by trial-and-error */
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    scroll-behavior: smooth;
+}
+*, *:before, *:after {
+    box-sizing: inherit; /* it's border-box unless specified otherwise */
+    /* more about box-sizing: https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing */
+}
+*:focus, *:active {
+    /* Hiding browser's default outline on clicked links as it's ugly */
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    cursor: default;
+    -webkit-tap-highlight-color: transparent;
+}
+:root {
+    --dark-blue: #1d2458;
+    --blue: #2C74B3;
+    --white: #ffffff;
+    --pastel-red: #CF6679;
+    --pastel-dark-blue: #216694;
+    --pastel-light-blue: #348ddb;
+    --pastel-green: #3fab95;
+    --pastel-pink: #cb99c9;
+    --placeholder-text-opacity: 0.3;
+    --placeholder-text-dark-theme-opacity: 0.7;
+    --theme-emoji-bright: invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%);
+    --theme-emoji-dark: invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%);
+    
+    --header-height: 3rem;
+
+    --small-font-size: 75%;
+}
+* {
+    scrollbar-width: auto;
+    scrollbar-color: var(--blue) var(--white);
+}
+*::-webkit-scrollbar-track {
+    background: var(--white);
+} 
+*::-webkit-scrollbar-thumb {
+    background-color: var(--blue);
+    border-radius: 20px;
+    border: 3px solid var(--white);
+}
+*::-o-scrollbar-track {
+    background: var(--white);
+} 
+*::-o-scrollbar-thumb {
+    background-color: var(--blue);
+    border-radius: 20px;
+    border: 3px solid var(--white);
+}
+*::-moz-scrollbar-track {
+    background: var(--white);
+} 
+*::-moz-scrollbar-thumb {
+    background-color: var(--blue);
+    border-radius: 20px;
+    border: 3px solid var(--white);
+}
+
+a {
+    display: inline-block;
+    color: var(--dark-blue);
+    margin-top: auto;
+    margin-bottom: auto;
+    text-decoration: none;
+    text-align: center;
+}
+button {
+    background-color: var(--blue);
+    color: var(--white);
+    border-radius: 10px;
+    border: var(--dark-blue) solid 2px;
+    cursor: pointer;
+}
+.has-border {
+    border-radius: 0.4em;
+    border: var(--dark-blue) solid 2px;
+}
+button:hover, button:focus {
+    filter: opacity(0.9) contrast(120%) saturate(110%); 
+}
+hr {
+    border-right : 0;
+    border-left: 0;
+    width: 100%;
+}
