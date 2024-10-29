@@ -53,9 +53,13 @@ h2 {
     color: var(--blue);
     text-align: center;
 }
-h3 {
+h3, h4, h5, h6 {
+    padding: var(--proportional-xx-small-padding);
+    padding-top: var(--proportional-x-small-padding);
+    padding-bottom: 0;
     text-align: center;
     margin-bottom: 0;
+    margin-top: 0;
     color: var(--blue);
 }
 .article-text {
@@ -88,6 +92,10 @@ article a {
 }
 article a:hover {
     color: var(--dark-blue);
+}
+
+#article-1 {
+    margin-top: 0;
 }
 
 .tooltip {
@@ -153,63 +161,71 @@ input {
     color: var(--pastel-red);
 }
 
-#teachers-grid {
+.teacher-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--proportional-x-small-padding);
+    gap: var(--proportional-xx-small-padding);
+    grid-template-areas:
+    "person"
+    "desc";
+    padding-bottom: var(--proportional-padding);
 }
 p {
     padding: var(--proportional-small-padding);
-    font-size: 50%;
+    font-size: 60%;
     line-height: normal;
+    margin: 0;
 }
 .teacher-description {
     grid-area: desc;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-areas:
+    "edu work"
+    "extra work";
+    align-items: center;
     gap: var(--proportional-xx-small-padding);
+}
+.equal-desc {
+    grid-template-columns: 1fr 1fr;
 }
 .teacher-description b {
     font-size: 120%;
     color: var(--blue);
 }
-.teacher-3-left {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: "person desc desc";
-    gap: var(--proportional-x-small-padding);
+.education-holder {
+    grid-area: edu;
 }
-.teacher-3-right {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: "desc desc person";
-    gap: var(--proportional-x-small-padding);
+.work-holder {
+    grid-area: work;
 }
-.teacher-2-left {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "person desc";
-    gap: var(--proportional-x-small-padding);
+.extra-holder {
+    grid-area: extra;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
 }
-.teacher-2-right {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "desc person";
-    gap: var(--proportional-x-small-padding);
+.extra-holder p {
+    width: fit-content;
 }
 .support-button {
     padding: var(--proportional-xx-small-padding);
-    font-size: 65%;
+    font-size: 100%;
     margin-top: var(--proportional-x-small-padding);
+    width: 100%;
+}
+.switch-button {
+    padding: var(--proportional-xx-small-padding);
+    font-size: 65%;
+    margin: var(--proportional-x-small-padding);
 }
 .person-holder {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
     padding: var(--proportional-small-padding);
-    flex-wrap: wrap;
-    justify-content: space-between;
     grid-area: person;
+    align-items: center;
 }
 .person-avatar {
     margin-left: auto;
@@ -227,6 +243,30 @@ p {
 .person-bio {
     font-size: 60%;
     line-height: normal;
-    text-align: center;
+    text-align: left;
     padding: var(--proportional-small-padding);
 }
+
+.select-css { 
+    padding: var(--proportional-x-small-padding);
+    display: block; 
+    color: var(--dark-blue); 
+    box-sizing: border-box; 
+    margin: 0; 
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--white); 
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+        linear-gradient(var(--white),var(--white)); 
+    background-repeat: no-repeat, repeat;
+    background-position: right .7em top 50%, 0 0;
+    background-size: .65em auto, 100%;
+}
+.select-css::-ms-expand {
+    display: none;
+}
+.select-css option {
+    background-color: var(--dark-blue);
+    color: var(--white);
+} 
