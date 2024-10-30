@@ -131,7 +131,7 @@
       </div>
     </div>
     <div id="news">
-      <article id="article-1">
+      <article id="about-us-article-holder">
         <div class="article-header" style="text-align: center;">О нас</div>
         <div class="article-body-holder" id="about-fmsh-article">
           <div class="article-text" id="about-fmsh-text">
@@ -146,7 +146,7 @@
         </div>
       </article>
       <hr>
-      <article id="article-2">
+      <article id="how-to-enter-article-holder">
         <!-- TODO: ADD SVG WAVY THINGIES TO SIDES OF THE PAGE TO THE WEBSITE (or at least consider it) -->
         <div class="article-header" style="text-align: center;">Как к нам поступить?</div>
         <div class="article-body-holder" id="about-admission-article">
@@ -166,10 +166,98 @@
         </div>
       </article>
       <hr>
-      <article id="article-3">
+      <article id="teachers-article-holder">
+        <div class="article-header" style="text-align: center;">Наши преподаватели</div>
+        <div class="carusel-holder">
+          <div id="arrow-left" class="arrow" tabindex="0" role="button">&#10094;</div>
+          <div id="teacher-list" class="teacher-list">
+            <div class="person-holder has-border" id="ashkinazi-leonid-alexandrovich">
+              <img src="./ashkinazi-leonid-alexandrovich.jpg" class="person-avatar">
+              <div class="person-bio">
+                <a href="#ashkinazi-leonid-alexandrovich">Ашкинази Леонид Александрович</a>
+                <br>
+                преподаватель физики
+              </div>
+            </div>
+
+            <div class="person-holder has-border" id="bogolyubov-dmitry-petrovich">
+              <img src="./bogolyubov-dmitry-petrovich.jpg" class="person-avatar">
+              <div class="person-bio">
+                <a href="#bogolyubov-dmitry-petrovich">Боголюбов Дмитрий Петрович</a>
+                <br>
+                научный руководитель проекта ФМШ FMSH.RU, преподаватель математики и информатики
+              </div>
+            </div>
+      
+            <div class="person-holder has-border" id="grishkina-maria-petrovna">
+              <img src="./grishkina-maria-petrovna.jpg" class="person-avatar">
+              <div class="person-bio">
+                <a href="#grishkina-maria-petrovna">Гришкина Мария Петровна</a>
+                <br>
+                заместитель координатора проекта ФМШ FMSH.RU, преподаватель информатики
+              </div>
+            </div>
+      
+            <div class="person-holder has-border" id="dvorkin-vladimir-vitalievich">
+              <img src="./dvorkin-vladimir-vitalievich.jpg" class="person-avatar">
+              <div class="person-bio">
+                <a href="#dvorkin-vladimir-vitalievich">Дворкин Владимир Витальевич</a>
+                <br>
+                преподаватель математики
+              </div>
+            </div>
+      
+            <div class="person-holder has-border" id="dvorkina-ludmila-valerievna">
+              <img src="./dvorkina-ludmila-valerievna.jpg" class="person-avatar">
+              <div class="person-bio">
+                <a href="#dvorkina-ludmila-valerievna">Дворкина Людмила Валерьевна</a>
+                <br>
+                преподаватель русского языка и литературы
+              </div>
+            </div>
+      
+            <div class="person-holder has-border" id="zologina-anastasia-nikolaevna">
+              <img src="./zologina-anastasia-nikolaevna.jpg" class="person-avatar">
+              <div class="person-bio">
+                <a href="#zologina-anastasia-nikolaevna">Зологина Анастасия Николаевна</a>
+                <br>
+                преподаватель математики
+              </div>
+            </div>
+      
+            <div class="person-holder has-border" id="ilyukhin-denis-olegovich">
+              <img src="./ilyukhin-denis-olegovich.jpg" class="person-avatar">
+              <div class="person-bio">
+                <a href="#ilyukhin-denis-olegovich">Илюхин Денис Олегович</a>
+                <br>
+                преподаватель математики
+              </div>
+            </div>
+      
+            <div class="person-holder has-border" id="skobeleva-ekaterina-yurievna">
+              <img src="./skobeleva-ekaterina-yurievna.jpg" class="person-avatar">
+              <div class="person-bio">
+                <a href="#skobeleva-ekaterina-yurievna">Скобелева Екатерина Юрьевна</a>
+                <br>
+                преподаватель информатики
+              </div>
+            </div>
+      
+            <div class="person-holder has-border" id="chernatskiy-sergey-genrikhovich">
+              <img src="./chernatskiy-sergey-genrikhovich.jpg" class="person-avatar">
+              <div class="person-bio">
+                <a href="#chernatskiy-sergey-genrikhovich">Чернацкий Сергей Генрихович</a>
+                <br>
+                координатор проекта ФМШ FMSH.RU, преподаватель математики и информатики
+              </div>
+            </div>
+          </div>
+          <div id="arrow-right" class="arrow" tabindex="0" role="button">&#10095;</div>
+        </div>
+        <a href="/teachers" class="link-to-more-info">Подробнее</a>
       </article>
       <hr>
-      <article id="article-4">
+      <article id="calendar-article-holder">
       </article>
     </div>
   </main>
@@ -216,5 +304,6 @@
   <script src="../common-files/js/mobile-menu-setup.js"></script>
   <script src="../common-files/js/theme-setup.js"></script>
   <script src="./js/fade-in-out.js"></script>
+  <script src="./js/teachers-list.js"></script>
 </body>
 </html>

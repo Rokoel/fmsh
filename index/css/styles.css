@@ -288,13 +288,33 @@ article a:hover {
     text-decoration: underline;
     text-decoration-color: var(--dark-blue);
 }
+.link-to-more-info {
+    font-size: 80%;
+}
 .person-holder {
     display: flex;
     flex-direction: column;
     flex: 1;
     padding: var(--proportional-small-padding);
     flex-wrap: wrap;
+    margin: 0.1em;
+    align-items: center;
+    justify-content: center;
 }
+#teachers-article-holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.carusel-holder {
+    padding-top: var(--proportional-small-padding);
+    padding-bottom: var(--proportional-small-padding);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
 .person-avatar {
     margin-left: auto;
     margin-right: auto;
@@ -325,5 +345,42 @@ article a:hover {
 @media screen and (max-width: 1120px) and (min-width: 567px) {
     #idroo-gif {
         display: unset;
+    }
+}
+
+.teacher-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 100%;
+}
+
+#teacher-list {
+    display: flex;
+    overflow: hidden;
+    /* max-width: 60%; Adjust this to control the number of visible teachers */
+}
+
+.arrow {
+    color: var(--blue);
+    font-size: 150%;
+    transition: transform 0.1s ease-in-out;
+    padding: var(--proportional-xx-small-padding);
+}
+.arrow:hover, .arrow:focus, .arrow:active { 
+    transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    filter: opacity(0.9) contrast(120%) saturate(110%);
+}
+.arrow:hover {
+    cursor: pointer;
+}
+
+/* Optional responsiveness */
+@media screen and (max-width: 800px) {
+    #teacher-list {
+        max-width: 100%; /* On smaller screens, show fewer teachers */
     }
 }
