@@ -306,6 +306,27 @@ article a:hover {
     flex-direction: column;
     align-items: center;
 }
+#calendar-article-holder {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#calendar-article-holder > div {
+    flex: 1;
+}
+#info-block-for-latest-news {
+    text-align: right;
+    font-size: 80%;
+    padding: var(--proportional-small-padding);
+}
+#latest-news-block {
+    padding: var(--proportional-padding);
+    font-size: 80%;
+
+}
+
 .carusel-holder {
     padding-top: var(--proportional-small-padding);
     padding-bottom: var(--proportional-small-padding);
@@ -378,9 +399,29 @@ article a:hover {
     cursor: pointer;
 }
 
-/* Optional responsiveness */
-@media screen and (max-width: 800px) {
-    #teacher-list {
-        max-width: 100%; /* On smaller screens, show fewer teachers */
+@media screen and (max-width: 1000px) {
+    #teacher-list > :first-child, #teacher-list > :last-child {
+        display: none;
+    }
+    #teacher-list{
+        width: 70%;
+    }
+    .carusel-holder {
+        justify-content: center;
+    }
+}
+
+#calendar-article-holder h3 {
+    text-align: right;
+}
+@media screen and (max-width: 720px) {
+    #calendar-article-holder {
+        flex-direction: column-reverse;
+        gap: var(--proportional-padding);
+    }
+    #calendar-article-holder h3, #calendar-article-holder div {
+        flex: 1;
+        text-align: center;
+        line-height: normal;
     }
 }

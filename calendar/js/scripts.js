@@ -102,7 +102,13 @@ window.onload = function() {
 
     var closestEventHolder = document.getElementById("closest-event-holder");   
     let closestEventInTheFuture = findClosestEventInTheFuture(new Date(), latestEventDateObject);
-    closestEventHolder.children[closestEventHolder.children.length-1].innerHTML = closestEventInTheFuture.innerHTML;
+    if (closestEventInTheFuture == null) {
+        closestEventHolder.children[closestEventHolder.children.length-1].innerHTML = '';
+        closestEventHolder.style.display = "none";
+    }
+    else {
+        closestEventHolder.children[closestEventHolder.children.length-1].innerHTML = closestEventInTheFuture.innerHTML;
+    }
 
     // Solves the issue of anchor links not working by reapplying them after all dynamic content has been loaded
     if (location.hash) {

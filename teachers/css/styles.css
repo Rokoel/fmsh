@@ -269,4 +269,27 @@ p {
 .select-css option {
     background-color: var(--dark-blue);
     color: var(--white);
-} 
+}
+
+@media screen and (max-width: 768px) {
+    .teacher-description {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "edu"
+        "work"
+        "extra";
+    }
+    .person-holder {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .person-bio {
+        text-align: center;
+    }
+    .teacher-description > * {
+        padding: var(--proportional-small-padding);
+    }
+    .support-button {
+        padding: var(--proportional-small-padding);
+    }
+}
