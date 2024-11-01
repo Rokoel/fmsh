@@ -158,29 +158,6 @@
 
 /* GENERAL STYLING */
 
-/* These two classes are used for alligning elements with the help of 'flex' */
-.vertical-align-center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.horizontal-align-center {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-/* Following three classes are used for creating different paddings */
-.small-padding {
-    padding: var(--proportional-small-padding);
-}
-.x-small-padding {
-    padding: var(--proportional-x-small-padding);
-}
-.xx-small-padding {
-    padding: var(--proportional-xx-small-padding);
-}
-
 #subjects, #principles {
     position: absolute;
 }

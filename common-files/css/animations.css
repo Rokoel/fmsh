@@ -266,3 +266,37 @@
     -o-animation: rotate-back 0.2s ease-out forwards;
     -webkit-animation: rotate-back 0.2s ease-out forwards;
 }
+@keyframes highlight_box_invalid {
+    0% {}
+    100% {
+        -webkit-box-shadow: -3px 0 0 0 red;
+        box-shadow: -3px 0 0 0 red;
+    }
+}
+@-o-keyframes highlight_box_invalid {
+    0% {}
+    100% {
+        -webkit-box-shadow: -3px 0 0 0 red;
+        box-shadow: -3px 0 0 0 red;
+    }
+}
+@-moz-keyframes highlight_box_invalid {
+    0% {}
+    100% {
+        -webkit-box-shadow: -3px 0 0 0 red;
+        box-shadow: -3px 0 0 0 red;
+    }
+}
+@-webkit-keyframes highlight_box_invalid {
+    0% {}
+    100% {
+        -webkit-box-shadow: -3px 0 0 0 red;
+        box-shadow: -3px 0 0 0 red;
+    }
+}
+.invalid-input {
+    animation: highlight_box_invalid 0.1s ease-out forwards;
+    -moz-animation: highlight_box_invalid 0.1s ease-out forwards;
+    -o-animation: highlight_box_invalid 0.1s ease-out forwards;
+    -webkit-animation: highlight_box_invalid 0.1s ease-out forwards;
+}

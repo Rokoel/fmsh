@@ -127,101 +127,7 @@
 }
 
 /* The rest of styling rules in the general styling covers element styling */
-input[type=checkbox] {
-    height: 1em;
-    width: 1em;
-    display: inline;
-}
-input[type=text], input[type=email] {
-    color: var(--dark-blue);
-    padding: var(--proportional-xx-small-padding);
-}
 
-@keyframes highlight_box_invalid {
-    0% {}
-    100% {
-        -webkit-box-shadow: -3px 0 0 0 red;
-        box-shadow: -3px 0 0 0 red;
-    }
-}
-@-o-keyframes highlight_box_invalid {
-    0% {}
-    100% {
-        -webkit-box-shadow: -3px 0 0 0 red;
-        box-shadow: -3px 0 0 0 red;
-    }
-}
-@-moz-keyframes highlight_box_invalid {
-    0% {}
-    100% {
-        -webkit-box-shadow: -3px 0 0 0 red;
-        box-shadow: -3px 0 0 0 red;
-    }
-}
-@-webkit-keyframes highlight_box_invalid {
-    0% {}
-    100% {
-        -webkit-box-shadow: -3px 0 0 0 red;
-        box-shadow: -3px 0 0 0 red;
-    }
-}
-.tooltip {
-    text-decoration: underline var(--dark-blue) dotted;
-    padding-left: var(--proportional-x-small-padding);
-}
-.tooltip .tooltip-text {
-    visibility: hidden;
-    width: fit-content;
-    background-color: var(--white);
-    color: var(--dark-blue);
-    padding: var(--proportional-x-small-padding);
-    transform: translateX(-50%) translateY(-100%);
-    min-width: 10em;
-    max-width: 15em;
-    text-align: center;
-    position: absolute;
-    z-index: 2;
-}
-.tooltip:hover .tooltip-text {
-    visibility: visible;
-}
-@media screen and (max-width: 720px) {
-    .tooltip {
-        text-decoration: none;
-        color: var(--blue);
-        font-weight: 900;
-    }
-}
-.error-msg {
-    font-size: 60%;
-    color: var(--pastel-red);
-}
-.invalid-input {
-    animation: highlight_box_invalid 0.1s ease-out forwards;
-    -moz-animation: highlight_box_invalid 0.1s ease-out forwards;
-    -o-animation: highlight_box_invalid 0.1s ease-out forwards;
-    -webkit-animation: highlight_box_invalid 0.1s ease-out forwards;
-}
-input::placeholder {
-    color: var(--blue);
-    opacity: var(--placeholder-text-opacity);
-}
-.select-css { 
-    padding: var(--proportional-x-small-padding);
-    display: block; 
-    color: var(--dark-blue); 
-    box-sizing: border-box; 
-    margin: 0; 
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: var(--white); 
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
-        linear-gradient(var(--white),var(--white)); 
-    background-repeat: no-repeat, repeat;
-    background-position: right .7em top 50%, 0 0;
-    background-size: .65em auto, 100%;
-}
 .flex-row-center {
     display: flex;
     flex-direction: row;
@@ -245,13 +151,6 @@ input::placeholder {
 .width-fit-content {
     width: fit-content;
 }
-.select-css::-ms-expand {
-    display: none;
-}
-.select-css option {
-    background-color: var(--dark-blue);
-    color: var(--white);
-} 
 
 /* These classes are used for styling the main content of the page */
 #main-block {

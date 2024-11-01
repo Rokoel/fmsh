@@ -190,6 +190,11 @@ nav#mobile-navbar {
     margin-left: 0.5em;
     margin-right: 0.5em;
 }
+.logo-white {
+    filter: var(--theme-emoji-dark);
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
 .cursor-pointer:hover {
     cursor: pointer;
 }

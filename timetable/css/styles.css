@@ -1,0 +1,236 @@
+.page-container {
+    padding: var(--proportional-padding);
+    font-size: 80%;
+}
+
+.page-title {
+    color: var(--dark-blue);
+    margin-bottom: var(--proportional-padding);
+    margin-top: var(--proportional-x-small-padding);
+    text-align: center;
+}
+
+.filters-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--proportional-small-padding);
+    margin-bottom: var(--proportional-padding);
+    padding: var(--proportional-small-padding);
+    background-color: var(--white);
+}
+
+.filter-label {
+    color: var(--dark-blue);
+    margin-bottom: var(--proportional-xx-small-padding);
+    font-weight: bold;
+}
+
+.timetable-container {
+    overflow-x: auto;
+}
+
+.timetable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--white);
+    overflow-y: hidden;
+    overflow-x: scroll;
+    font-size: 80%;
+}
+
+.above-info-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.above-info-container > * {
+    flex: 1;
+    padding: var(--proportional-padding);
+}
+.color-explainer {
+    flex: 2;
+    font-size: 60%;
+    color: var(--dark-blue);
+}
+.table-explainer {
+    color: var(--dark-blue);
+}
+.color-explainer li {
+    list-style-type: none;
+    padding-bottom: var(--proportional-x-small-padding);
+}
+.color-example {
+    border-radius: 2px;
+}
+
+@media screen and (max-width: 440px) {
+    .timetable {
+        font-size: 60%;
+    }
+    .above-info-container {
+        flex-direction: column;
+    }
+    .color-explainer {
+        flex: 1;
+    }
+}
+
+@media screen and (max-width: 530px) and (min-width: 440px) {
+    .timetable {
+        font-size: 70%;
+    }
+    .above-info-container {
+        flex-direction: column;
+    }
+    .color-explainer {
+        flex: 1;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .timetable {
+        font-size: 55%;
+    }
+    .above-info-container {
+        flex-direction: column;
+    }
+    .color-explainer {
+        flex: 1;
+    }
+}
+
+
+.timetable th {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: var(--proportional-small-padding);
+    text-align: center;
+}
+
+.timetable td {
+    padding: var(--proportional-small-padding);
+    border-top: 2px solid var(--dark-blue);
+    text-align: center;
+    display: table-cell;
+}
+
+.grade-number, .group-name {
+    text-wrap: nowrap;
+    text-align: center;
+}
+.theme-name {
+    text-wrap: wrap;
+}
+
+.toggle-description > svg.logo-white:hover {
+    scale: 1.2;
+}
+.toggle-description > svg.logo-white {
+    padding: 0;
+    margin: 0;
+}
+
+.course-description > * {
+    text-align: left;
+}
+
+.course-description {
+    padding: var(--proportional-small-padding);
+    background-color: var(--white);
+    border-left: -4px solid var(--blue);
+    margin: var(--proportional-x-small-padding) 0;
+    animation: slideDown 0.3s ease;
+    color: var(--dark-blue);
+    font-size: 80%;
+}
+
+.course-description.visible {
+    display: block;
+}
+
+.course-full-semester {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.course-full-semester-blocks {
+    background-color: var(--dark-blue);
+    color: var(--white);
+}
+
+.course-partial-semester-blocks {
+    background-color: var(--pastel-light-blue);
+    color: var(--white);
+}
+
+.course-partial-semester {
+    background-color: var(--pastel-dark-blue);
+    color: var(--white);
+}
+
+.teacher-link, .group-link {
+    color: var(--white);
+    text-decoration: underline dotted var(--white);
+}
+
+.teacher-link:hover, .group-link:hover {
+    text-decoration: underline dotted var(--dark-blue);
+    scale: 1.1;
+    animation: none;
+    -moz-animation: none;
+    -o-animation: none;
+    -webkit-animation: none;
+}
+
+.toggle-description {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    font-size: 1.2em;
+    padding: var(--proportional-xx-small-padding);
+    margin-left: var(--proportional-xx-small-padding);
+}
+
+.course-description-row {
+    display: none;
+}
+
+.course-description-row.visible {
+    display: table-row;
+    animation: slideDown 0.3s ease;
+}
+
+.course-description strong {
+    color: var(--dark-blue);
+    display: block;
+    margin-bottom: var(--proportional-x-small-padding);
+}
+
+.course-description p {
+    margin-bottom: var(--proportional-small-padding);
+}
+
+.course-description ol {
+    margin: var(--proportional-small-padding) 0;
+    padding-left: 1.5em;
+}
+
+.course-description li {
+    margin-bottom: var(--proportional-xx-small-padding);
+}
+
+td.course-description {
+    text-align: left;
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
