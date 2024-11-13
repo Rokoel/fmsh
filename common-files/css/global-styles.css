@@ -117,9 +117,6 @@ html, body {
     font-size: calc(0.75em + 1vw); /* This 'magic value' was discovered by trial-and-error */
     margin: 0;
     box-sizing: border-box;
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
     scroll-behavior: smooth;
     transition: all 0.3s ease;
 }

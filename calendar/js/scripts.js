@@ -79,26 +79,26 @@ window.onload = function() {
         }
     });
 
-    var jumpButton = document.getElementById("jump-button");
-    jumpButton.addEventListener("click", () => {
-        let monthAndYearInputValue = document.getElementById("month-and-year").value;
-        currentYearAndMonth = jumpToMonth(calendarElement, currentYearAndMonth[0], currentYearAndMonth[1], rightArrow, leftArrow, lastEventYear, lastEventMonth, monthAndYearInputValue, true, true);
-    });
-    jumpButton.addEventListener("keydown", (event) => {
-        if (event.code === 'Space' || event.code === 'Enter') {
-            jumpButton.dispatchEvent(simulatedClickEvent);
-        }
-    });
+    // var jumpButton = document.getElementById("jump-button");
+    // jumpButton.addEventListener("click", () => {
+    //     let monthAndYearInputValue = document.getElementById("month-and-year").value;
+    //     currentYearAndMonth = jumpToMonth(calendarElement, currentYearAndMonth[0], currentYearAndMonth[1], rightArrow, leftArrow, lastEventYear, lastEventMonth, monthAndYearInputValue, true, true);
+    // });
+    // jumpButton.addEventListener("keydown", (event) => {
+    //     if (event.code === 'Space' || event.code === 'Enter') {
+    //         jumpButton.dispatchEvent(simulatedClickEvent);
+    //     }
+    // });
 
-    var resetButton = document.getElementById("reset-button");
-    resetButton.addEventListener("click", () => {
-        currentYearAndMonth = resetCalendar(calendarElement, rightArrow, leftArrow, lastEventYear, lastEventMonth);
-    });
-    resetButton.addEventListener("keydown", (event) => {
-        if (event.code === 'Space' || event.code === 'Enter') {
-            resetButton.dispatchEvent(simulatedClickEvent);
-        }
-    });
+    // var resetButton = document.getElementById("reset-button");
+    // resetButton.addEventListener("click", () => {
+    //     currentYearAndMonth = resetCalendar(calendarElement, rightArrow, leftArrow, lastEventYear, lastEventMonth);
+    // });
+    // resetButton.addEventListener("keydown", (event) => {
+    //     if (event.code === 'Space' || event.code === 'Enter') {
+    //         resetButton.dispatchEvent(simulatedClickEvent);
+    //     }
+    // });
 
     var closestEventHolder = document.getElementById("closest-event-holder");   
     let closestEventInTheFuture = findClosestEventInTheFuture(new Date(), latestEventDateObject);
@@ -634,7 +634,7 @@ function resetCalendar(calendarElement, rightArrow, leftArrow, lastEventYear, la
     // we obtain the date of the last month
     let dateRepresentationOfLastMonth = new Date(lastEventYear + '.' + lastEventMonth + '.01');
 
-    if (addNMonths(dateRepresentationOfCurrentMonth, 2) >= dateRepresentationOfLastMonth) { // now we can easily compare the two dates
+    if (addNMonths(dateRepresentationOfCurrentMonth, 1) >= dateRepresentationOfLastMonth) { // now we can easily compare the two dates
         rightArrow.style.display = "none"; // hide the scroll-right button
         calendarElement.children[calendarElement.children.length - 1].style.marginRight = "var(--proportional-small-padding)"; // add some margin in place of the button
         // we don't need to worry about removing the "style" attribute as we delete all the "calendar" contents on every scroll
@@ -685,13 +685,14 @@ function findClosestEventInTheFuture(date, latestEventDate) {
     let i = 0;
     var incrementedDate = date;
     var closestEventInTheFuture;
-    while (incrementedDate <= latestEventDate) {
+    while (incrementedDate <= addDays(latestEventDate, 1)) {
         let currentYear = incrementedDate.getFullYear();
         let currentMonth = incrementedDate.getMonth() + 1;
         let currentMonthStringRepresentation = (currentMonth.toString().length == 1 ? '0' + currentMonth : currentMonth.toString());
         let currentDay = incrementedDate.getDate();
         let currentDayStringRepresentation = (currentDay.toString().length == 1 ? '0' + currentDay : currentDay.toString());
         let eventsOfTheDay = document.getElementsByClassName("event-" + currentYear.toString() + currentMonthStringRepresentation + currentDayStringRepresentation);
+        console.log(currentYear.toString() + currentMonthStringRepresentation + currentDayStringRepresentation);
         if (eventsOfTheDay.length != 0) {
             closestEventInTheFuture = eventsOfTheDay[0];
             break;
@@ -699,6 +700,7 @@ function findClosestEventInTheFuture(date, latestEventDate) {
         ++i;
         incrementedDate = addDays(date, i);
     }
+    console.log(closestEventInTheFuture);
     return closestEventInTheFuture;
 }
 

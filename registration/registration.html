@@ -17,6 +17,8 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../common-files/css/global-styles.css">
   <link rel="stylesheet" href="../common-files/css/animations.css">
+  <link rel="stylesheet" href="../common-files/css/header-styles.css">
+  <link rel="stylesheet" href="../common-files/css/footer-styles.css">
   <link rel="stylesheet" href="./css/styles.css">
   <script src="./js/scripts.js"></script>
 </head>
@@ -72,11 +74,12 @@
               <span class="error-msg"></span>
             </div>
             <div class="text-input-holder" id="region-holder">
-              <label id="region-label" class="form-label" for="region"><b>Страна, регион</b></label>
-              <input id="region" class="register-form-input highlight-left" type="text" name="region" placeholder="Россия, г. Магнитогорск">
+              <label id="region-label" class="form-label" for="region"><b>Страна, регион, населенный пункт</b></label>
+              <input id="region" class="register-form-input highlight-left" type="text" name="region" placeholder="Россия, Челябинская обл., г. Магнитогорск">
               <span class="error-msg"></span>
             </div>
             <div class="flex-row-center" id="capcha-holder">
+              <a href="javascript:window.history.back();" style="text-align: left; width: 30%; font-size: 80%;">Назад</a>
               <div class="text-input-holder">
                 <label id="capcha-label" class="form-label" for="capcha-input"><b>Введите текст с картинки</b></label>
                 <input id="capcha-input" class="register-form-input highlight-left" type="text" name="capcha-input">

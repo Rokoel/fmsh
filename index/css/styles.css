@@ -176,6 +176,10 @@
     z-index: 1;
 }
 
+.floating-word:hover {
+    font-size: 110%;
+}
+
 /* These classes are used for styling the main content of the page */
 #main-block {
     width: 100%;
@@ -198,11 +202,13 @@
 }
 .screen-third > div {
     flex: 1;
+    align-items: center;
 }
 .scroller {
     padding: var(--medium-padding);
     z-index: 1;
     text-align: center;
+    width: fit-content;
 }
 
 .article-text {
@@ -273,10 +279,12 @@ article a:hover {
     flex-direction: column;
     flex: 1;
     padding: var(--proportional-small-padding);
+    padding-left: var(--proportional-xx-small-padding);
+    padding-right: var(--proportional-xx-small-padding);
     flex-wrap: wrap;
     margin: 0.1em;
     align-items: center;
-    justify-content: center;
+    justify-content: top;
 }
 #teachers-article-holder {
     display: flex;
@@ -310,6 +318,7 @@ article a:hover {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     width: 100%;
 }
 
@@ -318,10 +327,11 @@ article a:hover {
     margin-right: auto;
     border-radius: 10px;
     border: var(--dark-blue) solid 2px;
+    max-width: 100px;
+    min-width: 40%;
 }
 @media screen and (min-width: 1500px) {
     .person-avatar {
-        width: 70%;
         border-radius: 20px;
         border: var(--dark-blue) solid 3px;
     }
@@ -400,5 +410,31 @@ article a:hover {
         flex: 1;
         text-align: center;
         line-height: normal;
+    }
+}
+#info-block-for-latest-news h3 {
+    margin-top: 0;
+}
+
+
+/* Better display of the main block on landscape mobile */
+@media screen and (orientation: landscape) and (max-device-width: 932px) {
+    #words {
+        display: none;
+    }
+    #slogan {
+        display: none;
+    }
+    .vertical-align-center {
+        height: fit-content;
+        padding: 0;
+    }
+    #scroller-1, #main-block h3, #main-block h1 {
+        margin: 0;
+        padding: 0;
+    }
+    #website-name {
+        margin: 0;
+        padding: 0;
     }
 }

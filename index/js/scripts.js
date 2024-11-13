@@ -1,7 +1,7 @@
 /* These two arrays contain the words that are shown in the background of the main page. */
 const SUBJECTS_ARR = ["Математика", "Физика", "Информатика"];
 // const PRINCIPLES_ARR = ["Любопытство", "Уважение", "Свобода", "Смелость", "Упорство"];
-const PRINCIPLES_ARR = ["любопытство", "уважение", "свобода", "смелость", "упорство", 'дискуссия', 'открытость', 'независимость', 'неравнодушие', 'профессионализм', 'обоснованность', 'понимание', 'благожелательность', 'честность', 'доброта', 'ответственность', 'интерес', 'сомнение', 'осторожность', 'поддержка', 'терпение']
+const PRINCIPLES_ARR = ["любопытство", "уважение", "свобода", "смелость", "упорство", 'дискуссия', 'открытость', 'независимость', 'неравнодушие', 'профессионализм', 'обоснованность', 'понимание', 'честность', 'доброта', 'ответственность', 'интерес', 'сомнение', 'осторожность', 'поддержка', 'терпение']
 
 window.onload = function() {
 
@@ -102,8 +102,8 @@ function placeElements() {
     subject = document.createElement("div");
     subject.classList.add("floating-word");
     subject.innerHTML = getRandomAndRemoveIt(SUBJECTS_ARR);
-    subject.style.top = "var(--header-height)";
-    subject.style.left = "calc(var(--header-height))";
+    subject.style.top = "calc(var(--header-height) + 3vh)";
+    subject.style.left = "3vw"; 
     let rotation_value = 'rotate(-20deg)';
     subject.style.transform = rotation_value;
     subject.setAttribute("rotation_value", rotation_value);
@@ -111,8 +111,8 @@ function placeElements() {
     subject2 = document.createElement("div");
     subject2.classList.add("floating-word");
     subject2.innerHTML = getRandomAndRemoveIt(SUBJECTS_ARR);
-    subject2.style.top = "calc(var(--header-height) * 4)";
-    subject2.style.right = "calc(-100vw + var(--header-height))";
+    subject2.style.top = "40vh";
+    subject2.style.right = "-95vw";
     let rotation_value2 = 'rotate(20deg)';
     subject2.style.transform = rotation_value2;
     subject2.setAttribute("rotation_value", rotation_value2);
@@ -120,9 +120,9 @@ function placeElements() {
     subject3 = document.createElement("div");
     subject3.classList.add("floating-word");
     subject3.innerHTML = getRandomAndRemoveIt(SUBJECTS_ARR);
-    subject3.style.bottom = "calc(-100vh + var(--header-height) * 3.5)";
-    subject3.style.left = "calc(var(--header-height) * 2)";
-    let rotation_value3 = 'rotate(20deg)';
+    subject3.style.bottom = "-70vh";
+    subject3.style.left = "7vw";
+    let rotation_value3 = 'rotate(10deg)';
     subject3.style.transform = rotation_value3;
     subject3.setAttribute("rotation_value", rotation_value3);
 
@@ -133,8 +133,8 @@ function placeElements() {
     principle = document.createElement("div");
     principle.classList.add("floating-word");
     principle.innerHTML = getRandomAndRemoveIt(PRINCIPLES_ARR);
-    principle.style.bottom = "calc(-50vh + var(--header-height))";
-    principle.style.left = "calc(var(--header-height) / 2)";
+    principle.style.bottom = "-45vh";
+    principle.style.left = "3vw";
     let rotation_value4 = 'rotate(5deg)';
     principle.style.transform = rotation_value4;
     principle.setAttribute("rotation_value", rotation_value4);
@@ -142,17 +142,17 @@ function placeElements() {
     principle2 = document.createElement("div");
     principle2.classList.add("floating-word");
     principle2.innerHTML = getRandomAndRemoveIt(PRINCIPLES_ARR);
-    principle2.style.top = "calc(var(--header-height) * 1.2)";
-    principle2.style.right = "calc(-100vw + var(--header-height))";
-    let rotation_value5 = 'rotate(-30deg)';
+    principle2.style.top = "10vh";
+    principle2.style.right = "-93vw";
+    let rotation_value5 = 'rotate(-40deg)';
     principle2.style.transform = rotation_value5;
     principle2.setAttribute("rotation_value", rotation_value5);
 
     principle3 = document.createElement("div");
     principle3.classList.add("floating-word");
     principle3.innerHTML = getRandomAndRemoveIt(PRINCIPLES_ARR);
-    principle3.style.bottom = "calc(-100vh + 2 * var(--header-height))";
-    principle3.style.left = "calc(var(--header-height) / 0.8)";
+    principle3.style.bottom = "-80vh";
+    principle3.style.left = "25vw";
     let rotation_value6 = 'rotate(-20deg)';
     principle3.style.transform = rotation_value6;
     principle3.setAttribute("rotation_value", rotation_value6);
@@ -160,8 +160,8 @@ function placeElements() {
     principle4 = document.createElement("div");
     principle4.classList.add("floating-word");
     principle4.innerHTML = getRandomAndRemoveIt(PRINCIPLES_ARR);
-    principle4.style.bottom = "calc(-100vh + 2 * var(--header-height))";
-    principle4.style.right = "calc(-100vw + var(--header-height) * 4.5)";
+    principle4.style.bottom = "-80vh";
+    principle4.style.right = "-70vw";
     let rotation_value7 = 'rotate(10deg)';
     principle4.style.transform = rotation_value7;
     principle4.setAttribute("rotation_value", rotation_value7);
@@ -169,8 +169,8 @@ function placeElements() {
     principle5 = document.createElement("div");
     principle5.classList.add("floating-word");
     principle5.innerHTML = getRandomAndRemoveIt(PRINCIPLES_ARR);
-    principle5.style.bottom = "calc(-100vh + 3.5 * var(--header-height))";
-    principle5.style.right = "calc(-100vw + 2 * var(--header-height))";
+    principle5.style.bottom = "-70vh";
+    principle5.style.right = "-87vw";
     let rotation_value8 = 'rotate(-30deg)';
     principle5.style.transform = rotation_value8;
     principle5.setAttribute("rotation_value", rotation_value8);

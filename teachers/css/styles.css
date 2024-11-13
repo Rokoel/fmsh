@@ -96,6 +96,7 @@ article a:hover {
 
 #article-1 {
     margin-top: 0;
+    gap: var(--proportional-small-padding);
 }
 
 .tooltip {
@@ -168,7 +169,6 @@ input {
     grid-template-areas:
     "person"
     "desc";
-    padding-bottom: var(--proportional-padding);
 }
 p {
     padding: var(--proportional-small-padding);
@@ -176,7 +176,10 @@ p {
     line-height: normal;
     margin: 0;
 }
-.teacher-description {
+
+
+/* Version 1 */
+/* .teacher-description {
     grid-area: desc;
     display: grid;
     grid-template-columns: 1.5fr 1fr;
@@ -188,7 +191,26 @@ p {
 }
 .equal-desc {
     grid-template-columns: 1fr 1fr;
+} */
+
+/* Version 2 */
+.teacher-description {
+    grid-area: desc;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "edu"
+    "work"
+    "extra";
+    align-items: center;
+    gap: var(--proportional-xx-small-padding);
 }
+.equal-desc {
+    grid-template-columns: 1fr;
+}
+
+
+
 .teacher-description b {
     font-size: 120%;
     color: var(--blue);
@@ -213,7 +235,8 @@ p {
     padding: var(--proportional-xx-small-padding);
     font-size: 100%;
     margin-top: var(--proportional-x-small-padding);
-    width: 100%;
+    /* width: 100%; */
+    min-width: 70%; /* comment this line out and uncomment the previous one for full-width buttons */
 }
 .switch-button {
     padding: var(--proportional-xx-small-padding);
