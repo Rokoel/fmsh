@@ -15,12 +15,12 @@
 
   <!-- Resources -->
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="../common-files/css/global-styles.css">
-  <link rel="stylesheet" href="../common-files/css/animations.css">
-  <link rel="stylesheet" href="../common-files/css/header-styles.css">
-  <link rel="stylesheet" href="../common-files/css/footer-styles.css">
-  <link rel="stylesheet" href="./css/styles.css">
-  <script src="./js/scripts.js"></script>
+  <link rel="stylesheet" href="./common-files/css/global-styles.css">
+  <link rel="stylesheet" href="./common-files/css/animations.css">
+  <link rel="stylesheet" href="./common-files/css/header-styles.css">
+  <link rel="stylesheet" href="./common-files/css/footer-styles.css">
+  <link rel="stylesheet" href="./registration/css/styles.css">
+  <script src="./registration/js/scripts.js"></script>
 </head>
 
 <body>
@@ -87,7 +87,7 @@
               </div>
               <div class="flex-column-center">
                 <div></div>
-                <img id="capcha-image" src="./example_capcha.png">
+                <img id="capcha-image" src="shpic.php?code=<?php echo md5(uniqid()); ?>">
                 <div></div>
               </div>
             </div>
@@ -103,6 +103,6 @@
       </div>
     </div>
   </div>
-  <script src="../common-files/js/theme-setup.js"></script>
+  <script src="./common-files/js/theme-setup.js"></script>
 </body>
 </html>

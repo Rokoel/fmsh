@@ -50,7 +50,7 @@ function setTheme() {
         if (main_block != null && main_block != undefined) {
             main_block.style.backgroundColor = "var(--white)";
             main_block.style.color = "var(--dark-blue)";
-            main_block.style.backgroundImage = "url( './main_block_bg_dark.svg' )";
+            main_block.style.backgroundImage = "url( './index/main_block_bg_dark.svg' )";    
         }
     }
     else {
@@ -67,7 +67,7 @@ function setTheme() {
         if (main_block != null && main_block != undefined) {
             main_block.style.backgroundColor = "var(--blue)";
             main_block.style.color = "var(--white)";
-            main_block.style.backgroundImage = "url( './main_block_bg_light.svg' )";
+            main_block.style.backgroundImage = "url( './index/main_block_bg_light.svg' )";
         }
     }
 }

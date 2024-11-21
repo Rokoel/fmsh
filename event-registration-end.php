@@ -15,12 +15,12 @@
 
   <!-- Resources -->
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="../common-files/css/global-styles.css">
-  <link rel="stylesheet" href="../common-files/css/animations.css">
-  <link rel="stylesheet" href="../common-files/css/header-styles.css">
-  <link rel="stylesheet" href="../common-files/css/footer-styles.css">
-  <link rel="stylesheet" href="./css/styles.css">
-  <script src="./js/scripts.js"></script>
+  <link rel="stylesheet" href="./common-files/css/global-styles.css">
+  <link rel="stylesheet" href="./common-files/css/animations.css">
+  <link rel="stylesheet" href="./common-files/css/header-styles.css">
+  <link rel="stylesheet" href="./common-files/css/footer-styles.css">
+  <link rel="stylesheet" href="./event-registration-end/css/styles.css">
+  <script src="./event-registration-end/js/scripts.js"></script>
 </head>
 
 <body>
@@ -61,6 +61,6 @@
       </div>
     </div>
   </div>
-  <script src="../common-files/js/theme-setup.js"></script>
+  <script src="./common-files/js/theme-setup.js"></script>
 </body>
 </html>

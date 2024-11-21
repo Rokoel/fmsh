@@ -189,7 +189,7 @@
     justify-content: space-evenly;
     align-content: center;
     border-bottom: var(--dark-blue) solid 2px;
-    background-image: url( '../main_block_bg_light.svg' );
+    background-image: url("../main_block_bg_light.svg");
     background-size: cover;
 }
 .screen-third {

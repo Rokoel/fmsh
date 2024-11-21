@@ -5,7 +5,7 @@
 
 .page-title {
     color: var(--dark-blue);
-    margin-bottom: var(--proportional-padding);
+    margin-bottom: var(--proportional-xx-small-padding);
     margin-top: var(--proportional-x-small-padding);
     text-align: center;
 }
@@ -14,7 +14,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: var(--proportional-small-padding);
-    margin-bottom: var(--proportional-padding);
+    margin-bottom: var(--proportional-x-small-padding);
     padding: var(--proportional-small-padding);
     background-color: var(--white);
 }
@@ -65,7 +65,7 @@
     border-radius: 2px;
 }
 
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 505px) {
     .timetable {
         font-size: 60%;
     }
@@ -77,7 +77,7 @@
     }
 }
 
-@media screen and (max-width: 530px) and (min-width: 440px) {
+@media screen and (max-width: 835px) and (min-width: 505px) {
     .timetable {
         font-size: 70%;
     }
@@ -89,7 +89,7 @@
     }
 }
 
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 395px) {
     .timetable {
         font-size: 55%;
     }
@@ -98,6 +98,11 @@
     }
     .color-explainer {
         flex: 1;
+    }
+}
+@media screen and (max-width: 345px) {
+    .timetable {
+        font-size: 50%;
     }
 }
 
@@ -116,10 +121,6 @@
     display: table-cell;
 }
 
-.grade-number, .group-name {
-    text-wrap: nowrap;
-    text-align: center;
-}
 .theme-name {
     text-wrap: wrap;
 }
@@ -192,6 +193,9 @@
     font-size: 1.2em;
     padding: var(--proportional-xx-small-padding);
     margin-left: var(--proportional-xx-small-padding);
+    display: block;
+    text-align: center;
+    width: 100%;
 }
 
 .course-description-row {
@@ -233,4 +237,46 @@ td.course-description {
     100% {
         opacity: 1;
     }
+}
+
+tbody>tr>td:nth-child(4) {
+    white-space: nowrap;
+}
+
+.filters-toggle {
+    display: flex;
+    align-items: center;
+    gap: var(--proportional-x-small-padding);
+    background-color: var(--white);
+    color: var(--dark-blue);
+    padding: var(--proportional-small-padding);
+    margin-bottom: var(--proportional-x-small-padding);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    font-size: 70%;
+}
+
+.filters-toggle:hover {
+    transform: scale(1.1);
+}
+
+.filters-toggle.active {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.filters-toggle svg {
+    filter: var(--theme-emoji-bright);
+}
+
+.filters-toggle.active svg {
+    filter: var(--theme-emoji-dark);
+}
+
+.filters-container {
+    display: none;
+}
+
+.filters-container.visible {
+    display: grid;
 }

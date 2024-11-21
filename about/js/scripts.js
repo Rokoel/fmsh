@@ -6,12 +6,6 @@ window.onload = function() {
         bubbles: true,
         cancelable: true,
     });
-    document.getElementById("main-page-redirector").addEventListener("click", () => {location.href = "https://fmsh.ru";});
-    document.getElementById("main-page-redirector").addEventListener("keydown", (event) => {
-        if (event.code === 'Space' || event.code === 'Enter') {
-            document.getElementById("main-page-redirector").dispatchEvent(simulatedClickEvent);
-        }
-    });
     document.getElementById("email-mobile").addEventListener("click", () => {location.href = "mailto:info@fmsh.ru";});
     document.getElementById("email-mobile").addEventListener("keydown", (event) => {
         if (event.code === 'Space' || event.code === 'Enter') {

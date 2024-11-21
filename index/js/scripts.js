@@ -11,12 +11,6 @@ window.onload = function() {
         bubbles: true,
         cancelable: true,
     });
-    document.getElementById("main-page-redirector").addEventListener("click", () => {location.href = "https://fmsh.ru";});
-    document.getElementById("main-page-redirector").addEventListener("keydown", (event) => {
-        if (event.code === 'Space' || event.code === 'Enter') {
-            document.getElementById("main-page-redirector").dispatchEvent(simulatedClickEvent);
-        }
-    });
     document.getElementById("email-mobile").addEventListener("click", () => {location.href = "mailto:info@fmsh.ru";});
     document.getElementById("email-mobile").addEventListener("keydown", (event) => {
         if (event.code === 'Space' || event.code === 'Enter') {
@@ -36,7 +30,7 @@ window.onload = function() {
         }
     });
 
-    /* Setting up the scroller so that it scrolls to the news *exactly* */
+    /* Setting up the scroller so that it scrolls to the next block *exactly* */
     var bodyStyle = getComputedStyle(document.body);
     var header_height_str = bodyStyle.getPropertyValue('--header-height');
     var header_height = Number(header_height_str.substring(0, header_height_str.length-3));
