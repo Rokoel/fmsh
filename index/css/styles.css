@@ -221,6 +221,7 @@
 .article-header {
     font-size: 100%;
     color: var(--blue);
+    margin: 0;
 }
 article {
     color: var(--dark-blue);

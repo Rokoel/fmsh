@@ -36,8 +36,8 @@
           Обучение в ФМШ проходит в онлайн формате. Занятия проводятся <b>от 1 до 3 раз в неделю после 17:00.</b>
         </div>
         <div class="in-text-block-holder" id="idroo-screenshot-holder">
-          <img src="./about/idroo.gif" class="in-text-block" id="idroo-gif">
-          <img src="./about/replit.gif" class="in-text-block" id="replit-gif">
+          <img src="./about/idroo.gif" class="in-text-block" id="idroo-gif" alt="Пример занятия в ФМШ">
+          <img src="./about/replit.gif" class="in-text-block" id="replit-gif" alt="Пример занятия в ФМШ">
         </div>
       </div>
     </article>
@@ -378,7 +378,7 @@
         <div class="article-header text-align-center" id="contacts-header">Контакты</div>
         <div class="flex-row-space-evenly" id="administration-holder">
           <div class="person-holder">
-            <img src="./about/grishkina-maria-petrovna.jpg" class="person-avatar">
+            <img src="./about/grishkina-maria-petrovna.jpg" class="person-avatar" alt="Фотография преподавателя">
             <div class="person-bio">
               <a href="/teachers.php#grishkina-maria-petrovna">Гришкина Мария Петровна</a>
               <br>
@@ -388,7 +388,7 @@
             </div>
           </div>
           <div class="person-holder" id="chernatskiy-sergey-genrikhovich">
-            <img src="./about/chernatskiy-sergey-genrikhovich.jpg" class="person-avatar">
+            <img src="./about/chernatskiy-sergey-genrikhovich.jpg" class="person-avatar" alt="Фотография преподавателя">
             <div class="person-bio">
               <a href="/teachers.php#chernatskiy-sergey-genrikhovich">Чернацкий Сергей Генрихович</a>
               <br>
@@ -396,7 +396,7 @@
             </div>
           </div>
           <div class="person-holder">
-            <img src="./about/bogolyubov-dmitry-petrovich.jpg" class="person-avatar">
+            <img src="./about/bogolyubov-dmitry-petrovich.jpg" class="person-avatar" alt="Фотография преподавателя">
             <div class="person-bio">
               <a href="/teachers.php#bogolyubov-dmitry-petrovich">Боголюбов Дмитрий Петрович</a>
               <br>

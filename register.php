@@ -17,13 +17,13 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="./common-files/css/global-styles.css">
   <link rel="stylesheet" href="./common-files/css/animations.css">
-  <link rel="stylesheet" href="./common-files/css/header-styles.css">
-  <link rel="stylesheet" href="./common-files/css/footer-styles.css">
+  <link rel="stylesheet" href="./common-files/css/always-mobile-menu-styles.css">
   <link rel="stylesheet" href="./registration/css/styles.css">
   <script src="./registration/js/scripts.js"></script>
 </head>
 
 <body>
+  <?php include("./always-mobile-menu.php"); ?>
   <div id="content">
     <div id="main-block" style="height: 100vh;">
       <div class="screen-third small-padding">
@@ -31,7 +31,7 @@
       </div>
       <div class="screen-third" style="flex: auto">
         <div></div>
-        <form action method="POST" class="form-holder" style="font-size: 80%;">
+        <form action method="POST" class="has-border form-holder" style="font-size: 80%;">
 
           <div style="padding: var(--proportional-x-small-padding); text-align: center;">
             <b>Регистрация</b>
@@ -49,12 +49,12 @@
               <span class="error-msg"></span>
             </div>
             <div class="text-input-holder" id="lastname-holder">
-              <label class="form-label" for="lastname"><b>Отчество</b><span class="tooltip">?<span class="tooltip-text has-border">Введите отчество<br>или поставьте прочерк</span></span></label>
+              <label class="form-label" for="lastname"><b>Отчество</b><span class="tooltip" tabindex="0" aria-describedby="lastname-tooltip-text">?<span id="lastname-tooltip-text" class="tooltip-text has-border">Введите отчество<br>или поставьте прочерк</span></span></label>
               <input id="lastname" placeholder="Алексеевич" class="register-form-input highlight-left" type="text" name="lastname">
               <span class="error-msg"></span>
             </div>
             <div class="text-input-holder" id="email-holder">
-              <label class="form-label" for="email"><b>Адрес электронной почты или несколько адресов</b><span class="tooltip">?<span class="tooltip-text has-border">Нужно ввести как минимум один адрес, если адресов<br>больше одного, введите их через запятую с пробелом</span></span></label>
+              <label class="form-label" for="email"><b>Адрес электронной почты или несколько адресов</b><span class="tooltip" tabindex="0" aria-describedby="emails-tooltip-text">?<span id="emails-tooltip-text" class="tooltip-text has-border">Нужно ввести как минимум один адрес, если адресов<br>больше одного, введите их через запятую с пробелом</span></span></label>
               <input id="email" class="register-form-input highlight-left temp" type="text" name="emails" placeholder="example@email.com, additional@email.com" autocomplete="email">
               <span class="error-msg"></span>
             </div>
@@ -64,12 +64,12 @@
               <span class="error-msg"></span>
             </div>
             <div class="text-input-holder" id="grade-holder">
-              <label class="form-label" for="grade"><b>Класс обучения</b><span class="tooltip">?<span class="tooltip-text has-border">Введите класс, в котором вы учитесь на 2024/25 гг.</span></span></label>
+              <label class="form-label" for="grade"><b>Класс обучения</b><span class="tooltip" tabindex="0" aria-describedby="grade-tooltip-text">?<span id="grade-tooltip-text" class="tooltip-text has-border">Введите класс, в котором вы учитесь на 2024/25 гг.</span></span></label>
               <input id="grade" class="register-form-input highlight-left" type="text" name="grade" placeholder="4 – 11" maxlength="2" min="4" max="11">
               <span class="error-msg"></span>
             </div>
             <div class="text-input-holder" id="school-holder">
-              <label class="form-label" for="school"><b>Учебное заведение</b><span class="tooltip">?<span class="tooltip-text has-border">Если нет номера или названия, введите только то, что есть, или поставьте прочерк</span></span></label>
+              <label class="form-label" for="school"><b>Учебное заведение</b><span class="tooltip" tabindex="0" aria-describedby="school-tooltip-text">?<span id="school-tooltip-text" class="tooltip-text has-border">Если нет номера или названия, введите только то, что есть, или поставьте прочерк</span></span></label>
               <input id="school" class="register-form-input highlight-left" type="text" name="school" placeholder="Название школы и номер">
               <span class="error-msg"></span>
             </div>
@@ -104,5 +104,6 @@
     </div>
   </div>
   <script src="./common-files/js/theme-setup.js"></script>
+  <script src="./common-files/js/mobile-menu-setup.js"></script>
 </body>
 </html>

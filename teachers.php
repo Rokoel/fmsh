@@ -31,7 +31,7 @@
     <article id="article-1" class="vertical-align-center">
       <div class="teacher-grid has-border">
         <div class="person-holder" id="ashkinazi-leonid-alexandrovich">
-          <img src="./teachers/ashkinazi-leonid-alexandrovich.jpg" class="person-avatar">
+          <img src="./teachers/ashkinazi-leonid-alexandrovich.jpg" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
             <a href="#ashkinazi-leonid-alexandrovich">Ашкинази Леонид Александрович</a>
             <br>
@@ -79,7 +79,7 @@
 
       <div class="teacher-grid has-border">
         <div class="person-holder" id="bogolyubov-dmitry-petrovich">
-          <img src="./teachers/bogolyubov-dmitry-petrovich.jpg" class="person-avatar">
+          <img src="./teachers/bogolyubov-dmitry-petrovich.jpg" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
             <a href="#bogolyubov-dmitry-petrovich">Боголюбов Дмитрий Петрович</a>
             <br>
@@ -130,7 +130,7 @@
 
       <div class="teacher-grid has-border">
         <div class="person-holder" id="grishkina-maria-petrovna">
-          <img src="./teachers/grishkina-maria-petrovna.jpg" class="person-avatar">
+          <img src="./teachers/grishkina-maria-petrovna.jpg" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
             <a href="#grishkina-maria-petrovna">Гришкина Мария Петровна</a>
             <br>
@@ -172,7 +172,7 @@
 
       <div class="teacher-grid has-border">
         <div class="person-holder" id="dvorkin-vladimir-vitalievich">
-          <img src="./teachers/dvorkin-vladimir-vitalievich.jpg" class="person-avatar">
+          <img src="./teachers/dvorkin-vladimir-vitalievich.jpg" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
             <a href="#dvorkin-vladimir-vitalievich">Дворкин Владимир Витальевич</a>
             <br>
@@ -207,7 +207,7 @@
 
       <div class="teacher-grid has-border">
         <div class="person-holder" id="dvorkina-ludmila-valerievna">
-          <img src="./teachers/dvorkina-ludmila-valerievna.jpg" class="person-avatar">
+          <img src="./teachers/dvorkina-ludmila-valerievna.jpg" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
             <a href="#dvorkina-ludmila-valerievna">Дворкина Людмила Валерьевна</a>
             <br>
@@ -238,7 +238,7 @@
 
       <div class="teacher-grid has-border">
         <div class="person-holder" id="zologina-anastasia-nikolaevna">
-          <img src="./teachers/zologina-anastasia-nikolaevna.jpg" class="person-avatar">
+          <img src="./teachers/zologina-anastasia-nikolaevna.jpg" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
             <a href="#zologina-anastasia-nikolaevna">Зологина Анастасия Николаевна</a>
             <br>
@@ -274,7 +274,7 @@
 
       <div class="teacher-grid has-border">
         <div class="person-holder" id="ilyukhin-denis-olegovich">
-          <img src="./teachers/ilyukhin-denis-olegovich.jpg" class="person-avatar">
+          <img src="./teachers/ilyukhin-denis-olegovich.jpg" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
             <a href="#ilyukhin-denis-olegovich">Илюхин Денис Олегович</a>
             <br>
@@ -308,7 +308,7 @@
 
       <div class="teacher-grid has-border">
         <div class="person-holder" id="skobeleva-ekaterina-yurievna">
-          <img src="./teachers/skobeleva-ekaterina-yurievna.jpg" class="person-avatar">
+          <img src="./teachers/skobeleva-ekaterina-yurievna.jpg" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
             <a href="#skobeleva-ekaterina-yurievna">Скобелева Екатерина Юрьевна</a>
             <br>
@@ -343,7 +343,7 @@
 
       <div class="teacher-grid has-border">
         <div class="person-holder" id="chernatskiy-sergey-genrikhovich">
-          <img src="./teachers/chernatskiy-sergey-genrikhovich.jpg" class="person-avatar">
+          <img src="./teachers/chernatskiy-sergey-genrikhovich.jpg" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
             <a href="#chernatskiy-sergey-genrikhovich">Чернацкий Сергей Генрихович</a>
             <br>

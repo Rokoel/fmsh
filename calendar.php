@@ -29,10 +29,10 @@
   <main id="content">
     <article id="article-1" class="bigger-article horizontal-align-center">
       <div class="calendar-holder has-border">
-        <div id="arrow-left" class="arrow" tabindex="0" role="button">&#10094;</div>
+        <div id="arrow-left" class="arrow" tabindex="0" name="Прокрутить календарь влево" role="button">&#10094;</div>
         <div id="calendar">
         </div>
-        <div id="arrow-right" class="arrow" tabindex="0" role="button">&#10095;</div>
+        <div id="arrow-right" class="arrow" tabindex="0" name="Прокрутить календарь вправо" role="button">&#10095;</div>
       </div>
     </article>
     <!-- This section allows you to jump to a specific date providing the necessary controls -->
@@ -57,8 +57,7 @@
     <article id="article-3" class="bigger-article featured-holder">
       <div class="has-border" id="closest-event-holder">
         <h3><div class="article-header">Ближайшее событие</div></h3>
-        <div class="short-news-article">
-        </div>
+        <div class="short-news-article"></div>
       </div>
       <div class="has-border" id="selected-news-holder">
         <h3><div class="article-header">Важная новость</div></h3>

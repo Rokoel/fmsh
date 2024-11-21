@@ -1,4 +1,9 @@
 <?php
+/**
+ * This file is used in testing ONLY, because it only
+ * has a part of backend implementation (as this entire github is frontend-focused)
+ */
+
 function generateCaptchaCode($length = 6) {
     $characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
     $captchaCode = '';
@@ -73,13 +78,5 @@ function generateImage($captchaHash) {
     imagedestroy($img);
 }
 
-// // Validate the 'code' parameter
-// if (!preg_match("/^[a-h0-9]{32}$/", $_GET['code'])) {
-//     require_once 'mail_utf8.php';
-//     mail_utf8("", "sergech@inbox.lv", "fmsh|gerImage: Invalid code parameter", "code=" . $_GET['code'], "FMSH.RU", "info@fmsh.ru");
-//     exit(-1);
-// }
-
-// Generate the image with the validated 'code'
 generateImage($_GET['code']);
 ?>

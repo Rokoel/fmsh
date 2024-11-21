@@ -186,6 +186,13 @@ a {
     text-decoration: none;
     text-align: center;
 }
+a:hover, a:focus {
+    text-decoration: underline;
+    animation: link_chosen 0.5s ease-out forwards;
+    -moz-animation: link_chosen 0.5s ease-out forwards;
+    -o-animation: link_chosen 0.5s ease-out forwards;
+    -webkit-animation: link_chosen 0.5s ease-out forwards;
+}
 button {
     background-color: var(--blue);
     color: var(--white);
@@ -268,7 +275,10 @@ hr {
     position: absolute;
     z-index: 2;
 }
-.tooltip:hover .tooltip-text {
+.tooltip.bottom-tooltip .tooltip-text {
+    transform: translateX(-50%) translateY(7%);
+}
+.tooltip:hover .tooltip-text, .tooltip:focus .tooltip-text {
     visibility: visible;
 }
 @media screen and (max-width: 720px) {

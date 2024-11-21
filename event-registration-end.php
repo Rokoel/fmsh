@@ -17,13 +17,14 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="./common-files/css/global-styles.css">
   <link rel="stylesheet" href="./common-files/css/animations.css">
-  <link rel="stylesheet" href="./common-files/css/header-styles.css">
+  <link rel="stylesheet" href="./common-files/css/always-mobile-menu-styles.css">
   <link rel="stylesheet" href="./common-files/css/footer-styles.css">
   <link rel="stylesheet" href="./event-registration-end/css/styles.css">
   <script src="./event-registration-end/js/scripts.js"></script>
 </head>
 
 <body>
+  <?php include("./always-mobile-menu.php") ?>
   <div id="content">
     <div id="main-block" style="height: 100vh;">
       <div class="screen-third small-padding">
@@ -62,5 +63,6 @@
     </div>
   </div>
   <script src="./common-files/js/theme-setup.js"></script>
+  <script src="./common-files/js/mobile-menu-setup.js"></script>
 </body>
 </html>

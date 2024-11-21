@@ -28,7 +28,7 @@
 
   <main>
     <div id="main-block">
-      <div id="words">
+      <div id="words" aria-hidden="true">
         <!-- Holder of any background words on the main page, it doesn't interfere with page's flow -->
         <!-- Subjects and principles elements are generated dynamically with JS -->
         <div id="subjects"></div>
@@ -56,7 +56,7 @@
     </div>
     <div id="news">
       <article id="about-us-article-holder">
-        <div class="article-header" style="text-align: center;">О нас</div>
+        <h3 class="article-header" style="text-align: center;">О нас</h3>
         <div class="article-body-holder" id="about-fmsh-article">
           <div class="article-text" id="about-fmsh-text">
             <b>Физико-математическая школа FMSH.RU</b> – это социальный развивающий образовательный проект, в рамках которого проходят обучение школьники 7-11 классов, заинтересованные в серьёзном изучении <b>математики, физики, информатики и других предметов</b>, не связанном с подготовкой к тем или иным испытаниям (ЕГЭ, олимпиады и др.). Кроме этого, учащиеся ФМШ под руководством преподавателей имеют возможность получить свой первый педагогический опыт.
@@ -64,20 +64,19 @@
             Обучение в ФМШ проходит в онлайн формате. Занятия проводятся <b>от 1 до 3 раз в неделю после 17:00.</b>
           </div>
           <div class="in-text-block-holder" id="idroo-screenshot-holder">
-            <img src="./index/replit.gif" class="in-text-block" id="replit-gif">
-            <img src="./index/idroo.gif" class="in-text-block" id="idroo-gif">
+            <img src="./index/replit.gif" class="in-text-block" id="replit-gif" alt="Пример занятия в ФМШ">
+            <img src="./index/idroo.gif" class="in-text-block" id="idroo-gif" alt="Пример занятия в ФМШ">
           </div>
         </div>
       </article>
       <hr>
       <article id="how-to-enter-article-holder">
-        <!-- TODO: ADD SVG WAVY THINGIES TO SIDES OF THE PAGE TO THE WEBSITE (or at least consider it) -->
-        <div class="article-header" style="text-align: center;">Как к нам поступить?</div>
+        <h3 class="article-header" style="text-align: center;">Как к нам поступить?</h3>
         <div class="article-body-holder" id="about-admission-article">
           <div class="article-text" id="about-admission-text">
-            <h3>I этап: самостоятельное решение задач</h3>
+            <h4>I этап: самостоятельное решение задач</h4>
             Этот этап предполагает решение задач предыдущих экзаменов ФМШ. Не обязательно решать все задачи или даже большую их часть. Как при обучении в ФМШ, так и при поступлении, главное не количество, а интерес.
-            <h3>II этап: обсуждение задач на семинарах</h3>
+            <h4>II этап: обсуждение задач на семинарах</h4>
             Здесь обсуждение задач продолжится уже в интерактивном режиме, семинары пройдут в системе Zoom. Главный критерий, по которому преподаватели, ведущие семинары, будут принимать решение о зачисление в ФМШ – активность участников (не связанная с количеством решённых задач) и их заинтересованность в обсуждении материала.
             <br>
             <br>
@@ -91,12 +90,12 @@
       </article>
       <hr>
       <article id="teachers-article-holder">
-        <div class="article-header" style="text-align: center;">Наши преподаватели</div>
+        <h3 class="article-header" style="text-align: center;">Наши преподаватели</h3>
         <div class="carusel-holder">
-          <div id="arrow-left" class="arrow" tabindex="0" role="button">&#10094;</div>
+          <div id="arrow-left" class="arrow" tabindex="0" name="Прокрутить список преподавателей влево" role="button">&#10094;</div>
           <div id="teacher-list" class="teacher-list">
             <div class="person-holder has-border" id="ashkinazi-leonid-alexandrovich">
-              <img src="./index/ashkinazi-leonid-alexandrovich.jpg" class="person-avatar">
+              <img src="./index/ashkinazi-leonid-alexandrovich.jpg" class="person-avatar" alt="Фотография преподавателя">
               <div class="person-bio">
                 <a href="teachers.php#ashkinazi-leonid-alexandrovich">Леонид Александрович Ашкинази</a>
                 <br>
@@ -105,7 +104,7 @@
             </div>
 
             <div class="person-holder has-border" id="bogolyubov-dmitry-petrovich">
-              <img src="./index/bogolyubov-dmitry-petrovich.jpg" class="person-avatar">
+              <img src="./index/bogolyubov-dmitry-petrovich.jpg" class="person-avatar" alt="Фотография преподавателя">
               <div class="person-bio">
                 <a href="teachers.php#bogolyubov-dmitry-petrovich">Дмитрий Петрович Боголюбов</a>
                 <br>
@@ -114,7 +113,7 @@
             </div>
       
             <div class="person-holder has-border" id="grishkina-maria-petrovna">
-              <img src="./index/grishkina-maria-petrovna.jpg" class="person-avatar">
+              <img src="./index/grishkina-maria-petrovna.jpg" class="person-avatar" alt="Фотография преподавателя">
               <div class="person-bio">
                 <a href="teachers.php#grishkina-maria-petrovna">Мария Петровна Гришкина</a>
                 <br>
@@ -123,7 +122,7 @@
             </div>
       
             <div class="person-holder has-border" id="dvorkin-vladimir-vitalievich">
-              <img src="./index/dvorkin-vladimir-vitalievich.jpg" class="person-avatar">
+              <img src="./index/dvorkin-vladimir-vitalievich.jpg" class="person-avatar" alt="Фотография преподавателя">
               <div class="person-bio">
                 <a href="teachers.php#dvorkin-vladimir-vitalievich">Владимир Витальевич Дворкин</a>
                 <br>
@@ -132,7 +131,7 @@
             </div>
       
             <div class="person-holder has-border" id="dvorkina-ludmila-valerievna">
-              <img src="./index/dvorkina-ludmila-valerievna.jpg" class="person-avatar">
+              <img src="./index/dvorkina-ludmila-valerievna.jpg" class="person-avatar" alt="Фотография преподавателя">
               <div class="person-bio">
                 <a href="teachers.php#dvorkina-ludmila-valerievna">Людмила Валерьевна Дворкина</a>
                 <br>
@@ -141,7 +140,7 @@
             </div>
       
             <div class="person-holder has-border" id="zologina-anastasia-nikolaevna">
-              <img src="./index/zologina-anastasia-nikolaevna.jpg" class="person-avatar">
+              <img src="./index/zologina-anastasia-nikolaevna.jpg" class="person-avatar" alt="Фотография преподавателя">
               <div class="person-bio">
                 <a href="teachers.php#zologina-anastasia-nikolaevna">Анастасия Николаевна Зологина</a>
                 <br>
@@ -150,7 +149,7 @@
             </div>
       
             <div class="person-holder has-border" id="ilyukhin-denis-olegovich">
-              <img src="./index/ilyukhin-denis-olegovich.jpg" class="person-avatar">
+              <img src="./index/ilyukhin-denis-olegovich.jpg" class="person-avatar" alt="Фотография преподавателя">
               <div class="person-bio">
                 <a href="teachers.php#ilyukhin-denis-olegovich">Денис Олегович Илюхин</a>
                 <br>
@@ -159,7 +158,7 @@
             </div>
       
             <div class="person-holder has-border" id="skobeleva-ekaterina-yurievna">
-              <img src="./index/skobeleva-ekaterina-yurievna.jpg" class="person-avatar">
+              <img src="./index/skobeleva-ekaterina-yurievna.jpg" class="person-avatar" alt="Фотография преподавателя">
               <div class="person-bio">
                 <a href="teachers.php#skobeleva-ekaterina-yurievna">Екатерина Юрьевна Скобелева</a>
                 <br>
@@ -168,7 +167,7 @@
             </div>
       
             <div class="person-holder has-border" id="chernatskiy-sergey-genrikhovich">
-              <img src="./index/chernatskiy-sergey-genrikhovich.jpg" class="person-avatar">
+              <img src="./index/chernatskiy-sergey-genrikhovich.jpg" class="person-avatar" alt="Фотография преподавателя">
               <div class="person-bio">
                 <a href="teachers.php#chernatskiy-sergey-genrikhovich">Сергей Генрихович Чернацкий</a>
                 <br>
@@ -176,7 +175,7 @@
               </div>
             </div>
           </div>
-          <div id="arrow-right" class="arrow" tabindex="0" role="button">&#10095;</div>
+          <div id="arrow-right" class="arrow" tabindex="0" name="Прокрутить список преподавателей вправо" role="button">&#10095;</div>
         </div>
         <a href="/teachers.php" class="link-to-more-info">Подробнее</a>
       </article>
@@ -188,7 +187,7 @@
           Последний учебный день в зимне-весеннем семестре – <b>28 мая</b>. Для автоматического перевода в следующий учебный год необходимо не позже этого дня получить хотя бы один финальный зачёт по любому предмету.
         </div>
         <div id="info-block-for-latest-news">
-          <h3>События ФМШ</h3>
+          <h4>События ФМШ</h4>
           Кроме обучения в группах, вы также можете посещать разовые семинары и события ФМШ. Инофрмацию о них вы сможете узнать <a href="/calendar.php">здесь, на странице новостей и событий ФМШ</a>.
         </div>
       </article>
