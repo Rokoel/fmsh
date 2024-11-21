@@ -248,3 +248,10 @@ p {
     padding-top: 0;
     padding-bottom: 0;
 }
+
+h3 {
+    margin: 0;
+}
+#mobile-navbar:hover {
+    cursor: pointer;
+}

@@ -252,3 +252,13 @@ p {
 code:hover {
     cursor: pointer;
 }
+
+form a {
+    color: var(--blue);
+}
+h3 {
+    margin: 0;
+}
+#mobile-navbar:hover {
+    cursor: pointer;
+}
