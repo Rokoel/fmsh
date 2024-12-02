@@ -128,7 +128,7 @@ const teacherList = document.getElementById('teacher-list');
 const teachers = Array.from(teacherList.children);
 const totalTeachers = teachers.length;
 const visibleTeachers = 3;
-let currentNodeIndex = 0;
+let currentNodeIndex = Math.floor((Math.random()*totalTeachers));
 
 const teacherArray = teachers.map(teacher => teacher.cloneNode(true));
 

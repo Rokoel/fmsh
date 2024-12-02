@@ -134,7 +134,8 @@ html, body {
 :root {
     --dark-blue: #1d2458;
     --blue: #2C74B3;
-    --white: #ffffff;
+    --lighter-blue: #75BFFF;
+    --white: #d4d5df;
     --pastel-red: #CF6679;
     --pastel-dark-blue: #216694;
     --pastel-light-blue: #348ddb;

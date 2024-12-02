@@ -84,7 +84,7 @@
             <br>
             <br>
             <br>
-            <b>Варианты для решения и более подробную информацию о поступлении можно прочитать на <a href="/entrance.php">странице поступления</a>.</b>
+            <b>Варианты для решения и более подробную информацию о поступлении можно прочитать на <a href="entrance.php">странице поступления</a>.</b>
           </div>
         </div>
       </article>
@@ -177,7 +177,7 @@
           </div>
           <div id="arrow-right" class="arrow" tabindex="0" name="Прокрутить список преподавателей вправо" role="button">&#10095;</div>
         </div>
-        <a href="/teachers.php" class="link-to-more-info">Подробнее</a>
+        <a href="teachers.php" class="link-to-more-info">Подробнее</a>
       </article>
       <hr>
       <article id="calendar-article-holder">
