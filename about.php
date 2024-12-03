@@ -375,7 +375,7 @@
     <article id="article-4">
       <div class="article-body-holder" id="administration-and-contacts">
         <div class="article-header text-align-center" id="administration-header">Администрация</div>
-        <div class="article-header text-align-center" id="contacts-header">Контакты</div>
+        <!-- <div class="article-header text-align-center" id="contacts-header">Контакты</div> -->
         <div class="flex-row-space-evenly" id="administration-holder">
           <div class="person-holder">
             <img src="./about/grishkina-maria-petrovna.jpg" class="person-avatar" alt="Фотография преподавателя">
@@ -405,7 +405,7 @@
             </div>
           </div>
         </div>
-        <div id="contacts-holder">
+        <!-- <div id="contacts-holder">
           Телефон: <a href="#contacts-holder" id="contacts-page-phone-number">+7 (495) 580-69-28</a>
           <div id="contacts-page-email">
             E-mail: <a href="mailto:info@fmsh.ru">info@fmsh.ru</a>
@@ -413,7 +413,7 @@
           <div id="contacts-page-telegram">
             Telegram: <a href="https://t.me/fmshru">@fmshru</a>
           </div>
-        </div>
+        </div> -->
       </div>
     </article>
   </main>

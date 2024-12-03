@@ -28,6 +28,8 @@ article {
 }
 article.bigger-article {
     padding: var(--proportional-small-padding);
+    padding-top: var(--proportional-x-small-padding);
+    padding-bottom: var(--proportional-x-small-padding);
 }
 article a {
     color: var(--blue);
@@ -362,7 +364,7 @@ input {
     font-size: 60%;
     line-height: normal;
     padding: var(--proportional-small-padding);
-    margin-bottom: var(--proportional-small-padding);
+    gap: var(--proportional-small-padding);
 }
 #selected-news-holder {
     text-align: center;

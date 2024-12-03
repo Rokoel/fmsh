@@ -274,6 +274,7 @@ article a:hover {
     margin-right: auto;
     border-radius: 10px;
     border: var(--dark-blue) solid 2px;
+    max-width: 200px;
 }
 @media screen and (min-width: 1500px) {
     .person-avatar {
