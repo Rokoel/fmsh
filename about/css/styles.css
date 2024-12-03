@@ -220,6 +220,8 @@ article {
     margin-top: auto;
     margin-bottom: auto;
     padding: var(--proportional-padding);
+    padding-top: var(--proportional-small-padding);
+    padding-bottom: var(--proportional-small-padding);
     font-size: calc(20px + 1vw);
 }
 article a {
@@ -407,4 +409,66 @@ article a:hover {
 .timeline-event-holder {
     padding: var(--proportional-xx-small-padding);
     padding-left: var(--proportional-padding);
+}
+
+.text-dropdown-container {
+    margin: var(--proportional-xx-small-padding) 0;
+}
+
+.text-dropdown-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--proportional-xx-small-padding);
+    background-color: var(--blue);
+    cursor: pointer;
+}
+
+.text-dropdown-title {
+    margin: 0;
+    color: var(--white);
+    font-size: 70%;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.text-dropdown-arrow {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid var(--white);
+    transition: transform 0.3s ease;
+}
+
+.text-dropdown-arrow.active {
+    transform: rotate(180deg);
+}
+
+.text-dropdown-content {
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease-out;
+    background-color: var(--white);
+    color: var(--dark-blue);
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: var(--proportional-x-small-padding);
+    padding-right: var(--proportional-x-small-padding);
+    font-size: 60%;
+    line-height: normal;
+}
+
+.text-dropdown-content.active {
+    height: fit-content;
+    opacity: 1;
+    padding-top: var(--proportional-x-small-padding);
+    padding-bottom: var(--proportional-x-small-padding);
+}
+
+.floating-image {
+    float: right;
+    width: 30%;
+    padding: var(--proportional-xx-small-padding);
 }
