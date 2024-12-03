@@ -39,6 +39,8 @@ function setTheme() {
     var dark_color = "#1d2458";
     var lighter_blue_color = "#75BFFF";
     var blue_color = "#2C74B3";
+    var pastel_light_blue = "#8fbee8";
+    var pastel_dark_blue = "#1a3e67";
     var light_filter = "invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%)";
     var dark_filter = "invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%)";
     var header = document.getElementsByTagName("header")[0];
@@ -54,6 +56,9 @@ function setTheme() {
         root.style.setProperty('--white', dark_color);
         root.style.setProperty('--blue', lighter_blue_color);
         root.style.setProperty('--lighter-blue', blue_color);
+        root.style.setProperty('--pastel-light-blue', pastel_dark_blue);
+        root.style.setProperty('--pastel-dark-blue', pastel_light_blue);
+
         root.style.setProperty('--theme-emoji-bright', dark_filter);
         root.style.setProperty('--theme-emoji-dark', light_filter);
         root.style.setProperty('--placeholder-text-opacity', placeholder_text_opacity_dark);
@@ -79,6 +84,9 @@ function setTheme() {
         root.style.setProperty('--dark-blue', dark_color);
         root.style.setProperty('--blue', blue_color);
         root.style.setProperty('--lighter-blue', lighter_blue_color);
+        root.style.setProperty('--pastel-light-blue', pastel_light_blue);
+        root.style.setProperty('--pastel-dark-blue', pastel_dark_blue);
+
         root.style.setProperty('--theme-emoji-bright', light_filter);
         root.style.setProperty('--theme-emoji-dark', dark_filter);
         root.style.setProperty('--placeholder-text-opacity', placeholder_text_opacity_light);

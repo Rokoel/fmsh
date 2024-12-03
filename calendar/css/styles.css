@@ -230,11 +230,11 @@ article a:hover {
 }
 .colored-blue {
     background-color: var(--pastel-light-blue);
-    color: var(--white);
+    color: var(--dark-blue);
 }
 .colored-darkblue {
     background-color: var(--pastel-dark-blue); 
-    color: white;
+    color: var(--white);
 }
 .colored-red, .colored-orange {
     background-color: var(--pastel-red);

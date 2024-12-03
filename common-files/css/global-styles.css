@@ -137,8 +137,8 @@ html, body {
     --lighter-blue: #75BFFF;
     --white: #d4d5df;
     --pastel-red: #CF6679;
-    --pastel-dark-blue: #216694;
-    --pastel-light-blue: #348ddb;
+    --pastel-dark-blue: #1a3e67;
+    --pastel-light-blue: #8fbee8;
     --pastel-green: #3fab95;
     --pastel-pink: #cb99c9;
     --placeholder-text-opacity: 0.3;
@@ -259,9 +259,13 @@ hr {
 .xx-small-padding {
     padding: var(--proportional-xx-small-padding);
 }
-.tooltip, .dotted-underline {
-    text-decoration: underline var(--dark-blue) dotted;
+.tooltip {
+    text-decoration: none;
+    color: var(--blue);
     padding-left: var(--proportional-x-small-padding);
+}
+.dotted-underline {
+    text-decoration: underline var(--dark-blue) dotted;
 }
 .tooltip .tooltip-text {
     visibility: hidden;
@@ -281,13 +285,6 @@ hr {
 }
 .tooltip:hover .tooltip-text, .tooltip:focus .tooltip-text {
     visibility: visible;
-}
-@media screen and (max-width: 720px) {
-    .tooltip {
-        text-decoration: none;
-        color: var(--blue);
-        font-weight: 900;
-    }
 }
 
 .error-msg {
@@ -353,3 +350,7 @@ input::placeholder {
     background-color: var(--dark-blue);
     color: var(--white);
 } 
+
+.no-user-select {
+    user-select: none;
+}

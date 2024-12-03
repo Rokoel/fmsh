@@ -76,8 +76,7 @@
         flex: 1;
     }
 }
-
-@media screen and (max-width: 835px) and (min-width: 505px) {
+@media screen and (max-width: 965px) and (min-width: 505px) {
     .timetable {
         font-size: 70%;
     }
@@ -88,7 +87,6 @@
         flex: 1;
     }
 }
-
 @media screen and (max-width: 395px) {
     .timetable {
         font-size: 55%;
@@ -125,10 +123,10 @@
     text-wrap: wrap;
 }
 
-.toggle-description > svg.logo-white:hover {
+.toggle-description > svg.logo-white:hover, .toggle-description > svg.logo:hover {
     scale: 1.2;
 }
-.toggle-description > svg.logo-white {
+.toggle-description > svg.logo-white, .toggle-description > svg.logo {
     padding: 0;
     margin: 0;
 }
@@ -138,42 +136,77 @@
 }
 
 .course-description {
-    padding: var(--proportional-small-padding);
+    padding-left: var(--proportional-padding);
+    padding-right: var(--proportional-padding);
     background-color: var(--white);
-    border-left: -4px solid var(--blue);
     margin: var(--proportional-x-small-padding) 0;
     animation: slideDown 0.3s ease;
     color: var(--dark-blue);
-    font-size: 80%;
+    font-size: 90%;
+    width: 100%;
+    box-sizing: border-box;
 }
-
-.course-description.visible {
+.toggle-description {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    font-size: 1.2em;
+    padding: var(--proportional-x-small-padding);
     display: block;
+    text-align: center;
 }
 
-.course-full-semester {
+.theme-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+.course-description-row {
+    visibility: collapse;
+    height: 0;
+    overflow: hidden;
+    display: table-row;
+    padding: var(--proportional-padding);
+}
+
+.course-description-row.visible {
+    visibility: visible;
+    height: auto;
+    overflow: visible;
+    animation: slideDown 0.3s ease;
+}
+
+tbody>tr>td:nth-child(4) {
+    white-space: nowrap;
+}
+
+.course-full-semester, .course-full-semester > td > .teacher-link, .course-full-semester > td > .group-link {
+    background-color: var(--pastel-light-blue);
+    color: var(--dark-blue);
+    text-decoration-color: var(--dark-blue);
+}
+
+.course-full-semester-blocks, .course-full-semester-blocks > td > .teacher-link, .course-full-semester-blocks > td > .group-link {
+    background-color: var(--lighter-blue);
+    color: var(--dark-blue);
+    text-decoration-color: var(--dark-blue);
+}
+
+.course-partial-semester, .course-partial-semester > td > .teacher-link, .course-partial-semester > td > .group-link {
     background-color: var(--blue);
     color: var(--white);
+    text-decoration-color: var(--white);
 }
 
-.course-full-semester-blocks {
-    background-color: var(--dark-blue);
-    color: var(--white);
-}
-
-.course-partial-semester-blocks {
-    background-color: var(--pastel-light-blue);
-    color: var(--white);
-}
-
-.course-partial-semester {
+.course-partial-semester-blocks, .course-partial-semester-blocks > td > .teacher-link, .course-partial-semester-blocks > td > .group-link {
     background-color: var(--pastel-dark-blue);
     color: var(--white);
-}
-
-.teacher-link, .group-link {
-    color: var(--white);
-    text-decoration: underline dotted var(--white);
+    text-decoration-color: var(--white);
 }
 
 .teacher-link:hover, .group-link:hover {
@@ -183,28 +216,6 @@
     -moz-animation: none;
     -o-animation: none;
     -webkit-animation: none;
-}
-
-.toggle-description {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: inherit;
-    font-size: 1.2em;
-    padding: var(--proportional-xx-small-padding);
-    margin-left: var(--proportional-xx-small-padding);
-    display: block;
-    text-align: center;
-    width: 100%;
-}
-
-.course-description-row {
-    display: none;
-}
-
-.course-description-row.visible {
-    display: table-row;
-    animation: slideDown 0.3s ease;
 }
 
 .course-description strong {
@@ -231,17 +242,17 @@ td.course-description {
 }
 
 @keyframes slideDown {
-    0% {
-        opacity: 0;
+    from {
+        height: 0;
+        visibility: hidden;
     }
-    100% {
-        opacity: 1;
+    to {
+        height: auto;
+        visibility: visible;
     }
 }
 
-tbody>tr>td:nth-child(4) {
-    white-space: nowrap;
-}
+
 
 .filters-toggle {
     display: flex;
