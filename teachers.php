@@ -34,11 +34,14 @@
           <img src="./teachers/ashkinazi-leonid-alexandrovich.jpg" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
             <a href="#ashkinazi-leonid-alexandrovich">Ашкинази Леонид Александрович</a>
-            <br>
-            преподаватель физики<br><br>
-            редактор журнала "Химия и жизнь"<br>
-            член Российского физического общества и Российского общества социологов<br>
-            кандидат физико-математических наук<br>
+            <p>
+              преподаватель физики
+            </p>
+            <p>
+              редактор журнала "Химия и жизнь"<br>
+              член Российского физического общества и Российского общества социологов<br>
+              кандидат физико-математических наук
+            </p>
             <button class="support-button">Поддержать Леонида Александровича</button>
           </div>
         </div>
@@ -82,11 +85,14 @@
           <img src="./teachers/bogolyubov-dmitry-petrovich.jpg" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
             <a href="#bogolyubov-dmitry-petrovich">Боголюбов Дмитрий Петрович</a>
-            <br>
-            научный руководитель проекта ФМШ FMSH.RU, преподаватель математики и информатики<br><br>
-            доцент департамента прикладной математики МИЭМ НИУ ВШЭ<br>
-            член Московского математического общества<br>
-            кандидат технических наук<br>
+            <p>
+              научный руководитель проекта ФМШ FMSH.RU, преподаватель математики и информатики
+            </p>
+            <p>
+              доцент департамента прикладной математики МИЭМ НИУ ВШЭ<br>
+              член Московского математического общества<br>
+              кандидат технических наук
+            </p>
             <button class="support-button">Поддержать Дмитрия Петровича</button>
           </div>
         </div>
@@ -133,13 +139,16 @@
           <img src="./teachers/grishkina-maria-petrovna.jpg" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
             <a href="#grishkina-maria-petrovna">Гришкина Мария Петровна</a>
-            <br>
-            заместитель координатора проекта ФМШ FMSH.RU, преподаватель информатики<br><br>
-            доцент СУНЦ-1 МГТУ им. Н.Э.Баумана<br>
-            приглашённый преподаватель МИЭМ<br>
-            кандидат технических наук<br>
-            учитель высшей категории<br>
-            эксперт ЕГЭ и ГИА по предмету "Информатика и ИКТ"<br>
+            <p>
+              заместитель координатора проекта ФМШ FMSH.RU, преподаватель информатики
+            </p>
+            <p>
+              доцент СУНЦ-1 МГТУ им. Н.Э.Баумана<br>
+              приглашённый преподаватель МИЭМ<br>
+              кандидат технических наук<br>
+              учитель высшей категории<br>
+              эксперт ЕГЭ и ГИА по предмету "Информатика и ИКТ"
+            </p>
             <button class="support-button">Поддержать Марию Петровну</button>
           </div>
         </div>
@@ -175,8 +184,9 @@
           <img src="./teachers/dvorkin-vladimir-vitalievich.jpg" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
             <a href="#dvorkin-vladimir-vitalievich">Дворкин Владимир Витальевич</a>
-            <br>
-            преподаватель математики<br>
+            <p>
+              преподаватель математики
+            </p>
             <button class="support-button">Поддержать Владимира Витальевича</button>
           </div>
         </div>
@@ -210,8 +220,9 @@
           <img src="./teachers/dvorkina-ludmila-valerievna.jpg" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
             <a href="#dvorkina-ludmila-valerievna">Дворкина Людмила Валерьевна</a>
-            <br>
-            преподаватель русского языка и литературы<br>
+            <p>
+              преподаватель русского языка и литературы
+            </p>
             <button class="support-button">Поддержать Людмилу Валерьевну</button>
           </div>
         </div>
@@ -241,9 +252,12 @@
           <img src="./teachers/zologina-anastasia-nikolaevna.jpg" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
             <a href="#zologina-anastasia-nikolaevna">Зологина Анастасия Николаевна</a>
-            <br>
-            преподаватель математики<br><br>
-            ведущий системный аналитик в АО "Системы управления"<br>
+            <p>
+              преподаватель математики
+            </p>
+            <p>
+              ведущий системный аналитик в АО "Системы управления"
+            </p>
             <button class="support-button">Поддержать Анастасию Николаевну</button>
           </div>
         </div>
@@ -277,8 +291,9 @@
           <img src="./teachers/ilyukhin-denis-olegovich.jpg" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
             <a href="#ilyukhin-denis-olegovich">Илюхин Денис Олегович</a>
-            <br>
-            преподаватель математики<br>
+            <p>
+              преподаватель математики
+            </p>
             <button class="support-button">Поддержать Дениса Олеговича</button>
           </div>
         </div>
@@ -311,9 +326,12 @@
           <img src="./teachers/skobeleva-ekaterina-yurievna.jpg" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
             <a href="#skobeleva-ekaterina-yurievna">Скобелева Екатерина Юрьевна</a>
-            <br>
-            преподаватель информатики<br><br>
-            ведущий тестировщик в МТС Диджитал, кластер Телеком, Блок информационных технологий<br>
+            <p>
+              преподаватель информатики
+            </p>
+            <p>
+              ведущий тестировщик в МТС Диджитал, кластер Телеком, Блок информационных технологий
+            </p>
             <button class="support-button">Поддержать Екатерину Юрьевну</button>
           </div>
         </div>
@@ -346,10 +364,13 @@
           <img src="./teachers/chernatskiy-sergey-genrikhovich.jpg" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
             <a href="#chernatskiy-sergey-genrikhovich">Чернацкий Сергей Генрихович</a>
-            <br>
-            координатор проекта ФМШ FMSH.RU, преподаватель математики и информатики<br><br>
-            предприниматель, генеральный директор ООО "Е-ПОС"<br>
-            регистратор международной системы расчётов WebMoney Transfer<br>
+            <p>
+              координатор проекта ФМШ FMSH.RU, преподаватель математики и информатики
+            </p>
+            <p>
+              предприниматель, генеральный директор ООО "Е-ПОС"<br>
+              регистратор международной системы расчётов WebMoney Transfer
+            </p>
             <button class="support-button">Поддержать Сергея Генриховича</button>
           </div>
         </div>

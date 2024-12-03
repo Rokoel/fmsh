@@ -99,8 +99,9 @@
                   <img src="./index/ashkinazi-leonid-alexandrovich.jpg" class="person-avatar" alt="Фотография преподавателя">
                   <div class="person-bio">
                     <a href="teachers.php#ashkinazi-leonid-alexandrovich">Леонид Александрович Ашкинази</a>
-                    <br>
-                    преподаватель физики
+                    <p>
+                      преподаватель физики
+                    </p>
                   </div>
                 </div>
 
@@ -108,8 +109,9 @@
                   <img src="./index/bogolyubov-dmitry-petrovich.jpg" class="person-avatar" alt="Фотография преподавателя">
                   <div class="person-bio">
                     <a href="teachers.php#bogolyubov-dmitry-petrovich">Дмитрий Петрович Боголюбов</a>
-                    <br>
-                    преподаватель математики и информатики
+                    <p>
+                      преподаватель математики и информатики
+                    </p>
                   </div>
                 </div>
           
@@ -117,8 +119,9 @@
                   <img src="./index/grishkina-maria-petrovna.jpg" class="person-avatar" alt="Фотография преподавателя">
                   <div class="person-bio">
                     <a href="teachers.php#grishkina-maria-petrovna">Мария Петровна Гришкина</a>
-                    <br>
-                    преподаватель информатики
+                    <p>
+                      преподаватель информатики
+                    </p>
                   </div>
                 </div>
           
@@ -126,8 +129,9 @@
                   <img src="./index/dvorkin-vladimir-vitalievich.jpg" class="person-avatar" alt="Фотография преподавателя">
                   <div class="person-bio">
                     <a href="teachers.php#dvorkin-vladimir-vitalievich">Владимир Витальевич Дворкин</a>
-                    <br>
-                    преподаватель математики
+                    <p>
+                      преподаватель математики
+                    </p>
                   </div>
                 </div>
           
@@ -135,8 +139,9 @@
                   <img src="./index/dvorkina-ludmila-valerievna.jpg" class="person-avatar" alt="Фотография преподавателя">
                   <div class="person-bio">
                     <a href="teachers.php#dvorkina-ludmila-valerievna">Людмила Валерьевна Дворкина</a>
-                    <br>
-                    преподаватель русского языка и литературы
+                    <p>
+                      преподаватель русского языка и литературы
+                    </p>
                   </div>
                 </div>
           
@@ -144,8 +149,9 @@
                   <img src="./index/zologina-anastasia-nikolaevna.jpg" class="person-avatar" alt="Фотография преподавателя">
                   <div class="person-bio">
                     <a href="teachers.php#zologina-anastasia-nikolaevna">Анастасия Николаевна Зологина</a>
-                    <br>
-                    преподаватель математики
+                    <p>
+                      преподаватель математики
+                    </p>
                   </div>
                 </div>
           
@@ -153,8 +159,9 @@
                   <img src="./index/ilyukhin-denis-olegovich.jpg" class="person-avatar" alt="Фотография преподавателя">
                   <div class="person-bio">
                     <a href="teachers.php#ilyukhin-denis-olegovich">Денис Олегович Илюхин</a>
-                    <br>
-                    преподаватель математики
+                    <p>
+                      преподаватель математики
+                    </p>
                   </div>
                 </div>
           
@@ -162,8 +169,9 @@
                   <img src="./index/skobeleva-ekaterina-yurievna.jpg" class="person-avatar" alt="Фотография преподавателя">
                   <div class="person-bio">
                     <a href="teachers.php#skobeleva-ekaterina-yurievna">Екатерина Юрьевна Скобелева</a>
-                    <br>
-                    преподаватель информатики
+                    <p>
+                      преподаватель информатики
+                    </p>
                   </div>
                 </div>
           
@@ -171,8 +179,9 @@
                   <img src="./index/chernatskiy-sergey-genrikhovich.jpg" class="person-avatar" alt="Фотография преподавателя">
                   <div class="person-bio">
                     <a href="teachers.php#chernatskiy-sergey-genrikhovich">Сергей Генрихович Чернацкий</a>
-                    <br>
-                    преподаватель математики и информатики
+                    <p>
+                      преподаватель математики и информатики
+                    </p>
                   </div>
                 </div>
               </div>

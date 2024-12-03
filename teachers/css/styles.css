@@ -177,6 +177,13 @@ p {
     margin: 0;
 }
 
+.person-bio p {
+    font-size: 100%;
+    padding-left: 0;
+    padding-top: var(--proportional-xx-small-padding);
+    padding-bottom: var(--proportional-xx-small-padding);
+}
+
 
 /* Version 1 */
 /* .teacher-description {

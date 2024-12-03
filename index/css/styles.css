@@ -353,6 +353,10 @@ article a:hover {
     text-align: center;
     padding: var(--proportional-small-padding);
 }
+.person-bio p {
+    margin-top: var(--proportional-xx-small-padding);
+    margin-bottom: 0;
+}
 
 /* About fmsh block's styling */
 #fmsh-features-article {
