@@ -25,6 +25,7 @@
 
 <body>
   <?php include("./header.php"); ?>
+  <?php include("./mobile-move-buttons.php"); ?>
 
   <main>
     <div id="main-block">

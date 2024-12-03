@@ -25,6 +25,7 @@
 
 <body>
   <?php include("./header.php"); ?>
+  <?php include("./mobile-move-buttons.php"); ?>
 
   <div class="page-container">
     <div id="entrance-text">

@@ -26,6 +26,7 @@
 
 <body>
     <?php include("./header.php"); ?>
+    <?php include("./mobile-move-buttons.php"); ?>
     <main class="page-container">
 
         <h3 class="page-title">Расписание занятий</h3>

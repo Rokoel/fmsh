@@ -1,16 +1,48 @@
 var MENU_STATE = 'closed';
 
-var mobileMenuButton = document.getElementById("mobile-navbar");
+var mobileMenuButton = document.getElementById("menu-button");
 if (mobileMenuButton != null && mobileMenuButton != undefined) {
-    document.getElementById("mobile-navbar").addEventListener("click", switchMenu);
-    document.getElementById("mobile-navbar").addEventListener("keydown", (event) => {
+    mobileMenuButton.addEventListener("click", switchMenu);
+    mobileMenuButton.addEventListener("keydown", (event) => {
         if (event.code === 'Space' || event.code === 'Enter') {
             let simulatedClickEvent = new MouseEvent("click", {
                 view: window,
                 bubbles: true,
                 cancelable: true,
             });
-            document.getElementById("mobile-navbar").dispatchEvent(simulatedClickEvent);
+            mobileMenuButton.dispatchEvent(simulatedClickEvent);
+        }
+    });
+}
+var moveUpButton = document.getElementById("move-up-button-icon");
+if (moveUpButton != null && moveUpButton != undefined) {
+    moveUpButton.addEventListener("click", () => {
+        window.scrollTo(0, 0);
+    });
+    moveUpButton.addEventListener("keydown", (event) => {
+        if (event.code === 'Space' || event.code === 'Enter') {
+            let simulatedClickEvent = new MouseEvent("click", {
+                view: window,
+                bubbles: true,
+                cancelable: true,
+            });
+            moveUpButton.dispatchEvent(simulatedClickEvent);
+        }
+    });
+}
+var moveDownButton = document.getElementById("move-down-button-icon");
+if (moveDownButton != null && moveDownButton != undefined) {
+    moveDownButton.addEventListener("click", () => {
+        window.scrollTo(0, document.body.scrollHeight);
+    });
+    moveDownButton.addEventListener("keydown", (event) => {
+        if (event.code === 'Space' || event.code === 'Enter') {
+            let simulatedClickEvent = new MouseEvent("click", {
+                view: window,
+                bubbles: true,
+                cancelable: true,
+            });
+            moveDownButton.dispatchEvent(simulatedClickEvent);
         }
     });
 }
@@ -30,8 +62,8 @@ function setMenu() {
                 menu_item.style.transform = "translateX(150%)";
             });
         }
-        document.getElementById("menu-button").classList.remove("rotating-back");
-        document.getElementById("menu-button").classList.add("rotating");
+        mobileMenuButton.classList.remove("rotating-back");
+        mobileMenuButton.classList.add("rotating");
     }
     else {
         for (let i = 0; i < menu_items.length; ++i){
@@ -42,8 +74,8 @@ function setMenu() {
                 menu_item.style.transform = "translateX(0)";
             });
         }
-        document.getElementById("menu-button").classList.remove("rotating");
-        document.getElementById("menu-button").classList.add("rotating-back");
+        mobileMenuButton.classList.remove("rotating");
+        mobileMenuButton.classList.add("rotating-back");
     }
 }
 

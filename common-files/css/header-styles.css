@@ -2,7 +2,7 @@
     #desktop-navbar {
         display: flex;
     }
-    #mobile-navbar {
+    #mobile-navbar, #move-up-button, #move-down-button {
         display: none;
     }
 }
@@ -10,7 +10,7 @@
     #desktop-navbar {
         display: flex;
     }
-    #mobile-navbar {
+    #mobile-navbar, #move-up-button, #move-down-button {
         display: none;
     }
 }
@@ -18,7 +18,7 @@
     #desktop-navbar {
         display: flex;
     }
-    #mobile-navbar {
+    #mobile-navbar, #move-up-button, #move-down-button {
         display: none;
     }
 }
@@ -29,6 +29,14 @@
     #mobile-navbar {
         bottom: calc(var(--header-height) / 2);
         right: calc(var(--header-height) / 2);
+    }
+    #move-up-button {
+        bottom: calc(var(--header-height) / 2);
+        left: calc(var(--header-height) / 2);
+    }
+    #move-down-button {
+        bottom: calc(var(--header-height) / 2);
+        left: calc(var(--header-height) * 1.5);
     }
     .mobile-navbar-link {
         position: relative;
@@ -59,6 +67,14 @@
         bottom: calc(var(--header-height) / 2);
         right: calc(var(--header-height) / 4);
     }
+    #move-up-button {
+        bottom: calc(var(--header-height) / 2);
+        left: calc(var(--header-height) / 2);
+    }
+    #move-down-button {
+        bottom: calc(var(--header-height) / 2);
+        left: calc(var(--header-height) * 1.5);
+    }
     .mobile-navbar-link {
         position: relative;
         bottom: calc((var(--header-height)) * 5.5);
@@ -88,6 +104,14 @@
         bottom: calc(var(--header-height) / 2);
         right: calc(var(--header-height) / 2);
     }
+    #move-up-button {
+        bottom: calc(var(--header-height) / 2);
+        left: calc(var(--header-height) / 2);
+    }
+    #move-down-button {
+        bottom: calc(var(--header-height) / 2);
+        left: calc(var(--header-height) * 1.5);
+    }
     .mobile-navbar-link {
         position: relative;
         bottom: calc((var(--header-height)) * 5.5);
@@ -116,6 +140,14 @@
     #mobile-navbar {
         bottom: calc(var(--header-height) / 2);
         right: calc(var(--header-height) / 4);
+    }
+    #move-up-button {
+        bottom: calc(var(--header-height) / 2);
+        left: calc(var(--header-height) / 2);
+    }
+    #move-down-button {
+        bottom: calc(var(--header-height) / 2);
+        left: calc(var(--header-height) * 1.5);
     }
     .mobile-navbar-link {
         position: relative;
@@ -183,6 +215,16 @@ nav#mobile-navbar {
     background-color: var(--white);
     border: 2px solid var(--dark-blue);
 }
+#move-up-button, #move-down-button {
+    z-index: 3;
+    position: fixed;
+    width: var(--header-height);
+    height: var(--header-height);
+    border-radius: 50%;
+    background-color: var(--white);
+    border: 2px solid var(--dark-blue);
+}
+
 .colorless:hover, .colorless:focus, .colorless:focus-within {
     transform: scale(1.1);
 }

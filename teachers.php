@@ -25,6 +25,7 @@
 
 <body>
   <?php include("./header.php"); ?>
+  <?php include("./mobile-move-buttons.php"); ?>
     
   <main id="content">
     <!-- <h3>Преподаватели ФМШ</h3> -->
