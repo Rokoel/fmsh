@@ -278,14 +278,24 @@ article a:hover {
 .person-holder {
     display: flex;
     flex-direction: column;
-    flex: 1;
+    flex: none; 
+    width: calc(95% / 3);
     padding: var(--proportional-small-padding);
     padding-left: var(--proportional-xx-small-padding);
     padding-right: var(--proportional-xx-small-padding);
-    flex-wrap: wrap;
     margin: 0.1em;
     align-items: center;
-    justify-content: top;
+    min-height: 100%;
+}
+@media screen and (max-width: 550px) {
+    .person-holder {
+        width: 100%;
+    }
+}
+@media screen and (min-width: 1800px) {
+    .person-holder {
+        width: calc(95% / 5);
+    }
 }
 #teachers-article-holder {
     display: flex;
@@ -367,14 +377,26 @@ article a:hover {
 
 #teacher-list {
     display: flex;
+    transition: none;
+    width: 100%;
+    justify-content: center;
+    height: max-content;
+}
+
+#teacher-container {
+    width: 100%;
     overflow: hidden;
-    /* max-width: 60%; Adjust this to control the number of visible teachers */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: max-content;
 }
 
 .arrow {
     color: var(--blue);
     font-size: 150%;
-    transition: transform 0.1s ease-in-out;
+    transition: transform 0.5s ease-in-out;
     padding: var(--proportional-xx-small-padding);
 }
 .arrow:hover, .arrow:focus, .arrow:active { 
@@ -385,18 +407,6 @@ article a:hover {
 }
 .arrow:hover {
     cursor: pointer;
-}
-
-@media screen and (max-width: 1000px) {
-    #teacher-list > :first-child, #teacher-list > :last-child {
-        display: none;
-    }
-    #teacher-list{
-        width: 70%;
-    }
-    .carusel-holder {
-        justify-content: center;
-    }
 }
 
 #calendar-article-holder h3 {

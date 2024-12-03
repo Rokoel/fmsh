@@ -127,23 +127,18 @@ class DoublyLinkedList {
 const teacherList = document.getElementById('teacher-list');
 const teachers = Array.from(teacherList.children);
 const totalTeachers = teachers.length;
-const visibleTeachers = 3;
-let currentNodeIndex = Math.floor((Math.random()*totalTeachers));
-
+const visibleTeachers = 12;
+const delay = 0.5;
+let currentNodeIndex = Math.floor((Math.random() * totalTeachers));
+const leftButton = document.getElementById('arrow-left');
+const rightButton = document.getElementById('arrow-right');
 const teacherArray = teachers.map(teacher => teacher.cloneNode(true));
-
 const visibleList = new DoublyLinkedList();
-
 for (let i = currentNodeIndex; i < currentNodeIndex + visibleTeachers; i++) {
     visibleList.append(teacherArray[i % totalTeachers]);
 }
-
-/**
- * Renders the teachers currently in the visible list, adding them into the teacher list element.
- */
 function renderVisibleTeachers() {
     teacherList.innerHTML = '';
-
     const visibleNodes = visibleList.getAllNodes();
     visibleNodes.forEach(node => {
         teacherList.appendChild(node);
@@ -151,32 +146,59 @@ function renderVisibleTeachers() {
 }
 
 /**
- * Updates the visible teachers in the list by shifting the visible list one teacher to the left or right.
- * @param {string} direction - The direction to shift the list. If 'right', the list is shifted to the right. If 'left', the list is shifted to the left.
+ * Shifts the visible teachers in the list by one teacher to the left or right, with animation.
+ * @param {string} direction - The direction to shift the list ('right' or 'left').
  */
 function updateVisibleTeachers(direction) {
+
     if (direction === 'right') {
         const nextTeacher = teacherArray[(currentNodeIndex + visibleTeachers) % totalTeachers];
         visibleList.removeFirst();
         visibleList.append(nextTeacher);
         currentNodeIndex = (currentNodeIndex + 1) % totalTeachers;
 
+        teacherList.style.transition = 'transform ' + delay + 's ease-in-out';
+        teacherList.style.transform = 'translateX(-' + (visibleList.getFirstNode().offsetWidth+2) + 'px)';
+
+        setTimeout(() => {
+            teacherList.style.transition = 'none';
+            teacherList.style.transform = 'translateX(0)';
+            renderVisibleTeachers();
+            leftButton.addEventListener('click', scrollTeachersLeft);
+            rightButton.addEventListener('click', scrollTeachersRight);
+        }, delay * 1000);
     }
+
     if (direction === 'left') {
         const prevTeacher = teacherArray[(currentNodeIndex - 1 + totalTeachers) % totalTeachers];
         visibleList.removeLast();
         visibleList.prepend(prevTeacher);
         currentNodeIndex = (currentNodeIndex - 1 + totalTeachers) % totalTeachers;
+
+        teacherList.style.transition = 'transform ' + delay + 's ease-in-out';    
+        teacherList.style.transform = 'translateX(' + (visibleList.getFirstNode().offsetWidth+2) + 'px)';
+        setTimeout(() => {
+            teacherList.style.transition = 'none';
+            teacherList.style.transform = 'translateX(0)';
+            renderVisibleTeachers();
+            leftButton.addEventListener('click', scrollTeachersLeft);
+            rightButton.addEventListener('click', scrollTeachersRight);
+        }, delay * 1000);
     }
-    renderVisibleTeachers();
 }
 
 renderVisibleTeachers();
 
-document.getElementById('arrow-left').addEventListener('click', () => {
+function scrollTeachersLeft() {
+    leftButton.removeEventListener("click", scrollTeachersLeft);
+    rightButton.removeEventListener("click", scrollTeachersRight);
     updateVisibleTeachers('left');
-});
-
-document.getElementById('arrow-right').addEventListener('click', () => {
+}
+function scrollTeachersRight() {
+    leftButton.removeEventListener("click", scrollTeachersLeft);
+    rightButton.removeEventListener("click", scrollTeachersRight);
     updateVisibleTeachers('right');
-});
+}
+
+leftButton.addEventListener('click', scrollTeachersLeft);
+rightButton.addEventListener('click', scrollTeachersRight);

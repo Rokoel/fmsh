@@ -93,88 +93,90 @@
         <h3 class="article-header" style="text-align: center;">Наши преподаватели</h3>
         <div class="carusel-holder">
           <div id="arrow-left" class="arrow" tabindex="0" name="Прокрутить список преподавателей влево" role="button">&#10094;</div>
-          <div id="teacher-list" class="teacher-list">
-            <div class="person-holder has-border" id="ashkinazi-leonid-alexandrovich">
-              <img src="./index/ashkinazi-leonid-alexandrovich.jpg" class="person-avatar" alt="Фотография преподавателя">
-              <div class="person-bio">
-                <a href="teachers.php#ashkinazi-leonid-alexandrovich">Леонид Александрович Ашкинази</a>
-                <br>
-                преподаватель физики
-              </div>
-            </div>
+            <div id="teacher-container">
+              <div id="teacher-list" class="teacher-list">
+                <div class="person-holder has-border" id="ashkinazi-leonid-alexandrovich">
+                  <img src="./index/ashkinazi-leonid-alexandrovich.jpg" class="person-avatar" alt="Фотография преподавателя">
+                  <div class="person-bio">
+                    <a href="teachers.php#ashkinazi-leonid-alexandrovich">Леонид Александрович Ашкинази</a>
+                    <br>
+                    преподаватель физики
+                  </div>
+                </div>
 
-            <div class="person-holder has-border" id="bogolyubov-dmitry-petrovich">
-              <img src="./index/bogolyubov-dmitry-petrovich.jpg" class="person-avatar" alt="Фотография преподавателя">
-              <div class="person-bio">
-                <a href="teachers.php#bogolyubov-dmitry-petrovich">Дмитрий Петрович Боголюбов</a>
-                <br>
-                преподаватель математики и информатики
+                <div class="person-holder has-border" id="bogolyubov-dmitry-petrovich">
+                  <img src="./index/bogolyubov-dmitry-petrovich.jpg" class="person-avatar" alt="Фотография преподавателя">
+                  <div class="person-bio">
+                    <a href="teachers.php#bogolyubov-dmitry-petrovich">Дмитрий Петрович Боголюбов</a>
+                    <br>
+                    преподаватель математики и информатики
+                  </div>
+                </div>
+          
+                <div class="person-holder has-border" id="grishkina-maria-petrovna">
+                  <img src="./index/grishkina-maria-petrovna.jpg" class="person-avatar" alt="Фотография преподавателя">
+                  <div class="person-bio">
+                    <a href="teachers.php#grishkina-maria-petrovna">Мария Петровна Гришкина</a>
+                    <br>
+                    преподаватель информатики
+                  </div>
+                </div>
+          
+                <div class="person-holder has-border" id="dvorkin-vladimir-vitalievich">
+                  <img src="./index/dvorkin-vladimir-vitalievich.jpg" class="person-avatar" alt="Фотография преподавателя">
+                  <div class="person-bio">
+                    <a href="teachers.php#dvorkin-vladimir-vitalievich">Владимир Витальевич Дворкин</a>
+                    <br>
+                    преподаватель математики
+                  </div>
+                </div>
+          
+                <div class="person-holder has-border" id="dvorkina-ludmila-valerievna">
+                  <img src="./index/dvorkina-ludmila-valerievna.jpg" class="person-avatar" alt="Фотография преподавателя">
+                  <div class="person-bio">
+                    <a href="teachers.php#dvorkina-ludmila-valerievna">Людмила Валерьевна Дворкина</a>
+                    <br>
+                    преподаватель русского языка и литературы
+                  </div>
+                </div>
+          
+                <div class="person-holder has-border" id="zologina-anastasia-nikolaevna">
+                  <img src="./index/zologina-anastasia-nikolaevna.jpg" class="person-avatar" alt="Фотография преподавателя">
+                  <div class="person-bio">
+                    <a href="teachers.php#zologina-anastasia-nikolaevna">Анастасия Николаевна Зологина</a>
+                    <br>
+                    преподаватель математики
+                  </div>
+                </div>
+          
+                <div class="person-holder has-border" id="ilyukhin-denis-olegovich">
+                  <img src="./index/ilyukhin-denis-olegovich.jpg" class="person-avatar" alt="Фотография преподавателя">
+                  <div class="person-bio">
+                    <a href="teachers.php#ilyukhin-denis-olegovich">Денис Олегович Илюхин</a>
+                    <br>
+                    преподаватель математики
+                  </div>
+                </div>
+          
+                <div class="person-holder has-border" id="skobeleva-ekaterina-yurievna">
+                  <img src="./index/skobeleva-ekaterina-yurievna.jpg" class="person-avatar" alt="Фотография преподавателя">
+                  <div class="person-bio">
+                    <a href="teachers.php#skobeleva-ekaterina-yurievna">Екатерина Юрьевна Скобелева</a>
+                    <br>
+                    преподаватель информатики
+                  </div>
+                </div>
+          
+                <div class="person-holder has-border" id="chernatskiy-sergey-genrikhovich">
+                  <img src="./index/chernatskiy-sergey-genrikhovich.jpg" class="person-avatar" alt="Фотография преподавателя">
+                  <div class="person-bio">
+                    <a href="teachers.php#chernatskiy-sergey-genrikhovich">Сергей Генрихович Чернацкий</a>
+                    <br>
+                    преподаватель математики и информатики
+                  </div>
+                </div>
               </div>
             </div>
-      
-            <div class="person-holder has-border" id="grishkina-maria-petrovna">
-              <img src="./index/grishkina-maria-petrovna.jpg" class="person-avatar" alt="Фотография преподавателя">
-              <div class="person-bio">
-                <a href="teachers.php#grishkina-maria-petrovna">Мария Петровна Гришкина</a>
-                <br>
-                преподаватель информатики
-              </div>
-            </div>
-      
-            <div class="person-holder has-border" id="dvorkin-vladimir-vitalievich">
-              <img src="./index/dvorkin-vladimir-vitalievich.jpg" class="person-avatar" alt="Фотография преподавателя">
-              <div class="person-bio">
-                <a href="teachers.php#dvorkin-vladimir-vitalievich">Владимир Витальевич Дворкин</a>
-                <br>
-                преподаватель математики
-              </div>
-            </div>
-      
-            <div class="person-holder has-border" id="dvorkina-ludmila-valerievna">
-              <img src="./index/dvorkina-ludmila-valerievna.jpg" class="person-avatar" alt="Фотография преподавателя">
-              <div class="person-bio">
-                <a href="teachers.php#dvorkina-ludmila-valerievna">Людмила Валерьевна Дворкина</a>
-                <br>
-                преподаватель русского языка и литературы
-              </div>
-            </div>
-      
-            <div class="person-holder has-border" id="zologina-anastasia-nikolaevna">
-              <img src="./index/zologina-anastasia-nikolaevna.jpg" class="person-avatar" alt="Фотография преподавателя">
-              <div class="person-bio">
-                <a href="teachers.php#zologina-anastasia-nikolaevna">Анастасия Николаевна Зологина</a>
-                <br>
-                преподаватель математики
-              </div>
-            </div>
-      
-            <div class="person-holder has-border" id="ilyukhin-denis-olegovich">
-              <img src="./index/ilyukhin-denis-olegovich.jpg" class="person-avatar" alt="Фотография преподавателя">
-              <div class="person-bio">
-                <a href="teachers.php#ilyukhin-denis-olegovich">Денис Олегович Илюхин</a>
-                <br>
-                преподаватель математики
-              </div>
-            </div>
-      
-            <div class="person-holder has-border" id="skobeleva-ekaterina-yurievna">
-              <img src="./index/skobeleva-ekaterina-yurievna.jpg" class="person-avatar" alt="Фотография преподавателя">
-              <div class="person-bio">
-                <a href="teachers.php#skobeleva-ekaterina-yurievna">Екатерина Юрьевна Скобелева</a>
-                <br>
-                преподаватель информатики
-              </div>
-            </div>
-      
-            <div class="person-holder has-border" id="chernatskiy-sergey-genrikhovich">
-              <img src="./index/chernatskiy-sergey-genrikhovich.jpg" class="person-avatar" alt="Фотография преподавателя">
-              <div class="person-bio">
-                <a href="teachers.php#chernatskiy-sergey-genrikhovich">Сергей Генрихович Чернацкий</a>
-                <br>
-                преподаватель математики и информатики
-              </div>
-            </div>
-          </div>
           <div id="arrow-right" class="arrow" tabindex="0" name="Прокрутить список преподавателей вправо" role="button">&#10095;</div>
         </div>
         <a href="teachers.php" class="link-to-more-info">Подробнее</a>
