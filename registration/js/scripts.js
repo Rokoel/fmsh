@@ -1,7 +1,3 @@
-window.onload = function() {
-    setupFormValidation();
-};
-
 /**
  * This function makes an error message appear near the violating element.
  * @param {HTMLElement} element An element near which to show the error message
@@ -11,78 +7,100 @@ function showError(element, errorMsg) {
     element.nextElementSibling.textContent = errorMsg;
 }
 
+
 /**
- * setupFormValidation() validates the form, preventing the form submition until its valid,
- * showing errors in the form.
+ * Sets up event listeners for form submission and form field input.
+ * It validates input in real-time and prevents form submission until all fields are valid.
+ * If form is valid, it sends form data to the server via AJAX, shows a success message and clears the form.
+ * If there are errors, it shows an error message next to the violating field.
  */
-function setupFormValidation() {
-    const form = document.querySelector("form");
-    form.addEventListener("submit", (event) => {
-        var surnameField = document.getElementById("surname");
-        var firstnameField = document.getElementById("firstname");
-        var lastnameField = document.getElementById("lastname");
-        var emailsField = document.getElementById("email");
-        var birthdayField = document.getElementById("birthday");
-        var gradeField = document.getElementById("grade");
-        var schoolField = document.getElementById("school");
-        var placeField = document.getElementById("region");
-        var capchaField = document.getElementById("capcha-input");
-
-        var surnameValidity = validateSurname(surnameField.value);
-        var firstnameValidity = validateFirstname(firstnameField.value);
-        var lastnameValidity = validateLastname(lastnameField.value);
-        var emailsValidity = validateEmails(emailsField.value);
-        var birthdayValidity = validateDate(birthdayField.value);
-        var gradeValidity = validateGrade(gradeField.value);
-        var schoolValidity = validateSchool(schoolField.value);
-        var placeValidity = validatePlace(placeField.value);
-        var capchaValidity = validateCapcha(capchaField.value);
-
-        surnameField.nextElementSibling.textContent = "";
-        if (surnameValidity[0] == false) {
-            showError(surnameField, surnameValidity[1]);
+function setupFormsValidation() {
+    const forms = document.querySelectorAll("form");
+    forms.forEach((form) => {
+        form.addEventListener("submit", (event) => {
             event.preventDefault();
-        }
-        firstnameField.nextElementSibling.textContent = "";
-        if (firstnameValidity[0] == false) {
-            showError(firstnameField, firstnameValidity[1]);
-            event.preventDefault();
-        }
-        lastnameField.nextElementSibling.textContent = "";
-        if (lastnameValidity[0] == false) {
-            showError(lastnameField, lastnameValidity[1]);
-            event.preventDefault();
-        }
-        emailsField.nextElementSibling.textContent = "";
-        if (emailsValidity[0] == false) {
-            showError(emailsField, emailsValidity[1]);
-            event.preventDefault();
-        }
-        birthdayField.nextElementSibling.textContent = "";
-        if (birthdayValidity[0] == false) {
-            showError(birthdayField, birthdayValidity[1]);
-            event.preventDefault();
-        }
-        gradeField.nextElementSibling.textContent = "";
-        if (gradeValidity[0] == false) {
-            showError(gradeField, gradeValidity[1]);
-            event.preventDefault();
-        }
-        schoolField.nextElementSibling.textContent = "";
-        if (schoolValidity[0] == false) {
-            showError(schoolField, schoolValidity[1]);
-            event.preventDefault();
-        }
-        placeField.nextElementSibling.textContent = "";
-        if (placeValidity[0] == false) {
-            showError(placeField, placeValidity[1]);
-            event.preventDefault();
-        }
-        capchaField.nextElementSibling.textContent = "";
-        if (capchaValidity[0] == false) {
-            showError(capchaField, capchaValidity[1]);
-            event.preventDefault();
-        }
+            var errors = 0;
+            const formFields = form.querySelectorAll("input");
+            formFields.forEach((field) => {
+                var validity;
+                if (field.name == "surname") {
+                    validity = validateSurname(field.value);
+                }
+                if (field.name == "firstname") {
+                    validity = validateFirstname(field.value);
+                }
+                if (field.name == "lastname") {
+                    validity = validateLastname(field.value);
+                }
+                if (field.name == "emails") {
+                    validity = validateEmails(field.value);
+                }
+                if (field.name == "email") {
+                    validity = validateEmail(field.value);
+                }
+                if (field.name == "birthday") {
+                    validity = validateDate(field.value);
+                }
+                if (field.name == "grade") {
+                    validity = validateGrade(field.value);
+                }
+                if (field.name == "school") {
+                    validity = validateSchool(field.value);
+                }
+                if (field.name == "region") {
+                    validity = validatePlace(field.value);
+                }
+                if (field.name == "capcha-input") {
+                    validity = validateCapcha(field.value);
+                }
+                field.nextElementSibling.textContent = "";
+                if (validity[0] == false) {
+                    errors += 1;
+                    showError(field, validity[1]);
+                }
+            });
+            var submitButton = event.target.querySelector("button[type=submit]");
+            var eventId = submitButton.getAttribute('data-event-id');
+            console.log("Проверяем количество ошибок. EventId: " + eventId);
+            if (errors == 0) {
+                const formData = new FormData(event.target);
+                var submitUrl;
+                if (!eventId) {
+                    submitUrl = "register.php";
+                    console.log("Отправляем форму main на сервер.");
+                }
+                else {
+                    submitUrl = `register.php?event=${eventId}`;
+                    console.log("Отправляем форму event на сервер. EventId: " + eventId);
+                }
+                // Submit the form data via AJAX
+                var eventMessage;
+                fetch(submitUrl, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    eventSuccess = data.success;
+                    if (!eventSuccess) {
+                        console.log("Произошла ошибка при отправке формы :(");
+                        showSuccessMessage(eventMessage);
+                    }
+                    eventMessage = data.message;
+                    console.log("Показываем сообщение об успехе. EventMessage: " + eventMessage);
+                    showSuccessMessage(eventMessage);
+                    clearForm(event.target.id);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    console.log('Произошла ошибка при отправке формы.');
+                    return;
+                });
+            }
+            else {
+                console.log("Ошибка валидации формы. Количество ошибок: " + errors);
+            }
+        });
     });
 }
 
@@ -162,6 +180,22 @@ function validateEmails(emails) {
         return [true, ""];
     }
     return [false, "Неправильный формат ввода электронных адресов"];
+}
+
+/**
+ * validateEmail() checks if one email is valid using regular expressions.
+ * @param {string} emails A string to be checked
+ * @returns True if the email is, well, an email and not something else (and false otherwise). The returned value is a list containing the boolean and an error message if false is returned and an empty string otherwise.
+ */
+function validateEmail(email) {
+    var emailValidationFlag = 0;
+    var re;
+    re = new RegExp ("^[.a-zA-Z0-9_-]{1,50}@[a-zA-Z0-9_-]{2,30}\\.[a-z]{2,4}$");
+    emailValidationFlag += (email.match(re) == email);
+    if (emailValidationFlag == 1) {
+        return [true, ""];
+    }
+    return [false, "Неправильный формат ввода электронного адреса"];
 }
 
 /**
@@ -264,4 +298,189 @@ function validatePlace(place) {
         return [false, "Информация о месте проживания не заполнена"];
     }
     return [true, ""];
+}
+
+const mainFormKey = 'main-registration-block';
+const eventFormKey = 'event-registration-block';
+
+document.addEventListener('DOMContentLoaded', () => {
+    setupFormsValidation();
+
+    const mainRegBlock = document.getElementById(mainFormKey);
+    const eventRegBlock = document.getElementById(eventFormKey);
+    const endRegBlock = document.getElementById('end-registration-block');
+  
+    
+    /**
+     * Shows the specified form (main or event) and loads the form data into the inputs.
+     * @param {string} formType - The type of form to show ('main' or 'event').
+     * @param {number|null} eventId - The event id to load form data for, if applicable.
+     */
+    function showForm(formType, eventId=null) {
+        mainRegBlock.classList.add('hidden');
+        eventRegBlock.classList.add('hidden');
+        endRegBlock.classList.add('hidden');
+      
+        if (formType === 'main') {
+            mainRegBlock.classList.remove('hidden');
+            loadFormData(mainFormKey);
+        } else if (formType === 'event') {
+            eventRegBlock.classList.remove('hidden');
+            loadFormData(eventFormKey, eventId);
+        }
+    }
+  
+    
+    /**
+     * loadFormData() loads form data from localStorage and populates the form fields
+     * @param {string} formKey - The key used to identify the form's data in localStorage.
+     * @param {number|null} eventId - The ID of the event to load data for, if applicable. Defaults to null.
+     */
+    function loadFormData(formKey, eventId=null) {
+        if (eventId) {
+            const storedData = localStorage.getItem(formKey + ":" + eventId);
+            if (storedData) {
+                const formData = JSON.parse(storedData);
+                for (const key in formData) {
+                    const field = document.querySelector(`#${formKey} [name=${key}]`);
+                    if (field) field.value = formData[key];
+                }
+            }
+            else {
+                const fields = document.querySelectorAll(`#${formKey} input`);
+                fields.forEach((field) => {
+                    field.value = '';
+                });
+            }
+        } else {
+            const storedData = localStorage.getItem(formKey);
+            if (storedData) {
+                const formData = JSON.parse(storedData);
+                for (const key in formData) {
+                    const field = document.querySelector(`#${formKey} [name=${key}]`);
+                    if (field) field.value = formData[key];
+                }
+            }
+            else {
+                const fields = document.querySelectorAll(`#${formKey} input`);
+                fields.forEach((field) => {
+                    field.value = '';
+                });
+            }
+        }
+    }
+
+    /**
+     * Saves the current value of a form field to localStorage.
+     * @param {string} formKey - The key used to identify the form's data in localStorage.
+     * @param {HTMLElement} field - The input field element whose data needs to be saved.
+     * @param {number|null} eventId - The ID of the event to register for, if applicable. Defaults to null.
+     */
+    function saveFormData(formKey, field, eventId=null) {
+        if (eventId) {
+            let form = document.getElementById(formKey);
+            let submitButton = form.querySelector('button[type="submit"]');
+            if (submitButton.getAttribute('data-event-id') != eventId) {
+                console.log("Trying to save data to " + eventId + " event, but currently open form is for " + submitButton.getAttribute('data-event-id') + " event");
+                // Trying to save data to eventId event, but currently open form is for another event
+                return;
+            }
+            let storedData = localStorage.getItem(formKey + ":" + eventId) ? JSON.parse(localStorage.getItem(formKey + ":" + eventId)) : {};
+            storedData[field.name] = field.value;
+            localStorage.setItem(formKey + ":" + eventId, JSON.stringify(storedData));
+        }
+        else {
+            let storedData = localStorage.getItem(formKey) ? JSON.parse(localStorage.getItem(formKey)) : {};
+            storedData[field.name] = field.value;
+            localStorage.setItem(formKey, JSON.stringify(storedData));
+        }
+    }
+  
+    /**
+     * Shows a success message and hides the registration form.
+     * @param {string} message - The text of the success message to display.
+     */
+    function showSuccessMessage(message) {
+        mainRegBlock.classList.add('hidden');
+        eventRegBlock.classList.add('hidden');
+        document.getElementById('registration-success-text').innerHTML = message;
+        endRegBlock.classList.remove('hidden');
+    }
+  
+    /**
+     * Clears the stored data for a form and resets all of its input fields to empty.
+     * @param {string} formKey - The key used to identify the form's data in localStorage.
+     * @param {number|null} eventId - The ID of the event to register for, if applicable. Defaults to null.
+     */
+    function clearFormData(formKey, eventId=null) {
+        if (eventId) {
+            localStorage.removeItem(formKey + ":" + eventId);
+        }
+        else {
+            localStorage.removeItem(formKey);
+        }
+    }
+  
+    window.showForm = showForm;
+    window.saveFormData = saveFormData;
+    window.showSuccessMessage = showSuccessMessage;
+    window.clearFormData = clearFormData;
+});
+
+/**
+ * Opens the specified form type and sets up event listeners for form data handling.
+ * @param {string} formType - The type of form to open ('main' or 'event').
+ * @param {number|null} eventId - The ID of the event to register for, if applicable.
+ */
+function openForm(formType, callerElement, eventId=null) {
+    showForm(formType, eventId);
+    document.getElementById(eventFormKey).querySelector('#event-registration-header').innerHTML = callerElement.getAttribute('data-event-header');
+    document.getElementById(eventFormKey).querySelector('#event-registration-text').innerHTML = callerElement.getAttribute('data-event-text');
+    setupEventListeners(eventId);
+    if (eventId) {
+        console.log("Setting attribute of the submit button of the form, Event ID: " + eventId);
+        document.getElementById(eventFormKey).querySelector('button[type="submit"]').setAttribute('data-event-id', eventId);   
+    }
+}
+
+/**
+ * Sets up event listeners for form data handling.
+ * @param {number|null} eventId - The ID of the event to register for, if applicable.
+ */
+function setupEventListeners(eventId) {
+    if (!eventId) {
+        document.querySelectorAll('#main-registration-block input').forEach(input => {
+            input.addEventListener('input', (e) => {
+                saveFormData(mainFormKey, e.target);
+            });
+        });
+    }
+    else {
+        document.querySelectorAll('#event-registration-block input').forEach(input => {
+            input.addEventListener('input', (e) => {
+                saveFormData(eventFormKey, e.target, eventId);
+            });
+        });   
+    }
+}
+
+/**
+ * Hides the form with the specified ID.
+ * @param {string} formId - The ID of the form to hide.
+ */
+function closeBlock(formId) {
+    document.getElementById(formId).classList.add('hidden');
+}
+
+function clearForm(formId) {
+    const form = document.getElementById(formId);
+    
+    // Determine which form key to use based on the form ID
+    const formKey = formId === 'main-registration-form' ? mainFormKey : eventFormKey;
+    
+    // Check if there's an event ID for event forms
+    const submitButton = form.querySelector('button[type="submit"]');
+    const eventId = submitButton ? submitButton.getAttribute('data-event-id') : null;
+    
+    clearFormData(formKey, eventId);
 }

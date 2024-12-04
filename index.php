@@ -24,8 +24,9 @@
 </head>
 
 <body>
-  <?php include("./header.php"); ?>
-  <?php include("./mobile-move-buttons.php"); ?>
+  <?php include "./header.php"; ?>
+  <?php include "./mobile-move-buttons.php"; ?>
+  <?php include "./forms.php"; ?>
 
   <main>
     <div id="main-block">
@@ -69,6 +70,9 @@
             <img src="./index/idroo.gif" class="in-text-block" id="idroo-gif" alt="Пример занятия в ФМШ">
           </div>
         </div>
+        <!-- В кнопки ниже в любом случае нужно будет передавать айдишники ивентов, поэтому заголовки и текст также можно передавать из PHP -->
+        <button class="in-form-button" onclick="openForm('event', this, 1)" data-event-id="1" data-event-header="<b>Аналогично, заголовок можно получать из PHP</b>" data-event-text="1. Этот текст можно получать при генерации айдишников мероприятия, т.е. вставлять из бэкенда сайта, из PHP.">Регистрация на событие 1</button>
+        <button class="in-form-button" onclick="openForm('event', this, 2)" data-event-id="2" data-event-header="<b>Аналогично, заголовок можно получать из PHP</b>" data-event-text="2. Этот текст можно получать при генерации айдишников мероприятия, т.е. вставлять из бэкенда сайта, из PHP.">Регистрация на событие 2</button>
       </article>
       <hr>
       <article id="how-to-enter-article-holder">
@@ -206,7 +210,7 @@
     </div>
   </main>
 
-  <?php include("./footer.php"); ?>
+  <?php include "./footer.php"; ?>
   
   <script src="./common-files/js/mobile-menu-setup.js"></script>
   <script src="./common-files/js/theme-setup.js"></script>

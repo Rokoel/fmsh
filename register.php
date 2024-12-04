@@ -1,109 +1,150 @@
-<!doctype html>
-<html lang="ru">
+<?php
+// Strict error reporting for development
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-<head>
-  <title>ФМШ :: Регистрация</title>
+// Function to validate input data
+function validateInput($input) {
+    // Remove whitespace from start and end
+    $input = trim($input);
+    
+    // Sanitize input to prevent XSS
+    $input = htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
+    
+    return $input;
+}
 
-  <!-- General meta-tags -->
-  <meta charset="utf-8">
-  <meta name="description" content="Страница регистрации сайта ФМШ">
-  <meta name="keywords" content="ФМШ, физико-математическая, физмат, школа, образование, дополнительное образование, дистант, дистанционное образование, математика, физика, информатика">
-  <meta content="width=device-width, initial-scale=1" name="viewport" />
+// Function to validate email
+function validateEmail($email) {
+    // Trim and sanitize email
+    $email = validateInput($email);
+    
+    // Use PHP's built-in email validation
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return false;
+    }
+    
+    return $email;
+}
 
-  <!-- Robots' meta-tags -->
-  <meta name="robots" content="noindex">
+// Main registration handler
+function handleMainRegistration($formData) {
+    // Validate required fields
+    $requiredFields = [
+        'surname', 'firstname', 'lastname', 'emails', 
+        'birthday', 'grade', 'school', 'region', 'capcha-input'
+    ];
+    
+    foreach ($requiredFields as $field) {
+        if (empty($formData[$field])) {
+            return ['success' => false, 'message' => "Поле $field не заполнено"];
+        }
+    }
+    
+    // Specific validations
+    // Validate emails
+    $emails = explode(',', $formData['emails']);
+    $validEmails = [];
+    foreach ($emails as $email) {
+        $validEmail = validateEmail(trim($email));
+        if (!$validEmail) {
+            return ['success' => false, 'message' => 'Неверный формат электронной почты'];
+        }
+        $validEmails[] = $validEmail;
+    }
+    
+    // Validate birthday (should match DD.MM.YYYY format)
+    if (!preg_match('/^\d{2}\.\d{2}\.\d{4}$/', $formData['birthday'])) {
+        return ['success' => false, 'message' => 'Неверный формат даты рождения'];
+    }
+    
+    // Validate grade (between 4 and 11)
+    $grade = intval($formData['grade']);
+    if ($grade < 4 || $grade > 11) {
+        return ['success' => false, 'message' => 'Класс должен быть от 4 до 11'];
+    }
+    
+    // Dummy capcha validation
+    if (empty($formData['capcha-input'])) {
+        return ['success' => false, 'message' => 'Каптча не введена'];
+    }
+    
+    // Simulated successful registration
+    return [
+        'success' => true, 
+        'message' => '
+        <div style="text-align: center;">
+            <b>Спасибо за регистрацию!</b>
+        </div>
+        <br>
+        Текст сюда подцепляется из PHP, а значит, можно добавить любой текст с любым форматированием, в том числе можно использовать полужирный текст, курсив, подчеркнутый текст и т.д.
+        <br>
+        Регистрация прошла успешно! Проверьте вашу электронную почту для подтверждения. Этот текст был подцеплен из PHP, из файла register.php.
+        '
+    ];
+}
 
-  <!-- Resources -->
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="./common-files/css/global-styles.css">
-  <link rel="stylesheet" href="./common-files/css/animations.css">
-  <link rel="stylesheet" href="./common-files/css/always-mobile-menu-styles.css">
-  <link rel="stylesheet" href="./registration/css/styles.css">
-  <script src="./registration/js/scripts.js"></script>
-</head>
+// Event registration handler
+function handleEventRegistration($formData, $eventId) {
+    // Validate email
+    $email = validateEmail($formData['email']);
+    if (!$email) {
+        return ['success' => false, 'message' => 'Неверный формат электронной почты'];
+    }
+    
+    // Simulated successful event registration
+    return [
+        'success' => true, 
+        'message' => "
+        <div style='text-align: center;'>
+            <b>Регистрация на мероприятие $eventId прошла успешно!</b>
+        </div>
+        <br>
+        Текст сюда подцепляется из PHP, а значит, можно добавить любой текст с любым форматированием, в том числе можно использовать полужирный текст, курсив, подчеркнутый текст и т.д.
+        <br>
+        Регистрация прошла успешно! Проверьте вашу электронную почту для подтверждения. Этот текст был подцеплен из PHP, из файла register.php.
+        "
+    ];
+}
 
-<body>
-  <?php include("./always-mobile-menu.php"); ?>
-  <div id="content">
-    <div id="main-block" style="height: 100vh;">
-      <div class="screen-third small-padding">
-        <!-- This block is a spacing block -->
-      </div>
-      <div class="screen-third" style="flex: auto">
-        <div></div>
-        <form action method="POST" class="has-border form-holder" style="font-size: 80%;">
+// Main request handler
+function handleRegistration() {
+    // Ensure proper headers for JSON response
+    header('Content-Type: application/json');
+    
+    // Check if it's a POST request
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        echo json_encode(['success' => false, 'message' => 'Неверный метод запроса']);
+        exit;
+    }
+    
+    // Retrieve form data
+    $formData = $_POST;
+    
+    // Check for event parameter
+    $eventId = isset($_GET['event']) ? intval($_GET['event']) : null;
+    
+    try {
+        // Handle registration based on event parameter
+        if ($eventId === null) {
+            $result = handleMainRegistration($formData);
+        } else {
+            $result = handleEventRegistration($formData, $eventId);
+        }
+        
+        // Send JSON response
+        echo json_encode($result);
+    } catch (Exception $e) {
+        // Handle any unexpected errors
+        echo json_encode([
+            'success' => false, 
+            'message' => 'Произошла ошибка при регистрации: ' . $e->getMessage()
+        ]);
+    }
+    
+    exit;
+}
 
-          <div style="padding: var(--proportional-x-small-padding); text-align: center;">
-            <b>Регистрация</b>
-          </div>
-          
-          <div class="form-body-holder" id="registration-form-holder">
-            <div class="text-input-holder" id="surname-holder">
-              <label class="form-label" for="surname"><b>Фамилия</b></label>
-              <input id="surname" placeholder="Степанов" class="register-form-input highlight-left" type="text" name="surname">
-              <span class="error-msg"></span>
-            </div>
-            <div class="text-input-holder" id="firstname-holder">
-              <label class="form-label" for="firstname"><b>Имя</b></label>
-              <input id="firstname" placeholder="Иван" class="register-form-input highlight-left" type="text" name="firstname">
-              <span class="error-msg"></span>
-            </div>
-            <div class="text-input-holder" id="lastname-holder">
-              <label class="form-label" for="lastname"><b>Отчество</b><span class="tooltip" tabindex="0" aria-describedby="lastname-tooltip-text">?<span id="lastname-tooltip-text" class="tooltip-text has-border">Введите отчество<br>или поставьте прочерк</span></span></label>
-              <input id="lastname" placeholder="Алексеевич" class="register-form-input highlight-left" type="text" name="lastname">
-              <span class="error-msg"></span>
-            </div>
-            <div class="text-input-holder" id="email-holder">
-              <label class="form-label" for="email"><b>Адрес электронной почты или несколько адресов</b><span class="tooltip" tabindex="0" aria-describedby="emails-tooltip-text">?<span id="emails-tooltip-text" class="tooltip-text has-border">Нужно ввести как минимум один адрес, если адресов<br>больше одного, введите их через запятую с пробелом</span></span></label>
-              <input id="email" class="register-form-input highlight-left temp" type="text" name="emails" placeholder="example@email.com, additional@email.com" autocomplete="email">
-              <span class="error-msg"></span>
-            </div>
-            <div class="text-input-holder" id="birthday-holder">
-              <label class="form-label" for="birthday"><b>Дата рождения</b></label>
-              <input id="birthday" type="text" name="birthday" placeholder="ДД.ММ.ГГГГ" maxlength="10" class='register-form-input highlight-left'>
-              <span class="error-msg"></span>
-            </div>
-            <div class="text-input-holder" id="grade-holder">
-              <label class="form-label" for="grade"><b>Класс обучения</b><span class="tooltip" tabindex="0" aria-describedby="grade-tooltip-text">?<span id="grade-tooltip-text" class="tooltip-text has-border">Введите класс, в котором вы учитесь на 2024/25 гг.</span></span></label>
-              <input id="grade" class="register-form-input highlight-left" type="text" name="grade" placeholder="4 – 11" maxlength="2" min="4" max="11">
-              <span class="error-msg"></span>
-            </div>
-            <div class="text-input-holder" id="school-holder">
-              <label class="form-label" for="school"><b>Учебное заведение</b><span class="tooltip" tabindex="0" aria-describedby="school-tooltip-text">?<span id="school-tooltip-text" class="tooltip-text has-border">Если нет номера или названия, введите только то, что есть, или поставьте прочерк</span></span></label>
-              <input id="school" class="register-form-input highlight-left" type="text" name="school" placeholder="Название школы и номер">
-              <span class="error-msg"></span>
-            </div>
-            <div class="text-input-holder" id="region-holder">
-              <label id="region-label" class="form-label" for="region"><b>Страна, регион, населенный пункт</b></label>
-              <input id="region" class="register-form-input highlight-left" type="text" name="region" placeholder="Россия, Челябинская обл., г. Магнитогорск">
-              <span class="error-msg"></span>
-            </div>
-            <div class="flex-row-center" id="capcha-holder">
-              <a href="javascript:window.history.back();" style="text-align: left; width: 30%; font-size: 80%;">Назад</a>
-              <div class="text-input-holder">
-                <label id="capcha-label" class="form-label" for="capcha-input"><b>Введите текст с картинки</b></label>
-                <input id="capcha-input" class="register-form-input highlight-left" type="text" name="capcha-input">
-                <span class="error-msg"></span>
-              </div>
-              <div class="flex-column-center">
-                <div></div>
-                <img id="capcha-image" src="shpic.php?code=<?php echo md5(uniqid()); ?>">
-                <div></div>
-              </div>
-            </div>
-            <div class="text-input-holder" id="submit-form-holder">
-              <button id="submit-form" type="submit">Зарегистрироваться</button>
-            </div>
-          </div>
-        </form>
-        <div></div>
-      </div>
-      <div class="screen-third small-padding">
-        <!-- This block is a spacing block -->
-      </div>
-    </div>
-  </div>
-  <script src="./common-files/js/theme-setup.js"></script>
-  <script src="./common-files/js/mobile-menu-setup.js"></script>
-</body>
-</html>
+// Run the registration handler
+handleRegistration();
+?>

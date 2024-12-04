@@ -1,16 +1,12 @@
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && localStorage.getItem("theme") === null) {
     localStorage.setItem('theme', 'dark');
-    console.log("theme set to dark because of user's OS preference");
 }
 
 window.addEventListener("storage", (e) => {
     if (e.key == 'theme') {
-        console.log("changed the theme from event listener to " + localStorage.getItem("theme"));
         setTheme();
     }
 });
-
-console.log("changed the theme" + localStorage.getItem("theme"));
 setTheme();
 
 var themeSwitcher = document.getElementById("theme-switcher");
@@ -33,7 +29,6 @@ if (themeSwitcher != null && themeSwitcher != undefined) {
  * the css. It's usually called from the switchTheme() function.
  */
 function setTheme() {
-    console.log("Current theme:", localStorage.getItem("theme"));
     var root = document.documentElement;
     var white_color = "#e5e5e5";
     var dark_color = "#1d2458";

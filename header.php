@@ -51,7 +51,7 @@
     </div>
   </nav>
   <div class="horizontal-align-center" id="register-holder">
-    <a href="register.php" id="register">Регистрация</a>
+    <a href="#" onclick="openForm('main', this)" id="register">Регистрация</a>
     <svg xmlns="http://www.w3.org/2000/svg" class="x-small-padding logo cursor-pointer colorless" id="theme-switcher" tabindex="0" name="Переключатель темы" role="button" fill="none" viewBox="0 0 24 24" color="#000000"><path stroke="#000000" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" d="M3 11.507a9.493 9.493 0 0 0 18 4.219c-8.507 0-12.726-4.22-12.726-12.726A9.494 9.494 0 0 0 3 11.507Z"></path></svg>
   </div>
 </header>
