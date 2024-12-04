@@ -228,21 +228,30 @@ nav#mobile-navbar {
 .colorless:hover, .colorless:focus, .colorless:focus-within {
     transform: scale(1.1);
 }
-.emoji {
-    filter: var(--theme-emoji-bright);
-}
 .logo {
-    filter: var(--theme-emoji-bright);
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-}
-.logo-white {
-    filter: var(--theme-emoji-dark);
     margin-left: 0.5em;
     margin-right: 0.5em;
 }
 .cursor-pointer:hover {
     cursor: pointer;
+}
+.logo-stroke path {
+    stroke: var(--dark-blue);
+}
+.logo-fill path {
+    fill: var(--dark-blue);
+}
+.logo-white-stroke path {
+    stroke: var(--white);
+}
+.logo-white-fill path {
+    fill: var(--white);
+}
+.emoji path {
+    stroke: var(--dark-blue);
+}
+.emoji-white path {
+    stroke: var(--white);
 }
 
 /* The following several classes and styling rules are used in navigation bar styling */
@@ -352,3 +361,4 @@ nav#desktop-navbar a {
     flex: 1;
     align-items: center;
 }
+

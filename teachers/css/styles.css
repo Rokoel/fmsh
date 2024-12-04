@@ -99,38 +99,6 @@ article a:hover {
     gap: var(--proportional-small-padding);
 }
 
-.tooltip {
-    text-decoration: underline var(--dark-blue) dotted;
-    padding-left: var(--proportional-x-small-padding);
-}
-.tooltip .tooltip-text {
-    visibility: hidden;
-    width: fit-content;
-    background-color: var(--white);
-    color: var(--dark-blue);
-    padding: var(--proportional-x-small-padding);
-    transform: translateX(-50%) translateY(-100%);
-    min-width: 10em;
-    max-width: 12em;
-    text-align: center;
-    position: absolute;
-    z-index: 2;
-}
-.tooltip:hover .tooltip-text {
-    visibility: visible;
-}
-@media screen and (max-width: 720px) {
-    .tooltip {
-        text-decoration: none;
-        color: var(--blue);
-        font-weight: 900;
-    }
-}
-@media screen and (max-width: 400px) and (min-width: 317px) {
-    .tooltip .tooltip-text {
-        transform: translateX(-100%) translateY(-100%);
-    }
-}
 input::placeholder {
     color: var(--blue);
     opacity: var(--placeholder-text-opacity);
@@ -185,22 +153,6 @@ p {
 }
 
 
-/* Version 1 */
-/* .teacher-description {
-    grid-area: desc;
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    grid-template-areas:
-    "edu work"
-    "extra work";
-    align-items: center;
-    gap: var(--proportional-xx-small-padding);
-}
-.equal-desc {
-    grid-template-columns: 1fr 1fr;
-} */
-
-/* Version 2 */
 .teacher-description {
     grid-area: desc;
     display: grid;
@@ -243,8 +195,7 @@ p {
     padding: var(--proportional-xx-small-padding);
     font-size: 100%;
     margin-top: var(--proportional-x-small-padding);
-    /* width: 100%; */
-    min-width: 70%; /* comment this line out and uncomment the previous one for full-width buttons */
+    min-width: 70%;
 }
 .switch-button {
     padding: var(--proportional-xx-small-padding);
@@ -323,13 +274,23 @@ p {
     .support-button {
         padding: var(--proportional-small-padding);
     }
+    .person-bio p {
+        padding-top: var(--proportional-x-small-padding);
+        padding-bottom: var(--proportional-x-small-padding);
+    }
 }
 
 .work-holder > h5 {
     line-height: normal;
+    padding-bottom: var(--proportional-x-small-padding);
 }
 .extra-holder > h5 {
     line-height: normal;
+    padding-bottom: var(--proportional-x-small-padding);
+}
+.education-holder > h5 {
+    line-height: normal;
+    padding-bottom: var(--proportional-x-small-padding);
 }
 
 .education-holder, .work-holder, .extra-holder {

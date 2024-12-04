@@ -74,34 +74,34 @@
                 <tbody>
                     <tr class="course-row course-full-semester" data-grades="6,7" data-group="М421 M421"
                         data-subject="Математика">
-                        <td><a href="/M202421G.htm" class="group-link dotted-underline" target="_blank">М421</a></td>
+                        <td><a href="/M202421G.htm" class="group-link dotted-underline">М421</a></td>
                         <td class="grade-number">6, 7</td>
                         <td class="theme-name">Математика</td>
                         <td>вторник, 19:30-21:00<br>12 занятий<br>с 1 октября по 17 декабря</td>
                         <td class="teacher-name"><a href="/teachers.php#chernatskiy-sergey-genrikhovich"
-                                class="teacher-link dotted-underline" target="_blank">Сергей Генрихович<br>Чернацкий</a>
+                                class="teacher-link dotted-underline">Сергей Генрихович<br>Чернацкий</a>
                         </td>
                     </tr>
 
                     <tr class="course-row course-full-semester" data-grades="8,9" data-group="М422 M422"
                         data-subject="Математика">
-                        <td><a href="/M202422G.htm" class="group-link dotted-underline" target="_blank">М422</a></td>
+                        <td><a href="/M202422G.htm" class="group-link dotted-underline">М422</a></td>
                         <td class="grade-number">8, 9</td>
                         <td class="theme-name">Математика</td>
                         <td>пятница, 18:00-20:00<br>12 занятий<br>с 4 октября по 20 декабря</td>
                         <td class="teacher-name"><a href="/teachers.php#ilyukhin-denis-olegovich"
-                                class="teacher-link dotted-underline" target="_blank">Денис Олегович<br>Илюхин</a></td>
+                                class="teacher-link dotted-underline">Денис Олегович<br>Илюхин</a></td>
                     </tr>
 
                     <tr class="course-row course-full-semester" data-grades="9,10" data-group="М423 M423"
                         data-subject="Математика">
-                        <td><a href="/M202423G.htm" class="group-link dotted-underline" target="_blank">М423</a></td>
+                        <td><a href="/M202423G.htm" class="group-link dotted-underline">М423</a></td>
                         <td class="grade-number">9, 10</td>
                         <td>
                             <div class=theme-name>
                                 Множества и комбинаторика
                                 <button class="toggle-description" title="Показать описание">
-                                    <svg class="logo" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="1.5"
+                                    <svg class="logo logo-stroke" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="1.5"
                                         fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000">
                                         <path d="M17 8L12 3L7 8" stroke="#000000" stroke-width="1.5"
                                             stroke-linecap="round" stroke-linejoin="round"></path>
@@ -113,7 +113,7 @@
                         </td>
                         <td>четверг, 18:30-20:00<br>12 занятий<br>с 3 октября по 19 декабря</td>
                         <td class="teacher-name"><a href="/teachers.php#bogolyubov-dmitry-petrovich"
-                                class="teacher-link dotted-underline" target="_blank">Дмитрий Петрович<br>Боголюбов</a>
+                                class="teacher-link dotted-underline">Дмитрий Петрович<br>Боголюбов</a>
                         </td>
                     </tr>
                     <tr class="course-description-row" aria-hidden="true">
@@ -135,13 +135,13 @@
 
                     <tr class="course-row course-full-semester" data-grades="9,10,11" data-group="М424 M424"
                         data-subject="Математика">
-                        <td><a href="/M202424G.htm" class="group-link dotted-underline" target="_blank">М424</a></td>
+                        <td><a href="/M202424G.htm" class="group-link dotted-underline">М424</a></td>
                         <td class="grade-number">9, 10, 11</td>
                         <td>
                             <div class="theme-name">
                                 Пара-пара-параметры
                                 <button class="toggle-description" title="Показать описание">
-                                    <svg class="logo" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="1.5"
+                                    <svg class="logo logo-stroke" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="1.5"
                                         fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000">
                                         <path d="M17 8L12 3L7 8" stroke="#000000" stroke-width="1.5"
                                             stroke-linecap="round" stroke-linejoin="round"></path>
@@ -153,7 +153,7 @@
                         </td>
                         <td>понедельник, 19:00-21:00<br>12 занятий<br>с 7 октября по 23 декабря</td>
                         <td class="teacher-name"><a href="/teachers.php#bogolyubov-dmitry-petrovich"
-                                class="teacher-link dotted-underline" target="_blank">Дмитрий Петрович<br>Боголюбов</a>
+                                class="teacher-link dotted-underline">Дмитрий Петрович<br>Боголюбов</a>
                         </td>
                     </tr>
                     <tr class="course-description-row" aria-hidden="true">
@@ -176,13 +176,13 @@
 
                     <tr class="course-row course-partial-semester" data-grades="10,11" data-group="М425 M425"
                         data-subject="Математика">
-                        <td><a href="/M202425G.htm" class="group-link dotted-underline" target="_blank">М425</a></td>
+                        <td><a href="/M202425G.htm" class="group-link dotted-underline">М425</a></td>
                         <td class="grade-number">10, 11</td>
                         <td>
                             <div class="theme-name">
                                 Вычисления с погрешностями
                                 <button class="toggle-description" title="Показать описание">
-                                    <svg class="logo-white" width="1em" height="1em" viewBox="0 0 24 24"
+                                    <svg class="logo logo-white-stroke" width="1em" height="1em" viewBox="0 0 24 24"
                                         stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg"
                                         color="#000000">
                                         <path d="M17 8L12 3L7 8" stroke="#000000" stroke-width="1.5"
@@ -195,7 +195,7 @@
                         </td>
                         <td>суббота, 19:00-20:30<br>8 занятий<br>с 5 октября по 16 ноября, 30 ноября</td>
                         <td class="teacher-name"><a href="/teachers.php#dvorkin-vladimir-vitalievich"
-                                class="teacher-link dotted-underline" target="_blank">Владимир Витальевич<br>Дворкин</a>
+                                class="teacher-link dotted-underline">Владимир Витальевич<br>Дворкин</a>
                         </td>
                     </tr>
                     <tr class="course-description-row" aria-hidden="true">
@@ -222,7 +222,7 @@
 
                     <tr class="course-row course-full-semester" data-grades="9,10" data-group="Ф421 F421"
                         data-subject="Физика">
-                        <td><a href="/F202421G.htm" class="group-link dotted-underline" target="_blank">Ф421</a></td>
+                        <td><a href="/F202421G.htm" class="group-link dotted-underline">Ф421</a></td>
                         <td class="grade-number">9, 10</td>
                         <td>
                             <div class="theme-name">
@@ -231,13 +231,13 @@
                         </td>
                         <td>воскресенье, 12:00-15:15<br>12 занятий<br>с 6 октября по 22 декабря</td>
                         <td class="teacher-name"><a href="/teachers.php#ashkinazi-leonid-alexandrovich"
-                                class="teacher-link dotted-underline" target="_blank">Леонид
+                                class="teacher-link dotted-underline">Леонид
                                 Александрович<br>Ашкинази</a></td>
                     </tr>
 
                     <tr class="course-row course-full-semester" data-grades="10,11" data-group="Ф422 F422"
                         data-subject="Физика">
-                        <td><a href="/F202422G.htm" class="group-link dotted-underline" target="_blank">Ф422</a></td>
+                        <td><a href="/F202422G.htm" class="group-link dotted-underline">Ф422</a></td>
                         <td class="grade-number">10, 11</td>
                         <td>
                             <div class="theme-name">
@@ -246,19 +246,19 @@
                         </td>
                         <td>воскресенье, 17:00-20:15<br>12 занятий<br>с 6 октября по 22 декабря</td>
                         <td class="teacher-name"><a href="/teachers.php#ashkinazi-leonid-alexandrovich"
-                                class="teacher-link dotted-underline" target="_blank">Леонид
+                                class="teacher-link dotted-underline">Леонид
                                 Александрович<br>Ашкинази</a></td>
                     </tr>
 
                     <tr class="course-row course-full-semester" data-grades="8,9,10" data-group="И421 I421"
                         data-subject="Информатика">
-                        <td><a href="/I202421G.htm" class="group-link dotted-underline" target="_blank">И421</a></td>
+                        <td><a href="/I202421G.htm" class="group-link dotted-underline">И421</a></td>
                         <td class="grade-number">8, 9, 10</td>
                         <td>
                             <div class="theme-name">
                                 Работа с памятью и другие особенности программирования на языке Си
                                 <button class="toggle-description" title="Показать описание">
-                                    <svg class="logo" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="1.5"
+                                    <svg class="logo logo-stroke" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="1.5"
                                         fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000">
                                         <path d="M17 8L12 3L7 8" stroke="#000000" stroke-width="1.5"
                                             stroke-linecap="round" stroke-linejoin="round"></path>
@@ -270,7 +270,7 @@
                         </td>
                         <td>среда, 17:15-20:15<br>12 занятий<br>с 2 октября по 18 декабря</td>
                         <td class="teacher-name"><a href="/teachers.php#chernatskiy-sergey-genrikhovich"
-                                class="teacher-link dotted-underline" target="_blank">Сергей Генрихович<br>Чернацкий</a>
+                                class="teacher-link dotted-underline">Сергей Генрихович<br>Чернацкий</a>
                         </td>
                     </tr>
                     <tr class="course-description-row" aria-hidden="true">
@@ -294,13 +294,13 @@
 
                     <tr class="course-row course-full-semester" data-grades="10, 11" data-group="И422 I422"
                         data-subject="Информатика">
-                        <td><a href="/I202422G.htm" class="group-link dotted-underline" target="_blank">И422</a></td>
+                        <td><a href="/I202422G.htm" class="group-link dotted-underline">И422</a></td>
                         <td class="grade-number">8, 9, 10</td>
                         <td>
                             <div class="theme-name">
                                 Алгоритмизация и программирование
                                 <button class="toggle-description" title="Показать описание">
-                                    <svg class="logo" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="1.5"
+                                    <svg class="logo logo-stroke" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="1.5"
                                         fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000">
                                         <path d="M17 8L12 3L7 8" stroke="#000000" stroke-width="1.5"
                                             stroke-linecap="round" stroke-linejoin="round"></path>
@@ -312,7 +312,7 @@
                         </td>
                         <td>вторник, 17:00-19:15<br>12 занятий<br>с 1 октября по 17 декабря</td>
                         <td class="teacher-name"><a href="/teachers.php#grishkina-maria-petrovna"
-                                class="teacher-link dotted-underline" target="_blank">Мария Петровна<br>Гришкина</a>
+                                class="teacher-link dotted-underline">Мария Петровна<br>Гришкина</a>
                         </td>
                     </tr>
                     <tr class="course-description-row" aria-hidden="true">

@@ -56,25 +56,16 @@ async function copyPhoneNumber () {
  * @param {number} menuSize Size of the menu
  * @param {boolean} addEmptyLinkTag Flag, indicating whether the clicked button should also be surrounded by an a tag
  */
-function chooseFeature(optionFeatureNumber, optionPrefix, featurePrefix, menuSize, addEmptyLinkTag=true) {
-    var openingLinkTag = "<a>";
-    var closingLinkTag = "</a>";
-    if (addEmptyLinkTag === false) {
-        openingLinkTag = "";
-        closingLinkTag = "";
-    }
+function chooseFeature(optionFeatureNumber, optionPrefix, featurePrefix, menuSize) {
     for (let i = 1; i < menuSize+1; ++i) {
-        if (i != optionFeatureNumber) {
-            let currentOption = document.getElementById(optionPrefix + i);
-            currentOption.innerHTML = openingLinkTag + currentOption.innerText + closingLinkTag;
-
-            let currentFeature = document.getElementById(featurePrefix + i);
-            currentFeature.style.display = "none";
-        }
+        let currentOption = document.getElementById(optionPrefix + i);
+        let currentFeature = document.getElementById(featurePrefix + i);
+        currentOption.classList.remove("active");
+        currentFeature.style.display = "none";
     }
     
     let chosenOption = document.getElementById(optionPrefix + optionFeatureNumber);
-    chosenOption.innerHTML = openingLinkTag + "<b>" + chosenOption.innerText + "</b>" + closingLinkTag;
+    chosenOption.classList.add("active");
 
     let chosenFeature = document.getElementById(featurePrefix + optionFeatureNumber);
     chosenFeature.style.display = "";
@@ -83,6 +74,11 @@ function chooseFeature(optionFeatureNumber, optionPrefix, featurePrefix, menuSiz
 document.addEventListener('DOMContentLoaded', function() {
     // Get all dropdown containers
     const dropdowns = document.querySelectorAll('.text-dropdown-container');
+    const simulatedClickEvent = new MouseEvent("click", {
+        view: window,
+        bubbles: true,
+        cancelable: true,
+    });
 
     // Add click event listener to each dropdown
     dropdowns.forEach(dropdown => {
@@ -94,6 +90,11 @@ document.addEventListener('DOMContentLoaded', function() {
             // Toggle active class for this specific dropdown
             content.classList.toggle('active');
             arrow.classList.toggle('active');
+        });
+        header.addEventListener("keydown", (event) => {
+            if (event.code === 'Space' || event.code === 'Enter') {
+                header.dispatchEvent(simulatedClickEvent);
+            }
         });
     });
 });

@@ -48,7 +48,7 @@
       <div class="article-header text-align-center" style="padding-bottom: var(--proportional-small-padding);">Особенности обучения в ФМШ</div>
       <div class="article-body-holder" id="fmsh-features-article">
         <div class="text-dropdown-container">
-          <div class="text-dropdown-header has-border">
+          <div class="text-dropdown-header has-border" tabindex="0" role="button" name="Открыть выпадающий текст">
               <h3 class="text-dropdown-title">В ФМШ поступают действительно заинтересованные в глубоком изучении материала студенты</h3>
               <div class="text-dropdown-arrow"></div>
           </div>
@@ -60,7 +60,7 @@
           </div>  
         </div>
         <div class="text-dropdown-container">
-          <div class="text-dropdown-header has-border">
+          <div class="text-dropdown-header has-border" tabindex="0" role="button" name="Открыть выпадающий текст">
               <h3 class="text-dropdown-title">Преподаватели подстраивают программу обучения по результатам и по вопросам студентов</h3>
               <div class="text-dropdown-arrow"></div>
           </div>
@@ -72,7 +72,7 @@
           </div>  
         </div>
         <div class="text-dropdown-container">
-          <div class="text-dropdown-header has-border">
+          <div class="text-dropdown-header has-border" tabindex="0" role="button" name="Открыть выпадающий текст">
               <h3 class="text-dropdown-title">Многие преподаватели уделяют время расширению кругозора учащихся</h3>
               <div class="text-dropdown-arrow"></div>
           </div>
@@ -81,7 +81,7 @@
           </div>  
         </div>
         <div class="text-dropdown-container">
-          <div class="text-dropdown-header has-border">
+          <div class="text-dropdown-header has-border" tabindex="0" role="button" name="Открыть выпадающий текст">
               <h3 class="text-dropdown-title">В ФМШ особое внимание уделяется осознанию материала</h3>
               <div class="text-dropdown-arrow"></div>
           </div>
@@ -93,7 +93,7 @@
           </div>  
         </div>
         <div class="text-dropdown-container">
-          <div class="text-dropdown-header has-border">
+          <div class="text-dropdown-header has-border" tabindex="0" role="button" name="Открыть выпадающий текст">
               <h3 class="text-dropdown-title">Преподаватели показывают науку «в действии»</h3>
               <div class="text-dropdown-arrow"></div>
           </div>
@@ -102,7 +102,7 @@
           </div>  
         </div>
         <div class="text-dropdown-container">
-          <div class="text-dropdown-header has-border">
+          <div class="text-dropdown-header has-border" tabindex="0" role="button" name="Открыть выпадающий текст">
               <h3 class="text-dropdown-title">Учащиеся ФМШ участвуют в различных форматах работы наравне с преподавателями</h3>
               <div class="text-dropdown-arrow"></div>
           </div>
@@ -119,7 +119,7 @@
         <div class="mobile-timeline">
           <div class="timeline-event-holder">
             <div class="event-date">1966-1982</div>
-            <button class="event-name" id="mobile-timeline-event-1" onclick="chooseFeature(1, 'mobile-timeline-event-', 'mobile-timeline-element-', 4, false)"><b>Основание ФМШ МИЭМ Тарасовым Л. В.</b></button>
+            <button class="event-name active" id="mobile-timeline-event-1" onclick="chooseFeature(1, 'mobile-timeline-event-', 'mobile-timeline-element-', 4)">Основание ФМШ МИЭМ Тарасовым Л. В.</button>
           </div>
           <div class="timeline-element mobile-timeline-element" id="mobile-timeline-element-1">
             <div class="person-holder">
@@ -138,7 +138,7 @@
           </div>
           <div class="timeline-event-holder">
             <div class="event-date">1982-2012</div>
-            <button class="event-name" id="mobile-timeline-event-2" onclick="chooseFeature(2, 'mobile-timeline-event-', 'mobile-timeline-element-', 4, false)">Директором ФМШ МИЭМ является Родионов А.М.</button>
+            <button class="event-name" id="mobile-timeline-event-2" onclick="chooseFeature(2, 'mobile-timeline-event-', 'mobile-timeline-element-', 4)">Директором ФМШ МИЭМ является Родионов А.М.</button>
           </div>
           <div class="timeline-element mobile-timeline-element" id="mobile-timeline-element-2" style="display: none;">
             <div class="person-holder">
@@ -154,7 +154,7 @@
           </div>
           <div class="timeline-event-holder">
             <div class="event-date">2012-2022</div>
-            <button class="event-name" id="mobile-timeline-event-3" onclick="chooseFeature(3, 'mobile-timeline-event-', 'mobile-timeline-element-', 4, false)">Директором ФМШ МИЭМ является Волков Н.В.</button>
+            <button class="event-name" id="mobile-timeline-event-3" onclick="chooseFeature(3, 'mobile-timeline-event-', 'mobile-timeline-element-', 4)">Директором ФМШ МИЭМ является Волков Н.В.</button>
           </div>
           <div class="timeline-element mobile-timeline-element" id="mobile-timeline-element-3" style="display: none;">
             <div class="person-holder">
@@ -170,7 +170,7 @@
           </div>
           <div class="timeline-event-holder">
             <div class="event-date">2022-н.в.</div>
-            <button class="event-name" id="mobile-timeline-event-4" onclick="chooseFeature(4, 'mobile-timeline-event-', 'mobile-timeline-element-', 4, false)">Директором ФМШ МИЭМ является Боголюбов Д.П.</button>
+            <button class="event-name" id="mobile-timeline-event-4" onclick="chooseFeature(4, 'mobile-timeline-event-', 'mobile-timeline-element-', 4)">Директором ФМШ МИЭМ является Боголюбов Д.П.</button>
           </div>
           <div class="timeline-element mobile-timeline-element" id="mobile-timeline-element-4" style="display: none;">
             <div class="person-holder">
@@ -190,19 +190,19 @@
         <div class="timeline">
           <div class="timeline-event-holder">
             <div class="event-date">1966-1982</div>
-            <button class="event-name" id="timeline-event-1" onclick="chooseFeature(1, 'timeline-event-', 'timeline-element-', 4, false)">Название периода</button>
+            <button class="event-name active" id="timeline-event-1" onclick="chooseFeature(1, 'timeline-event-', 'timeline-element-', 4)">Название периода</button>
           </div>
           <div class="timeline-event-holder">
             <div class="event-date">1982-2012</div>
-            <button class="event-name" id="timeline-event-2" onclick="chooseFeature(2, 'timeline-event-', 'timeline-element-', 4, false)">Название периода</button>
+            <button class="event-name" id="timeline-event-2" onclick="chooseFeature(2, 'timeline-event-', 'timeline-element-', 4)">Название периода</button>
           </div>
           <div class="timeline-event-holder">
             <div class="event-date">2012-2022</div>
-            <button class="event-name" id="timeline-event-3" onclick="chooseFeature(3, 'timeline-event-', 'timeline-element-', 4, false)">Название периода</button>
+            <button class="event-name" id="timeline-event-3" onclick="chooseFeature(3, 'timeline-event-', 'timeline-element-', 4)">Название периода</button>
           </div>
           <div class="timeline-event-holder">
             <div class="event-date">2022-н.в.</div>
-            <button class="event-name" id="timeline-event-4" onclick="chooseFeature(4, 'timeline-event-', 'timeline-element-', 4, false)">Название периода</button>
+            <button class="event-name" id="timeline-event-4" onclick="chooseFeature(4, 'timeline-event-', 'timeline-element-', 4)">Название периода</button>
           </div>
         </div>
         <div class="timeline-element desktop-timeline-element" id="timeline-element-1">

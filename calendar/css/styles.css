@@ -244,38 +244,6 @@ article a:hover {
     color: var(--white);
 }
 
-.tooltip {
-    text-decoration: underline var(--dark-blue) dotted;
-    padding-left: var(--proportional-x-small-padding);
-}
-.tooltip .tooltip-text {
-    visibility: hidden;
-    width: fit-content;
-    background-color: var(--white);
-    color: var(--dark-blue);
-    padding: var(--proportional-x-small-padding);
-    transform: translateX(-50%) translateY(-100%);
-    min-width: 10em;
-    max-width: 12em;
-    text-align: center;
-    position: absolute;
-    z-index: 2;
-}
-.tooltip:hover .tooltip-text {
-    visibility: visible;
-}
-@media screen and (max-width: 720px) {
-    .tooltip {
-        text-decoration: none;
-        color: var(--blue);
-        font-weight: 900;
-    }
-}
-@media screen and (max-width: 400px) and (min-width: 317px) {
-    .tooltip .tooltip-text {
-        transform: translateX(-100%) translateY(-100%);
-    }
-}
 input::placeholder {
     color: var(--blue);
     opacity: var(--placeholder-text-opacity);
@@ -388,7 +356,7 @@ input {
 .date-and-button {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     width: 100%;
@@ -400,4 +368,5 @@ input {
     border-radius: 0.4em;
     border: var(--dark-blue) solid 2px;
     margin-bottom: var(--proportional-x-small-padding);
+    white-space: nowrap;
 }

@@ -62,7 +62,7 @@ footer {
     flex-wrap: wrap;
     width: 100%;
     background-color: var(--blue);
-    color: var(--white);
+    color: var(--dark-blue);
     border-top: var(--dark-blue);
     border-width: 3px;
     border-style: solid;
@@ -74,7 +74,7 @@ footer {
     padding: var(--proportional-small-padding);
 }
 footer a {
-    color: var(--dark-blue);
+    color: var(--white);
 }
 footer a:hover {
     color: var(--white);
@@ -85,6 +85,9 @@ footer > * {
     display: inline-block;
     margin-top: auto;
     margin-bottom: auto;
+}
+footer .emoji > path {
+    stroke: var(--white);
 }
 #mobile-contacts {
     display: flex;
@@ -105,4 +108,8 @@ footer > * {
 }
 #telegram-mobile, #phone-mobile, #email-mobile {
     width: fit-content;
+}
+
+footer code {
+    color: var(--white);
 }

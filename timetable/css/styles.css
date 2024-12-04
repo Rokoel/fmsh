@@ -123,10 +123,10 @@
     text-wrap: wrap;
 }
 
-.toggle-description > svg.logo-white:hover, .toggle-description > svg.logo:hover {
+.toggle-description:hover > svg.logo, .toggle-description:active > svg.logo, .toggle-description:focus > svg.logo {
     scale: 1.2;
 }
-.toggle-description > svg.logo-white, .toggle-description > svg.logo {
+.toggle-description > svg.logo {
     padding: 0;
     margin: 0;
 }

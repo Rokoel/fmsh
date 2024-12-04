@@ -117,6 +117,8 @@ html, body {
     font-size: calc(0.75em + 1vw); /* This 'magic value' was discovered by trial-and-error */
     margin: 0;
     box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     scroll-behavior: smooth;
     transition: all 0.3s ease;
     scroll-padding-top: var(--header-height);
@@ -136,7 +138,7 @@ html, body {
     --dark-blue: #1d2458;
     --blue: #2C74B3;
     --lighter-blue: #75BFFF;
-    --white: #d4d5df;
+    --white: #FAF9F6;
     --pastel-red: #CF6679;
     --pastel-dark-blue: #1a3e67;
     --pastel-light-blue: #8fbee8;
@@ -201,6 +203,7 @@ button {
     border-radius: 10px;
     border: var(--dark-blue) solid 2px;
     cursor: pointer;
+    user-select: none;
 }
 .has-border {
     border-radius: 0.4em;
@@ -353,5 +356,9 @@ input::placeholder {
 } 
 
 .no-user-select {
+    user-select: none;
+}
+
+#arrow-left, #arrow-right, #scroller-1 {
     user-select: none;
 }

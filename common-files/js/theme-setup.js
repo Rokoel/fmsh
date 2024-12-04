@@ -30,7 +30,7 @@ if (themeSwitcher != null && themeSwitcher != undefined) {
  */
 function setTheme() {
     var root = document.documentElement;
-    var white_color = "#e5e5e5";
+    var white_color = "#FAF9F6";
     var dark_color = "#1d2458";
     var lighter_blue_color = "#75BFFF";
     var blue_color = "#2C74B3";
@@ -39,7 +39,6 @@ function setTheme() {
     var light_filter = "invert(13%) sepia(42%) saturate(3586%) hue-rotate(220deg) brightness(86%) contrast(127%)";
     var dark_filter = "invert(100%) sepia(5%) saturate(19%) hue-rotate(180deg) brightness(106%) contrast(105%)";
     var header = document.getElementsByTagName("header")[0];
-    var footer = document.getElementsByTagName("footer")[0];
     var dark_theme_switcher_svg = '<path d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M22 12L23 12" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 2V1" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 23V22" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 20L19 19" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 4L19 5" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4 20L5 19" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4 4L5 5" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M1 12L2 12" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>';
     var light_theme_switcher_svg = '<path stroke="#000000" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" d="M3 11.507a9.493 9.493 0 0 0 18 4.219c-8.507 0-12.726-4.22-12.726-12.726A9.494 9.494 0 0 0 3 11.507Z"></path>';
     var main_block = document.getElementById("main-block");
@@ -61,9 +60,6 @@ function setTheme() {
         if (header != null && header != undefined) {
             header.style.backgroundColor = blue_color;
             header.style.color = "var(--white)";
-        }
-        if (footer != null && footer != undefined) {
-            footer.style.backgroundColor = blue_color;
         }
         if (main_block != null && main_block != undefined) {
             main_block.style.backgroundColor = "var(--white)";
@@ -89,9 +85,6 @@ function setTheme() {
         if (header != null && header != undefined) {
             header.style.backgroundColor = "var(--white)";
             header.style.color = "var(--dark-blue)";
-        }
-        if (footer != null && footer != undefined) {
-            footer.style.backgroundColor = "var(--blue)";
         }
         if (main_block != null && main_block != undefined) {
             main_block.style.backgroundColor = "var(--blue)";

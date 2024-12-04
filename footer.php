@@ -1,17 +1,17 @@
 <footer id="footer">
   <div id="copyright">
-    © 1995-2025 <a href="mailto:info@fmsh.ru">ФМШ - Физико-математическая школа FMSH.RU</a>
+    © 1995-2025 <a class="dotted-underline" href="mailto:info@fmsh.ru">ФМШ - Физико-математическая школа FMSH.RU</a>
     <div id="privacy-policy">
-      <a href="/privacy-policy.pdf">Политика конфиденциальности</a>
+      <a class="dotted-underline" href="privacy-policy.pdf">Политика конфиденциальности</a>
     </div>
   </div>
   <div id="contacts">
-    <div id="phone">Телефон: +7 (495) 580-69-28</div>
+    <div id="phone">Телефон: <code>+7(495)580-69-28</code></div>
     <div id="email">
-      E-mail: <a href="mailto:info@fmsh.ru">info@fmsh.ru</a>
+      E-mail: <a class="dotted-underline" href="mailto:info@fmsh.ru">info@fmsh.ru</a>
     </div>
     <div id="telegram">
-      Telegram: <a href="https://t.me/fmshru">@fmshru</a>
+      Telegram: <a class="dotted-underline" href="https://t.me/fmshru">@fmshru</a>
     </div>
   </div>
 </footer>
@@ -19,7 +19,7 @@
   <!-- The mobile footer is only shown on devices with appropriate screen sizes -->
   <div>
     <div id="copyright-mobile">
-      © 1995-2025 <a href="mailto:info@fmsh.ru">ФМШ - Физико-математическая школа FMSH.RU</a>
+      © 1995-2025 <a class="dotted-underline" href="mailto:info@fmsh.ru">ФМШ - Физико-математическая школа FMSH.RU</a>
     </div>
   </div>
   <div id="policy-and-contacts">
@@ -41,7 +41,7 @@
       </div>
     </div>
       <div id="privacy-policy">
-        <a href="/privacy-policy.pdf">Политика конфиденциальности</a>
+        <a class="dotted-underline" href="privacy-policy.pdf">Политика конфиденциальности</a>
       </div>
   </div>
 </footer>
