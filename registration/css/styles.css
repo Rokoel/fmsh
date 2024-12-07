@@ -9,7 +9,7 @@
             "birthday birthday grade grade school school school school school"
             "region region region region region region region region region"
             "capcha capcha capcha capcha capcha capcha submit-form submit-form submit-form";
-        padding: 0 1em;
+        padding: 0 var(--proportional-padding);
     }
 }
 @media screen and (max-width: 1600px) and (min-width: 950px) {
@@ -22,7 +22,7 @@
             "birthday birthday grade grade school school school school school"
             "region region region region region region region region region"
             "capcha capcha capcha capcha capcha capcha submit-form submit-form submit-form";
-        padding: 0 1em;
+        padding: 0 var(--proportional-padding);
     }
 }
 @media screen and (max-width: 950px) and (min-width: 720px) {
@@ -35,7 +35,7 @@
             "birthday birthday grade grade school school school school school"
             "region region region region region region region region region"
             "capcha capcha capcha capcha capcha capcha submit-form submit-form submit-form";
-        padding: 0 1em;
+        padding: 0 var(--proportional-padding);
     }
 }
 @media screen and (max-width: 720px) and (min-width: 320px) and (orientation: portrait) {
@@ -52,7 +52,7 @@
             "region region"
             "capcha capcha"
             "submit-form submit-form";
-        padding: 0 1em;
+        padding: 0 var(--proportional-padding);
     }
 }
 @media screen and (max-width: 320px) and (orientation: portrait) {
@@ -69,7 +69,7 @@
             "region region"
             "capcha capcha"
             "submit-form submit-form";
-        padding: 0 1em;
+        padding: 0 var(--proportional-padding);
     }
 }
 @media screen and (max-width: 720px) and (min-width: 320px) and (orientation: landscape) {
@@ -113,6 +113,7 @@
     z-index: 2;
     position: fixed;
     background-color: rgba(44, 116, 179, 0.4);
+    top: 0;
 }
 button.in-form-button {
     padding: var(--proportional-x-small-padding);
@@ -126,7 +127,6 @@ button.emoji-button {
     width: 2.5em;
     height: 2.5em;
     margin: var(--proportional-x-small-padding);
-    /* flex: 1; */
 }
 form svg {
     padding: 0;
@@ -218,6 +218,7 @@ form svg {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: var(--dark-blue);
 }
 
 .top-form-row {
@@ -226,4 +227,20 @@ form svg {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding-left: var(--proportional-padding);
+}
+
+.progress-bar-container {
+    width: 100%;
+    border: var(--dark-blue) solid 2px;
+    border-radius: 10px;
+    margin-top: var(--proportional-x-small-padding);
+}
+
+.progress-bar {
+    width: 0%;
+    height: 1vh;
+    background-color: var(--blue);
+    border-radius: 0.5vh;
+    transition: width 0.3s ease-in-out;
 }

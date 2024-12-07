@@ -24,21 +24,6 @@ window.onload = function() {
             document.getElementById("phone-mobile").dispatchEvent(simulatedClickEvent);
         }
     });
-    document.getElementById("contacts-page-phone-number").addEventListener("click", copyPhoneNumber);
-    document.getElementById("contacts-page-phone-number").addEventListener("keydown", (event) => {
-        if (event.code === 'Space' || event.code === 'Enter') {
-            document.getElementById("contacts-page-phone-number").dispatchEvent(simulatedClickEvent);
-        }
-    });
-    var featuresMenu = document.getElementById("features-menu");
-    var optionsList = featuresMenu.children;
-    for (let i = 0; i < optionsList.length; ++i) {
-        optionsList[i].addEventListener("keydown", (event) => {
-            if (event.code === 'Space' || event.code === 'Enter') {
-                optionsList[i].dispatchEvent(simulatedClickEvent);
-            }
-        });
-    }
     if (location.hash) {
         var requested_hash = location.hash.slice(1);
         location.hash = '';

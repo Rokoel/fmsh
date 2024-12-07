@@ -24,8 +24,9 @@
 </head>
 
 <body>
-  <?php include("./header.php"); ?>
-  <?php include("./mobile-move-buttons.php"); ?>
+  <?php include "./header.php"; ?>
+  <?php include "./mobile-move-buttons.php"; ?>
+  <?php include "./forms.php"; ?>
 
   <div class="page-container">
     <div id="entrance-text">

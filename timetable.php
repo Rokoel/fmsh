@@ -25,8 +25,10 @@
 </head>
 
 <body>
-    <?php include("./header.php"); ?>
-    <?php include("./mobile-move-buttons.php"); ?>
+    <?php include "./header.php"; ?>
+    <?php include "./mobile-move-buttons.php"; ?>
+    <?php include "./forms.php"; ?>
+
     <main class="page-container">
 
         <h3 class="page-title">Расписание занятий</h3>
@@ -141,8 +143,8 @@
                                 <button class="toggle-description" title="Показать описание">
                                     <svg class="logo" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="1.5"
                                         fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000">
-                                        <path d="M17 8L12 3L7 8" stroke="#000000" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round"></path>
+                                        <path d="M17 8L12 3L7 8" stroke="#000000" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round"></path>
                                         <path d="M17 16L12 21L7 16" stroke="#000000" stroke-width="1.5"
                                             stroke-linecap="round" stroke-linejoin="round"></path>
                                     </svg>
@@ -180,10 +182,11 @@
                             <div class="theme-name">
                                 Вычисления с погрешностями
                                 <button class="toggle-description" title="Показать описание">
-                                    <svg class="logo-white" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="1.5"
-                                        fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000">
-                                        <path d="M17 8L12 3L7 8" stroke="#000000" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round"></path>
+                                    <svg class="logo-white" width="1em" height="1em" viewBox="0 0 24 24"
+                                        stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                        color="#000000">
+                                        <path d="M17 8L12 3L7 8" stroke="#000000" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round"></path>
                                         <path d="M17 16L12 21L7 16" stroke="#000000" stroke-width="1.5"
                                             stroke-linecap="round" stroke-linejoin="round"></path>
                                     </svg>
@@ -348,6 +351,7 @@
         </div>
 
     </main>
+
     <?php include("./footer.php"); ?>
 
     <script src="./common-files/js/mobile-menu-setup.js"></script>

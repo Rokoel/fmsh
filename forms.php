@@ -12,15 +12,18 @@
       <div class="top-form-row">
         <div style="padding: var(--proportional-x-small-padding); text-align: center; flex: 3">
           <b>Регистрация</b>
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="main-registration-progress-bar-in-form"></div>
+          </div>
         </div>
         <div>
-          <button class="emoji-button" onclick="clearForm('main-registration-form')" type="reset" name="Кнопка очистить">
+          <button class="emoji-button" title="Очистить форму" onclick="clearForm('main-registration-form', ['main-registration-progress-bar', 'main-registration-progress-bar-in-form'], false)" type="reset" name="Кнопка очистить">
             <div class="vertical-align-center">
               <!-- Clear button icon SVG -->
               <svg xmlns="http://www.w3.org/2000/svg" class="emoji cursor-pointer colorless" fill="none" viewBox="0 0 24 24" color="#000000"><path d="M20 9L18.005 20.3463C17.8369 21.3026 17.0062 22 16.0353 22H7.96474C6.99379 22 6.1631 21.3026 5.99496 20.3463L4 9" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M21 6L15.375 6M3 6L8.625 6M8.625 6V4C8.625 2.89543 9.52043 2 10.625 2H13.375C14.4796 2 15.375 2.89543 15.375 4V6M8.625 6L15.375 6" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
             </div>
           </button>
-          <button class="emoji-button" onclick="closeBlock('main-registration-block')" type="button" name="Кнопка закрыть форму">
+          <button class="emoji-button" title="Закрыть форму" onclick="closeBlock('main-registration-block')" type="button" name="Кнопка закрыть форму">
             <div class="vertical-align-center">
               <!-- Clear button icon SVG -->
               <svg xmlns="http://www.w3.org/2000/svg" class="emoji cursor-pointer colorless" fill="none" viewBox="0 0 24 24" color="#000000"><path d="M6.75827 17.2426L12.0009 12M17.2435 6.75736L12.0009 12M12.0009 12L6.75827 6.75736M12.0009 12L17.2435 17.2426" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
@@ -105,13 +108,13 @@
         <div style="padding: var(--proportional-x-small-padding); text-align: center; width: fit-content;" id="event-registration-header">
         </div>
         <div>
-          <button class="emoji-button" onclick="clearForm('event-registration-form')" type="reset" name="Кнопка очистить">
+          <button class="emoji-button" title="Очистить форму" onclick="clearForm('event-registration-form')" type="reset" name="Кнопка очистить">
             <div class="vertical-align-center">
               <!-- Clear button icon SVG -->
               <svg xmlns="http://www.w3.org/2000/svg" class="emoji cursor-pointer colorless" fill="none" viewBox="0 0 24 24" color="#000000"><path d="M20 9L18.005 20.3463C17.8369 21.3026 17.0062 22 16.0353 22H7.96474C6.99379 22 6.1631 21.3026 5.99496 20.3463L4 9" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M21 6L15.375 6M3 6L8.625 6M8.625 6V4C8.625 2.89543 9.52043 2 10.625 2H13.375C14.4796 2 15.375 2.89543 15.375 4V6M8.625 6L15.375 6" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
             </div>
           </button>
-          <button class="emoji-button" onclick="closeBlock('event-registration-block')" type="button" name="Кнопка закрыть форму">
+          <button class="emoji-button" title="Закрыть форму" onclick="closeBlock('event-registration-block')" type="button" name="Кнопка закрыть форму">
             <div class="vertical-align-center">
               <!-- Clear button icon SVG -->
               <svg xmlns="http://www.w3.org/2000/svg" class="emoji cursor-pointer colorless" fill="none" viewBox="0 0 24 24" color="#000000"><path d="M6.75827 17.2426L12.0009 12M17.2435 6.75736L12.0009 12M12.0009 12L6.75827 6.75736M12.0009 12L17.2435 17.2426" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>

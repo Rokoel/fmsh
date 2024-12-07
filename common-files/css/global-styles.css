@@ -119,6 +119,7 @@ html, body {
     box-sizing: border-box;
     scroll-behavior: smooth;
     transition: all 0.3s ease;
+    scroll-padding-top: var(--header-height);
 }
 *, *:before, *:after {
     box-sizing: inherit; /* it's border-box unless specified otherwise */

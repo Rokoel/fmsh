@@ -89,7 +89,19 @@ footer > * {
 #mobile-contacts {
     display: flex;
     justify-content: space-evenly;
-    margin-right: var(--header-height);
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+#policy-and-contacts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+#privacy-policy > a {
+    white-space: nowrap;
 }
 #telegram-mobile, #phone-mobile, #email-mobile {
     width: fit-content;

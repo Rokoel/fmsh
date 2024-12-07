@@ -45,6 +45,7 @@ article a:hover {
     border-radius: 0.4em;
     border: var(--dark-blue) solid 2px;
     margin-bottom: var(--proportional-x-small-padding);
+    white-space: nowrap;
 }
 .shown-event {
     display: block;
@@ -383,4 +384,20 @@ input {
         justify-content: center;
         height: fit-content;
     }
+}
+.date-and-button {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.date-and-button > button {
+    font-size: 120%;
+    padding: var(--proportional-x-small-padding);
+    width: fit-content;
+    border-radius: 0.4em;
+    border: var(--dark-blue) solid 2px;
+    margin-bottom: var(--proportional-x-small-padding);
 }

@@ -122,7 +122,7 @@ function handleRegistration() {
     $formData = $_POST;
     
     // Check for event parameter
-    $eventId = isset($_GET['event']) ? intval($_GET['event']) : null;
+    $eventId = isset($_GET['event']) ? $_GET['event'] : null;
     
     try {
         // Handle registration based on event parameter

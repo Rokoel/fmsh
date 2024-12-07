@@ -379,7 +379,7 @@ article a:hover {
     font-size: 80%;
     color: var(--blue);
 }
-@media screen and (max-width: 720px) and (orientation: portrait) {
+@media screen and (max-width: 720px) {
     #timeline-article-body-holder {
         display: grid;
         grid-template-columns: 2fr;
@@ -419,7 +419,7 @@ article a:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: var(--proportional-xx-small-padding);
+    padding: var(--proportional-x-small-padding);
     background-color: var(--blue);
     cursor: pointer;
 }
@@ -471,4 +471,18 @@ article a:hover {
     float: right;
     width: 30%;
     padding: var(--proportional-xx-small-padding);
+}
+
+.timeline-element > .person-holder > .person-bio {
+    text-align: left;
+}
+.mobile-timeline .event-date {
+    text-align: left;
+}
+.mobile-timeline .person-holder, .mobile-timeline .person-bio {
+    padding-left: 0;
+}
+
+.person-bio > p {
+    margin-top: var(--proportional-x-small-padding);
 }

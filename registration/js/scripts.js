@@ -301,15 +301,24 @@ function validatePlace(place) {
 }
 
 const mainFormKey = 'main-registration-block';
+const mainRegProgressBarKey = 'main-registration-progress-bar';
+const mainRegProgressBarKeyInForm = 'main-registration-progress-bar-in-form';
 const eventFormKey = 'event-registration-block';
 
+/**
+ * This event listener is triggered after the initial HTML document has been completely loaded and parsed.
+ * It is used to setup form validation, show the main registration block and load the form data into the inputs.
+ * It also sets up event listeners for the "Next" and "Back" buttons.
+ */
 document.addEventListener('DOMContentLoaded', () => {
     setupFormsValidation();
 
     const mainRegBlock = document.getElementById(mainFormKey);
     const eventRegBlock = document.getElementById(eventFormKey);
     const endRegBlock = document.getElementById('end-registration-block');
-  
+
+    updateProgressBar(mainFormKey, mainRegProgressBarKey);
+    updateProgressBar(mainFormKey, mainRegProgressBarKeyInForm);
     
     /**
      * Shows the specified form (main or event) and loads the form data into the inputs.
@@ -324,6 +333,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (formType === 'main') {
             mainRegBlock.classList.remove('hidden');
             loadFormData(mainFormKey);
+            updateProgressBar(mainFormKey, mainRegProgressBarKey);
+            updateProgressBar(mainFormKey, mainRegProgressBarKeyInForm);
         } else if (formType === 'event') {
             eventRegBlock.classList.remove('hidden');
             loadFormData(eventFormKey, eventId);
@@ -427,10 +438,14 @@ document.addEventListener('DOMContentLoaded', () => {
     window.clearFormData = clearFormData;
 });
 
+
 /**
- * Opens the specified form type and sets up event listeners for form data handling.
- * @param {string} formType - The type of form to open ('main' or 'event').
- * @param {number|null} eventId - The ID of the event to register for, if applicable.
+ * Shows the specified form (main or event) and loads the form data into the inputs.
+ * Sets the header and text of the event registration form based on the caller element.
+ * Sets up event listeners for form data handling.
+ * @param {string} formType - The type of form to show ('main' or 'event').
+ * @param {HTMLElement} callerElement - The element that called this function, used to get the header and text of the event registration form.
+ * @param {number|null} eventId - The ID of the event to register for, if applicable. Defaults to null.
  */
 function openForm(formType, callerElement, eventId=null) {
     showForm(formType, eventId);
@@ -452,6 +467,8 @@ function setupEventListeners(eventId) {
         document.querySelectorAll('#main-registration-block input').forEach(input => {
             input.addEventListener('input', (e) => {
                 saveFormData(mainFormKey, e.target);
+                updateProgressBar(mainFormKey, mainRegProgressBarKey);
+                updateProgressBar(mainFormKey, mainRegProgressBarKeyInForm);
             });
         });
     }
@@ -472,7 +489,11 @@ function closeBlock(formId) {
     document.getElementById(formId).classList.add('hidden');
 }
 
-function clearForm(formId) {
+/**
+ * Clears the stored data for a form and resets all of its input fields to empty.
+ * @param {string} formId - The ID of the form to clear.
+ */
+function clearForm(formId, progressBarIds=null, showEmpty=true) {
     const form = document.getElementById(formId);
     
     // Determine which form key to use based on the form ID
@@ -483,4 +504,78 @@ function clearForm(formId) {
     const eventId = submitButton ? submitButton.getAttribute('data-event-id') : null;
     
     clearFormData(formKey, eventId);
+    if (progressBarIds) {
+        progressBarIds.forEach(progressBarId => {
+            updateProgressBar(formKey, progressBarId, showEmpty);
+        });
+    }
+}
+
+
+
+/**
+ * Calculates the progress of a form and updates the progress bar.
+ * @param {string} formKey - The ID of the form to calculate the progress for.
+ * @param {string} progressBarKey - The ID of the progress bar to update.
+ * @param {boolean} [showEmpty=false] - If true, shows the progress bar even if there is no data in localStorage.
+ * @returns {number} The progress of the form as a percentage.
+ */
+function calculateFormProgress(formKey, progressBarKey, showEmpty=false) {
+    const form = document.getElementById(formKey);
+    const fields = form.querySelectorAll('input');
+    
+    // Get the stored form data from localStorage
+    const storedData = localStorage.getItem(formKey);
+    let filledFields = 0;
+    if (storedData) {
+        const formData = JSON.parse(storedData);
+        
+        // Count how many fields have data in localStorage
+        fields.forEach(field => {
+            if (formData[field.name] && formData[field.name].trim() !== '') {
+                filledFields++;
+            }
+        });
+    }
+    
+    // Calculate the progress
+    const totalFields = fields.length;
+    const progress = (filledFields / totalFields) * 100;
+
+    // If the progress is 0 and showEmpty is false, hide the progress bar
+    if (progress === 0 && !showEmpty) {
+        const progressBarParent = document.getElementById(progressBarKey).parentNode;
+        if (progressBarParent) {
+            progressBarParent.style.display = 'none';
+        }
+        return;
+    }
+
+    // Update the progress bar visibility and progress
+    const progressBarParent = document.getElementById(progressBarKey).parentNode;
+    if (progressBarParent) {
+        progressBarParent.style.display = 'block';
+        document.getElementById(progressBarKey).style.width = `${progress}%`;
+    }
+
+    return progress;
+}
+
+
+/**
+ * Updates the width of the progress bar based on the current state of the form.
+ * @param {string} formId - The ID of the form to calculate the progress for.
+ * @param {string} progressBarId - The ID of the progress bar element.
+ * @param {boolean} showEmpty - If true, the progress bar will be shown even if 0% complete.
+ */
+function updateProgressBar(formId, progressBarId, showEmpty=false) {
+    const progress = calculateFormProgress(formId, progressBarId, showEmpty);
+    const progressBar = document.getElementById(progressBarId);
+
+    if (progressBar) {
+        progressBar.style.width = progress + '%';
+    }
+    else {
+        console.log("No progress bar found with ID: " + progressBarId);
+    }
 }

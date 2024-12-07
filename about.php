@@ -24,8 +24,9 @@
 </head>
 
 <body>
-  <?php include("./header.php"); ?>
-  <?php include("./mobile-move-buttons.php"); ?>
+  <?php include "./header.php"; ?>
+  <?php include "./mobile-move-buttons.php"; ?>
+  <?php include "./forms.php"; ?>
     
   <main id="content">
     <article id="article-1">
@@ -117,12 +118,11 @@
       <div class="article-body-holder" id="timeline-article-body-holder">
         <div class="mobile-timeline">
           <div class="timeline-event-holder">
-            <div class="event-date">1966</div>
-            <button class="event-name" id="mobile-timeline-event-1" onclick="chooseFeature(1, 'mobile-timeline-event-', 'mobile-timeline-element-', 7, false)"><b>Основание ФМШ МИЭМ Тарасовым Л. В.</b></button>
+            <div class="event-date">1966-1982</div>
+            <button class="event-name" id="mobile-timeline-event-1" onclick="chooseFeature(1, 'mobile-timeline-event-', 'mobile-timeline-element-', 4, false)"><b>Основание ФМШ МИЭМ Тарасовым Л. В.</b></button>
           </div>
           <div class="timeline-element mobile-timeline-element" id="mobile-timeline-element-1">
             <div class="person-holder">
-              <img src="./tarasov-lev-vasilyevich.jpg" class="person-avatar" style="width: 50vw; max-width: 300px;">
               <div class="person-bio">
                 <b>Тарасов Лев Васильевич</b>
                 <br>
@@ -137,13 +137,11 @@
             </div>
           </div>
           <div class="timeline-event-holder">
-            <div class="event-date">1970-1978</div>
-            <button class="event-name" id="mobile-timeline-event-2" onclick="chooseFeature(2, 'mobile-timeline-event-', 'mobile-timeline-element-', 7, false)">Директором ФМШ МИЭМ является Родионов А.М.</button>
+            <div class="event-date">1982-2012</div>
+            <button class="event-name" id="mobile-timeline-event-2" onclick="chooseFeature(2, 'mobile-timeline-event-', 'mobile-timeline-element-', 4, false)">Директором ФМШ МИЭМ является Родионов А.М.</button>
           </div>
           <div class="timeline-element mobile-timeline-element" id="mobile-timeline-element-2" style="display: none;">
             <div class="person-holder">
-              <img src="./rodionov-alexander-mikhailovich-2.jpg" class="person-avatar" style="width: 50vw; max-width: 300px;">
-              <!-- <img src="./rodionov-alexander-mikhailovich.jpg" class="person-avatar" style="width: 20vw; max-width: 300px;"> -->
               <div class="person-bio">
                 <b>Родионов Александр Михайлович</b>
                 <br>
@@ -155,12 +153,11 @@
             </div>
           </div>
           <div class="timeline-event-holder">
-            <div class="event-date">1978-1982</div>
-            <button class="event-name" id="mobile-timeline-event-3" onclick="chooseFeature(3, 'mobile-timeline-event-', 'mobile-timeline-element-', 7, false)">Директором ФМШ МИЭМ является Волков Н.В.</button>
+            <div class="event-date">2012-2022</div>
+            <button class="event-name" id="mobile-timeline-event-3" onclick="chooseFeature(3, 'mobile-timeline-event-', 'mobile-timeline-element-', 4, false)">Директором ФМШ МИЭМ является Волков Н.В.</button>
           </div>
           <div class="timeline-element mobile-timeline-element" id="mobile-timeline-element-3" style="display: none;">
             <div class="person-holder">
-              <img src="./volkov-nikolay-vasilyevich.jpg" class="person-avatar" style="width: 50vw; max-width: 300px;">
               <div class="person-bio">
                 <b>Волков Николай Васильевич</b>
                 <br>
@@ -172,12 +169,12 @@
             </div>
           </div>
           <div class="timeline-event-holder">
-            <div class="event-date">1982-2012</div>
-            <button class="event-name" id="mobile-timeline-event-4" onclick="chooseFeature(4, 'mobile-timeline-event-', 'mobile-timeline-element-', 7, false)">Директором ФМШ МИЭМ является Боголюбов Д.П.</button>
+            <div class="event-date">2022-н.в.</div>
+            <button class="event-name" id="mobile-timeline-event-4" onclick="chooseFeature(4, 'mobile-timeline-event-', 'mobile-timeline-element-', 4, false)">Директором ФМШ МИЭМ является Боголюбов Д.П.</button>
           </div>
           <div class="timeline-element mobile-timeline-element" id="mobile-timeline-element-4" style="display: none;">
             <div class="person-holder">
-              <img src="./bogolyubov-dmitry-petrovich.jpg" class="person-avatar" style="width: 50vw; max-width: 300px;">
+              <!-- <img src="./bogolyubov-dmitry-petrovich.jpg" class="person-avatar" style="width: 50vw; max-width: 300px;"> -->
               <div class="person-bio">
                 <b>Боголюбов Дмитрий Петрович</b>
                 <br>
@@ -189,68 +186,8 @@
               </div>
             </div>
           </div>
-          <div class="timeline-event-holder">
-            <div class="event-date">2012</div>
-            <button class="event-name" id="mobile-timeline-event-5" onclick="chooseFeature(5, 'mobile-timeline-event-', 'mobile-timeline-element-', 7, false)">Чернацкий С. Г. становится директором ФМШ МИЭМ</button>
-          </div>
-          <div class="timeline-element mobile-timeline-element" id="mobile-timeline-element-5" style="display: none;">
-            <div class="person-holder">
-              <img src="./chernatskiy-sergey-genrikhovich.jpg" class="person-avatar" style="width: 50vw; max-width: 300px;">
-              <div class="person-bio">
-                <b>Чернацкий Сергей Генрихович</b>
-                <br>
-                Директор ФМШ МИЭМ с 2012 по настоящее время. Получил высшее образование в МГУ им. М.В. Ломоносова (факультет психологии) и МИЭМ (прикладная математика)
-                <br>
-                <br>
-                Является генеральным директором ООО "Е-ПОС", имеет опыт работы в научно-исследовательской сфере (РИНКЦЭ), с 1990 года работает в сфере образования.
-              </div>
-            </div>
-          </div>
-          <div class="timeline-event-holder">
-            <div class="event-date">2022</div>
-            <button class="event-name" id="mobile-timeline-event-6" onclick="chooseFeature(6, 'mobile-timeline-event-', 'mobile-timeline-element-', 7, false)">ФМШ выходит из ведомства МИЭМ ВШЭ</button>
-          </div>
-          <div class="timeline-element mobile-timeline-element" id="mobile-timeline-element-6" style="display: none;">
-            <div class="person-holder">
-              <img src="./building-near-fmsh.jpeg" class="person-avatar" style="width: 50vw; max-width: 300px;">
-              <div class="person-bio">
-                <b>Вид из окна МИЭМ</b>
-                <br>
-                <br>
-                Физико-математическая школа FMSH.RU продолжает работу как самостоятельный проект.
-                <br>
-                <br>
-                Нас поддерживают преподаватели и учащимиея, до этого момента, соответственно, работавшие и учившиеся в Вечерней физико-математической школе Московского института электроники и математики (ФМШ МИЭМ).
-              </div>
-            </div>
-          </div>
-          <div class="timeline-event-holder">
-            <div class="event-date">2023</div>
-            <button class="event-name" id="mobile-timeline-event-7" onclick="chooseFeature(7, 'mobile-timeline-event-', 'mobile-timeline-element-', 7, false)">Введение системы "непрерывного набора"</button>
-          </div>
-          <div class="timeline-element mobile-timeline-element" id="mobile-timeline-element-7" style="display: none;">
-            <div class="person-holder">
-              <img src="./half-a-century-fmsh.jpg" class="person-avatar" style="width: 50vw; max-width: 300px;">
-              <div class="person-bio">
-                <b>Непрерывный набор идёт непрерывно</b>
-                <br>
-                Теперь поступать к нам можно на протяжении всего семестра. Больше никаких дедлайнов, фиксированных сроков и прочих мешающих спокойной работе ограничений!
-                <br>
-                <br>
-                Если хочется у нас учиться, то самостоятельно выбирайте время и не торопясь начинайте работать.
-              </div>
-            </div>
-          </div>
         </div>
         <div class="timeline">
-          <!-- <div class="timeline-event-holder">
-            <div class="event-date">1966</div>
-            <button class="event-name" id="timeline-event-1" onclick="chooseFeature(1, 'timeline-event-', 'timeline-element-', 7, false)"><b>Основание ФМШ МИЭМ Тарасовым Л. В.</b></button>
-          </div>
-          <div class="timeline-event-holder">
-            <div class="event-date">1970-1978</div>
-            <button class="event-name" id="timeline-event-2" onclick="chooseFeature(2, 'timeline-event-', 'timeline-element-', 7, false)">Директором ФМШ МИЭМ является Родионов А.М.</button>
-          </div> -->
           <div class="timeline-event-holder">
             <div class="event-date">1966-1982</div>
             <button class="event-name" id="timeline-event-1" onclick="chooseFeature(1, 'timeline-event-', 'timeline-element-', 4, false)">Название периода</button>
@@ -259,10 +196,6 @@
             <div class="event-date">1982-2012</div>
             <button class="event-name" id="timeline-event-2" onclick="chooseFeature(2, 'timeline-event-', 'timeline-element-', 4, false)">Название периода</button>
           </div>
-          <!-- <div class="timeline-event-holder">
-            <div class="event-date">2012</div>
-            <button class="event-name" id="timeline-event-5" onclick="chooseFeature(5, 'timeline-event-', 'timeline-element-', 7, false)">Чернацкий С. Г. становится директором ФМШ МИЭМ</button>
-          </div> -->
           <div class="timeline-event-holder">
             <div class="event-date">2012-2022</div>
             <button class="event-name" id="timeline-event-3" onclick="chooseFeature(3, 'timeline-event-', 'timeline-element-', 4, false)">Название периода</button>
@@ -329,91 +262,44 @@
             </div>
           </div>
         </div>
-        <div class="timeline-element desktop-timeline-element" id="timeline-element-5" style="display: none;">
-          <div class="person-holder">
-            <!-- <img src="./chernatskiy-sergey-genrikhovich.jpg" class="person-avatar" style="width: 20vw; max-width: 300px;"> -->
-            <div class="person-bio">
-              <b>Чернацкий Сергей Генрихович</b>
-              <br>
-              Директор ФМШ МИЭМ с 2012 по настоящее время. Получил высшее образование в МГУ им. М.В. Ломоносова (факультет психологии) и МИЭМ (прикладная математика)
-              <br>
-              <br>
-              Является генеральным директором ООО "Е-ПОС", имеет опыт работы в научно-исследовательской сфере (РИНКЦЭ), с 1990 года работает в сфере образования.
-            </div>
-          </div>
-        </div>
-        <div class="timeline-element desktop-timeline-element" id="timeline-element-6" style="display: none;">
-          <div class="person-holder">
-            <!-- <img src="./building-near-fmsh.jpeg" class="person-avatar" style="width: 35vw; max-width: 600px;"> -->
-            <div class="person-bio">
-              <b>Вид из окна МИЭМ</b>
-              <br>
-              <br>
-              Физико-математическая школа FMSH.RU продолжает работу как самостоятельный проект.
-              <br>
-              <br>
-              Нас поддерживают преподаватели и учащимиея, до этого момента, соответственно, работавшие и учившиеся в Вечерней физико-математической школе Московского института электроники и математики (ФМШ МИЭМ).
-            </div>
-          </div>
-        </div>
-        <div class="timeline-element desktop-timeline-element" id="timeline-element-7" style="display: none;">
-          <div class="person-holder">
-            <!-- <img src="./half-a-century-fmsh.jpg" class="person-avatar" style="width: 35vw; max-width: 600px;"> -->
-            <div class="person-bio">
-              <b>Непрерывный набор идёт непрерывно</b>
-              <br>
-              Теперь поступать к нам можно на протяжении всего семестра. Больше никаких дедлайнов, фиксированных сроков и прочих мешающих спокойной работе ограничений!
-              <br>
-              <br>
-              Если хочется у нас учиться, то самостоятельно выбирайте время и не торопясь начинайте работать.
-            </div>
-          </div>
-        </div>
       </div>
     </article>
     <hr>
     <article id="article-4">
       <div class="article-body-holder" id="administration-and-contacts">
         <div class="article-header text-align-center" id="administration-header">Администрация</div>
-        <!-- <div class="article-header text-align-center" id="contacts-header">Контакты</div> -->
         <div class="flex-row-space-evenly" id="administration-holder">
           <div class="person-holder">
             <img src="./about/grishkina-maria-petrovna.jpg" class="person-avatar" alt="Фотография преподавателя">
             <div class="person-bio">
-              <a href="/teachers.php#grishkina-maria-petrovna">Гришкина Мария Петровна</a>
-              <br>
-              к.т.н.,
-              зам. директора ФМШ МИЭМ
-              с 2002 по 2024 год
+              <a href="teachers.php#grishkina-maria-petrovna">Гришкина Мария Петровна</a>
+              <p>
+                к.т.н.,
+                зам. директора ФМШ МИЭМ
+                с 2002 по 2024 год
+              </p>
             </div>
           </div>
           <div class="person-holder" id="chernatskiy-sergey-genrikhovich">
             <img src="./about/chernatskiy-sergey-genrikhovich.jpg" class="person-avatar" alt="Фотография преподавателя">
             <div class="person-bio">
-              <a href="/teachers.php#chernatskiy-sergey-genrikhovich">Чернацкий Сергей Генрихович</a>
-              <br>
-              директор ФМШ МИЭМ с 2012 по 2024 год
+              <a href="teachers.php#chernatskiy-sergey-genrikhovich">Чернацкий Сергей Генрихович</a>
+              <p>
+                директор ФМШ МИЭМ с 2012 по 2024 год
+              </p>
             </div>
           </div>
           <div class="person-holder">
             <img src="./about/bogolyubov-dmitry-petrovich.jpg" class="person-avatar" alt="Фотография преподавателя">
             <div class="person-bio">
-              <a href="/teachers.php#bogolyubov-dmitry-petrovich">Боголюбов Дмитрий Петрович</a>
-              <br>
-              к.т.н.,
-              научный руководитель ФМШ МИЭМ с 2012 по 2024 год
+              <a href="teachers.php#bogolyubov-dmitry-petrovich">Боголюбов Дмитрий Петрович</a>
+              <p>
+                к.т.н.,
+                научный руководитель ФМШ МИЭМ с 2012 по 2024 год
+              </p>
             </div>
           </div>
         </div>
-        <!-- <div id="contacts-holder">
-          Телефон: <a href="#contacts-holder" id="contacts-page-phone-number">+7 (495) 580-69-28</a>
-          <div id="contacts-page-email">
-            E-mail: <a href="mailto:info@fmsh.ru">info@fmsh.ru</a>
-          </div>
-          <div id="contacts-page-telegram">
-            Telegram: <a href="https://t.me/fmshru">@fmshru</a>
-          </div>
-        </div> -->
       </div>
     </article>
   </main>

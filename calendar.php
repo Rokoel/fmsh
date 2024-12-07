@@ -24,8 +24,9 @@
 </head>
 
 <body>
-  <?php include("./header.php"); ?>
-  <?php include("./mobile-move-buttons.php"); ?>
+  <?php include "./header.php"; ?>
+  <?php include "./mobile-move-buttons.php"; ?>
+  <?php include "./forms.php"; ?>
     
   <main id="content">
     <article id="article-1" class="bigger-article horizontal-align-center">
@@ -1193,10 +1194,13 @@
           
           
           <div class="article-text has-border event-20241020 hidden-event" id="20241020">
-          <div class="article-header date colored-green">20 октября, 03:00</div>
-          <a href="https://fmsh.ru/register.php?event=0dd71e706b844d7f4b781d222c8feb72"><b>Поговорим о математике?</b> Семинар для учащихся 6-11 классов</a> <b>| Математика</b>
-          <br><br>Нет-нет, время начала семинара указано верно. Специально сделали его таким, чтобы было удобно школьникам, живущим в часовых поясах UTC-12..UTC-5 и UTC+8..UTC+14. О том, чему посвящены данные семинары, можно прочитать в <a href="https://fmsh.ru/news.php#20211004">новости на нашем сайте от 04.10.2021</a>.
-          <br><br>Ведущий семинара: <b><a href="teachers.php#chernatskiy">Сергей Генрихович Чернацкий</a></b>
+            <div class="date-and-button">
+              <div class="article-header date colored-green">20 октября, 03:00</div>
+              <button onclick="openForm('event', this, '0dd71e706b844d7f4b781d222c8feb72')" data-event-id="0dd71e706b844d7f4b781d222c8feb72" data-event-header="<b>Поговорим о математике?</b>" data-event-text="1. Этот текст можно получать при генерации айдишников мероприятия, т.е. вставлять из бэкенда сайта, из PHP.">Регистрация на событие</button>
+            </div>
+            <b>Поговорим о математике?</b> Семинар для учащихся 6-11 классов <b>| Математика</b>
+            <br><br>Нет-нет, время начала семинара указано верно. Специально сделали его таким, чтобы было удобно школьникам, живущим в часовых поясах UTC-12..UTC-5 и UTC+8..UTC+14. О том, чему посвящены данные семинары, можно прочитать в <a href="https://fmsh.ru/news.php#20211004">новости на нашем сайте от 04.10.2021</a>.
+            <br><br>Ведущий семинара: <b><a href="teachers.php#chernatskiy">Сергей Генрихович Чернацкий</a></b>
           </div>
           
           

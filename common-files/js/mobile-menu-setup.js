@@ -92,3 +92,22 @@ function switchMenu() {
         MENU_STATE = 'closed';
     }
 }
+
+window.addEventListener('scroll', function() {
+    const scrolledTo = window.scrollY + window.innerHeight + 15;
+    const isBottomReached = (document.body.scrollHeight <= scrolledTo);
+    if ( isBottomReached == true ) {
+        if (this.document.getElementById("move-down-button") != null && this.document.getElementById("move-down-button") != undefined) {
+            this.document.getElementById("move-down-button").style.bottom = "calc(var(--header-height)*1.5)";
+            this.document.getElementById("move-up-button").style.bottom = "calc(var(--header-height)*1.5)";
+            this.document.getElementById("mobile-navbar").style.bottom = "calc(var(--header-height)*1.5)";
+        }
+    }
+    else {
+        if (this.document.getElementById("move-down-button") != null && this.document.getElementById("move-down-button") != undefined) {
+            this.document.getElementById("move-down-button").style.bottom = "";
+            this.document.getElementById("move-up-button").style.bottom = "";
+            this.document.getElementById("mobile-navbar").style.bottom = "";
+        }
+    }
+  });

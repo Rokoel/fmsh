@@ -237,6 +237,7 @@ p {
 }
 .extra-holder p {
     width: fit-content;
+    text-align: left;
 }
 .support-button {
     padding: var(--proportional-xx-small-padding);
@@ -322,4 +323,19 @@ p {
     .support-button {
         padding: var(--proportional-small-padding);
     }
+}
+
+.work-holder > h5 {
+    line-height: normal;
+}
+.extra-holder > h5 {
+    line-height: normal;
+}
+
+.education-holder, .work-holder, .extra-holder {
+    padding-bottom: 0;
+}
+
+.person-holder {
+    padding-bottom: 0;
 }
