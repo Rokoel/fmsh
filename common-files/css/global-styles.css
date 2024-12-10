@@ -353,7 +353,7 @@ input::placeholder {
 .select-css option {
     background-color: var(--dark-blue);
     color: var(--white);
-} 
+}
 
 .no-user-select {
     user-select: none;

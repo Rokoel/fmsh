@@ -4,6 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const courseRows = document.querySelectorAll('.course-row');
     const toggleButtons = document.querySelectorAll('.toggle-description');
 
+    if (isSafari()) {
+        document.querySelectorAll('.course-description-row').forEach(elem => {
+            elem.classList.remove('course-description-row');
+            elem.classList.add('safari-only-course-description-row');
+        });
+    }
+        
+
     function filterCourses() {
         const gradeValue = gradeFilter.value;
         const subjectValue = subjectFilter.value;
@@ -66,3 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+function isSafari() {
+    // Taken from https://stackoverflow.com/a/9851769, because detecting Safari is difficult...
+    // Safari 3.0+
+    var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
+    return isSafari;
+}

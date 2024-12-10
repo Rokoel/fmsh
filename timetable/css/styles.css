@@ -181,6 +181,15 @@
     animation: slideDown 0.3s ease;
 }
 
+.safari-only-course-description-row {
+    display: none;
+    padding: var(--proportional-padding);
+}
+.safari-only-course-description-row.visible {
+    display: table-row;
+    height: auto;
+}
+
 tbody>tr>td:nth-child(4) {
     white-space: nowrap;
 }
