@@ -48,7 +48,6 @@ if (moveDownButton != null && moveDownButton != undefined) {
 }
 var registerBlockButton = document.getElementById("register");
 if (registerBlockButton != null && registerBlockButton != undefined) {
-    registerBlockButton.addEventListener("click", switchMenu);
     registerBlockButton.addEventListener("keydown", (event) => {
         if (event.code === 'Space' || event.code === 'Enter') {
             let simulatedClickEvent = new MouseEvent("click", {

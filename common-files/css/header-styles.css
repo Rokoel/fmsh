@@ -55,7 +55,7 @@
         overflow: hidden;
     }
     #register {
-        border-radius: 5px;
+        /* border-radius: 5px; */
         font-size: 110%;
     }
 }
@@ -92,7 +92,7 @@
         overflow: hidden;
     }
     #register {
-        border-radius: 5px;
+        /* border-radius: 5px; */
         font-size: 110%;
     }
 }
@@ -129,7 +129,7 @@
         overflow: hidden;
     }
     #register {
-        border-radius: 5px;
+        /* border-radius: 5px; */
         font-size: 110%;
     }
 }
@@ -166,7 +166,7 @@
         overflow: hidden;
     }
     #register {
-        border-radius: 5px;
+        /* border-radius: 5px; */
         font-size: 110%;
     }
 }
@@ -207,7 +207,7 @@ nav#desktop-navbar {
     height: 100%;
 }
 nav#mobile-navbar {
-    z-index: 3;
+    z-index: 2;
     position: fixed;
     width: var(--header-height);
     height: var(--header-height);
@@ -216,7 +216,7 @@ nav#mobile-navbar {
     border: 2px solid var(--dark-blue);
 }
 #move-up-button, #move-down-button {
-    z-index: 3;
+    z-index: 2;
     position: fixed;
     width: var(--header-height);
     height: var(--header-height);
@@ -276,7 +276,7 @@ nav#desktop-navbar a {
     display: none;
     position: absolute;
     z-index: 4;
-    border-radius: 0 0 0.2em 0.2em;
+    border-radius: 0 0.2em 0.2em 0.2em;
     border-bottom: 2px solid var(--dark-blue);
     border-right: 2px solid var(--dark-blue);
     border-left: 2px solid var(--dark-blue);
@@ -288,7 +288,7 @@ nav#desktop-navbar a {
     display: block;
     text-align: left;
 }
-.dropdown:hover .dropdown-content, .dropdown:focus .dropdown-content, .dropdown:focus-within .dropdown-content {
+.dropdown:hover .dropdown-content, .dropdown:focus .dropdown-content, .dropdown:focus-within .dropdown-content, .dropdown:has(:focus) .dropdown-content {
     display: block;
 }
 .dropdown-content > :hover, a:hover, .dropdown-content > :focus, a:focus {
@@ -297,6 +297,10 @@ nav#desktop-navbar a {
     -moz-animation: link_chosen 0.5s ease-out forwards;
     -o-animation: link_chosen 0.5s ease-out forwards;
     -webkit-animation: link_chosen 0.5s ease-out forwards;
+}
+
+.dropdown, .dropbtn, .dropbtn > a {
+    height: 100%;
 }
 
 /* These two styling rules are used for styling the register button-link */
@@ -362,3 +366,7 @@ nav#desktop-navbar a {
     align-items: center;
 }
 
+.dropbtn > a {
+    display: flex;
+    align-items: center;
+}

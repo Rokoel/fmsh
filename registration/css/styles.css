@@ -115,6 +115,11 @@
     background-color: rgba(44, 116, 179, 0.4);
     top: 0;
 }
+#main-registration-form, #event-registration-form, #end-registration {
+    max-height: 70%;
+    max-height: calc(98vh - 2*var(--header-height));
+    overflow: auto;
+}
 button.in-form-button {
     padding: var(--proportional-x-small-padding);
     font-size: 85%;

@@ -440,10 +440,6 @@ article a:hover {
     #slogan {
         display: none;
     }
-    .vertical-align-center {
-        height: fit-content;
-        padding: 0;
-    }
     #scroller-1, #main-block h3, #main-block h1 {
         margin: 0;
         padding: 0;

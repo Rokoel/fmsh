@@ -103,6 +103,16 @@
         font-size: 50%;
     }
 }
+@media screen and (max-width: 295px) {
+    .timetable {
+        font-size: 45%;
+    }
+}
+@media screen and (max-width: 255px) {
+    .timetable {
+        font-size: 40%;
+    }
+}
 
 
 .timetable th {

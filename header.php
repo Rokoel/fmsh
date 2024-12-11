@@ -27,7 +27,7 @@
   <nav id="desktop-navbar">
     <div class="dropdown vertical-align-center">
       <div class="dropbtn">
-        <a href="about.php">О нас</a>
+        <a tabindex="0" name="Открыть выпадающий текст" role="button">О нас</a>
         <div class="dropdown-content">
           <a href="about.php">Что такое ФМШ</a>
           <a href="teachers.php">Наши преподаватели</a>
@@ -52,7 +52,7 @@
   </nav>
   <div class="horizontal-align-center" id="register-holder">
     <div id="register" onclick="openForm('main', this)" tabindex="0" name="Открыть регистрацию" role="button">
-      <a onclick="openForm('main', this)" tabindex="-1">Регистрация</a>
+      <a tabindex="-1">Регистрация</a>
       <div class="progress-bar-container">
         <div class="progress-bar" id="main-registration-progress-bar"></div>
       </div>
