@@ -54,6 +54,9 @@
             "submit-form submit-form";
         padding: 0 var(--proportional-padding);
     }
+    #main-registration-block, #event-registration-block, #end-registration-block {
+        font-size: 120%;
+    }
 }
 @media screen and (max-width: 320px) and (orientation: portrait) {
     #registration-form-holder {
@@ -70,6 +73,9 @@
             "capcha capcha"
             "submit-form submit-form";
         padding: 0 var(--proportional-padding);
+    }
+    #main-registration-block, #event-registration-block, #end-registration-block {
+        font-size: 120%;
     }
 }
 @media screen and (max-width: 720px) and (min-width: 320px) and (orientation: landscape) {
@@ -132,6 +138,13 @@ button.emoji-button {
     width: 2.5em;
     height: 2.5em;
     margin: var(--proportional-x-small-padding);
+}
+button.emoji-button:focus, button.emoji-button:hover, button.emoji-button:active {
+    filter: none;
+    background-color: var(--dark-blue);
+}
+button.emoji-button:focus path, button.emoji-button:hover path, button.emoji-button:active path {
+    stroke: var(--white);
 }
 form svg {
     padding: 0;

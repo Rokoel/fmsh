@@ -225,6 +225,14 @@ nav#mobile-navbar {
     border: 2px solid var(--dark-blue);
 }
 
+#move-up-button:hover, #move-down-button:hover, #mobile-navbar:hover, #move-up-button:focus-within, #move-down-button:focus-within, #mobile-navbar:focus-within {
+    background-color: var(--dark-blue);
+    border: var(--white) solid 2px;
+}
+#move-up-button:hover path, #move-down-button:hover path, #mobile-navbar:hover path, #move-up-button:focus-within path, #move-down-button:focus-within path, #mobile-navbar:focus-within path {
+    stroke: var(--white);   
+}
+
 .colorless:hover, .colorless:focus, .colorless:focus-within {
     transform: scale(1.1);
 }
@@ -304,9 +312,15 @@ nav#desktop-navbar a {
 }
 
 /* These two styling rules are used for styling the register button-link */
-#register:hover, #register:hover > a, #register:focus, #register:focus > a {
+#register:focus, #register:focus > a, #register:active, #register:active > a {
     background-color: var(--dark-blue);
     color: var(--white);
+}
+@media (hover: hover) {
+    #register:hover, #register:hover > a {
+        background-color: var(--dark-blue);
+        color: var(--white);
+    }
 }
 #register, #register-holder {
     height: 100%;

@@ -579,3 +579,35 @@ function updateProgressBar(formId, progressBarId, showEmpty=false) {
         console.log("No progress bar found with ID: " + progressBarId);
     }
 }
+
+window.addEventListener('resize', function() {
+    if (window.innerHeight < 200) {
+        document.getElementById("main-registration-form").nextElementSibling.style.display = 'none';
+        document.getElementById("event-registration-form").nextElementSibling.style.display = 'none';
+        document.getElementById("end-registration").nextElementSibling.style.display = 'none';
+        document.getElementById("main-registration-form").previousElementSibling.style.display = 'none';
+        document.getElementById("event-registration-form").previousElementSibling.style.display = 'none';
+        document.getElementById("end-registration").previousElementSibling.style.display = 'none';
+        document.getElementById("main-registration-form").style.maxHeight = '100dvh';
+        document.getElementById("main-registration-form").parentElement.style.maxHeight = '100dvh';
+        document.getElementById("event-registration-form").style.maxHeight = '100dvh';
+        document.getElementById("event-registration-form").parentElement.style.maxHeight = '100dvh';
+        document.getElementById("end-registration").style.maxHeight = '100dvh';
+        document.getElementById("end-registration").parentElement.style.maxHeight = '100dvh';
+        document.getElementById("header").style.zIndex = '1';
+    } else {
+        document.getElementById("main-registration-form").nextElementSibling.style.display = '';
+        document.getElementById("event-registration-form").nextElementSibling.style.display = '';
+        document.getElementById("end-registration").nextElementSibling.style.display = '';
+        document.getElementById("main-registration-form").previousElementSibling.style.display = '';
+        document.getElementById("event-registration-form").previousElementSibling.style.display = '';
+        document.getElementById("end-registration").previousElementSibling.style.display = '';
+        document.getElementById("main-registration-form").style.maxHeight = '';
+        document.getElementById("main-registration-form").parentElement.style.maxHeight = '';
+        document.getElementById("event-registration-form").style.maxHeight = '';
+        document.getElementById("event-registration-form").parentElement.style.maxHeight = '';
+        document.getElementById("end-registration").style.maxHeight = '';
+        document.getElementById("end-registration").parentElement.style.maxHeight = '';
+        document.getElementById("header").style.zIndex = '';
+    }
+});

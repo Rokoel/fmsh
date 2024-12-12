@@ -26,8 +26,8 @@
   
   <nav id="desktop-navbar">
     <div class="dropdown vertical-align-center">
-      <div class="dropbtn">
-        <a tabindex="0" name="Открыть выпадающий текст" role="button">О нас</a>
+      <div class="dropbtn" tabindex="0" name="Открыть выпадающий текст" role="button">
+        <a tabindex="-1">О нас</a>
         <div class="dropdown-content">
           <a href="about.php">Что такое ФМШ</a>
           <a href="teachers.php">Наши преподаватели</a>
