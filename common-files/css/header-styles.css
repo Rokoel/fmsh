@@ -312,7 +312,7 @@ nav#desktop-navbar a {
 }
 
 /* These two styling rules are used for styling the register button-link */
-#register:focus, #register:focus > a, #register:active, #register:active > a {
+#register:active, #register:active > a {
     background-color: var(--dark-blue);
     color: var(--white);
 }
