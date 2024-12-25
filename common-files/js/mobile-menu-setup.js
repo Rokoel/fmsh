@@ -123,4 +123,4 @@ window.addEventListener('scroll', function() {
             this.document.getElementById("mobile-navbar").style.bottom = "";
         }
     }
-  });
+});

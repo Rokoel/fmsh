@@ -126,6 +126,11 @@
     max-height: calc(98vh - 2*var(--header-height));
     overflow: auto;
 }
+@media screen and (min-height: 500px) and (orientation: landscape) {
+    #main-registration-form, #event-registration-form, #end-registration {
+        overflow: none;
+    }
+}
 button.in-form-button {
     padding: var(--proportional-x-small-padding);
     font-size: 85%;

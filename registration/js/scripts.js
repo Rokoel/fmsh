@@ -581,7 +581,7 @@ function updateProgressBar(formId, progressBarId, showEmpty=false) {
 }
 
 window.addEventListener('resize', function() {
-    if (window.innerHeight < 200) {
+    if (window.innerHeight < 415) {
         document.getElementById("main-registration-form").nextElementSibling.style.display = 'none';
         document.getElementById("event-registration-form").nextElementSibling.style.display = 'none';
         document.getElementById("end-registration").nextElementSibling.style.display = 'none';
