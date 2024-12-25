@@ -312,15 +312,9 @@ nav#desktop-navbar a {
 }
 
 /* These two styling rules are used for styling the register button-link */
-#register:active, #register:active > a {
+#register:active, #register:active > a, #register:focus-visible, #register:focus-visible > a {
     background-color: var(--dark-blue);
     color: var(--white);
-}
-@media (hover: hover) {
-    #register:hover, #register:hover > a {
-        background-color: var(--dark-blue);
-        color: var(--white);
-    }
 }
 #register, #register-holder {
     height: 100%;
