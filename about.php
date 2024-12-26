@@ -174,7 +174,7 @@
           </div>
           <div class="timeline-element mobile-timeline-element" id="mobile-timeline-element-4" style="display: none;">
             <div class="person-holder">
-              <!-- <img src="./bogolyubov-dmitry-petrovich.jpg" class="person-avatar" style="width: 50vw; max-width: 300px;"> -->
+              <!-- <img src="./bogolyubov-dmitry-petrovich.webp" class="person-avatar" style="width: 50vw; max-width: 300px;"> -->
               <div class="person-bio">
                 <b>Боголюбов Дмитрий Петрович</b>
                 <br>
@@ -207,7 +207,7 @@
         </div>
         <div class="timeline-element desktop-timeline-element" id="timeline-element-1">
           <div class="person-holder">
-            <!-- <img src="./tarasov-lev-vasilyevich.jpg" class="person-avatar" style="width: 20vw; max-width: 300px;"> -->
+            <!-- <img src="./tarasov-lev-vasilyevich.webp" class="person-avatar" style="width: 20vw; max-width: 300px;"> -->
             <div class="person-bio">
               <b>Тарасов Лев Васильевич</b>
               <br>
@@ -223,8 +223,8 @@
         </div>
         <div class="timeline-element desktop-timeline-element" id="timeline-element-2" style="display: none;">
           <div class="person-holder">
-            <!-- <img src="./rodionov-alexander-mikhailovich-2.jpg" class="person-avatar" style="width: 35vw; max-width: 600px;"> -->
-            <!-- <img src="./rodionov-alexander-mikhailovich.jpg" class="person-avatar" style="width: 20vw; max-width: 300px;"> -->
+            <!-- <img src="./rodionov-alexander-mikhailovich-2.webp" class="person-avatar" style="width: 35vw; max-width: 600px;"> -->
+            <!-- <img src="./rodionov-alexander-mikhailovich.webp" class="person-avatar" style="width: 20vw; max-width: 300px;"> -->
             <div class="person-bio">
               <b>Родионов Александр Михайлович</b>
               <br>
@@ -237,7 +237,7 @@
         </div>
         <div class="timeline-element desktop-timeline-element" id="timeline-element-3" style="display: none;">
           <div class="person-holder">
-            <!-- <img src="./volkov-nikolay-vasilyevich.jpg" class="person-avatar" style="width: 20vw; max-width: 300px;"> -->
+            <!-- <img src="./volkov-nikolay-vasilyevich.webp" class="person-avatar" style="width: 20vw; max-width: 300px;"> -->
             <div class="person-bio">
               <b>Волков Николай Васильевич</b>
               <br>
@@ -250,7 +250,7 @@
         </div>
         <div class="timeline-element desktop-timeline-element" id="timeline-element-4" style="display: none;">
           <div class="person-holder">
-            <!-- <img src="./bogolyubov-dmitry-petrovich.jpg" class="person-avatar" style="width: 20vw; max-width: 300px;"> -->
+            <!-- <img src="./bogolyubov-dmitry-petrovich.webp" class="person-avatar" style="width: 20vw; max-width: 300px;"> -->
             <div class="person-bio">
               <b>Боголюбов Дмитрий Петрович</b>
               <br>
@@ -270,7 +270,7 @@
         <div class="article-header text-align-center" id="administration-header">Администрация</div>
         <div class="flex-row-space-evenly" id="administration-holder">
           <div class="person-holder">
-            <img src="./about/grishkina-maria-petrovna.jpg" class="person-avatar" alt="Фотография преподавателя">
+            <img loading="lazy" src="./common-files/grishkina-maria-petrovna.webp" class="person-avatar" alt="Фотография преподавателя">
             <div class="person-bio">
               <a href="teachers.php#grishkina-maria-petrovna">Гришкина Мария Петровна</a>
               <p>
@@ -281,7 +281,7 @@
             </div>
           </div>
           <div class="person-holder" id="chernatskiy-sergey-genrikhovich">
-            <img src="./about/chernatskiy-sergey-genrikhovich.jpg" class="person-avatar" alt="Фотография преподавателя">
+            <img loading="lazy" src="./common-files/chernatskiy-sergey-genrikhovich.webp" class="person-avatar" alt="Фотография преподавателя">
             <div class="person-bio">
               <a href="teachers.php#chernatskiy-sergey-genrikhovich">Чернацкий Сергей Генрихович</a>
               <p>
@@ -290,7 +290,7 @@
             </div>
           </div>
           <div class="person-holder">
-            <img src="./about/bogolyubov-dmitry-petrovich.jpg" class="person-avatar" alt="Фотография преподавателя">
+            <img loading="lazy" src="./common-files/bogolyubov-dmitry-petrovich.webp" class="person-avatar" alt="Фотография преподавателя">
             <div class="person-bio">
               <a href="teachers.php#bogolyubov-dmitry-petrovich">Боголюбов Дмитрий Петрович</a>
               <p>

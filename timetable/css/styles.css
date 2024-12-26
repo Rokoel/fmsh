@@ -26,6 +26,7 @@
 }
 
 .timetable-container {
+    overflow-y: hidden;
     overflow-x: auto;
 }
 

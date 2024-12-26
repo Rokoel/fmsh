@@ -16,10 +16,10 @@
   <!-- Resources -->
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="./common-files/css/global-styles.css">
-  <link rel="stylesheet" href="./common-files/css/animations.css">
-  <link rel="stylesheet" href="./common-files/css/header-styles.css">
-  <link rel="stylesheet" href="./common-files/css/footer-styles.css">
   <link rel="stylesheet" href="./index/css/styles.css">
+  <link rel="stylesheet" href="./common-files/css/header-styles.css">
+  <link rel="stylesheet" href="./common-files/css/animations.css">
+  <link rel="stylesheet" href="./common-files/css/footer-styles.css">
   <script src="./index/js/scripts.js"></script>
 </head>
 
@@ -66,8 +66,8 @@
             Обучение в ФМШ проходит в онлайн формате. Занятия проводятся <b>от 1 до 3 раз в неделю после 17:00.</b>
           </div>
           <div class="in-text-block-holder" id="idroo-screenshot-holder">
-            <img src="./index/replit.gif" class="in-text-block" id="replit-gif" alt="Пример занятия в ФМШ">
-            <img src="./index/idroo.gif" class="in-text-block" id="idroo-gif" alt="Пример занятия в ФМШ">
+            <img loading="lazy" src="./index/replit.gif" class="in-text-block" id="replit-gif" alt="Пример занятия в ФМШ">
+            <img loading="lazy" src="./index/idroo.gif" class="in-text-block" id="idroo-gif" alt="Пример занятия в ФМШ">
           </div>
         </div>
         <!-- В кнопки ниже в любом случае нужно будет передавать айдишники ивентов, поэтому заголовки и текст также можно передавать из PHP -->
@@ -99,7 +99,7 @@
             <div id="teacher-container">
               <div id="teacher-list" class="teacher-list">
                 <div class="person-holder has-border" id="ashkinazi-leonid-alexandrovich">
-                  <img src="./index/ashkinazi-leonid-alexandrovich.jpg" class="person-avatar" alt="Фотография преподавателя">
+                  <img loading="lazy" src="./common-files/ashkinazi-leonid-alexandrovich.webp" class="person-avatar" alt="Фотография преподавателя">
                   <div class="person-bio">
                     <a href="teachers.php#ashkinazi-leonid-alexandrovich">Леонид Александрович Ашкинази</a>
                     <p>
@@ -109,7 +109,7 @@
                 </div>
 
                 <div class="person-holder has-border" id="bogolyubov-dmitry-petrovich">
-                  <img src="./index/bogolyubov-dmitry-petrovich.jpg" class="person-avatar" alt="Фотография преподавателя">
+                  <img loading="lazy" src="./common-files/bogolyubov-dmitry-petrovich.webp" class="person-avatar" alt="Фотография преподавателя">
                   <div class="person-bio">
                     <a href="teachers.php#bogolyubov-dmitry-petrovich">Дмитрий Петрович Боголюбов</a>
                     <p>
@@ -119,7 +119,7 @@
                 </div>
           
                 <div class="person-holder has-border" id="grishkina-maria-petrovna">
-                  <img src="./index/grishkina-maria-petrovna.jpg" class="person-avatar" alt="Фотография преподавателя">
+                  <img loading="lazy" src="./common-files/grishkina-maria-petrovna.webp" class="person-avatar" alt="Фотография преподавателя">
                   <div class="person-bio">
                     <a href="teachers.php#grishkina-maria-petrovna">Мария Петровна Гришкина</a>
                     <p>
@@ -129,7 +129,7 @@
                 </div>
           
                 <div class="person-holder has-border" id="dvorkin-vladimir-vitalievich">
-                  <img src="./index/dvorkin-vladimir-vitalievich.jpg" class="person-avatar" alt="Фотография преподавателя">
+                  <img loading="lazy" src="./common-files/dvorkin-vladimir-vitalievich.webp" class="person-avatar" alt="Фотография преподавателя">
                   <div class="person-bio">
                     <a href="teachers.php#dvorkin-vladimir-vitalievich">Владимир Витальевич Дворкин</a>
                     <p>
@@ -139,7 +139,7 @@
                 </div>
           
                 <div class="person-holder has-border" id="dvorkina-ludmila-valerievna">
-                  <img src="./index/dvorkina-ludmila-valerievna.jpg" class="person-avatar" alt="Фотография преподавателя">
+                  <img loading="lazy" src="./common-files/dvorkina-ludmila-valerievna.webp" class="person-avatar" alt="Фотография преподавателя">
                   <div class="person-bio">
                     <a href="teachers.php#dvorkina-ludmila-valerievna">Людмила Валерьевна Дворкина</a>
                     <p>
@@ -149,7 +149,7 @@
                 </div>
           
                 <div class="person-holder has-border" id="zologina-anastasia-nikolaevna">
-                  <img src="./index/zologina-anastasia-nikolaevna.jpg" class="person-avatar" alt="Фотография преподавателя">
+                  <img loading="lazy" src="./common-files/zologina-anastasia-nikolaevna.webp" class="person-avatar" alt="Фотография преподавателя">
                   <div class="person-bio">
                     <a href="teachers.php#zologina-anastasia-nikolaevna">Анастасия Николаевна Зологина</a>
                     <p>
@@ -159,7 +159,7 @@
                 </div>
           
                 <div class="person-holder has-border" id="ilyukhin-denis-olegovich">
-                  <img src="./index/ilyukhin-denis-olegovich.jpg" class="person-avatar" alt="Фотография преподавателя">
+                  <img loading="lazy" src="./common-files/ilyukhin-denis-olegovich.webp" class="person-avatar" alt="Фотография преподавателя">
                   <div class="person-bio">
                     <a href="teachers.php#ilyukhin-denis-olegovich">Денис Олегович Илюхин</a>
                     <p>
@@ -169,7 +169,7 @@
                 </div>
           
                 <div class="person-holder has-border" id="skobeleva-ekaterina-yurievna">
-                  <img src="./index/skobeleva-ekaterina-yurievna.jpg" class="person-avatar" alt="Фотография преподавателя">
+                  <img loading="lazy" src="./common-files/skobeleva-ekaterina-yurievna.webp" class="person-avatar" alt="Фотография преподавателя">
                   <div class="person-bio">
                     <a href="teachers.php#skobeleva-ekaterina-yurievna">Екатерина Юрьевна Скобелева</a>
                     <p>
@@ -179,7 +179,7 @@
                 </div>
           
                 <div class="person-holder has-border" id="chernatskiy-sergey-genrikhovich">
-                  <img src="./index/chernatskiy-sergey-genrikhovich.jpg" class="person-avatar" alt="Фотография преподавателя">
+                  <img loading="lazy" src="./common-files/chernatskiy-sergey-genrikhovich.webp" class="person-avatar" alt="Фотография преподавателя">
                   <div class="person-bio">
                     <a href="teachers.php#chernatskiy-sergey-genrikhovich">Сергей Генрихович Чернацкий</a>
                     <p>

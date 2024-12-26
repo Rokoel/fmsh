@@ -65,28 +65,30 @@ if (registerBlockButton != null && registerBlockButton != undefined) {
  * some elements. It's usually called from the switchMenu() function.
  */
 function setMenu() {
-    var menu_items = document.getElementsByClassName("mobile-navbar-link");
+    var menuItems = Array.from(document.getElementsByClassName("mobile-navbar-link"));
     if(MENU_STATE === 'closed'){
-        for (let i = 0; i < menu_items.length; ++i){
-            var menu_item = menu_items[i];
-            menu_item.classList.add("appearing");
-            menu_item.classList.remove("disappearing");
-            menu_item.addEventListener("animationend", function(e) {
-                menu_item.style.transform = "translateX(150%)";
+        menuItems.forEach(menuItem => {
+            menuItem.style.display = "";
+            menuItem.classList.add("appearing");
+            menuItem.classList.remove("disappearing");
+            menuItem.addEventListener("animationend", function(e) {
+                menuItem.style.transform = "translateX(150%)";
             });
-        }
+        });
         mobileMenuButton.classList.remove("rotating-back");
         mobileMenuButton.classList.add("rotating");
     }
     else {
-        for (let i = 0; i < menu_items.length; ++i){
-            var menu_item = menu_items[i];
-            menu_item.classList.remove("appearing");
-            menu_item.classList.add("disappearing");
-            menu_item.addEventListener("animationend", function(e) {
-                menu_item.style.transform = "translateX(0)";
+        menuItems.forEach(menuItem => {
+            menuItem.classList.remove("appearing");
+            menuItem.classList.add("disappearing");
+            menuItem.addEventListener("animationend", function(e) {
+                menuItem.style.transform = "translateX(0)";
+                if (menuItem.classList.contains("disappearing")) {
+                    menuItem.style.display = "none";
+                }
             });
-        }
+        });
         mobileMenuButton.classList.remove("rotating");
         mobileMenuButton.classList.add("rotating-back");
     }

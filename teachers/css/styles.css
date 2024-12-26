@@ -97,6 +97,11 @@ article a:hover {
 #article-1 {
     margin-top: 0;
     gap: var(--proportional-small-padding);
+    padding-top: var(--proportional-small-padding);
+}
+
+#content > h3 {
+    padding-top: var(--proportional-small-padding);
 }
 
 input::placeholder {
