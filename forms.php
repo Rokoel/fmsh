@@ -80,7 +80,7 @@
           </div>
           <div class="flex-column-center">
             <div></div>
-            <img id="capcha-image" src="shpic.php?code=<?php echo md5(uniqid()); ?>">
+            <img id="capcha-image" loading="lazy" alt="Капча" src="shpic.php?code=<?php echo md5(uniqid()); ?>">
             <div></div>
           </div>
         </div>
@@ -139,7 +139,7 @@
         </div>
         <div class="flex-column-center">
           <div></div>
-          <img id="capcha-image" src="shpic.php?code=<?php echo md5(uniqid()); ?>">
+          <img id="capcha-image" loading="lazy" alt="Капча" src="shpic.php?code=<?php echo md5(uniqid()); ?>">
           <div></div>
         </div>
       </div>
