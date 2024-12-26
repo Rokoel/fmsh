@@ -296,7 +296,7 @@ nav#desktop-navbar a {
     display: block;
     text-align: left;
 }
-.dropdown:hover .dropdown-content, .dropdown-content:hover, .dropdown:focus .dropdown-content, .dropdown:focus-within .dropdown-content, .dropdown:has(:focus) .dropdown-content {
+.dropdown:hover .dropdown-content, .dropbtn:hover .dropdown-content, .dropdown-content:hover, .dropdown:focus .dropdown-content, .dropdown:focus-within .dropdown-content, .dropdown:has(:focus) .dropdown-content {
     display: block;
 }
 .dropdown-content > :hover, a:hover, .dropdown-content > :focus, a:focus {
