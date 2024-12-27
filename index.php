@@ -15,6 +15,11 @@
 
   <!-- Resources -->
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preload" href="./index/main_block_bg_dark.svg" as="image">
+  <link rel="preload" href="./index/main_block_bg_light.svg" as="image">
+
+  <link rel="preload" as="font" href="./common-files/Ubuntu-Regular.woff" type="font/woff" crossorigin>
+
   <link rel="stylesheet" href="./common-files/css/global-styles.css">
   <link rel="stylesheet" href="./index/css/styles.css">
   <link rel="stylesheet" href="./common-files/css/header-styles.css">

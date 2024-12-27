@@ -108,8 +108,13 @@
 
 @font-face {
     font-family: UbuntuRegular;
-    src: url("../Ubuntu-Regular.woff2") format("woff2");
-    src: url("../Ubuntu-Regular.woff") format("woff");
+    src: 
+        local("Ubuntu-Regular"),
+        url("../Ubuntu-Regular.woff2") format("woff2");
+    src:
+        local("Ubuntu-Regular"),
+        url("../Ubuntu-Regular.woff") format("woff");
+    font-display: swap;
 }
 html, body {
     height: 100%;
