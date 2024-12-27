@@ -295,6 +295,7 @@ nav#desktop-navbar a {
     float: none;
     display: block;
     text-align: left;
+    position: relative;
 }
 .dropdown:hover .dropdown-content, .dropbtn:hover .dropdown-content, .dropdown-content:hover, .dropdown:focus .dropdown-content, .dropdown:focus-within .dropdown-content, .dropdown:has(:focus) .dropdown-content {
     display: block;
