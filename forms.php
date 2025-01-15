@@ -2,11 +2,11 @@
 
 <script src="./registration/js/scripts.js"></script>
 <!-- Main form -->
-<div id="main-registration-block" class="hidden" style="height: 100vh;">
+<div id="main-registration-block" class="hidden">
   <div class="screen-third small-padding">
     <!-- This block is a spacing block -->
   </div>
-  <div class="screen-third" style="flex: auto">
+  <div class="screen-third" style="flex: auto; min-height: fit-content;">
     <div></div>
     <form id="main-registration-form" action method="POST" class="has-border form-holder" style="font-size: 80%;">
       <div class="top-form-row">
@@ -97,11 +97,11 @@
 </div>
 
 <!-- Event form -->
-<div id="event-registration-block" class="hidden" style="height: 100vh;">
+<div id="event-registration-block" class="hidden">
   <div class="screen-third small-padding">
     <!-- This block is a spacing block -->
   </div>
-  <div class="screen-third" style="flex: auto">
+  <div class="screen-third" style="flex: auto; min-height: fit-content;">
     <div></div>
     <form id="event-registration-form" class="has-border form-holder hidden" style="font-size: 80%;">
       <div class="top-form-row">
@@ -153,11 +153,11 @@
 </div>
 
 <!-- End of registration block -->
-<div id="end-registration-block" class="hidden" style="height: 100vh;">
+<div id="end-registration-block" class="hidden">
   <div class="screen-third small-padding">
     <!-- This block is a spacing block -->
   </div>
-  <div class="screen-third" style="flex: auto">
+  <div class="screen-third" style="flex: auto; min-height: fit-content;">
     <div></div>
     <div id="end-registration" class="has-border">
     <p id="registration-success-text">
@@ -169,4 +169,7 @@
   <div class="screen-third small-padding">
     <!-- This block is a spacing block -->
   </div>
+</div>
+
+<div id="cover" class="hidden">
 </div>

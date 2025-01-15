@@ -112,23 +112,33 @@
 /* These classes are used for styling the main content of the page */
 #main-registration-block, #event-registration-block, #end-registration-block {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-content: center;
     z-index: 2;
-    position: fixed;
-    background-color: rgba(44, 116, 179, 0.4);
+    position: absolute;
     top: 0;
 }
-#main-registration-form, #event-registration-form, #end-registration {
-    max-height: 70%;
-    max-height: calc(98vh - 2*var(--header-height));
-    overflow: auto;
+#cover {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(44, 116, 179, 0.4);
+    z-index: 1;
+    position: fixed;
 }
-@media screen and (min-height: 500px) and (orientation: landscape) {
+#cover.hidden {
+    display: none;
+}
+#main-registration-form, #event-registration-form, #end-registration {
+    overflow: hidden;
+    height: fit-content;
+}
+@media screen and (max-height: 500px) {
     #main-registration-form, #event-registration-form, #end-registration {
         overflow: none;
+        margin-top: var(--header-height);
     }
 }
 button.in-form-button {

@@ -108,21 +108,42 @@ function switchMenu() {
     }
 }
 
+var scrollTimeout;
 window.addEventListener('scroll', function() {
-    const scrolledTo = window.scrollY + window.innerHeight + 15;
-    const isBottomReached = (document.body.scrollHeight <= scrolledTo);
-    if ( isBottomReached == true ) {
-        if (this.document.getElementById("move-down-button") != null && this.document.getElementById("move-down-button") != undefined) {
-            this.document.getElementById("move-down-button").style.bottom = "calc(var(--header-height)*1.5)";
-            this.document.getElementById("move-up-button").style.bottom = "calc(var(--header-height)*1.5)";
-            this.document.getElementById("mobile-navbar").style.bottom = "calc(var(--header-height)*1.5)";
-        }
+    var moveUpButton = document.getElementById("move-up-button");
+    var moveDownButton = document.getElementById("move-down-button");
+    var mobileMenuButton = document.getElementById("mobile-navbar");
+    if (moveUpButton != null && moveUpButton != undefined) {
+        moveUpButton.style.display = "";
+        moveDownButton.style.display = "";
+        mobileMenuButton.style.display = "";
+        moveUpButton.style.transition = "opacity 0.5s";
+        moveDownButton.style.transition = "opacity 0.5s";
+        mobileMenuButton.style.transition = "opacity 0.5s";
+        moveUpButton.style.opacity = "1";
+        moveDownButton.style.opacity = "1";
+        mobileMenuButton.style.opacity = "1";
     }
-    else {
-        if (this.document.getElementById("move-down-button") != null && this.document.getElementById("move-down-button") != undefined) {
-            this.document.getElementById("move-down-button").style.bottom = "";
-            this.document.getElementById("move-up-button").style.bottom = "";
-            this.document.getElementById("mobile-navbar").style.bottom = "";
-        }
+
+    if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
     }
+
+    scrollTimeout = setTimeout(function() {
+        if (moveUpButton != null && moveUpButton != undefined) {
+            moveUpButton.style.opacity = "0";
+            moveDownButton.style.opacity = "0";
+            mobileMenuButton.style.opacity = "0";
+            moveUpButton.addEventListener('transitionend', function() {
+                moveUpButton.style.display = "none";
+            }, { once: true });
+            moveDownButton.addEventListener('transitionend', function() {
+                moveDownButton.style.display = "none";
+            }, { once: true });
+            mobileMenuButton.addEventListener('transitionend', function() {
+                mobileMenuButton.style.display = "none";
+            }, { once: true });
+            scrollTimeout = null;
+        }
+    }, 2000);
 });

@@ -206,16 +206,7 @@ nav#desktop-navbar {
 
     height: 100%;
 }
-nav#mobile-navbar {
-    z-index: 2;
-    position: fixed;
-    width: var(--header-height);
-    height: var(--header-height);
-    border-radius: 50%;
-    background-color: var(--white);
-    border: 2px solid var(--dark-blue);
-}
-#move-up-button, #move-down-button {
+nav#mobile-navbar, #move-up-button, #move-down-button {
     z-index: 2;
     position: fixed;
     width: var(--header-height);
@@ -270,12 +261,22 @@ nav#mobile-navbar {
     margin: 0;
     overflow: hidden;
 }
-.dropdown:hover, .dropdown:focus, .dropdown:focus-within {
+.dropdown:hover {
     background-color: var(--dark-blue);
 }
-.dropbtn:hover > a, .dropdown:hover > .dropbtn > a, .dropdown:focus > div > a, .dropdown:focus-within > div > a {
+.dropbtn:hover > a, .dropdown:hover > .dropbtn > a {
     color: var(--white);
 }
+
+@media (hover: none), (hover:on-demand), (pointer:coarse) {
+    .dropdown:focus, .dropdown:focus-within {
+        background-color: var(--dark-blue);
+    }
+    .dropdown:focus > div > a, .dropdown:focus-within > div > a {
+        color: var(--white);
+    }
+}
+
 nav#desktop-navbar a {
     padding: var(--vertical-proportional-small-padding);
     white-space: nowrap;
@@ -297,8 +298,13 @@ nav#desktop-navbar a {
     text-align: left;
     position: relative;
 }
-.dropdown:hover .dropdown-content, .dropbtn:hover .dropdown-content, .dropdown-content:hover, .dropdown:focus .dropdown-content, .dropdown:focus-within .dropdown-content, .dropdown:has(:focus) .dropdown-content {
+.dropdown:hover .dropdown-content, .dropbtn:hover .dropdown-content, .dropdown-content:hover {
     display: block;
+}
+@media (hover: none), (hover:on-demand), (pointer:coarse) {
+    .dropdown:hover .dropdown-content, .dropbtn:hover .dropdown-content, .dropdown-content:hover, .dropdown:focus .dropdown-content, .dropdown:focus-within .dropdown-content, .dropdown:has(:focus) .dropdown-content {
+        display: block;
+    }
 }
 .dropdown-content > :hover, a:hover, .dropdown-content > :focus, a:focus {
     text-decoration: underline;
@@ -384,4 +390,5 @@ nav#desktop-navbar a {
 .dropbtn > a {
     display: flex;
     align-items: center;
+    text-decoration: none;
 }

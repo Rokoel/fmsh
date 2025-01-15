@@ -1,22 +1,5 @@
 /* DIFFERENT MEDIA SETTINGS */
-@media screen and (min-width: 1600px) {
-    #main-block > * {
-        text-align: center;
-    }
-    #main-block h1 {
-        font-size: 200px;
-        margin-bottom: 0;
-    }
-    #main-block h2 {
-        font-size: 75px;
-        margin: 0;
-    }
-    #main-block h3 {
-        font-size: 75px;
-        margin-top: 0;
-    }
-}
-@media screen and (max-width: 1600px) and (min-width: 950px) {
+@media screen and (min-width: 950px) {
     #main-block > * {
         text-align: center;
     }
