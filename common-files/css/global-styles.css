@@ -216,7 +216,7 @@ button {
     border: var(--dark-blue) solid 2px;
 }
 button:hover, button:focus {
-    filter: opacity(0.9) contrast(120%) saturate(110%); 
+    filter: contrast(150%) saturate(105%); 
 }
 hr {
     border-right : 0;

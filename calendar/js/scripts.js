@@ -94,14 +94,17 @@ window.onload = function() {
     //     }
     // });
 
-    var closestEventHolder = document.getElementById("closest-event-holder");   
+    var closestEventHolder = document.getElementById("closest-event-holder");
     let closestEventInTheFuture = findClosestEventInTheFuture(new Date(), latestEventDateObject);
     if (closestEventInTheFuture == null) {
         closestEventHolder.children[closestEventHolder.children.length-1].innerHTML = '';
         closestEventHolder.style.display = "none";
     }
     else {
-        closestEventHolder.children[closestEventHolder.children.length-1].innerHTML = closestEventInTheFuture.innerHTML;
+        // only include first line of the event in this block (everything before first <br>)
+        let firstLineOfEvent = closestEventInTheFuture.innerHTML.split("<br>")[0];
+        closestEventHolder.children[closestEventHolder.children.length-1].innerHTML = firstLineOfEvent;
+        closestEventHolder.children[closestEventHolder.children.length-1].dataset.eventDate = closestEventInTheFuture.id;
     }
 
     // Solves the issue of anchor links not working by reapplying them after all dynamic content has been loaded
@@ -119,7 +122,7 @@ window.onload = function() {
         let anchorYear = requested_hash.slice(0, 4);
         let anchorMonth = requested_hash.slice(4, 6);
         let anchorInput = anchorYear + '.' + anchorMonth;
-        currentYearAndMonth = jumpToMonth(calendarElement, currentYearAndMonth[0], currentYearAndMonth[1], rightArrow, leftArrow, lastEventYear, lastEventMonth, anchorInput, false);
+        [currentYearAndMonth[0], currentYearAndMonth[1]] = jumpToMonth(calendarElement, currentYearAndMonth[0], currentYearAndMonth[1], rightArrow, leftArrow, lastEventYear, lastEventMonth, anchorInput, false, false);
     }, true);
 };
 
@@ -492,6 +495,9 @@ function generateMonthStartingFrom(yearInput=-1, startingMonthIndexInput=-1, num
     if (startingMonthIndexInput == -1) { // if it is, however
         let currentDate = new Date();
         startingMonthIndex = (currentDate.getMonth() + 12 - (numberOfMonthTotal - 1) / 2) % 12; // get the current month, calculate the starting index (as the current month has to be in the middle and not on the left)
+        if (startingMonthIndex == 11) {
+            year -= 1;
+        }
     }
     var initialYear = year;
     for (let initialMonthNumber = startingMonthIndex; initialMonthNumber < startingMonthIndex + numberOfMonthTotal; ++initialMonthNumber) {
@@ -686,7 +692,6 @@ function findClosestEventInTheFuture(date, latestEventDate) {
         let currentDay = incrementedDate.getDate();
         let currentDayStringRepresentation = (currentDay.toString().length == 1 ? '0' + currentDay : currentDay.toString());
         let eventsOfTheDay = document.getElementsByClassName("event-" + currentYear.toString() + currentMonthStringRepresentation + currentDayStringRepresentation);
-        console.log(currentYear.toString() + currentMonthStringRepresentation + currentDayStringRepresentation);
         if (eventsOfTheDay.length != 0) {
             closestEventInTheFuture = eventsOfTheDay[0];
             break;
@@ -694,7 +699,6 @@ function findClosestEventInTheFuture(date, latestEventDate) {
         ++i;
         incrementedDate = addDays(date, i);
     }
-    console.log(closestEventInTheFuture);
     return closestEventInTheFuture;
 }
 
@@ -709,6 +713,9 @@ function returnNthEventYearAndMonth(N=-1, returnDateObject=false) {
         if (N == -1) {
             var listOfEvents = document.getElementsByClassName("date");
             var lastEvent = listOfEvents[listOfEvents.length - 1].parentElement;
+            if (lastEvent.classList.contains("date-and-button")) {
+                lastEvent = lastEvent.parentElement;
+            }
             var lastEventClasses = lastEvent.classList.toString().split(" ");
             var lastEventDate;
             var lastEventYear;
@@ -727,6 +734,9 @@ function returnNthEventYearAndMonth(N=-1, returnDateObject=false) {
         else {
             var listOfEvents = document.getElementsByClassName("date");
             var NthEvent = listOfEvents[N].parentElement;
+            if (NthEvent.classList.contains("date-and-button")) {
+                NthEvent = NthEvent.parentElement;
+            }
             var NthEventClasses = NthEvent.classList.toString().split(" ");
             var NthEventDate;
             var NthEventYear;
@@ -747,6 +757,9 @@ function returnNthEventYearAndMonth(N=-1, returnDateObject=false) {
         if (N == -1) {
             var listOfEvents = document.getElementsByClassName("date");
             var lastEvent = listOfEvents[listOfEvents.length - 1].parentElement;
+            if (lastEvent.classList.contains("date-and-button")) {
+                lastEvent = lastEvent.parentElement;
+            }
             var lastEventClasses = lastEvent.classList.toString().split(" ");
             var lastEventDate;
             var lastEventYear;
@@ -767,6 +780,9 @@ function returnNthEventYearAndMonth(N=-1, returnDateObject=false) {
         else {
             var listOfEvents = document.getElementsByClassName("date");
             var NthEvent = listOfEvents[N].parentElement;
+            if (NthEvent.classList.contains("date-and-button")) {
+                NthEvent = NthEvent.parentElement;
+            }
             var NthEventClasses = NthEvent.classList.toString().split(" ");
             var NthEventDate;
             var NthEventYear;
@@ -878,7 +894,7 @@ function calculateScrollValue(previousYear, previousMonth, limitRight, limitLeft
  * @param {string} inputValue The value that is attempted to be scrolled to. If it equals an empty string, the value from the input field is used instead 
  * @param {boolean} showErrors A flag indicating whether to show errors on the page below the input field or not
  * @param {boolean} scrollToEvents A flag indicating whether to scroll to the first event on the page or not
- * @returns {[number, string]}
+ * @returns {[number, number]} The new year and month
  */
 function jumpToMonth(calendarElement, previousYear, previousMonth, rightArrow, leftArrow, lastEventYear, lastEventMonth, inputValue="", showErrors=true, scrollToEvents=false) {
     var currentYearAndMonth = [previousYear, previousMonth];
@@ -902,7 +918,9 @@ function jumpToMonth(calendarElement, previousYear, previousMonth, rightArrow, l
             leftArrow.style.display = "none";
             calendarElement.children[0].style.marginLeft = "var(--proportional-small-padding)";
         }
-        document.getElementById("month-and-year-error").textContent = "";
+        if (showErrors == true) {
+            document.getElementById("month-and-year-error").textContent = "";
+        }
     }
     else {
         if (showErrors == true) {
@@ -911,3 +929,83 @@ function jumpToMonth(calendarElement, previousYear, previousMonth, rightArrow, l
     }
     return currentYearAndMonth;
 }
+
+function removeHtmlTags(input) {
+    return input.replace(/<[^>]*>/g, '');
+}
+
+function toggleDropdown(button, event) {
+    event.stopPropagation();
+    const dropdown = button.children[0];
+    const regButton = button.nextElementSibling;
+    var eventDate = button.parentElement.parentElement.dataset.eventDate; // we try to get the eventDate assuming we are in the "closest-event" block of the page
+    if (!eventDate) { // if we can't get eventDate from the grandparent element, this means that we're in the event's block of the page
+        eventDate = button.parentElement.parentElement.id; // and thus we have to get the eventDate from the id of the parent element
+    }
+    if (regButton == null) { // if there's no registration button, we just copy the link to the event and scroll to it
+        navigator.clipboard.writeText(window.location.href.split('#')[0] + '#' + eventDate);
+        window.location.href = window.location.href.split('#')[0] + '#' + eventDate;
+        return;
+    }
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    const eventTitle = removeHtmlTags(regButton.dataset.eventHeader);
+    var eventDate = button.parentElement.parentElement.dataset.eventDate;
+    if (!eventDate) {
+        eventDate = button.parentElement.parentElement.id;
+    }
+  
+    const calendarLinks = dropdown.querySelectorAll('.calendar-link');
+    
+    calendarLinks.forEach(link => {
+      const calendarType = link.dataset.calendar;
+      let calendarUrl;
+  
+      switch (calendarType) {
+        case 'google':
+          calendarUrl = generateGoogleCalendarLink(eventDate, eventTitle);
+          break;
+        case 'outlook':
+          calendarUrl = generateOutlookCalendarLink(eventDate, eventTitle);
+          break;
+        case 'ical':
+          calendarUrl = generateICalLink(eventDate, eventTitle);
+          break;
+      }
+  
+      link.href = calendarUrl;
+    });
+    document.addEventListener('click', function(event) {
+        if (!button.contains(event.target) || !dropdown.contains(event.target)) {
+          dropdown.style.display = 'none';
+        }
+      }, { once: true });
+  }
+
+  function parseEventDate(dateString) {
+    const year = dateString.slice(0, 4);
+    const month = dateString.slice(4, 6) - 1;
+    const day = dateString.slice(6, 8);
+  
+    return new Date(year, month, day);
+  }
+
+  function generateGoogleCalendarLink(date, title) {
+    const dateObj = parseEventDate(date);
+    const startDate = new Date(dateObj.getTime() - (dateObj.getTimezoneOffset() * 60000)).toISOString().replace(/-|:|\.\d\d\d/g, '');
+    const endDate = new Date(dateObj.getTime() - (dateObj.getTimezoneOffset() * 60000) + 120 * 60 * 1000).toISOString().replace(/-|:|\.\d\d\d/g, '');
+    return `https://calendar.google.com/calendar/r/eventedit?text=${encodeURIComponent(title)}&dates=${startDate}/${endDate}`;
+  }
+  
+  function generateOutlookCalendarLink(date, title) {
+    const dateObj = parseEventDate(date);
+    const startDate = new Date(dateObj.getTime() - (dateObj.getTimezoneOffset() * 60000)).toISOString().split('.')[0];
+    const endDate = new Date(dateObj.getTime() - (dateObj.getTimezoneOffset() * 60000) + 120 * 60 * 1000).toISOString().split('.')[0];
+    return `https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent(title)}&startdt=${encodeURIComponent(startDate)}&enddt=${endDate}`;
+  }
+  
+  function generateICalLink(date, title) {
+    const dateObj = parseEventDate(date);
+    const startDate = new Date(dateObj.getTime() - (dateObj.getTimezoneOffset() * 60000)).toISOString().replace(/-|:|\.\d\d\d/g, '');
+    const endDate = new Date(dateObj.getTime() - (dateObj.getTimezoneOffset() * 60000) + 120 * 60 * 1000).toISOString().replace(/-|:|\.\d\d\d/g, '');
+    return `data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0D%0AVERSION:2.0%0D%0ABEGIN:VEVENT%0D%0AURL:${window.location.href}%0D%0ADTSTART:${startDate}%0D%0ASUMMARY:${encodeURIComponent(title)}%0D%0ATEND:${endDate}%0D%0AEND:VEVENT%0D%0AEND:VCALENDAR`;
+  }

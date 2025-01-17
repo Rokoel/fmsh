@@ -341,7 +341,15 @@ input {
 #closest-event-holder {
     text-align: center;
 }
+#closest-event-holder .short-news-article {
+    max-height: 40vh;
+}
 #closest-event-holder .date {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#closest-event-holder button {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -369,4 +377,34 @@ input {
     border: var(--dark-blue) solid 2px;
     margin-bottom: var(--proportional-x-small-padding);
     white-space: nowrap;
+}
+
+
+.date-dropdown-menu {
+    position: absolute;
+    background-color: var(--white);
+    border-radius: 0.4em;
+    border: var(--dark-blue) solid 2px;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+    top: 110%;
+    left: 0%;
+  }
+  
+.date-dropdown-menu a {
+    display: block;
+    padding: var(--proportional-x-small-padding);
+    color: var(--dark-blue);
+  }
+
+#closest-event-holder .date-dropdown-menu {
+    min-width: 100%;
+}
+
+.date-and-button > .article-header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
