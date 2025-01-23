@@ -118,11 +118,13 @@ window.onload = function() {
         location.hash = requested_hash;
     }
     window.addEventListener("hashchange", (e) => {
+        e.st
         var requested_hash = location.hash.slice(1);
         let anchorYear = requested_hash.slice(0, 4);
         let anchorMonth = requested_hash.slice(4, 6);
         let anchorInput = anchorYear + '.' + anchorMonth;
         [currentYearAndMonth[0], currentYearAndMonth[1]] = jumpToMonth(calendarElement, currentYearAndMonth[0], currentYearAndMonth[1], rightArrow, leftArrow, lastEventYear, lastEventMonth, anchorInput, false, false);
+        window.location.href = window.location.href.split('#')[0] + '#' + requested_hash;
     }, true);
 };
 
@@ -949,36 +951,34 @@ function toggleDropdown(button, event) {
     }
     dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
     const eventTitle = removeHtmlTags(regButton.dataset.eventHeader);
-    var eventDate = button.parentElement.parentElement.dataset.eventDate;
-    if (!eventDate) {
-        eventDate = button.parentElement.parentElement.id;
-    }
   
     const calendarLinks = dropdown.querySelectorAll('.calendar-link');
     
     calendarLinks.forEach(link => {
-      const calendarType = link.dataset.calendar;
-      let calendarUrl;
+        const calendarType = link.dataset.calendar;
+        let calendarUrl;
+    
+        switch (calendarType) {
+            case 'google':
+                calendarUrl = generateGoogleCalendarLink(eventDate, eventTitle);
+                break;
+            case 'outlook':
+                calendarUrl = generateOutlookCalendarLink(eventDate, eventTitle);
+                break;
+            case 'ical':
+                calendarUrl = generateICalLink(eventDate, eventTitle);
+                break;
+        }
   
-      switch (calendarType) {
-        case 'google':
-          calendarUrl = generateGoogleCalendarLink(eventDate, eventTitle);
-          break;
-        case 'outlook':
-          calendarUrl = generateOutlookCalendarLink(eventDate, eventTitle);
-          break;
-        case 'ical':
-          calendarUrl = generateICalLink(eventDate, eventTitle);
-          break;
-      }
-  
-      link.href = calendarUrl;
+        link.href = calendarUrl;
     });
     document.addEventListener('click', function(event) {
         if (!button.contains(event.target) || !dropdown.contains(event.target)) {
-          dropdown.style.display = 'none';
+            dropdown.style.display = 'none';
         }
-      }, { once: true });
+    }, { once: true });
+    console.log(window.location.href.split('#')[0] + '#' + eventDate);
+    window.location.href = window.location.href.split('#')[0] + '#' + eventDate;
   }
 
   function parseEventDate(dateString) {
