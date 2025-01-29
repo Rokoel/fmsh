@@ -305,6 +305,9 @@ const mainRegProgressBarKey = 'main-registration-progress-bar';
 const mainRegProgressBarKeyInForm = 'main-registration-progress-bar-in-form';
 const eventFormKey = 'event-registration-block';
 
+let lowerScrollLimit = 0;
+let upperScrollLimit = 0;
+
 /**
  * This event listener is triggered after the initial HTML document has been completely loaded and parsed.
  * It is used to setup form validation, show the main registration block and load the form data into the inputs.
@@ -320,6 +323,13 @@ document.addEventListener('DOMContentLoaded', () => {
     updateProgressBar(mainFormKey, mainRegProgressBarKey);
     updateProgressBar(mainFormKey, mainRegProgressBarKeyInForm);
     
+    function setScrollLimits(extraHeight) {
+        const currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        upperScrollLimit = currentScroll - extraHeight;
+        lowerScrollLimit = currentScroll + extraHeight;
+    }
+
+
     /**
      * Shows the specified form (main or event) and loads the form data into the inputs.
      * @param {string} formType - The type of form to show ('main' or 'event').
@@ -335,14 +345,17 @@ document.addEventListener('DOMContentLoaded', () => {
             loadFormData(mainFormKey);
             updateProgressBar(mainFormKey, mainRegProgressBarKey);
             updateProgressBar(mainFormKey, mainRegProgressBarKeyInForm);
-            mainRegBlock.scrollIntoView({ behavior: 'smooth' });
+            mainRegBlock.style.top = window.scrollY + 'px';
+            setScrollLimits(document.getElementById("main-registration-form").getBoundingClientRect().height);
         } else if (formType === 'event') {
             eventRegBlock.classList.remove('hidden');
             loadFormData(eventFormKey, eventId);
-            eventRegBlock.scrollIntoView({ behavior: 'smooth' });
+            eventRegBlock.style.top = window.scrollY + 'px';
+            setScrollLimits(document.getElementById("event-registration-form").getBoundingClientRect().height);
         } else if (formType === 'end') {
             endRegBlock.classList.remove('hidden');
-            endRegBlock.scrollIntoView({ behavior: 'smooth' });
+            endRegBlock.style.top = window.scrollY + 'px';
+            setScrollLimits(document.getElementById("end-registration").getBoundingClientRect().height);
         }
     }
   
@@ -585,3 +598,23 @@ function updateProgressBar(formId, progressBarId, showEmpty=false) {
         console.log("No progress bar found with ID: " + progressBarId);
     }
 }
+
+window.addEventListener('scroll', function () {
+    if (this.document.getElementById('main-registration-block').classList.contains('hidden') == false || this.document.getElementById('event-registration-block').classList.contains('hidden') == false || this.document.getElementById('end-registration-block').classList.contains('hidden') == false) {
+      // Restrict the scroll position if it's beyond the allowed limit
+      if (window.scrollY > lowerScrollLimit) {
+        document.documentElement.style.scrollBehavior = 'auto';
+        document.body.style.scrollBehavior = 'auto'; 
+        window.scrollTo(0, lowerScrollLimit);
+        document.documentElement.style.scrollBehavior = '';
+        document.body.style.scrollBehavior = ''; 
+      }
+      if (window.scrollY < upperScrollLimit) {
+        document.documentElement.style.scrollBehavior = 'auto';
+        document.body.style.scrollBehavior = 'auto'; 
+        window.scrollTo(0, upperScrollLimit);
+        document.documentElement.style.scrollBehavior = '';
+        document.body.style.scrollBehavior = '';
+      }
+    }
+});

@@ -341,9 +341,6 @@ input {
 #closest-event-holder {
     text-align: center;
 }
-#closest-event-holder .short-news-article {
-    max-height: 40vh;
-}
 #closest-event-holder .date {
     width: 100%;
     margin-left: auto;

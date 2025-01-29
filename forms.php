@@ -8,7 +8,7 @@
   </div>
   <div class="screen-third" style="flex: auto; min-height: fit-content;">
     <div></div>
-    <form id="main-registration-form" action method="POST" class="has-border form-holder" style="font-size: 80%;">
+    <form id="main-registration-form" action="/" method="POST" class="has-border form-holder" style="font-size: 80%;">
       <div class="top-form-row">
         <div style="padding: var(--proportional-x-small-padding); text-align: center; flex: 3">
           <b>Регистрация</b>
@@ -59,7 +59,7 @@
         </div>
         <div class="text-input-holder" id="grade-holder">
           <label class="form-label" for="grade"><b>Класс обучения</b><span class="tooltip" tabindex="0" aria-describedby="grade-tooltip-text">?<span id="grade-tooltip-text" class="tooltip-text has-border">Введите класс, в котором вы учитесь на 2024/25 гг.</span></span></label>
-          <input id="grade" class="register-form-input highlight-left" type="text" name="grade" placeholder="4 – 11" maxlength="2" min="4" max="11">
+          <input id="grade" class="register-form-input highlight-left" type="text" name="grade" placeholder="4 – 11" maxlength="2">
           <span class="error-msg"></span>
         </div>
         <div class="text-input-holder" id="school-holder">

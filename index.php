@@ -99,7 +99,7 @@
       <article id="teachers-article-holder">
         <h3 class="article-header" style="text-align: center;">Наши преподаватели</h3>
         <div class="carusel-holder">
-          <div id="arrow-left" class="arrow" tabindex="0" name="Прокрутить список преподавателей влево" role="button">&#10094;</div>
+          <div id="arrow-left" class="arrow" tabindex="0" aria-label="Прокрутить список преподавателей влево" role="button">&#10094;</div>
             <div id="teacher-container">
               <div id="teacher-list" class="teacher-list">
                 <div class="person-holder has-border" id="ashkinazi-leonid-alexandrovich">
@@ -193,7 +193,7 @@
                 </div>
               </div>
             </div>
-          <div id="arrow-right" class="arrow" tabindex="0" name="Прокрутить список преподавателей вправо" role="button">&#10095;</div>
+          <div id="arrow-right" class="arrow" tabindex="0" aria-label="Прокрутить список преподавателей вправо" role="button">&#10095;</div>
         </div>
         <a href="teachers.php" class="link-to-more-info">Подробнее</a>
       </article>
