@@ -29,7 +29,7 @@
       <div class="dropbtn" tabindex="0" aria-label="Открыть выпадающий текст" role="button">
         <a tabindex="-1" aria-disabled="true">О нас</a>
         <div class="dropdown-content">
-          <a href="about.php">Что такое ФМШ</a>
+          <a href="about.php">Про ФМШ</a>
           <a href="teachers.php">Наши преподаватели</a>
         </div>
       </div>

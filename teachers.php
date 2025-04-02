@@ -32,10 +32,10 @@
     <h3>Преподаватели ФМШ</h3>
     <article id="article-1" class="vertical-align-center">
       <div class="teacher-grid has-border">
-        <div class="person-holder" id="ashkinazi-leonid-alexandrovich">
+        <div class="person-holder" id="ashkinazi">
           <img src="./common-files/ashkinazi-leonid-alexandrovich.webp" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
-            <a href="#ashkinazi-leonid-alexandrovich">Ашкинази Леонид Александрович</a>
+            <a href="#ashkinazi">Ашкинази Леонид Александрович</a>
             <p>
               преподаватель физики
             </p>
@@ -83,10 +83,10 @@
       </div>
 
       <div class="teacher-grid has-border">
-        <div class="person-holder" id="bogolyubov-dmitry-petrovich">
+        <div class="person-holder" id="bogolyubov">
           <img src="./common-files/bogolyubov-dmitry-petrovich.webp" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
-            <a href="#bogolyubov-dmitry-petrovich">Боголюбов Дмитрий Петрович</a>
+            <a href="#bogolyubov">Боголюбов Дмитрий Петрович</a>
             <p>
               научный руководитель проекта ФМШ FMSH.RU, преподаватель математики и информатики
             </p>
@@ -137,10 +137,10 @@
       </div>
 
       <div class="teacher-grid has-border">
-        <div class="person-holder" id="grishkina-maria-petrovna">
+        <div class="person-holder" id="grishkina">
           <img loading="lazy" src="./common-files/grishkina-maria-petrovna.webp" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
-            <a href="#grishkina-maria-petrovna">Гришкина Мария Петровна</a>
+            <a href="#grishkina">Гришкина Мария Петровна</a>
             <p>
               заместитель координатора проекта ФМШ FMSH.RU, преподаватель информатики
             </p>
@@ -182,10 +182,10 @@
       </div>
 
       <div class="teacher-grid has-border">
-        <div class="person-holder" id="dvorkin-vladimir-vitalievich">
+        <div class="person-holder" id="dvorkin">
           <img loading="lazy" src="./common-files/dvorkin-vladimir-vitalievich.webp" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
-            <a href="#dvorkin-vladimir-vitalievich">Дворкин Владимир Витальевич</a>
+            <a href="#dvorkin">Дворкин Владимир Витальевич</a>
             <p>
               преподаватель математики
             </p>
@@ -218,10 +218,10 @@
       </div>
 
       <div class="teacher-grid has-border">
-        <div class="person-holder" id="dvorkina-ludmila-valerievna">
+        <div class="person-holder" id="dvorkina">
           <img loading="lazy" src="./common-files/dvorkina-ludmila-valerievna.webp" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
-            <a href="#dvorkina-ludmila-valerievna">Дворкина Людмила Валерьевна</a>
+            <a href="#dvorkina">Дворкина Людмила Валерьевна</a>
             <p>
               преподаватель русского языка и литературы
             </p>
@@ -250,10 +250,10 @@
       </div>
 
       <div class="teacher-grid has-border">
-        <div class="person-holder" id="zologina-anastasia-nikolaevna">
+        <div class="person-holder" id="zologina">
           <img loading="lazy" src="./common-files/zologina-anastasia-nikolaevna.webp" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
-            <a href="#zologina-anastasia-nikolaevna">Зологина Анастасия Николаевна</a>
+            <a href="#zologina">Зологина Анастасия Николаевна</a>
             <p>
               преподаватель математики
             </p>
@@ -289,10 +289,10 @@
       </div>
 
       <div class="teacher-grid has-border">
-        <div class="person-holder" id="ilyukhin-denis-olegovich">
+        <div class="person-holder" id="ilyukhin">
           <img loading="lazy" src="./common-files/ilyukhin-denis-olegovich.webp" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
-            <a href="#ilyukhin-denis-olegovich">Илюхин Денис Олегович</a>
+            <a href="#ilyukhin">Илюхин Денис Олегович</a>
             <p>
               преподаватель математики
             </p>
@@ -324,10 +324,10 @@
       </div>
 
       <div class="teacher-grid has-border">
-        <div class="person-holder" id="skobeleva-ekaterina-yurievna">
+        <div class="person-holder" id="skobeleva">
           <img loading="lazy" src="./common-files/skobeleva-ekaterina-yurievna.webp" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
-            <a href="#skobeleva-ekaterina-yurievna">Скобелева Екатерина Юрьевна</a>
+            <a href="#skobeleva">Скобелева Екатерина Юрьевна</a>
             <p>
               преподаватель информатики
             </p>
@@ -362,10 +362,10 @@
       </div>
 
       <div class="teacher-grid has-border">
-        <div class="person-holder" id="chernatskiy-sergey-genrikhovich">
+        <div class="person-holder" id="chernatskiy">
           <img loading="lazy" src="./common-files/chernatskiy-sergey-genrikhovich.webp" class="person-avatar" alt="Фотография преподавателя">
           <div class="person-bio">
-            <a href="#chernatskiy-sergey-genrikhovich">Чернацкий Сергей Генрихович</a>
+            <a href="#chernatskiy">Чернацкий Сергей Генрихович</a>
             <p>
               координатор проекта ФМШ FMSH.RU, преподаватель математики и информатики
             </p>
