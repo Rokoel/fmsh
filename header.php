@@ -31,6 +31,7 @@
         <div class="dropdown-content">
           <a href="about.php">Про ФМШ</a>
           <a href="teachers.php">Наши преподаватели</a>
+          <a href="science.php">В гости к науке</a>
         </div>
       </div>
     </div>
@@ -80,5 +81,8 @@
   </div>
   <div class="mobile-navbar-link">
     <a href="timetable.php">Расписание</a>
+  </div>
+  <div class="mobile-navbar-link">
+    <a href="science.php">В гости к науке</a>
   </div>
 </nav>

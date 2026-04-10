@@ -1,62 +1,80 @@
-# This file is created temporarily in order to parse the FMSH's old website (calendar page)
+from bs4 import BeautifulSoup
 
+yearmonth = {}
 
-def get_substr_between_two_substrings(str, substr1, substr2):
-    res = ''.join(str.split(substr1)[1].split(substr2)[0])
-    return res
+current_year = None
+current_month = None
 
+with open("file.txt", encoding="utf-8") as f:
+    soup = BeautifulSoup(f, "html.parser")
 
-month_sep = "<tr valign=top><td colspan=2 align=center><b>"
-empty_line1 = "<tr valign=top><td colspan=2 align=center></td></tr>"
-empty_line2 = "<tr valign=top><td colspan=2 align=center>&nbsp;</td></tr>"
+for row in soup.find_all("tr"):
+    cells = row.find_all("td")
 
-yearmonth = {"2022": {}, "2023": {}, "2024": {}}
-current_year_and_month = []
-current_date = ""
-current_date_and_time_text = ""
-colors = set()
-
-unsure_lines = ["Unsure Lines: "]
-
-with open("file.txt") as my_file:
-    for line in my_file:
-        if empty_line1 in line:
+    # ---------------- MONTH ----------------
+    if len(cells) == 1:
+        b = cells[0].find("b")
+        if not b:
             continue
-        if month_sep in line:
-            month = line[line.index(month_sep) + len(month_sep): -1]
-            year_and_month = month.replace(" ГОДА</b></td></tr>", "")
-            year = year_and_month.split(" ")[1]
-            month = year_and_month.split(" ")[0]
-            current_year_and_month = [year, month]
-            yearmonth[year][month] = []
-        else:
-            if "<a name=" in line:
-                current_date = line[line.index('<a name="') + len('<a name="') : line.index('<a name="') + len('<a name="') + len("yyyymmdd")]
-                current_date_and_time_text = get_substr_between_two_substrings(line, "><b>", "</b>")
-                text_of_the_event1 = get_substr_between_two_substrings(line, "</a></td><td>", "</td></tr>")
-                color = ""
-                if "<font color" in line:
-                    color += get_substr_between_two_substrings(line, '<font color=', '><b>')
-                if "dodgerblue" in color:
-                    yearmonth[year][month].append([current_date, current_date_and_time_text, "darkblue", text_of_the_event1])    
-                else:
-                    yearmonth[year][month].append([current_date, current_date_and_time_text, color, text_of_the_event1])
-            else:
-                unsure_lines.append(line)
 
+        text = b.get_text(strip=True).replace(" ГОДА", "")
+        parts = text.split()
+
+        if len(parts) >= 2:
+            current_month, current_year = parts[0], parts[1]
+            yearmonth.setdefault(current_year, {}).setdefault(current_month, [])
+
+        continue
+
+    # ---------------- EVENT ----------------
+    if len(cells) == 2 and current_year and current_month:
+        anchor = cells[0].find("a")
+        if not anchor or not anchor.get("name"):
+            continue
+
+        date = anchor["name"][:8]
+
+        label_tag = anchor.find("b")
+        label = label_tag.get_text(strip=True) if label_tag else ""
+
+        font = anchor.find("font")
+        color = font.get("color", "") if font else ""
+        if color == "dodgerblue":
+            color = "darkblue"
+
+        # IMPORTANT FIX:
+        # extract HTML safely WITHOUT re-parsing as full document
+        event_cell = cells[1]
+
+        # unwrap formatting tags safely
+        for tag in event_cell.find_all(["font", "i"]):
+            tag.unwrap()
+
+        event_html = "".join(str(x) for x in event_cell.contents)
+
+        yearmonth[current_year][current_month].append(
+            (date, label, color, event_html)
+        )
+
+# ---------------- OUTPUT ----------------
+output_lines = []
 
 for year, months in yearmonth.items():
-    for month, contents in months.items():
-        for day in contents:
-            print()
-            for i in range(len(day)):
-                if i == 0:
-                    print(f'\n<div class="article-text has-border event-{day[0]} hidden-event" id="{day[0]}">')
-                elif i == 1:
-                    print(f'<div class="article-header date colored-{day[2]}">{day[1]}</div>')
-                elif i == 2:
-                    pass
-                else:
-                    newday = day[i].replace("<br>", "\n<br><br>").replace(empty_line2, "").replace("<font color=", "").replace(day[2] + ">", "").replace("</font>", "").replace("<i>", "").replace("</i>", "")
-                    print(newday)
-            print("</div>")
+    for month, events in months.items():
+        for date, label, color, html in events:
+
+            output_lines.append(
+                f'<div class="article-text has-border event-{date} hidden-event" id="{date}">'
+            )
+
+            output_lines.append(
+                f'<div class="article-header date colored-{color}">{label}</div>'
+            )
+
+            # IMPORTANT: do NOT re-wrap html with BeautifulSoup again
+            output_lines.append(html)
+
+            output_lines.append("</div>")
+
+with open("output.html", "w", encoding="utf-8") as f:
+    f.write("\n".join(output_lines))

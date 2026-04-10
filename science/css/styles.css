@@ -1,0 +1,201 @@
+.page-container {
+    padding: var(--proportional-padding);
+    font-size: 80%;
+}
+
+.page-title {
+    color: var(--dark-blue);
+    margin-bottom: var(--proportional-xx-small-padding);
+    margin-top: var(--proportional-x-small-padding);
+    text-align: center;
+}
+
+.sciencetable-container {
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+.sciencetable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--white);
+    overflow-y: hidden;
+    overflow-x: scroll;
+    font-size: 100%;
+}
+@media screen and (max-width: 505px) {
+    .sciencetable {
+        font-size: 80%;
+    }
+}
+@media screen and (max-width: 965px) and (min-width: 505px) {
+    .sciencetable {
+        font-size: 90%;
+    }
+}
+@media screen and (max-width: 395px) {
+    .sciencetable {
+        font-size: 75%;
+    }
+}
+@media screen and (max-width: 345px) {
+    .sciencetable {
+        font-size: 60%;
+    }
+}
+@media screen and (max-width: 295px) {
+    .sciencetable {
+        font-size: 65%;
+    }
+}
+@media screen and (max-width: 255px) {
+    .sciencetable {
+        font-size: 60%;
+    }
+}
+
+
+.sciencetable th {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: var(--proportional-small-padding);
+    text-align: center;
+}
+
+.sciencetable td {
+    padding: var(--proportional-small-padding);
+    border-top: 2px solid var(--dark-blue);
+    text-align: center;
+    display: table-cell;
+}
+
+.theme-name {
+    text-wrap: wrap;
+    display: flex;
+}
+
+.toggle-description:hover > svg.logo, .toggle-description:active > svg.logo, .toggle-description:focus > svg.logo {
+    scale: 1.2;
+}
+.toggle-description > svg.logo {
+    padding: 0;
+    margin: 0;
+}
+
+.science-description > * {
+    text-align: left;
+}
+
+.science-description {
+    padding-left: var(--proportional-padding);
+    padding-right: var(--proportional-padding);
+    background-color: var(--white);
+    margin: var(--proportional-x-small-padding) 0;
+    animation: slideDown 0.3s ease;
+    color: var(--dark-blue);
+    font-size: 90%;
+    width: 100%;
+    box-sizing: border-box;
+}
+.toggle-description {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    font-size: 1.2em;
+    padding: var(--proportional-x-small-padding);
+    display: block;
+    text-align: center;
+}
+
+.theme-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+.science-description-row {
+    visibility: collapse;
+    height: 0;
+    overflow: hidden;
+    display: table-row;
+    padding: var(--proportional-padding);
+}
+
+.table-explainer {
+    text-align: center;
+    color: var(--dark-blue);
+    padding: var(--proportional-x-small-padding);
+}
+
+.science-description-row.visible {
+    visibility: visible;
+    height: auto;
+    overflow: visible;
+    animation: slideDown 0.3s ease;
+}
+
+.safari-only-science-description-row {
+    display: none;
+    padding: var(--proportional-padding);
+}
+.safari-only-science-description-row.visible {
+    display: table-row;
+    height: auto;
+}
+
+tbody>tr>td:nth-child(3) {
+    white-space: nowrap;
+}
+
+.science-row, .science-row > td > .teacher-link, .science-row > td > .group-link {
+    background-color: var(--pastel-light-blue);
+    color: var(--dark-blue);
+    text-decoration-color: var(--dark-blue);
+}
+
+.teacher-link:hover, .group-link:hover {
+    text-decoration: underline dotted var(--dark-blue);
+    scale: 1.1;
+    animation: none;
+    -moz-animation: none;
+    -o-animation: none;
+    -webkit-animation: none;
+}
+
+.science-description strong {
+    color: var(--dark-blue);
+    display: block;
+    margin-bottom: var(--proportional-x-small-padding);
+}
+
+.science-description p {
+    margin-bottom: var(--proportional-small-padding);
+}
+
+.science-description ol {
+    margin: var(--proportional-small-padding) 0;
+    padding-left: 1.5em;
+}
+
+.science-description li {
+    margin-bottom: var(--proportional-xx-small-padding);
+}
+
+td.science-description {
+    text-align: left;
+}
+
+@keyframes slideDown {
+    from {
+        height: 0;
+        visibility: hidden;
+    }
+    to {
+        height: auto;
+        visibility: visible;
+    }
+}

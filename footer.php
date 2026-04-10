@@ -1,6 +1,6 @@
 <footer id="footer">
   <div id="copyright">
-    © 1995-2025 <a class="dotted-underline" href="mailto:info@fmsh.ru">ФМШ - Физико-математическая школа FMSH.RU</a>
+    © 1995-2026 <a class="dotted-underline" href="mailto:info@fmsh.ru">ФМШ - Физико-математическая школа FMSH.RU</a>
     <div id="privacy-policy">
       <a class="dotted-underline" href="privacy-policy.pdf">Политика конфиденциальности</a>
     </div>
@@ -19,7 +19,7 @@
   <!-- The mobile footer is only shown on devices with appropriate screen sizes -->
   <div>
     <div id="copyright-mobile">
-      © 1995-2025 <a class="dotted-underline" href="mailto:info@fmsh.ru">ФМШ - Физико-математическая школа FMSH.RU</a>
+      © 1995-2026 <a class="dotted-underline" href="mailto:info@fmsh.ru">ФМШ - Физико-математическая школа FMSH.RU</a>
     </div>
   </div>
   <div id="policy-and-contacts">
