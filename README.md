@@ -7,3 +7,17 @@ Built with **PHP, HTML, CSS, and JavaScript**. The website includes information 
 Development primarily focused on the frontend. The PHP backend included in this repository is a simplified version of the backend used by the actual website.
 
 To run locally, serve the project directory using a PHP-enabled web server (for example, `php -S localhost:8000`).
+
+## Screenshots
+
+### Desktop
+
+![FMSH.RU desktop landing page](docs/media/fmsh-desktop-dark-words.png)
+
+### Event calendar
+
+![FMSH.RU event calendar](docs/media/fmsh-dark-calendar.png)
+
+### Mobile
+
+<img src="docs/media/fmsh-mobile-light.png" alt="FMSH.RU mobile landing page in light mode" width="280">
